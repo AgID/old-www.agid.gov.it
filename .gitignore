@@ -30,6 +30,7 @@ drush/contrib
 /web/core
 /web/modules/contrib
 /web/profiles/contrib
+/web/libraries
 
 /web/index.php
 /web/sites/default/default.settings.php
