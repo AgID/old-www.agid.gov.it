@@ -12,6 +12,7 @@ tmp*
 /deploy/*/config/settings*
 deploy.yml
 rollback.yml
+hosts
 
 # Drupal 8 specific.
 drush/contrib
