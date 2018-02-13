@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<a class="back-link-mobile" href="/domande-frequenti"><span class="Icon Icon-chevron-left"></span>&nbsp;{{ 'Back to list'|t }}</a>
+<a class="page-top-link accordion-open-all" href="javascript:;">{{ 'Expand all'|t }}</a>
+<div class="Accordion Accordion--default fr-accordion js-fr-accordion fr-accordion--is-ready" id="accordion-1" role="tablist" aria-multiselectable="true">
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  {#<div{{ row.attributes.addClass(row_classes) }}>#}
+    {{ row.content }}
+  {#</div>#}
+{% endfor %}
+</div>
+<div class="u-floatRight p-bottom-right faq-contact-us">
+  <p>{{ "Haven't found what are you looking for?"|t }}<br><a href="/contattaci#form">{{ 'Contact us'|t }}</a></p>
+</div>

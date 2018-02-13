@@ -1,0 +1,31 @@
+uuid: f48bc26d-7ada-4876-ba69-3a8b40a583e6
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_repository_file
+    - file_entity.type.document
+    - file_entity.type.media_kit
+    - node.type.press
+id: node.press.field_repository_file
+field_name: field_repository_file
+entity_type: node
+bundle: press
+label: Comunicato
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings:
+    target_bundles:
+      document: document
+      media_kit: media_kit
+    sort:
+      field: field_title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference

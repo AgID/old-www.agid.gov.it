@@ -1,0 +1,17 @@
+uuid: f2491049-f304-40f0-8e5f-a8ee04935512
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Soggetto accreditato'
+type: acc_subj
+description: 'Questo tipo di contenuto è utilizzato per l''aggiunta di soggetti accreditati e fornitori di accesso SPID'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

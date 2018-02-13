@@ -1,0 +1,18 @@
+uuid: 42a23daf-5042-41d8-b2ba-b85ad9d4383e
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.original_file_source
+id: taxonomy_term.original_file_source.name
+field_name: name
+entity_type: taxonomy_term
+bundle: original_file_source
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

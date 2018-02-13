@@ -1,0 +1,30 @@
+uuid: 63288e5e-f62a-48ff-aba1-7ccb3e182fc8
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.home_page_news
+  module:
+    - system
+    - views
+  theme:
+    - agid
+id: views_block__home_page_news_block_1
+theme: agid
+region: postscript_first
+weight: -12
+provider: null
+plugin: 'views_block:home_page_news-block_1'
+settings:
+  id: 'views_block:home_page_news-block_1'
+  label: Notizie
+  provider: views
+  label_display: visible
+  views_label: Notizie
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

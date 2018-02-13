@@ -1,0 +1,16 @@
+entity_browser:
+  version: VERSION
+  js:
+    js/agid_file_repository.entity_browser.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+
+dropzone:
+  version: VERSION
+  js:
+    js/agid_file_repository.dropzone.js: {}
+  dependencies:
+    - dropzonejs/integration

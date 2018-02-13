@@ -1,0 +1,40 @@
+name: ItaliaGov
+type: theme
+description: Base theme including elements styled using the toolkit guidelines
+package: Custom
+version: VERSION
+core: 8.x
+base theme: stable
+
+libraries:
+  - italiagov/fonts
+  - italiagov/ita-web-toolkit
+  - italiagov/global
+
+libraries-override:
+  # Override drupal core modernizr
+  core/modernizr:
+    js:
+      assets/vendor/modernizr/modernizr.min.js: build/vendor/modernizr.js
+
+regions:
+  cookiebar: 'Cookie bar'
+  header_top: 'Header top'
+  header_branding: 'Header branding'
+  header_search: 'Header search'
+  offcanvas: Offcanvas
+  breadcrumb: Breadcrum
+  help: Help
+  hero: Hero
+  content: Content
+  sidebar_right: 'Sidebar Right'
+  postscript_first: 'Postscript First'
+  postscript_second: 'Postscript Second'
+  postscript_third: 'Postscript Third'
+  postscript_fourth: 'Postscript Fourth'
+  leads : Leads
+  pre_footer : 'Pre Footer'
+  footer_top : 'Footer top'
+  footer_top_right : 'Footer top right'
+  footer_middle : 'Footer middle'
+  footer_bottom : 'Footer bottom'

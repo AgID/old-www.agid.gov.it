@@ -1,0 +1,18 @@
+uuid: 4d9f8bf8-b929-4f54-9401-e0e42108d8f3
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.acc_subj_type
+id: taxonomy_term.acc_subj_type.name
+field_name: name
+entity_type: taxonomy_term
+bundle: acc_subj_type
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

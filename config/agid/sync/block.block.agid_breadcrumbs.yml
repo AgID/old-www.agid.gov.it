@@ -1,0 +1,22 @@
+uuid: 2d36cdcc-7f33-419f-a9f8-c9e5551e15f0
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agid
+_core:
+  default_config_hash: CGycORs0espaRvKzspQwObPpd2l52yPLC68u8llbnAo
+id: agid_breadcrumbs
+theme: agid
+region: breadcrumb
+weight: -10
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

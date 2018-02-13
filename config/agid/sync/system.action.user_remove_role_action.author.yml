@@ -1,0 +1,14 @@
+uuid: 474a1fa8-bcf2-4539-9b90-7594cbc9bc56
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.author
+  module:
+    - user
+id: user_remove_role_action.author
+label: 'Remove the Redattore role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: author

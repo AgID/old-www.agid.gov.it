@@ -1,0 +1,20 @@
+uuid: 708867f3-e5f4-4fd4-9d70-e68bac5c4b29
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agid_offices
+  module:
+    - path
+id: taxonomy_term.agid_offices.path
+field_name: path
+entity_type: taxonomy_term
+bundle: agid_offices
+label: 'Alias URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

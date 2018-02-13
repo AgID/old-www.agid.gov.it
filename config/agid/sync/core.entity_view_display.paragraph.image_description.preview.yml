@@ -1,0 +1,34 @@
+uuid: fbc34282-165b-41df-9c67-5bac760cad69
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.image_description.field_image
+    - field.field.paragraph.image_description.field_text
+    - paragraphs.paragraphs_type.image_description
+  module:
+    - image
+    - text
+id: paragraph.image_description.preview
+targetEntityType: paragraph
+bundle: image_description
+mode: preview
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

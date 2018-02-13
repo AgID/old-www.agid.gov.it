@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{#{% extends 'field.html.twig' %}#}
+
+{% set classes = [
+'field',
+'field--name-' ~ field_name|clean_class,
+'field--type-' ~ field_type|clean_class,
+'field--label-' ~ label_display,
+] %}
+
+{% set accordion_classes = [
+'Accordion',
+'Accordion--default',
+'fr-accordion',
+'js-fr-accordion',
+] %}
+
+<div class="u-padding-top-l wrapper documentation">
+
+  {# Title #}
+  <h4 class="u-text-h4" title="{{ label }}">{{ 'Frequently asked questions' | t }}</h4>
+
+   {# Accordion #}
+  <div{{ attributes
+  .addClass(accordion_classes)
+  .setAttribute('id', 'accordion-1') }}>
+
+    {# Item #}
+    {% for item in items %}
+      {# Accordion item #}
+      <h2 class="Accordion-header js-fr-accordion__header fr-accordion__header"
+          id="{{ 'accordion-header2-' ~ loop.index0 }}">
+        <span class="Accordion-link">{{ item.content['#node'].title.value }}</span>
+      </h2>
+      {# Accordion panel #}
+      <div id="{{ 'accordion-panel2-' ~ loop.index0 }}"
+           class="Accordion-panel fr-accordion__panel js-fr-accordion__panel">
+        <p class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all">
+          {{ item.content }}
+        </p>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>

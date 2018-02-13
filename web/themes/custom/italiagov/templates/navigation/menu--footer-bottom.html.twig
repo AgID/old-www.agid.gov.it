@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu in the footer_bottom region.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{% set ul_classes = [
+'Footer-links',
+'u-cf'
+] %}
+
+{{ menus.menu_bottom_links(items, attributes, ul_classes) }}
+
+{% macro menu_bottom_links(items, attributes, ul_classes) %}
+  {% import _self as menus %}
+  {% if items %}
+    <ul class="{{ ul_classes | join(' ') }}">
+      {% for item in items %}
+        <li{{ item.attributes }}>
+          {{ link(item.title, item.url) }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

@@ -1,0 +1,21 @@
+uuid: 83784d98-cb59-47bf-9c87-f4f4d5bafa63
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_description
+    - file_entity.type.media_kit
+  module:
+    - text
+id: file.media_kit.field_description
+field_name: field_description
+entity_type: file
+bundle: media_kit
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

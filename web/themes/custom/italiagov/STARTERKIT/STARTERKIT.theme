@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Contains the theme's functions to manipulate Drupal's default markup.
+ */
+
+/**
+ * Implements template_preprocess_html().
+ */
+/* -- Delete this line if you want to use this function
+function STARTERKIT_preprocess_html(&$variables) {
+  // Add prefix body class.
+  $variables['attributes']['class'][] = 'iwt-STARTERKIT';
+}
+// */
+
+/**
+ * Implements template_preprocess_page().
+ */
+/* -- Delete this line if you want to use this function
+function STARTERKIT_preprocess_page(&$variables) {
+}
+// */
+
+/**
+ * Implements template_preprocess_node().
+ */
+/* -- Delete this line if you want to use this function
+function STARTERKIT_preprocess_node(&$variables) {
+}
+// */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function STARTERKIT_page_attachments_alter(&$page) {
+  // We need to add a reference to the assets dir for webpack async loader.
+  // @see https://github.com/webpack/docs/wiki/configuration#outputpublicpath.
+  $theme_path = base_path() . drupal_get_path('theme', 'STARTERKIT');
+  $assets_path = $theme_path . '/build/';
+  $page['#attached']['library'][] = 'STARTERKIT/ita-web-toolkit';
+  $page['#attached']['drupalSettings']['STARTERKIT']['webpackPublicPath'] = $assets_path;
+}

@@ -1,0 +1,20 @@
+uuid: d1a6f27f-7848-4f83-b2bb-4839625ab38a
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agid_offices
+  module:
+    - text
+id: taxonomy_term.agid_offices.description
+field_name: description
+entity_type: taxonomy_term
+bundle: agid_offices
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

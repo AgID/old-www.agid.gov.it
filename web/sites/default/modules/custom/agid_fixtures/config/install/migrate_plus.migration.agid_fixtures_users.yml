@@ -1,0 +1,64 @@
+id: agid_fixtures_users
+label: Import Users
+migration_tags:
+  - Drupal 8
+  - User
+migration_group: agid_fixtures_group_system
+status: true
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/12/public/values?alt=json'
+  item_selector:
+  fields:
+    -
+      name: id
+      label: 'id'
+      selector: 'id'
+    -
+      name: username
+      label: 'username'
+      selector: 'username'
+    -
+      name: email
+      label: 'email'
+      selector: 'email'
+    -
+      name: password
+      label: 'password'
+      selector: 'password'
+    -
+      name: roles
+      label: 'roles'
+      selector: 'roles'
+    -
+      name: status
+      label: 'status'
+      selector: 'status'
+    -
+      name: uid
+      label: 'uid'
+      selector: 'uid'
+  ids:
+    id:
+      type: string
+
+destination:
+  plugin: entity:user
+  md5_passwords: true
+
+process:
+  name: username
+  mail: email
+  pass: password
+  roles:
+    plugin: explode
+    source: roles
+    delimiter: '|'
+  status: status
+  uid: uid
+
+migration_dependencies:
+  required: {}
+  optional: {}

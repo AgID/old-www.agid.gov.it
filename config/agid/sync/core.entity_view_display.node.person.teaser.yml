@@ -1,0 +1,29 @@
+uuid: a0c1fa72-724b-4a78-9666-c161236bef7f
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.person
+  module:
+    - user
+id: node.person.teaser
+targetEntityType: node
+bundle: person
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_cv: true
+  field_e_mail: true
+  field_first_name: true
+  field_last_name: true
+  field_office: true
+  field_pec: true
+  field_phone_number: true
+  field_photo: true
+  field_position: true
+  field_role: true
+  langcode: true

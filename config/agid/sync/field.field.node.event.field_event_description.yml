@@ -1,0 +1,21 @@
+uuid: da2b6418-02fe-4bb2-bedc-377250817db5
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_description
+    - node.type.event
+  module:
+    - text
+id: node.event.field_event_description
+field_name: field_event_description
+entity_type: node
+bundle: event
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

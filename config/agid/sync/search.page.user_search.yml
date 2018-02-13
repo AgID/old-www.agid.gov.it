@@ -1,0 +1,14 @@
+uuid: 192cad82-e298-49d0-836d-0b34167ae159
+langcode: it
+status: false
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: k3aUaZXGDuhkek2TZIee0PApOPTvYZLadziekdyHA5A
+id: user_search
+label: Users
+path: user
+weight: 0
+plugin: user_search
+configuration: {  }

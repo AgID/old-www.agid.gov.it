@@ -1,0 +1,20 @@
+uuid: b085ba07-9212-44bb-956a-82e5348372c2
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_ipa_code
+field_name: field_ipa_code
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

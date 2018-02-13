@@ -1,0 +1,32 @@
+uuid: a234536f-9d38-4f7f-bce3-a2930744f87d
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.title_text.field_text
+    - field.field.paragraph.title_text.field_title
+    - paragraphs.paragraphs_type.title_text
+  module:
+    - text
+id: paragraph.title_text.preview
+targetEntityType: paragraph
+bundle: title_text
+mode: preview
+content:
+  field_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,33 @@
+uuid: 6aee37de-a02c-4169-9a77-d2056a27ad90
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seller_bank_code
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_seller_bank_code
+field_name: field_seller_bank_code
+entity_type: node
+bundle: pagopa
+label: 'Codice Seller Bank'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

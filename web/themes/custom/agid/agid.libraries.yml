@@ -1,0 +1,9 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      css/agid.css: {}
+  js:
+    js/agid.js: {}
+  dependencies:
+    - core/modernizr

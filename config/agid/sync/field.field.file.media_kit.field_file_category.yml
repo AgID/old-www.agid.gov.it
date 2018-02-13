@@ -1,0 +1,28 @@
+uuid: 9d415522-ea9f-4dce-a86e-0c45c464512c
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_file_category
+    - file_entity.type.media_kit
+    - taxonomy.vocabulary.file_category
+id: file.media_kit.field_file_category
+field_name: field_file_category
+entity_type: file
+bundle: media_kit
+label: 'Categoria documentazione'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      file_category: file_category
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

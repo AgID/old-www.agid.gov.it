@@ -1,0 +1,9 @@
+uuid: 0ad62fcb-ac91-4f77-8ff9-aad703d4b21d
+langcode: it
+status: true
+dependencies: {  }
+name: 'Contenuto di origine del file'
+vid: original_file_source
+description: 'Elenco dei contenuti di origine dei file'
+hierarchy: 0
+weight: 0

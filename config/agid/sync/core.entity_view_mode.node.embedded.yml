@@ -1,0 +1,10 @@
+uuid: 4ffa79d0-8eb0-4cd1-9dc1-13fc92e24614
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.embedded
+label: Embedded
+targetEntityType: node
+cache: true

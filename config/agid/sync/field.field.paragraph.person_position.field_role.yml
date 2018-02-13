@@ -1,0 +1,28 @@
+uuid: c640bf5c-e9ad-4cdd-a284-6186037540a5
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_role
+    - paragraphs.paragraphs_type.person_position
+    - taxonomy.vocabulary.roles
+id: paragraph.person_position.field_role
+field_name: field_role
+entity_type: paragraph
+bundle: person_position
+label: Ruolo
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      roles: roles
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,28 @@
+uuid: f6008d33-1ccf-4ae6-b12b-af8aaa23f962
+langcode: it
+status: true
+dependencies:
+  module:
+    - agid_blocks
+    - ctools
+  theme:
+    - agid
+id: pagopacfblock
+theme: agid
+region: content
+weight: -5
+provider: null
+plugin: pagopacfblock
+settings:
+  id: pagopacfblock
+  label: 'Stato attivazione:'
+  provider: agid_blocks
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      pagopa: pagopa
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

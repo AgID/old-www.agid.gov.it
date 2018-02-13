@@ -1,0 +1,9 @@
+uuid: d0aa5fb9-3acf-4003-b41a-800f84232c98
+langcode: it
+status: true
+dependencies: {  }
+name: 'Categoria documentazione'
+vid: file_category
+description: ''
+hierarchy: 0
+weight: 0

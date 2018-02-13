@@ -1,0 +1,24 @@
+uuid: 8cbc6aab-a7c5-496d-ab45-98a467832b1c
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_press_publish_date
+    - node.type.press
+  module:
+    - datetime
+id: node.press.field_press_publish_date
+field_name: field_press_publish_date
+entity_type: node
+bundle: press
+label: 'Data di pubblicazione'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

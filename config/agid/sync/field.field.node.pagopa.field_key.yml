@@ -1,0 +1,33 @@
+uuid: 9a6582f3-f43b-4ad3-b21f-95d7ea2ccb0b
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_key
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_key
+field_name: field_key
+entity_type: node
+bundle: pagopa
+label: Chiave
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

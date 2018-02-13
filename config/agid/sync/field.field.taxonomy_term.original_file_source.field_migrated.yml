@@ -1,0 +1,23 @@
+uuid: 9ef54ada-d2db-48b1-b84d-61704b10c649
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_migrated
+    - taxonomy.vocabulary.original_file_source
+id: taxonomy_term.original_file_source.field_migrated
+field_name: field_migrated
+entity_type: taxonomy_term
+bundle: original_file_source
+label: Migrato
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Migrato
+  off_label: Eliminato
+field_type: boolean

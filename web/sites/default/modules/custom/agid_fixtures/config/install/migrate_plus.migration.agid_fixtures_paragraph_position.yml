@@ -1,0 +1,53 @@
+id: agid_fixtures_paragraph_position
+label: Import position paragraphs
+migration_group: agid_fixtures_group_new_contents
+migration_tags: null
+status: true
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/9/public/values?alt=json'
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: 'id'
+      selector: 'id'
+    -
+      name: role
+      label: 'role'
+      selector: 'role'
+    -
+      name: office
+      label: 'office'
+      selector: 'office'
+
+  ids:
+    id:
+      type: string
+
+destination:
+  plugin: entity_reference_revisions:paragraph
+
+process:
+  type:
+    plugin: default_value
+    default_value: 'person_position'
+
+  field_office:
+    source: office
+    plugin: migration
+    migration:
+      - agid_fixtures_taxonomy_offices
+
+  field_role:
+    source: role
+    plugin: migration
+    migration:
+      - agid_fixtures_taxonomy_roles
+
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_offices
+    - agid_fixtures_taxonomy_roles

@@ -1,0 +1,200 @@
+uuid: c48d08de-eabc-4235-9ad6-afa6d14bd230
+langcode: it
+status: open
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: QCxQeKi6Joed6MGWIBdsYhCEgQGsu4kKTZGzxlbHJKs
+open: null
+close: null
+uid: null
+template: false
+id: contact
+title: Contatti
+description: 'Basic email contact webform.'
+category: ''
+elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h3>Scrivici</h3>\\n<p>Per attivare il campo editabile ed inviare la tua richiesta, seleziona un servizio o un ufficio.</p>\"\nufficio:\n  '#type': webform_term_select\n  '#title': Argomento\n  '#required': true\n  '#vocabulary': contact_form_arguments\n  '#breadcrumb_delimiter': ''\nname:\n  '#type': textfield\n  '#title': 'Il tuo nome'\n  '#default_value': '[webform-authenticated-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'La tua e-mail'\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\nmessage:\n  '#type': textarea\n  '#title': 'Il tuo messaggio'\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Invia\n"
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /contattaci
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: inline
+  confirmation_title: ''
+  confirmation_message: "<h4>Scrivici</h4>\r\n<p>\r\nIl tuo messaggio &egrave; stato inviato. Grazie!<br />\r\nVuoi consultare la pagina <a href=\"/piattaforme/spid\">SPID</a>?\r\n</p>"
+  confirmation_url: '<front>'
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email_confirmation:
+    id: email
+    label: 'Email confirmation'
+    handler_id: email_confirmation
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: comunicazione@agid.gov.it
+      from_options: {  }
+      from_name: predefinito
+      subject: '[webform_submission:values:subject:raw]'
+      body: '[webform_submission:values:message:value]'
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+  email_notification:
+    id: email
+    label: 'Email notification'
+    handler_id: email_notification
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: comunicazione@agid.gov.it
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: '[webform_submission:values:email:raw]'
+      from_options: {  }
+      from_name: '[webform_submission:values:name:raw]'
+      subject: '[webform_submission:values:subject:raw]'
+      body: '[webform_submission:values:message:value]'
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''

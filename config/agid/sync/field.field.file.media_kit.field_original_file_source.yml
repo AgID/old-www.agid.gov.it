@@ -1,0 +1,28 @@
+uuid: 3883646e-a34f-459f-a086-70f18af44f7d
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_original_file_source
+    - file_entity.type.media_kit
+    - taxonomy.vocabulary.original_file_source
+id: file.media_kit.field_original_file_source
+field_name: field_original_file_source
+entity_type: file
+bundle: media_kit
+label: 'Contenuto di origine del file'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      original_file_source: original_file_source
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

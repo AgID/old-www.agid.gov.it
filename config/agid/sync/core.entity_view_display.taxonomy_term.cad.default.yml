@@ -1,0 +1,36 @@
+uuid: b029b83e-0986-4eb3-83ad-fb2fdd7140fd
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cad.field_tax_cad_permalink
+    - taxonomy.vocabulary.cad
+  module:
+    - link
+    - text
+id: taxonomy_term.cad.default
+targetEntityType: taxonomy_term
+bundle: cad
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tax_cad_permalink:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  langcode: true

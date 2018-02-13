@@ -1,0 +1,22 @@
+uuid: eb230fde-2d45-4d5e-9d44-7e9d8b4bc839
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.pagopa
+id: node.pagopa.promote
+field_name: promote
+entity_type: node
+bundle: pagopa
+label: 'Promosso alla prima pagina'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

@@ -1,0 +1,9 @@
+uuid: d5716d9d-7d78-4b6e-a500-86c091b8b9a8
+langcode: it
+status: true
+dependencies: {  }
+name: Ruoli
+vid: roles
+description: ''
+hierarchy: 0
+weight: 0

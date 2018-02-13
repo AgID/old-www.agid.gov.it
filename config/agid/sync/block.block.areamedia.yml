@@ -1,0 +1,35 @@
+uuid: 306042a8-edad-4db9-8c0b-1c7346c7fdc0
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:827c2c64-683f-4dbc-91b6-552b8a351572'
+  module:
+    - block_content
+    - webform
+  theme:
+    - agid
+id: areamedia
+theme: agid
+region: content
+weight: -9
+provider: null
+plugin: 'block_content:827c2c64-683f-4dbc-91b6-552b8a351572'
+settings:
+  id: 'block_content:827c2c64-683f-4dbc-91b6-552b8a351572'
+  label: 'Area media'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  webform:
+    id: webform
+    webforms:
+      contact: contact
+    negate: false
+    context_mapping:
+      webform: '@webform.webform_route_context:webform'
+      webform_submission: '@webform.webform_submission_route_context:webform_submission'
+      node: '@node.node_route_context:node'

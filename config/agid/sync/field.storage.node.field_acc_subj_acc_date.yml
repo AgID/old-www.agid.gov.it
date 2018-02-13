@@ -1,0 +1,20 @@
+uuid: 6e389e4a-a75b-4a29-8d2f-33f5e0ba86f8
+langcode: it
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_acc_subj_acc_date
+field_name: field_acc_subj_acc_date
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

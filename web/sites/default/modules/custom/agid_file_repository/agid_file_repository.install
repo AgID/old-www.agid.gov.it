@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Agid File Repository.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function agid_file_repository_install() {
+  /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager */
+  $entity_field_manager = \Drupal::service('entity_field.manager');
+  $definition = $entity_field_manager->getFieldStorageDefinitions('file')['checksum'];
+
+  /** @var \Drupal\Core\Field\FieldStorageDefinitionListenerInterface $field_storage_definition_listener */
+  $field_storage_definition_listener = \Drupal::service('field_storage_definition.listener');
+  $field_storage_definition_listener->onFieldStorageDefinitionCreate($definition);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function agid_file_repository_uninstall() {
+  /** @var \Drupal\Core\Entity\EntityLastInstalledSchemaRepositoryInterface $schema_repository */
+  $schema_repository = \Drupal::service('entity.last_installed_schema.repository');
+  $definition = $schema_repository->getLastInstalledFieldStorageDefinitions('file')['checksum'];
+
+  /** @var \Drupal\Core\Field\FieldStorageDefinitionListenerInterface $field_storage_definition_listener */
+  $field_storage_definition_listener = \Drupal::service('field_storage_definition.listener');
+  $field_storage_definition_listener->onFieldStorageDefinitionDelete($definition);
+}

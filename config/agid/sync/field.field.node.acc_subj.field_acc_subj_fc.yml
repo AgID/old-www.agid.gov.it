@@ -1,0 +1,19 @@
+uuid: 99a6b39f-1283-42d6-bd8f-41d31fca9943
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_fc
+    - node.type.acc_subj
+id: node.acc_subj.field_acc_subj_fc
+field_name: field_acc_subj_fc
+entity_type: node
+bundle: acc_subj
+label: 'Codice Fiscale'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

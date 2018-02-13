@@ -1,0 +1,54 @@
+{#
+/**
+ * @file agid-share-links.html.twig
+ *
+ * Default theme implementation to display some share links.
+ *
+ * The following variables should be availables when including this template:
+ * - entity_url: the absolute url of current content
+ * - entity_title: the title of the current page
+ * - entity_summary: the summary of current shared content
+ *
+ */
+#}
+<div class="AgidShare">
+  <div><span>{{ 'Share on'|t }}</span></div>
+  <div>
+    <ul>
+      <li>
+        {%
+          set facebook_query_string = {
+            'u': entity_url,
+          }
+        %}
+        <a href="http://www.facebook.com/sharer/sharer.php?{{ facebook_query_string|url_encode }}" title="{{ entity_title }}">
+          <span class="Icon Icon-facebook"></span><span class="u-hiddenVisually">Facebook</span>
+        </a>
+      </li>
+      <li>
+        {%
+          set twitter_query_string = {
+            'url': entity_url,
+            'text': entity_title,
+          }
+        %}
+        <a href="http://www.twitter.com/share?{{ twitter_query_string|url_encode }}" title="{{ entity_title }}">
+          <span class="Icon Icon-twitter"></span><span class="u-hiddenVisually">Twitter</span>
+        </a>
+      </li>
+      <li>
+        {%
+          set linkedin_query_string = {
+            'mini': 'true',
+            'url': entity_url,
+            'title': entity_title|slice(0,199),
+            'summary': entity_summary|slice(0,255),
+          }
+        %}
+        <a href="https://www.linkedin.com/shareArticle?{{ linkedin_query_string|url_encode }}" title="{{ entity_title }}">
+          <span class="Icon Icon-linkedin"></span><span class="u-hiddenVisually">Linkedin</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

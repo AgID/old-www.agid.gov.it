@@ -1,0 +1,369 @@
+uuid: c3456e74-ea70-4a30-b5c0-0d146b4fb3ec
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fiscal_code
+    - node.type.pagopa
+    - taxonomy.vocabulary.pagopa_type
+  content:
+    - 'taxonomy_term:pagopa_type:9081b0c5-9970-4555-9499-1bc1585975ed'
+  module:
+    - node
+    - taxonomy
+    - text
+    - user
+id: intermediari_enti_creditori_pago_pa_enti_creditori_
+label: '[PagoPA - Intermediari] Intermediari Enti creditori'
+module: views
+description: 'Pagina di accesso alla lista dei contenuti PagoPa della tipologia Intermediari'
+tag: ''
+base_table: node_field_data
+base_field: nid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 50
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            field_fiscal_code: field_fiscal_code
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_fiscal_code:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: title
+          empty_table: false
+      row:
+        type: fields
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Denominazione
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_fiscal_code:
+          id: field_fiscal_code
+          table: node__field_fiscal_code
+          field: field_fiscal_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Codice fiscale'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            pagopa: pagopa
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_pagopa_type_target_id:
+          id: field_pagopa_type_target_id
+          table: node__field_pagopa_type
+          field: field_pagopa_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            220: 220
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: pagopa_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      sorts: {  }
+      title: 'Intermediari Enti creditori'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<p>Intermediari e Partner tecnologici scelti dagli Enti creditori che, alla data di pubblicazione, risultano attivi su pagoPA.</p>\n\n<p>Dati aggiornati al 09 maggio 2017.</p>\n\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.csv\">Elenco degli intermediari attivi su pagoPA (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.xlsx\">Elenco degli intermediari attivi su pagoPA (XSLX).</a></li>\n</ul>"
+            format: filtered_text
+          plugin_id: text
+      footer: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>La ricerca non ha prodotto alcun risultato.</p>'
+            format: filtered_text
+          plugin_id: text
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: true
+      css_class: view-table-pagination
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_fiscal_code'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: piattaforme/pagopa/intermediari-enti-creditori
+      rendering_language: '***LANGUAGE_language_interface***'
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_fiscal_code'

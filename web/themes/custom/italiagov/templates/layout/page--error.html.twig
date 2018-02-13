@@ -1,0 +1,26 @@
+{% extends 'page.html.twig' %}
+{#
+/**
+ * @file
+ * Default theme implementation to display a 403 and 404 error page.
+ */
+#}
+{% set return_back_title = 'Return to the previous page'|t|e %}
+{% set return_back_label = 'back'|t|e %}
+{# I want the following string to be printed unescaped as raw. #}
+{% set return_back_script = '<a href="javascript:history.back();" title="@title">@label</a>'|replace({ '@title': return_back_title, '@label': return_back_label}) %}
+
+{% block page_body %}
+  <div class="Grid">
+    <div class="Grid-cell Grid-cell--center u-size10of12 u-sm-size8of12 u-md-size5of12 u-lg-size4of12">
+      <div class="ErrorPage u-textCenter u-text-xxs u-text-md-xs u-text-lg-s">
+        <h1 class="ErrorPage-title">{{ error_code }}</h1>
+        <h2 class="ErrorPage-subtitle">{{ subtitle|t }}</h2>
+        <p class="Prose u-margin-r-all">{{ text|t|e|replace({'@return_back': return_back_script })|raw }}</p>
+        <a class="Button Button--default u-margin-r-all" href="{{ url('<front>') }}">
+          {{ return_home|t|upper }}
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

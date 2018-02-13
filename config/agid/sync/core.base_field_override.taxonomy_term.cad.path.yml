@@ -1,0 +1,20 @@
+uuid: 40355302-e18c-4510-aec8-cae7c0a0bc3b
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cad
+  module:
+    - path
+id: taxonomy_term.cad.path
+field_name: path
+entity_type: taxonomy_term
+bundle: cad
+label: 'Alias URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

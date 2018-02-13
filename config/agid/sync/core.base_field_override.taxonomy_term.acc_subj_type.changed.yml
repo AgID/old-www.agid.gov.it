@@ -1,0 +1,18 @@
+uuid: 55058520-2a4f-4572-8584-6ccaae0d4240
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.acc_subj_type
+id: taxonomy_term.acc_subj_type.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: acc_subj_type
+label: Changed
+description: 'La data e l''ora in cui il termine è stato mofificato l''ultima volta.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

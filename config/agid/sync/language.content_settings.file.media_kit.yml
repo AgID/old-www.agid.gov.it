@@ -1,0 +1,11 @@
+uuid: b5461833-717f-40cd-a531-1af50c5a4762
+langcode: it
+status: true
+dependencies:
+  config:
+    - file_entity.type.media_kit
+id: file.media_kit
+target_entity_type_id: file
+target_bundle: media_kit
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,50 @@
+uuid: 1822cbd9-824e-499b-a0ed-da7c38a13482
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.repository_files_browser
+  module:
+    - dropzonejs_eb_widget
+    - views
+name: repository_files_browser
+label: 'Repository Files Browser'
+display: iframe
+display_configuration:
+  width: 100%
+  height: '600'
+  link_text: 'Select files'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  569694d8-489e-45c5-8eb6-47af0410c7dd:
+    settings:
+      upload_location: 'public://repository_files'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 2M
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp zip rar tar gz gzip'
+      clientside_resize: false
+      resize_width: 0
+      resize_height: 0
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Select entities'
+      auto_select: false
+    uuid: 569694d8-489e-45c5-8eb6-47af0410c7dd
+    weight: -9
+    label: 'Upload files'
+    id: dropzonejs
+  53a6170f-887a-48ad-905b-6d9068b5a9bd:
+    settings:
+      view: repository_files_browser
+      view_display: entity_browser_1
+      submit_text: 'Select entities'
+      auto_select: false
+    uuid: 53a6170f-887a-48ad-905b-6d9068b5a9bd
+    weight: -10
+    label: 'Files listing'
+    id: view

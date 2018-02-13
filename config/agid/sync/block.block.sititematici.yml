@@ -1,0 +1,29 @@
+uuid: 822054d3-a7c9-415d-acbc-1c2130dceda6
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.siti-tematici
+  module:
+    - menu_block
+  theme:
+    - agid
+id: sititematici
+theme: agid
+region: footer_middle
+weight: -5
+provider: null
+plugin: 'menu_block:siti-tematici'
+settings:
+  id: 'menu_block:siti-tematici'
+  label: 'Siti tematici'
+  provider: menu_block
+  label_display: visible
+  level: 1
+  depth: 0
+  expand: 0
+  parent: 'siti-tematici:'
+  follow: 0
+  follow_parent: 0
+  suggestion: siti_tematici
+visibility: {  }

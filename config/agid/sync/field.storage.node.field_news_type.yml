@@ -1,0 +1,20 @@
+uuid: 85e19568-289b-4602-a594-be22c08b51b0
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_news_type
+field_name: field_news_type
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

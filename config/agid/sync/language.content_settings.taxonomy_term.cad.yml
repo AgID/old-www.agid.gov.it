@@ -1,0 +1,16 @@
+uuid: 2d7cb19a-2d04-4bb0-a342-89dac3e64387
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cad
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.cad
+target_entity_type_id: taxonomy_term
+target_bundle: cad
+default_langcode: site_default
+language_alterable: true

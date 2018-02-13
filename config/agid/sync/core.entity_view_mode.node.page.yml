@@ -1,0 +1,10 @@
+uuid: be340e12-b377-422d-8688-6b4b710c944e
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.page
+label: page
+targetEntityType: node
+cache: true

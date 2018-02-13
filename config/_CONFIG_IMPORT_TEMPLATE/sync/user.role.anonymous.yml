@@ -1,0 +1,13 @@
+uuid: fa6c6761-49db-4c12-b601-da222950340f
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Utente anonimo'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view files'

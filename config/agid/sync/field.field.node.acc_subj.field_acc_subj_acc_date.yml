@@ -1,0 +1,21 @@
+uuid: d84594d1-4221-4f6b-b595-be77e9cfd6b2
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_acc_date
+    - node.type.acc_subj
+  module:
+    - datetime
+id: node.acc_subj.field_acc_subj_acc_date
+field_name: field_acc_subj_acc_date
+entity_type: node
+bundle: acc_subj
+label: 'Data accreditamento'
+description: 'La data in cui il fornitore ha conseguito l''accreditamento.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

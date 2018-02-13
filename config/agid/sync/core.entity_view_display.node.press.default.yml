@@ -1,0 +1,96 @@
+uuid: eb1da9ed-802f-459e-b2e2-986af0f27bf9
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.press.field_arguments
+    - field.field.node.press.field_press_description
+    - field.field.node.press.field_press_number
+    - field.field.node.press.field_press_publish_date
+    - field.field.node.press.field_press_year
+    - field.field.node.press.field_related_content
+    - field.field.node.press.field_repository_file
+    - field.field.node.press.field_repository_files
+    - node.type.press
+  module:
+    - datetime
+    - text
+    - user
+id: node.press.default
+targetEntityType: node
+bundle: press
+mode: default
+content:
+  field_arguments:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_press_description:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_press_number:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_press_publish_date:
+    weight: 2
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_press_year:
+    weight: 0
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_related_content:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_repository_file:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_repository_files:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -1,0 +1,41 @@
+id: agid_fixtures_paragraph_external_link_ente_manual
+label: Import into paragraph "external_link" from "field_ente_manuale_link" of "ente" CT
+migration_group: agid_fixtures_group_ente_paragraphs
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: ente
+status: true
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: external_link
+process:
+  type:
+    plugin: default_value
+    default_value: 'external_link'
+
+  # Label
+  field_external_link_label:
+    plugin: default_value
+    # Manuale operativo presso il certificatore
+    default_value: 'operators_manual_link'
+
+  # Link url (Manuale operativo presso il certificatore)
+  field_external_link_url/uri:
+    -
+      plugin: skip_on_empty
+      method: row
+      source: field_ente_manuale_link/0/url
+    -
+      plugin: agid_check_link
+
+  created: '@created'
+
+  uid:
+    plugin: default_value
+    default_value: 1
+
+# Required stuff.
+migration_dependencies: {}

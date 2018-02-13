@@ -1,0 +1,91 @@
+uuid: 9233b4b3-a755-46f6-a7b7-7d51e6b4f2f0
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.file.image.field_arguments
+    - field.field.file.image.field_description
+    - field.field.file.image.field_original_file_source
+    - field.field.file.image.field_title
+    - field.field.file.image.field_type
+    - file_entity.type.image
+  module:
+    - file_entity
+    - text
+_core:
+  default_config_hash: _Bf428kqU4oErwcNNTL2Wj4HQfES94Bs4usKnK3iL2Q
+id: file.image.default
+targetEntityType: file
+bundle: image
+mode: default
+content:
+  field_arguments:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_description:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  filemime:
+    type: string
+    weight: 5
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  filename:
+    type: string
+    label: hidden
+    weight: 2
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  filesize:
+    type: file_size
+    weight: 6
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_entity_view
+    weight: 4
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  uri:
+    type: file_image
+    label: hidden
+    weight: 3
+    region: content
+    settings:
+      title: field_image_title_text
+      alt: field_image_alt_text
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_original_file_source: true
+  field_type: true
+  langcode: true

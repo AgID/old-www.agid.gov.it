@@ -1,0 +1,21 @@
+uuid: 276d958e-1d8a-4a92-a51f-12a20c340f39
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_more_info_label
+    - paragraphs.paragraphs_type.more_info
+  module:
+    - options
+id: paragraph.more_info.field_more_info_label
+field_name: field_more_info_label
+entity_type: paragraph
+bundle: more_info
+label: Label
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

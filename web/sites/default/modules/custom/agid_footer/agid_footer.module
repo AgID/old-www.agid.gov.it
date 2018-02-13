@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_footer.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function agid_footer_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the agid_footer module.
+    case 'help.page.agid_footer':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Gestione degli elementi del footer AGID') . '</p>';
+      return $output;
+
+    default:
+  }
+}

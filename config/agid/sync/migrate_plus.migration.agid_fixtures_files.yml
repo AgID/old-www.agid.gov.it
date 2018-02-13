@@ -1,0 +1,124 @@
+uuid: 80852e3f-fecb-4b10-a9d3-f7d3c46898c3
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_files
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: agid_fixtures_group_files
+label: 'Import "D7 files" into "D8 file entities"'
+source:
+  plugin: file_entity
+  scheme: public
+  excluded_modules:
+    - feeds
+    - imageblock
+    - user
+    - webform
+  constants:
+    source_base_path: sites/default/files/
+    old_files_path: sites/default/files/migration-files
+    repository_dir: 'public://repository_files/'
+process:
+  filename: filename
+  field_title:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: file_title
+    -
+      plugin: get
+      source: file_title
+  field_description:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: file_description
+    -
+      plugin: get
+      source: file_description
+  field_arguments:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: file_arguments/0/tid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_taxonomy_tags
+      no_stub: true
+      source: file_arguments
+  field_original_file_source:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: file_source/0/tid
+    -
+      plugin: get
+      source: file_source/0/tid
+  field_type:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: file_type/0/tid
+    -
+      plugin: get
+      source: file_type/0/tid
+  source_full_path:
+    -
+      plugin: check_file
+      files_source_dir: sites/default/files/migration-files
+      source: filepath
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/old_files_path
+        - filepath
+    -
+      plugin: urlencode
+  destination_full_path:
+    -
+      plugin: check_file
+      files_source_dir: sites/default/files/migration-files
+      source: filepath
+    -
+      plugin: concat
+      source:
+        - constants/repository_dir
+        - filepath
+    -
+      plugin: check_path_length
+      max: 255
+    -
+      plugin: urlencode
+  uri:
+    -
+      plugin: check_file
+      files_source_dir: sites/default/files/migration-files
+      source: filepath
+    -
+      plugin: file_copy
+      source:
+        - '@source_full_path'
+        - '@destination_full_path'
+    -
+      plugin: trace
+      key: 'Migrate file'
+      show_key: 1
+  filemime: filemime
+  status: status
+  created: timestamp
+  changed: timestamp
+  fid: fid
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:file'
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_tags
+    - agid_fixtures_taxonomy_original_file_source

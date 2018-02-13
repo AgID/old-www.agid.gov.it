@@ -1,0 +1,76 @@
+uuid: 12c26240-a632-44cf-9702-803f99c63599
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_ct_pagopa_psp
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 8'
+  - PagoPA
+migration_group: agid_fixtures_group_pagopa
+label: 'Import of ''PagoPA PSP'' contents'
+source:
+  plugin: csv_url
+  url: 'http://www.agid.gov.it/sites/default/files/pagamenti_amministrazione/pagopa-psp.csv'
+  delimiter: ;
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - denominazione
+  column_names:
+    -
+      denominazione: Denominazione
+    -
+      cdf: 'Codice Fiscale'
+    -
+      codice_abi: 'Codice ABI'
+    -
+      codice_bic: 'Codice BIC'
+    -
+      codice_seller_bank: 'Cod. Seller Bank'
+    -
+      attivo: Attivo
+    -
+      attivo_mod12: 'Attivo dal portale dell''Ente (Mod. 1 e/o 2)'
+    -
+      attivo_mod3: 'Attivo presso i canali del PSP (Mod. 3)'
+    -
+      sportello_fisico: 'Sportello fisico'
+    -
+      online: Online
+    -
+      mobile_banking_app: 'Mobile banking (App)'
+    -
+      phone_banking: 'Phone banking'
+    -
+      atm: ATM
+process:
+  type:
+    plugin: default_value
+    default_value: pagopa
+  field_pagopa_type:
+    -
+      plugin: default_value
+      default_value: PSP
+    -
+      plugin: insert_or_select_taxonomy_term
+      vocabulary_name: pagopa_type
+  title: denominazione
+  field_name: denominazione
+  field_fiscal_code: cdf
+  field_abi_code: codice_abi
+  field_bic_code: codice_bic
+  field_seller_bank_code: codice_seller_bank
+  field_active: attivo
+  field_active_mod12: attivo_mod12
+  field_active_mod3: attivo_mod3
+  field_help_desk: sportello_fisico
+  field_online: online
+  field_mobile_banking: mobile_banking_app
+  field_phone_banking: phone_banking
+  field_atm: atm
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

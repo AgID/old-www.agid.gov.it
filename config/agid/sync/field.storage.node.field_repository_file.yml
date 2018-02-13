@@ -1,0 +1,20 @@
+uuid: c115007e-5bf5-4c2a-8ccd-ac596e945593
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_repository_file
+field_name: field_repository_file
+entity_type: node
+type: entity_reference
+settings:
+  target_type: file
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,58 @@
+uuid: d00301d9-869a-4ac8-a244-c61441700310
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_ct_press
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: agid_fixtures_group_contents
+label: 'Import to "press" elements from "ufficio_stampa"'
+source:
+  plugin: d7_node
+  node_type: ufficio_stampa
+process:
+  type:
+    plugin: default_value
+    default_value: press
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: it
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  field_press_publish_date:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_data_pubblicazione/0/value
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: Y-m-d
+  field_press_year:
+    -
+      plugin: extract
+      source: field_data_pubblicazione
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y'
+  field_press_number:
+    plugin: default_value
+    default_value: null
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

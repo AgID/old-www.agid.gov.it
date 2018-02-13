@@ -1,0 +1,17 @@
+uuid: b8e88388-9e28-4fa2-81cb-92766d1c0468
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: PagoPA
+type: pagopa
+description: "Questo tipo di contenuto contiene i dati relativi a PagoPa.\r\nNel vecchio sito per tali contenuti erano presenti tre content-type diversi, qui riuniti sotto lo stesso.\r\nI dati vengono importati dai file CSV tramite migrazioni."
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

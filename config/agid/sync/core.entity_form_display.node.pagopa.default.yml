@@ -1,0 +1,262 @@
+uuid: c3f0cabc-13ee-47e0-a540-1d5f476adc04
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.pagopa.field_abi_code
+    - field.field.node.pagopa.field_active
+    - field.field.node.pagopa.field_active_authority_number
+    - field.field.node.pagopa.field_active_mod12
+    - field.field.node.pagopa.field_active_mod3
+    - field.field.node.pagopa.field_atm
+    - field.field.node.pagopa.field_bic_code
+    - field.field.node.pagopa.field_fiscal_code
+    - field.field.node.pagopa.field_gs1gln_code
+    - field.field.node.pagopa.field_help_desk
+    - field.field.node.pagopa.field_interbank_code
+    - field.field.node.pagopa.field_ipa_code
+    - field.field.node.pagopa.field_istat_type
+    - field.field.node.pagopa.field_key
+    - field.field.node.pagopa.field_mobile_banking
+    - field.field.node.pagopa.field_name
+    - field.field.node.pagopa.field_online
+    - field.field.node.pagopa.field_pagopa_type
+    - field.field.node.pagopa.field_partner_mediator
+    - field.field.node.pagopa.field_phone_banking
+    - field.field.node.pagopa.field_seller_bank_code
+    - node.type.pagopa
+  module:
+    - path
+    - text
+id: node.pagopa.default
+targetEntityType: node
+bundle: pagopa
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_abi_code:
+    weight: 56
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_active:
+    weight: 39
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_active_authority_number:
+    weight: 66
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_active_mod12:
+    weight: 40
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_active_mod3:
+    weight: 41
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_atm:
+    weight: 54
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_bic_code:
+    weight: 57
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_fiscal_code:
+    weight: 58
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_gs1gln_code:
+    weight: 59
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_help_desk:
+    weight: 69
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_interbank_code:
+    weight: 60
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_ipa_code:
+    weight: 61
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_istat_type:
+    weight: 53
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_key:
+    weight: 55
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_mobile_banking:
+    weight: 65
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_name:
+    weight: 63
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_online:
+    weight: 67
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_pagopa_type:
+    weight: 31
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_partner_mediator:
+    weight: 64
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_phone_banking:
+    weight: 68
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_seller_bank_code:
+    weight: 62
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,28 @@
+uuid: 797e2ce8-e076-4a62-a634-8c214a3216ea
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_repository_files
+    - file_entity.type.media_kit
+    - node.type.press
+id: node.press.field_repository_files
+field_name: field_repository_files
+entity_type: node
+bundle: press
+label: 'Media Kit'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings:
+    target_bundles:
+      media_kit: media_kit
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

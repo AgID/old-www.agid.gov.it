@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+{% set form_classes = [
+  'Form',
+] %}
+
+{% set children_wrapper_classes = [
+  'Form-field',
+  'Form-field--withPlaceholder',
+  'Grid',
+  'u-background-white',
+  'u-text-r-xs',
+  'u-borderRadius-s',
+] %}
+
+<form{{ attributes.addClass(form_classes) }}>
+  <div class="{{ children_wrapper_classes | join(' ') }}" {{ attributes.setAttribute('role', 'search') }}>
+    {{ children }}
+  </div>
+</form>

@@ -1,0 +1,96 @@
+uuid: af2455f3-8b1e-46f4-98a1-c70833b44621
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_software_type
+field_name: field_software_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Acquisti Bandi e Appalti'
+      label: 'Acquisti Bandi e Appalti'
+    -
+      value: Comunicazione
+      label: Comunicazione
+    -
+      value: 'Contabilità e patrimonio'
+      label: 'Contabilità e patrimonio'
+    -
+      value: Dematerializzazione
+      label: Dematerializzazione
+    -
+      value: 'Gestione flussi documentali'
+      label: 'Gestione flussi documentali'
+    -
+      value: 'Formazione professionale'
+      label: 'Formazione professionale'
+    -
+      value: 'Governo del territorio'
+      label: 'Governo del territorio'
+    -
+      value: Istruzione
+      label: Istruzione
+    -
+      value: Lavoro
+      label: Lavoro
+    -
+      value: 'Mobilità  e trasporto'
+      label: 'Mobilità  e trasporto'
+    -
+      value: Personale
+      label: Personale
+    -
+      value: 'Polizia locale'
+      label: 'Polizia locale'
+    -
+      value: 'Programmazione e controllo di gestione'
+      label: 'Programmazione e controllo di gestione'
+    -
+      value: 'Servizi demografici'
+      label: 'Servizi demografici'
+    -
+      value: 'Servizi sanitari'
+      label: 'Servizi sanitari'
+    -
+      value: 'Servizi sociali'
+      label: 'Servizi sociali'
+    -
+      value: 'Sistemi per la gestione di open data'
+      label: 'Sistemi per la gestione di open data'
+    -
+      value: 'Social network'
+      label: 'Social network'
+    -
+      value: 'Supporto alla gestione di sistemi informatici'
+      label: 'Supporto alla gestione di sistemi informatici'
+    -
+      value: 'Sviluppo economico'
+      label: 'Sviluppo economico'
+    -
+      value: 'Territorio e ambiente'
+      label: 'Territorio e ambiente'
+    -
+      value: Trasparenza
+      label: Trasparenza
+    -
+      value: Tributi
+      label: Tributi
+    -
+      value: Turismo
+      label: Turismo
+    -
+      value: Altro
+      label: Altro
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

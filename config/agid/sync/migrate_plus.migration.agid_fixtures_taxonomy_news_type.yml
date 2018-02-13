@@ -1,0 +1,42 @@
+uuid: 2bb0546e-ada6-4e3d-b26b-af03e63b40c0
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_taxonomy_news_type
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: agid_fixtures_group_taxonomies_db
+label: 'Import "Tipologia ente accreditato" terms'
+source:
+  plugin: d7_taxonomy_term
+  bundle: categoria
+process:
+  vid:
+    plugin: default_value
+    default_value: news_type
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  changed: timestamp
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies:
+  required: {  }
+  optional:
+    - d7_field_instance

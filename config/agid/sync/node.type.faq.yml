@@ -1,0 +1,17 @@
+uuid: 1940478d-0190-4f43-8302-1aeb757699d9
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Domanda frequente'
+type: faq
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

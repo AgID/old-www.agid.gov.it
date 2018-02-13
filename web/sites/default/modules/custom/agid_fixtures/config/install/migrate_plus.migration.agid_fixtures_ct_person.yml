@@ -1,0 +1,162 @@
+# Migration configuration for 'Pagina' location.
+id: agid_fixtures_ct_person
+label: Import of 'Persona' contents
+migration_group: agid_fixtures_group_new_contents
+migration_tags:
+  - Drupal 8
+  - Persona
+status: true
+source:
+  plugin: url
+  constants:
+    source_base_path: 'sites/default/modules/custom/agid_fixtures/assets'
+    destination_base_path: 'public:/'
+    images_folder: 'images'
+    files_folder: 'files'
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  # The feed file for the spreadsheet. The Google Spreadsheet should be either “Public” or set to “Anyone with link can
+  # view” in order for the feed to work. Note that the <SHEET> param is the order of the tabs and WILL change if the
+  # tabs are re-ordered.
+  # Template: 'https://spreadsheets.google.com/feeds/list/<KEY>/<SHEET>/public/values?alt=json'
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/3/public/values?alt=json'
+  # Under 'fields', we list the data items to be imported. The first level keys
+  # are the source field names we want to populate (the names to be used as
+  # sources in the process configuration below). For each field we're importing,
+  # we provide a label (optional - this is for display in migration tools) and
+  # an selector (xpath) for retrieving that value. It's important to note that this xpath
+  # is relative to the elements retrieved by item_selector.
+  # For Google Spreadsheet XML feeds the actual columns are named with gsx: followed by the cleaned column name (lower,
+  # limited punctuation, etc).
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: 'Id'
+      selector: 'id'
+    -
+      name: nome
+      label: 'nome'
+      selector: 'nome'
+    -
+      name: cognome
+      label: 'cognome'
+      selector: 'cognome'
+    -
+      name: foto
+      label: 'foto'
+      selector: 'foto'
+    -
+      name: email
+      label: 'email'
+      selector: 'email'
+    -
+      name: pec
+      label: 'pec'
+      selector: 'pec'
+    -
+      name: telefono
+      label: 'telefono'
+      selector: 'telefono'
+    -
+      name: position
+      label: 'position'
+      selector: 'position'
+    -
+      name: cv-uri
+      label: 'cv-uri'
+      selector: 'cv-uri'
+    -
+      name: cv-title
+      label: 'cv-title'
+      selector: 'cv-title'
+
+  # Under 'ids', we identify source fields populated above which will uniquely
+  # identify each imported item. The 'type' makes sure the migration map table
+  # uses the proper schema type for stored the IDs.
+  ids:
+    id:
+      type: integer
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: person
+
+  title:
+    plugin: concat
+    source:
+      - nome
+      - cognome
+    delimiter: ' '
+
+  field_first_name: nome
+
+  field_last_name: cognome
+
+  field_e_mail: email
+
+  field_pec: pec
+
+  field_phone_number: telefono
+
+  field_position:
+    -
+      source: position
+      plugin: explode
+      delimiter: '|'
+    -
+      plugin: paragraph_migration
+      migration:
+        - agid_fixtures_paragraph_position
+
+
+  source_full_path_images:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - constants/images_folder
+        - foto
+    -
+      plugin: urlencode
+
+  destination_full_path_images:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/destination_base_path
+        - constants/images_folder
+        - foto
+    -
+      plugin: urlencode
+
+  field_photo/target_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: foto
+    -
+      plugin: file_copy
+      source:
+        - '@source_full_path_images'
+        - '@destination_full_path_images'
+    -
+      plugin: entity_generate
+
+
+  field_cv/uri: cv-uri
+  field_cv/title: cv-title
+
+  uid:
+    plugin: default_value
+    default_value: 1
+
+migration_dependencies:
+  required:
+    - agid_fixtures_paragraph_position

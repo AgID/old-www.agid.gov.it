@@ -1,0 +1,33 @@
+uuid: 8db9d07e-b244-4be2-a188-e1b53ca388d2
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone_banking
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_phone_banking
+field_name: field_phone_banking
+entity_type: node
+bundle: pagopa
+label: 'Phone Banking'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

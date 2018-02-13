@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Contains the theme's functions to manipulate Drupal's default markup.
+ */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function agid_page_attachments_alter(&$page) {
+  // We need to add a reference to the assets dir for webpack async loader.
+  // @see https://github.com/webpack/docs/wiki/configuration#outputpublicpath.
+  $theme_path = base_path() . drupal_get_path('theme', 'agid');
+  $assets_path = $theme_path . '/build/';
+  $page['#attached']['library'][] = 'agid/ita-web-toolkit';
+  $page['#attached']['drupalSettings']['agid']['webpackPublicPath'] = $assets_path;
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function agid_preprocess_field(&$variables) {
+  $field = $variables['element'];
+  if ($field['#field_name'] != 'field_repository_files') {
+    return;
+  }
+
+  $variables['item_file_categories'] = [];
+  $variables['file_categories'] = [];
+  foreach ($field as $k => $item) {
+    if (!is_numeric($k)) {
+      continue;
+    }
+    $file = $item['#file'];
+    if (is_null($file)) {
+      continue;
+    }
+    $field_file_category = $file->get('field_file_category');
+    if ( $field_file_category != null && $file->get('field_file_category')->getValue() != null ) {
+      /** @var \Drupal\taxonomy\Entity\Term $term */
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_file_category->getValue()['0']['target_id']);
+      $item_title = $term->getName();
+    }
+    if (empty($item_title)) {
+      $item_title = $file->get('filename')->getValue()[0]['value'];
+    }
+    $variables['item_file_categories'][] = $item_title;
+    if ( !in_array($item_title, $variables['file_categories']) ) {
+      $variables['file_categories'][] = $item_title;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_breadcrumb().
+ */
+function agid_preprocess_breadcrumb(&$variables) {
+  if (\Drupal::routeMatch()->getRouteName() == 'view.faq_terms.page_1') {
+    $t = \Drupal::routeMatch()->getParameter('arg_0');
+    if (!empty($t)) {
+      $variables['title'] = str_replace('-', ' ', ucfirst($t));
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function agid_preprocess_page(&$variables) {
+
+  $site_config = \Drupal::config('system.site');
+
+  $variables['site_name'] = $site_config->get('name');
+  $variables['site_slogan'] = $site_config->get('slogan');
+  $variables['site_logo'] = '/' . drupal_get_path('theme','agid') . '/logo.svg';
+
+}
+

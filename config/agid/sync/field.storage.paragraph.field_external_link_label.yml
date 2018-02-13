@@ -1,0 +1,39 @@
+uuid: 8985e74c-e43f-434a-b593-4571ce957243
+langcode: it
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_external_link_label
+field_name: field_external_link_label
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: detail_page_link
+      label: 'Link pagina di dettaglio'
+    -
+      value: doc_page_link
+      label: 'Link pagina documentazione'
+    -
+      value: info_site_link
+      label: 'Link sito informativo'
+    -
+      value: registration_page_link
+      label: 'Link pagina registrazione'
+    -
+      value: operators_manual_link
+      label: 'Manuale operativo presso il certificatore'
+    -
+      value: metadata
+      label: Metadata
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

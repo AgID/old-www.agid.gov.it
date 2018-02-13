@@ -1,0 +1,52 @@
+uuid: 39967ea0-e206-44b4-a74d-3cfa1a2c8d20
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.field_arguments
+    - field.field.node.page.field_cad
+    - field.field.node.page.field_content
+    - field.field.node.page.field_faq
+    - field.field.node.page.field_image
+    - field.field.node.page.field_link
+    - field.field.node.page.field_offices
+    - field.field.node.page.field_page_abstract
+    - field.field.node.page.field_page_content
+    - field.field.node.page.field_page_source
+    - field.field.node.page.field_profiles
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_related_news
+    - field.field.node.page.field_repository_files
+    - node.type.page
+  module:
+    - text
+    - user
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  field_page_abstract:
+    type: text_default
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_arguments: true
+  field_cad: true
+  field_content: true
+  field_faq: true
+  field_image: true
+  field_link: true
+  field_offices: true
+  field_page_content: true
+  field_page_source: true
+  field_profiles: true
+  field_related_content: true
+  field_related_news: true
+  field_repository_files: true
+  langcode: true
+  links: true

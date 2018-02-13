@@ -1,0 +1,39 @@
+uuid: b17f6b48-7e98-4156-a43c-43212fc1ab83
+langcode: it
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_more_info_label
+field_name: field_more_info_label
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: spid_code
+      label: 'Codice identificativo SPID'
+    -
+      value: autentication_factors
+      label: 'Fattori di autenticazione'
+    -
+      value: security_level
+      label: 'Livello di sicurezza'
+    -
+      value: name_x500
+      label: 'Nome X.500'
+    -
+      value: operating_locations
+      label: 'Sedi operative'
+    -
+      value: substitute
+      label: 'Soggetto sostitutivo'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

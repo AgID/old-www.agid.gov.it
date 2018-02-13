@@ -1,0 +1,17 @@
+uuid: fb7cbc9d-b056-4ab6-821d-8b82209b9e8e
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Persona
+type: person
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

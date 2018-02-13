@@ -1,0 +1,18 @@
+uuid: 40f57e5d-704a-49f3-8357-f7b2c255674b
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.software
+id: node.software.title
+field_name: title
+entity_type: node
+bundle: software
+label: 'Nome applicazione'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

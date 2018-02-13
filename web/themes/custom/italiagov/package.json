@@ -1,0 +1,14 @@
+{
+  "name": "italiagov",
+  "version": "1.0.0",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-copy": "^0.0.2",
+    "del": "^2.2.2"
+  },
+  "scripts": {
+    "update-build": "gulp copy",
+    "delete-toolkit": "gulp delete"
+  },
+  "private": true
+}

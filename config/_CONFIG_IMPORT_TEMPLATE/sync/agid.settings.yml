@@ -1,0 +1,59 @@
+features:
+  node_user_picture: false
+  comment_user_picture: false
+  comment_user_verification: true
+  favicon: 1
+logo:
+  settings:
+    logo_path: ''
+    logo_upload: ''
+favicon:
+  default_favicon: 1
+  settings:
+    favicon_path: ''
+    favicon_upload: ''
+header_settings:
+  italiagov_afferent_administration_name: 'Afferent Administration name'
+  italiagov_afferent_administration_url: 'http://www.governo.it/'
+  italiagov_public_administration_name: 'Public administration name'
+footer_settings:
+  italiagov_footer_administration_name: 'Footer administration name'
+  footer_top_title: ''
+  footer_middle_title: ''
+social_settings:
+  italiagov_socials_title: 'Follow us'
+  italiagov_socials_facebook: ''
+  italiagov_socials_twitter: ''
+  italiagov_socials_youtube: ''
+  italiagov_socials_instagram: ''
+  italiagov_socials_medium: ''
+  italiagov_socials_locations:
+    header: 0
+    footer_top_right: 0
+    footer_middle: 0
+actions: {  }
+theme_settings:
+  toggle_node_user_picture: false
+  toggle_comment_user_picture: false
+  toggle_comment_user_verification: true
+  toggle_favicon: 1
+advanced_region_settings:
+  italiagov_region_classes_hero: ''
+  italiagov_region_classes_postscript_first: ''
+  italiagov_region_classes_postscript_second: ''
+  italiagov_region_classes_postscript_third: ''
+  italiagov_region_classes_postscript_fourth: ''
+  italiagov_region_classes_leads: ''
+  italiagov_region_classes_pre_footer: ''
+error_page_settings:
+  error_page_settings_details_404:
+    italiagov_error_page_404_subtitle: 'Page not found'
+    italiagov_error_page_404_text: 'Ops! The page you are looking for was not found, @return_back or continue using the navigation menu'
+    italiagov_error_page_404_return_text: 'Return to home'
+  error_page_settings_details_403:
+    italiagov_error_page_403_subtitle: 'Access denied'
+    italiagov_error_page_403_text: 'You are not allowed to access this page, @return_back or continue using the navigation menu'
+    italiagov_error_page_403_return_text: 'Return to home'
+_core:
+  default_config_hash: SpZYQrmB2nPa8jt144QjhWJo4yzxf8TY3DzbWzIEAYM
+langcode: it

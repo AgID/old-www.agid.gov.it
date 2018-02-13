@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme override for 'submit' search form element.
+ */
+#}
+{% set classes = [
+'Grid-cell',
+'u-sizeFit',
+'Icon-search',
+'Icon--rotated ',
+'u-color-grey-50',
+'u-padding-all-s',
+'u-textWeight-700',
+] %}
+
+<button{{ attributes.addClass(classes) }}></button>
+{{ children }}

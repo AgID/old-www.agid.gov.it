@@ -1,0 +1,56 @@
+/**
+ * @file
+ * AgID backend custom css.
+ */
+
+/* General Layout. */
+.adminimal .content-header {
+  background-color: #013366;
+}
+.filter-wrapper {
+  display: none;
+}
+
+/* All files forms with a wrapper. */
+.form-type-managed-file,
+.field--widget-boolean-checkbox {
+  border: 1px solid #c0c0c0;
+  background-color: #fcfcfa;
+  padding: 8px 18px;
+}
+
+/* Fiedl decimal percentage. */
+.field--type-decimal-percentage-field-type {
+  border: 1px solid #c0c0c0;
+  background-color: #fcfcfa;
+  padding: 0.75em;
+  margin: 0.75em 0;
+}
+.field--type-decimal-percentage-field-type .form-item {
+  margin: 0;
+  margin-right: 0.75em;
+  display: inline-block;
+}
+
+/* Drag and drop table. */
+.field-multiple-table td {
+  padding-top: 0.5em!important;
+  padding-bottom: 1.5em!important;
+}
+.field-multiple-table .form-wrapper {
+  margin-top: 0.75em;
+}
+
+/* Images data. */
+.image-widget-data {
+  padding-left: 5px;
+}
+
+/* Group element. */
+.group-element {
+  border: 1px solid #c0c0c0;
+  background-color: #fcfcfa;
+  border-radius: 2px;
+  padding: 8px 18px;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,10 @@
+uuid: 95035741-85ef-4a1d-8025-649baa81b81f
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_group_system
+label: agid_fixtures_group_system
+description: ''
+source_type: null
+module: null
+shared_configuration: null

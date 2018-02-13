@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="u-layout-centerContent u-padding-r-bottom">
+    <section class="u-layout-wide">
+        <div class="Grid Grid--withGutter homepage-news">
+
+        {% for row in rows %}
+          {%
+            set row_classes = [
+              default_row_class ? 'views-row',
+              'Grid-cell'
+            ]
+          %}
+            {% if loop.index0 == 0 %}
+                {% set row_classes = row_classes|merge(['u-nbfc', 'u-size1of1', 'u-md-size1of3', 'u-lg-size1of3', 'u-padding-right-s']) %}
+            {% elseif loop.index0 == 1 %}
+                {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of3', 'u-lg-size1of3', 'u-border-left-xxs', 'u-padding-r-left']) %}
+            {% else %}
+                {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of3', 'u-lg-size1of3', 'u-border-left-xxs', 'u-padding-left-s']) %}
+            {% endif %}
+          <div{{ row.attributes.addClass(row_classes) }}>
+            {{ row.content }}
+          </div>
+        {% endfor %}
+
+        </div>
+    </section>
+</div>

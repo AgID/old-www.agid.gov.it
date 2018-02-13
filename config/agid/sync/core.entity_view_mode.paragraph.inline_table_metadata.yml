@@ -1,0 +1,10 @@
+uuid: a800c417-0edc-4894-88c4-6f825db400ef
+langcode: it
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.inline_table_metadata
+label: 'Inline table metadata'
+targetEntityType: paragraph
+cache: true

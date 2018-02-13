@@ -1,0 +1,18 @@
+uuid: 45f8a804-c018-41aa-b773-5549ca6a9660
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_acc_subj_pec
+field_name: field_acc_subj_pec
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

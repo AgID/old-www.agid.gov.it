@@ -1,0 +1,11 @@
+uuid: 9a66064a-0043-4986-9dd2-cd1112471bdc
+langcode: it
+status: true
+dependencies:
+  config:
+    - file_entity.type.audio
+id: file.audio
+target_entity_type_id: file
+target_bundle: audio
+default_langcode: site_default
+language_alterable: false

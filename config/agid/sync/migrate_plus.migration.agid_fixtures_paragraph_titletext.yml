@@ -1,0 +1,52 @@
+uuid: 9e5138da-f9bf-4ea1-8067-c56a8b918368
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_paragraph_titletext
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: agid_fixtures_group_new_contents
+label: 'Import image title text'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/5/public/values?alt=json'
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: id
+      selector: id
+    -
+      name: title
+      label: title
+      selector: title
+    -
+      name: text
+      label: text
+      selector: text
+  ids:
+    id:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: title_text
+  field_title: title
+  field_text/value: text
+  field_text/format:
+    plugin: default_value
+    default_value: plain_text
+  created: '@created'
+  sticky:
+    plugin: default_value
+    default_value: 0
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+migration_dependencies: null

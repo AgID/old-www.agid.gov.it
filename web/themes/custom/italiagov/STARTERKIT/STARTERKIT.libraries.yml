@@ -1,0 +1,7 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      css/STARTERKIT.css: {}
+  js:
+    js/STARTERKIT.js: {}

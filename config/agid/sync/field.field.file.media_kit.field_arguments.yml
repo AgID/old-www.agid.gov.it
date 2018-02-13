@@ -1,0 +1,28 @@
+uuid: c3ed2538-69a2-4f67-80d2-5551663f6e2d
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_arguments
+    - file_entity.type.media_kit
+    - taxonomy.vocabulary.arguments
+id: file.media_kit.field_arguments
+field_name: field_arguments
+entity_type: file
+bundle: media_kit
+label: Argomenti
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      arguments: arguments
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,12 @@
+uuid: d3d1832d-bfcd-4453-b3f8-3a2191da24a7
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_group_taxonomies_db
+label: 'Taxonomies migrations from db'
+description: 'taxonomies migrations from db.'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: db_migration

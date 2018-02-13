@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Custom theme implementation for social links in the site header.
+ */
+#}
+{% set container_classes = [
+'Header-social',
+'Headroom-hideme'
+] %}
+
+{% if social_items %}
+  <div{{ attributes.addClass(container_classes) }}>
+
+    {# Title #}
+    {{ title_prefix }}
+    {% if social_title %}
+      <p>{{ social_title|t }}</p>
+    {% endif %}
+    {{ title_suffix }}
+
+    {# Listing social links #}
+    <ul class="Header-socialIcons">
+      {% for social in social_items %}
+        {% if social.href %}
+            <li>
+              <a href="{{ social.href }}">
+                <span class="Icon {{ social.class }}"></span>
+                <span class="u-hiddenVisually">{{ social.readable_name }}</span>
+              </a>
+            </li>
+          {% endif %}
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endif %}

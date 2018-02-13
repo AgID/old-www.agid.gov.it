@@ -1,0 +1,33 @@
+uuid: 2fa47ed6-3b8d-434a-9b9b-e39b805f9302
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.image_description
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: parent_id
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.image_description.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: image_description
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

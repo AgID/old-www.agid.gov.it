@@ -1,0 +1,21 @@
+uuid: 3de51e7c-0b64-4f8e-8778-1122d3e61256
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_external_link_label
+    - paragraphs.paragraphs_type.external_link
+  module:
+    - options
+id: paragraph.external_link.field_external_link_label
+field_name: field_external_link_label
+entity_type: paragraph
+bundle: external_link
+label: 'Tipologia di link'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

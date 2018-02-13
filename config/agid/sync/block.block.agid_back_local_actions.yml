@@ -1,0 +1,20 @@
+uuid: fd78fd5b-c99a-44ac-b763-839e2e8ee68b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - agid_back
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: agid_back_local_actions
+theme: agid_back
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,111 @@
+id: agid_fixtures_ct_page_page
+# A human-friendly description of the migration.
+label: Import to "page" elements from "page"
+migration_group: agid_fixtures_group_contents
+# this is compulsory after 8.1 upgrade
+
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: page
+status: true
+destination:
+  plugin: entity:node
+process:
+#  nid and vid commented out will allow them to autoincrement. Safe as long
+#    as nothing else is referencing them.
+#  nid: nid
+#  vid: vid
+  type:
+    plugin: default_value
+    default_value: page
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'it'
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+
+  #Custom Fields.
+  field_page_content:
+    plugin: agid_textfilter
+    source: body
+
+  field_page_abstract/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: body/0/value
+    -
+      plugin: agid_textfilter
+      source: body
+    -
+      plugin: extract
+      index:
+        - 0
+        - value
+    -
+      plugin: callback
+      callable: strip_tags
+    -
+      plugin: substr
+      length: 360
+
+  # Documentazione correlata
+  field_repository_files:
+    -
+      plugin: get
+      source:
+        - field_avvisi
+        - field_documentazione
+        - field_ordine_del_giorno_file
+    -
+      plugin: callback
+      callable: array_filter
+    -
+      plugin: filter_keys
+      multiple: true
+      keys:
+        - fid
+
+  field_page_source:
+    plugin: default_value
+    default_value: 'third_level_page'
+
+  field_profiles:
+    plugin: migration_lookup
+    migration: agid_fixtures_taxonomy_profiles
+    no_stub: true
+    source: field_profili
+
+  field_cad:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_cad
+    -
+      plugin: get_cad_term_id_from_node
+
+  field_related_content:
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_ct_faq
+      no_stub: true
+      source: field_pagina_domande_frequenti
+
+# Required stuff.
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_profiles
+    - agid_fixtures_ct_faq
+  optional:
+    - agid_fixtures_files

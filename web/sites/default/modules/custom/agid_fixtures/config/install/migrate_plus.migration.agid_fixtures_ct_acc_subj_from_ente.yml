@@ -1,0 +1,228 @@
+id: agid_fixtures_ct_acc_subj_from_ente
+label: Import to "acc_subj" elements from "ente"
+migration_group: agid_fixtures_group_contents
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: ente
+status: true
+destination:
+  plugin: entity:node
+  default_bundle: acc_subj
+process:
+  type:
+    plugin: default_value
+    default_value: acc_subj
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'it'
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+
+  # Custom Fields:
+  # Tipologia
+  field_acc_subj_type:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_tipologia
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_taxonomy_acc_subj_type
+      no_stub: true
+
+  # Stato accreditamento
+  field_acc_subj_state:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_stato_iscrizione/0/value
+    -
+      plugin: callback
+      callable: strtolower
+
+  # Sede legale
+  field_acc_subj_registered_office: field_ente_indirizzo_sede
+
+  # Rappresentante legale
+  field_acc_subj_attorney: field_ente_rappresentante_legale
+
+  # Sito internet
+  # URL
+  field_acc_subj_website/uri:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_sito/0/url
+    -
+      plugin: extract
+      source: field_ente_sito
+      index:
+        - 0
+        - url
+    -
+      plugin: agid_check_link
+  # title
+  field_acc_subj_website/title:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_sito/0/title
+    -
+      plugin: extract
+      source: field_ente_sito
+      index:
+        - 0
+        - title
+
+  # Data accreditamento
+  field_acc_subj_acc_date:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: 'field_ente_data_iscrizione/0/value'
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y-m-d'
+
+  # Data cessazione
+  field_acc_subj_end_date:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_data_cessazione/0/value
+    -
+      plugin: extract
+      source: field_ente_data_cessazione
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+    -
+      plugin: date_modify
+      format: 'Y-m-d\TH:i:s'
+      modifier: '-1 hours'
+
+  # Data ultimo aggiornamento
+  # Recuperare da data di ultima modifica del nodo
+  field_acc_subj_last_update_date:
+    -
+      plugin: date_modify
+      method: process
+      format: 'Y-m-d\TH:i:s'
+      modifier: '-1 hours'
+      is_timestamp: true
+      source: changed
+
+  # PEC
+  field_acc_subj_pec: field_ente_email_pec
+
+  # Assistenza telefonica
+  field_acc_subj_phone: field_ente_numeri_di_telefono
+
+  # Argomenti
+  field_arguments:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_tags/0/tid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_taxonomy_tags
+      no_stub: true
+      source: field_ente_tags
+
+  # Link esterno
+  # I'm using five temporary variables to store paragraphs references
+  temp_external_link_manual:
+    plugin: paragraph_migration
+    migration: agid_fixtures_paragraph_external_link_ente_manual
+    source: nid
+
+  # Now we can merge all the above in the paragraph field
+  field_acc_subj_external_link:
+    plugin: default_value
+    source:
+      - @temp_external_link_manual
+
+  # Ulteriori informazioni
+  # I'm using three temporary variables to store paragraphs references
+  temp_info_ente_head:
+    plugin: paragraph_migration
+    migration: agid_fixtures_paragraph_more_info_ente_head
+    source: nid
+  temp_info_ente_subst:
+    plugin: paragraph_migration
+    migration: agid_fixtures_paragraph_more_info_ente_substitut
+    source: nid
+  temp_info_ente_x500:
+    plugin: paragraph_migration
+    migration: agid_fixtures_paragraph_more_info_ente_x500
+    source: nid
+  # Now we can merge all the above in the paragraph field
+  field_acc_subj_info:
+    plugin: default_value
+    source:
+      - @temp_info_ente_head
+      - @temp_info_ente_subst
+      - @temp_info_ente_x500
+
+  # Documentazione correlata
+  field_repository_files:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_ente_manuale/0/fid
+    -
+      plugin: filter_keys
+      source: field_ente_manuale
+      keys:
+        - fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+
+  # Uffici
+  #field_offices:
+
+  # Codice Fiscale
+  #field_acc_subj_fc:
+
+  # Partita IVA
+  #field_acc_subj_vat:
+
+  # Logo
+  #field_acc_subj_logo:
+
+  # Logo servizio
+  #field_acc_subj_service_logo:
+
+  # Nome servizio erogato
+  #field_acc_subj_service_name:
+
+# Required stuff.
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_tags
+    - agid_fixtures_taxonomy_acc_subj_type
+    - agid_fixtures_paragraph_more_info_ente_head
+    - agid_fixtures_paragraph_more_info_ente_substitut
+    - agid_fixtures_paragraph_more_info_ente_x500
+    - agid_fixtures_paragraph_external_link_ente_manual
+  optional:
+    - agid_fixtures_files

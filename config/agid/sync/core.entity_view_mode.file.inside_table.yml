@@ -1,0 +1,10 @@
+uuid: 35d8a775-9c9d-40e2-af8b-70e769b9d1c6
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+id: file.inside_table
+label: 'Inside table'
+targetEntityType: file
+cache: true

@@ -1,0 +1,25 @@
+uuid: 874dd2d4-0268-4f47-95e8-352f8286f509
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.event
+id: node.event.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: event
+label: 'Contenuto correlato'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: agid_related_contents
+      display_name: related_contents
+      arguments: {  }
+field_type: entity_reference

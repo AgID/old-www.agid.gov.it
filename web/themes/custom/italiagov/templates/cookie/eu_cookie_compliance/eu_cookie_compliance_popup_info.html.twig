@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * This is a template file for a pop-up prompting user to give their consent for
+ * the website to set cookies according to the styleguides.
+ *
+ * When overriding this template it is important to note that jQuery will use
+ * the following classes to assign actions to buttons:
+ *
+ * agree-button      - agree to setting cookies
+ * find-more-button  - link to an information page
+ *
+ * Variables available:
+ * - message:  Contains the text that will be display whithin the pop-up
+ * - agree_button: Label for the agree button
+ * - disagree_button: Label for the disagree button
+ */
+#}
+
+{% set container_classes = [
+'CookieBar', 'js-CookieBar', 'u-background-95', 'u-padding-r-all'
+] %}
+{% set text_classes = [
+'u-color-white', 'u-text-r-xs', 'u-lineHeight-m', 'u-padding-r-bottom'
+] %}
+{% set agree_button_classes = [
+'Button', 'Button--default', 'u-text-r-xxs', 'js-cookieBarAccept',
+'u-inlineBlock', 'u-margin-r-all'
+] %}
+{% set disagree_classes = [
+'u-text-r-xs', 'u-color-teal-50'
+] %}
+
+<div class="{{ container_classes | join(' ') }}"
+     id="cookie-bar"
+     aria-hidden="false"
+     aria-live="polite">
+  <p class="{{ text_classes | join(' ') }}">{{ message }}</p>
+  <p>
+    <button class="{{ agree_button_classes | join(' ') }} agree-button">
+      {{ agree_button }}
+    </button>
+    <a href=""
+       class="{{ disagree_classes | join(' ') }} find-more-button">
+      {{ disagree_button }}
+    </a>
+  </p>
+</div>

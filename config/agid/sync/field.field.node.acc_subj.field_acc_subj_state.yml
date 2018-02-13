@@ -1,0 +1,21 @@
+uuid: 5e1049c0-bde3-4b9b-9ca6-ad17ba0afc76
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_state
+    - node.type.acc_subj
+  module:
+    - options
+id: node.acc_subj.field_acc_subj_state
+field_name: field_acc_subj_state
+entity_type: node
+bundle: acc_subj
+label: 'Stato accreditamento'
+description: 'Selezionare lo stato di accreditamento del fornitore.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

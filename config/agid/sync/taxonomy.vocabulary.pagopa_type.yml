@@ -1,0 +1,9 @@
+uuid: a6592e40-b7fc-42f3-b325-01b2a343bf3a
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologia PagoPA'
+vid: pagopa_type
+description: 'La tipologia di contenuto PagoPA'
+hierarchy: 0
+weight: 0

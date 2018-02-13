@@ -1,0 +1,35 @@
+uuid: 0e7bbebe-3bf2-4345-bd12-3314d92c2f80
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:27ab36d0-1fc1-4dd3-bf68-4ad98cb8f2f7'
+  module:
+    - block_content
+    - webform
+  theme:
+    - agid
+id: newsletter
+theme: agid
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:27ab36d0-1fc1-4dd3-bf68-4ad98cb8f2f7'
+settings:
+  id: 'block_content:27ab36d0-1fc1-4dd3-bf68-4ad98cb8f2f7'
+  label: Newsletter
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  webform:
+    id: webform
+    webforms:
+      contact: contact
+    negate: false
+    context_mapping:
+      webform: '@webform.webform_route_context:webform'
+      webform_submission: '@webform.webform_submission_route_context:webform_submission'
+      node: '@node.node_route_context:node'

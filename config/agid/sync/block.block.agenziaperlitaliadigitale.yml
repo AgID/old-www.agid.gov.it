@@ -1,0 +1,35 @@
+uuid: ded104ea-26a4-46c6-a2e4-2b30966093cf
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a8486cf0-3b8f-4842-abd5-fc47535cd394'
+  module:
+    - block_content
+    - webform
+  theme:
+    - agid
+id: agenziaperlitaliadigitale
+theme: agid
+region: content
+weight: -12
+provider: null
+plugin: 'block_content:a8486cf0-3b8f-4842-abd5-fc47535cd394'
+settings:
+  id: 'block_content:a8486cf0-3b8f-4842-abd5-fc47535cd394'
+  label: 'Agenzia per l''Italia Digitale'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  webform:
+    id: webform
+    webforms:
+      contact: contact
+    negate: false
+    context_mapping:
+      webform: '@webform.webform_route_context:webform'
+      webform_submission: '@webform.webform_submission_route_context:webform_submission'
+      node: '@node.node_route_context:node'

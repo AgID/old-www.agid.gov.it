@@ -1,0 +1,12 @@
+uuid: a9a46bfa-3f11-415b-ae1c-df9d273398d3
+langcode: it
+status: true
+dependencies: {  }
+id: o1lnqD7hynYmesOfRQVh_UIPswJqoj5Mjjb0krTsxBI
+label: 'http://drupal8-agid-site.agid.sparkfabrik.loc/it'
+chunks: 1
+links: 407
+max_filesize: 55463
+context:
+  language: it
+updated: 1518449688

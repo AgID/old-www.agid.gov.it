@@ -1,0 +1,80 @@
+id: agid_fixtures_home_page_highlight_queue
+label: Import queue for home page highlighted content
+migration_group: agid_fixtures_group_new_contents
+migration_tags:
+  - Drupal 8
+status: true
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  # The feed file for the spreadsheet. The Google Spreadsheet should be either “Public” or set to “Anyone with link can
+  # view” in order for the feed to work. Note that the <SHEET> param is the order of the tabs and WILL change if the
+  # tabs are re-ordered.
+  # Template: 'https://spreadsheets.google.com/feeds/list/<KEY>/<SHEET>/public/values?alt=json'
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/11/public/values?alt=json'
+  # Under 'fields', we list the data items to be imported. The first level keys
+  # are the source field names we want to populate (the names to be used as
+  # sources in the process configuration below). For each field we're importing,
+  # we provide a label (optional - this is for display in migration tools) and
+  # an selector (xpath) for retrieving that value. It's important to note that this xpath
+  # is relative to the elements retrieved by item_selector.
+  # For Google Spreadsheet XML feeds the actual columns are named with gsx: followed by the cleaned column name (lower,
+  # limited punctuation, etc).
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: 'id'
+      selector: 'id'
+    -
+      name: bundle
+      label: 'bundle'
+      selector: 'bundle'
+    -
+      name: nid
+      label: 'nid'
+      selector: 'nid'
+    -
+      name: delta
+      label: 'delta'
+      selector: 'delta'
+
+  # Under 'ids', we identify source fields populated above which will uniquely
+  # identify each imported item. The 'type' makes sure the migration map table
+  # uses the proper schema type for stored the IDs.
+  ids:
+    bundle:
+      type: string
+    delta:
+      type: integer
+
+process:
+  bundle: bundle
+  entity_id: bundle
+  revision_id: bundle
+  delta: delta
+  langcode:
+    plugin: default_value
+    default_value: 'it'
+  items_target_id: nid
+
+destination:
+  plugin: table
+  table_name: 'entity_subqueue__items'
+  id_fields:
+    bundle:
+      type: string
+    delta:
+      type: integer
+  fields:
+    bundle: bundle
+    entity_id: entity_id
+    revision_id: revision_id
+    items_target_id: items_target_id
+    delta: delta
+    langcode: langcode
+
+migration_dependencies:
+  required:
+    - agid_fixtures_ct_page_page

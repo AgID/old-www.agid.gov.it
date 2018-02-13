@@ -1,0 +1,22 @@
+uuid: fed4570f-193b-4280-8e47-619f7b015c29
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agid
+_core:
+  default_config_hash: zgzIyKQ7AqRiEVEn8HebF9tLmRRN5uW_KVfdgMruGpM
+id: agid_messages
+theme: agid
+region: help
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

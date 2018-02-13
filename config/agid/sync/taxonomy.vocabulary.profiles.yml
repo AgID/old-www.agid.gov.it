@@ -1,0 +1,9 @@
+uuid: 0ba6edad-d0ec-4403-8fc5-f564909331d5
+langcode: it
+status: true
+dependencies: {  }
+name: Profili
+vid: profiles
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Theme override for checkbox single element.
+ *
+ * @ingroup templates
+ */
+#}
+{%
+  set classes = [
+    'js-form-item',
+    'form-item',
+    'js-form-wrapper',
+    'form-wrapper',
+    'Form-field',
+    'Form-field--choose',
+    'Grid-cell',
+    'u-padding-top-xs',
+    'u-padding-bottom-xs',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% include 'form-element--checkbox.html.twig' %}
+</div>

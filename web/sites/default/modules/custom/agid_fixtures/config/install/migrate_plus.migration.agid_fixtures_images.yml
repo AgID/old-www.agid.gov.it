@@ -1,0 +1,64 @@
+id: agid_fixtures_images
+label: Import images
+migration_group: agid_fixtures_group_new_contents
+migration_tags: null
+status: true
+source:
+  plugin: url
+  constants:
+    source_base_path: 'sites/default/modules/custom/agid_fixtures/assets/images'
+    destination_base_path: 'public://images'
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/6/public/values?alt=json'
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: 'id'
+      selector: 'id'
+    -
+      name: imagefilename
+      label: 'imagefilename'
+      selector: 'imagefilename'
+
+  ids:
+    id:
+      type: string
+
+destination:
+  plugin: entity:file
+
+process:
+  type:
+    plugin: default_value
+    default_value: 'image'
+
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - imagefilename
+    -
+      plugin: urlencode
+
+  destination_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/destination_base_path
+        - imagefilename
+    -
+      plugin: urlencode
+
+  filename: imagefilename
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@destination_full_path'
+
+migration_dependencies: {}

@@ -1,0 +1,20 @@
+uuid: 1a0e198c-71ee-4c7c-80bf-5094435987ab
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_bic_code
+field_name: field_bic_code
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

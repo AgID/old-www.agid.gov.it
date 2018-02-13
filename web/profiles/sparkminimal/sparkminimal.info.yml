@@ -1,0 +1,23 @@
+name: Sparkminimal
+type: profile
+description: 'Build a custom site without pre-configured functionality. Suitable for advanced users.'
+version: VERSION
+core: 8.x
+dependencies:
+  - node
+  - block
+  - dblog
+  - page_cache
+  - dynamic_page_cache
+  - config
+  - views
+  - views_ui
+  - taxonomy
+  - field_ui
+  - file
+  - menu_ui
+  - image
+  - toolbar
+themes:
+  - bartik
+  - seven

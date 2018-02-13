@@ -1,0 +1,16 @@
+uuid: f95dfc80-f504-4a70-8f95-5045c8d602c1
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.pagopa_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.pagopa_type
+target_entity_type_id: taxonomy_term
+target_bundle: pagopa_type
+default_langcode: site_default
+language_alterable: false

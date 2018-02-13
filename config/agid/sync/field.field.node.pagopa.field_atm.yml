@@ -1,0 +1,33 @@
+uuid: 829230b8-c6b0-40ca-967a-91716367b179
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_atm
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_atm
+field_name: field_atm
+entity_type: node
+bundle: pagopa
+label: ATM
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

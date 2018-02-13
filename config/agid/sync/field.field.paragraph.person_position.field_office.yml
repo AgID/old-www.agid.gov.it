@@ -1,0 +1,28 @@
+uuid: 90c6b281-9e09-4ebe-9b7f-cdf271b2d8d3
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_office
+    - paragraphs.paragraphs_type.person_position
+    - taxonomy.vocabulary.agid_offices
+id: paragraph.person_position.field_office
+field_name: field_office
+entity_type: paragraph
+bundle: person_position
+label: Ufficio
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      agid_offices: agid_offices
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

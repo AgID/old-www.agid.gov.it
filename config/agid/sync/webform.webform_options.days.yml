@@ -1,0 +1,14 @@
+uuid: e7853138-470f-4016-a7f6-48d4a2471cac
+langcode: it
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: YNrKbYrWWjeubUUM8AsQ19KnX7cU1elACR14CZJHmdg
+id: days
+label: Giorni
+category: 'Date and time'
+likert: false
+options: "Sunday: Sunday\nMonday: Monday\nTuesday: Tuesday\nWednesday: Wednesday\nThursday: Thursday\nFriday: Friday\nSaturday: Saturday\n"

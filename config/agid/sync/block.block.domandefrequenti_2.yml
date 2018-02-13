@@ -1,0 +1,35 @@
+uuid: 67a32429-ae19-4dc4-8702-79ab8bfa7ece
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.faq
+  module:
+    - menu_block
+    - system
+  theme:
+    - agid
+id: domandefrequenti_2
+theme: agid
+region: sidebar_left
+weight: 0
+provider: null
+plugin: 'menu_block:faq'
+settings:
+  id: 'menu_block:faq'
+  label: 'Domande frequenti'
+  provider: menu_block
+  label_display: visible
+  level: 1
+  depth: 0
+  expand: 0
+  parent: 'faq:'
+  follow: 0
+  follow_parent: 0
+  suggestion: sidebarfaq
+visibility:
+  request_path:
+    id: request_path
+    pages: '/domande-frequenti/*'
+    negate: false
+    context_mapping: {  }

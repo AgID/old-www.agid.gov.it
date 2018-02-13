@@ -1,0 +1,68 @@
+uuid: 3dd4edfe-6586-43b0-983e-59f2c7dda0ed
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_paragraph_image
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: agid_fixtures_group_new_contents
+label: 'Import image paragraph'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/4/public/values?alt=json'
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: id
+      selector: id
+    -
+      name: images
+      label: images
+      selector: images
+    -
+      name: imagealt
+      label: imagealt
+      selector: imagealt
+    -
+      name: imagetitle
+      label: imagetitle
+      selector: imagetitle
+    -
+      name: imagedesc
+      label: imagedesc
+      selector: imagedesc
+  ids:
+    id:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: image_description
+  field_image:
+    -
+      source: images
+      plugin: explode
+      delimiter: '|'
+    -
+      plugin: migration
+      migration:
+        - agid_fixtures_images
+  field_text: imagedesc
+  created: '@created'
+  sticky:
+    plugin: default_value
+    default_value: 0
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: image_description
+migration_dependencies:
+  required:
+    - agid_fixtures_images

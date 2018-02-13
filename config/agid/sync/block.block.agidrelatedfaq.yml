@@ -1,0 +1,29 @@
+uuid: 15063950-e76f-4118-9d0f-eb5689796737
+langcode: en
+status: true
+dependencies:
+  module:
+    - agid_blocks
+    - ctools
+  theme:
+    - agid
+id: agidrelatedfaq
+theme: agid
+region: content
+weight: -3
+provider: null
+plugin: agid_related_faq_block
+settings:
+  id: agid_related_faq_block
+  label: 'Domande frequenti'
+  provider: agid_blocks
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      news: news
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

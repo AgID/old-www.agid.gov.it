@@ -1,0 +1,23 @@
+uuid: cc32c503-4c03-457a-9e9a-4737feec84a2
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_press_number
+    - node.type.press
+id: node.press.field_press_number
+field_name: field_press_number
+entity_type: node
+bundle: press
+label: 'Numero comunicato'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

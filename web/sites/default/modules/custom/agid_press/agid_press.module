@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_press.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function agid_press_node_presave(EntityInterface $entity) {
+  if ($entity->getType() !== 'press') {
+    return;
+  }
+
+  if ($entity->get('field_press_year')->isEmpty()) {
+    $entity->set('field_press_year', date('Y'));
+  }
+
+  if ($entity->get('field_press_number')->isEmpty()) {
+    $entity->set('field_press_number', agid_press_get_next_press_number($entity));
+  }
+}
+
+/**
+ * Get next available press number.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The node entity.
+ *
+ * @return int
+ *   The press number to be stored.
+ */
+function agid_press_get_next_press_number(EntityInterface $entity) {
+  $field = $entity->get('field_press_year');
+  $year = $field->isEmpty() ? date('Y') : $field->value;
+  $last_year = agid_press_get_last_press_year();
+  return ($last_year != $year) ? 1 : agid_press_get_last_press_number() + 1;
+}
+
+/**
+ * Get last press number of the last year.
+ *
+ * @return int|null
+ *   The last press number of the last year or NULL if does not exists.
+ */
+function agid_press_get_last_press_number() {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $results = $storage->getQuery()
+    ->condition('type', 'press')
+    ->sort('field_press_year', 'DESC')
+    ->sort('field_press_number', 'DESC')
+    ->range(0, 1)
+    ->execute();
+
+  if (empty($results)) {
+    return NULL;
+  }
+
+  $nid = end($results);
+  $node = $storage->load($nid);
+  return $node->get('field_press_number')->value;
+}
+
+/**
+ * Get last press year saved on the database.
+ *
+ * @return int|null
+ *   The last press year or NULL if does not exists.
+ */
+function agid_press_get_last_press_year() {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $results = $storage->getQuery()
+    ->condition('type', 'press')
+    ->sort('field_press_year', 'DESC')
+    ->range(0, 1)
+    ->execute();
+
+  if (empty($results)) {
+    return NULL;
+  }
+
+  $nid = end($results);
+  $node = $storage->load($nid);
+  return $node->get('field_press_year')->value;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function agid_press_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Disable field_press_number and field_press_year fields (not editable).
+  switch ($form_id) {
+    case 'node_press_form':
+      $form['field_press_number']['#access'] = FALSE;
+      $form['field_press_year']['#access'] = FALSE;
+      break;
+
+    case 'node_press_edit_form':
+      $form['field_press_number']['#disabled'] = TRUE;
+      $form['field_press_year']['#disabled'] = TRUE;
+      break;
+  }
+}

@@ -1,0 +1,292 @@
+uuid: 20c884d8-84c3-4486-8b10-9b6936927bf0
+langcode: it
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.repository_files_browser
+    - field.field.node.news.body
+    - field.field.node.news.field_arguments
+    - field.field.node.news.field_iconfont
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_abstract
+    - field.field.node.news.field_news_date
+    - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_related_event
+    - field.field.node.news.field_news_type
+    - field.field.node.news.field_offices
+    - field.field.node.news.field_profiles
+    - field.field.node.news.field_related_content
+    - field.field.node.news.field_repository_files
+    - image.style.thumbnail
+    - node.type.news
+  module:
+    - datetime
+    - entity_browser
+    - field_group
+    - image
+    - link
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_call_to_action:
+      children:
+        - field_news_link
+        - field_iconfont
+      parent_name: group_details
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Call to action'
+    group_tabs:
+      children:
+        - group_details
+        - group_categorization
+        - group_assets
+        - group_related_contents
+      parent_name: ''
+      weight: 11
+      format_type: tabs
+      format_settings:
+        label: Tabs
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Tabs
+    group_assets:
+      children:
+        - field_image
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Assets
+    group_categorization:
+      children:
+        - field_news_type
+        - field_arguments
+        - field_profiles
+        - field_offices
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Categorizzazione
+    group_details:
+      children:
+        - title
+        - field_news_subtitle
+        - field_news_abstract
+        - body
+        - field_news_date
+        - group_call_to_action
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Dettaglio
+    group_related_contents:
+      children:
+        - field_related_content
+        - field_news_related_event
+        - field_repository_files
+      parent_name: group_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Contenuto correlato'
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  body:
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_arguments:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_iconfont:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_news_abstract:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_news_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_news_link:
+    weight: 18
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_news_related_event:
+    weight: 29
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_news_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_offices:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_profiles:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_related_content:
+    weight: 28
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_repository_files:
+    weight: 30
+    settings:
+      entity_browser: repository_files_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 17
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

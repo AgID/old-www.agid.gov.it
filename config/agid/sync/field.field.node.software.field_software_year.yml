@@ -1,0 +1,23 @@
+uuid: 824e87fb-da77-4791-b3b3-b0f28d986421
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_software_year
+    - node.type.software
+id: node.software.field_software_year
+field_name: field_software_year
+entity_type: node
+bundle: software
+label: Anno
+description: 'Inserire l''anno di pubblicazione della scheda in formato 4 cifre.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1990
+  max: 2030
+  prefix: ''
+  suffix: ''
+field_type: integer

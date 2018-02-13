@@ -1,0 +1,32 @@
+uuid: 5caefd4a-8c2d-4297-8986-31588ef553f1
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_iconfont
+    - node.type.news
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.news.field_iconfont
+field_name: field_iconfont
+entity_type: node
+bundle: news
+label: Icona
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

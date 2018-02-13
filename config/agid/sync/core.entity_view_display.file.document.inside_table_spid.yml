@@ -1,0 +1,47 @@
+uuid: e3f3d8b9-5b46-44cb-aad6-d90a26f01ae7
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.file.inside_table_spid
+    - field.field.file.document.field_arguments
+    - field.field.file.document.field_description
+    - field.field.file.document.field_file_category
+    - field.field.file.document.field_original_file_source
+    - field.field.file.document.field_title
+    - field.field.file.document.field_type
+    - file_entity.type.document
+  module:
+    - file
+id: file.document.inside_table_spid
+targetEntityType: file
+bundle: document
+mode: inside_table_spid
+content:
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_file: true
+    third_party_settings: {  }
+    type: file_link
+    region: content
+  field_type:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+hidden:
+  field_arguments: true
+  field_description: true
+  field_file_category: true
+  field_original_file_source: true
+  filemime: true
+  filename: true
+  filesize: true
+  langcode: true
+  uid: true
+  uri: true

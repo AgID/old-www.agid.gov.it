@@ -1,0 +1,107 @@
+label: 'File Entity Files'
+description: 'Find and manage files.'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: '‹ previous'
+            next: 'next ›'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      fields:
+        bulk_form:
+          action_title: 'With selection'
+        fid:
+          label: Fid
+        filename:
+          label: Name
+        type:
+          label: Type
+        filemime:
+          label: 'Mime type'
+        filesize:
+          label: Size
+        status:
+          label: Status
+        changed:
+          label: Changed
+          separator: ', '
+        created:
+          label: Created
+          separator: ', '
+        count:
+          label: 'Used in'
+          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+        operations:
+          label: Operations
+      filters:
+        filename:
+          expose:
+            label: Filename
+        filemime:
+          expose:
+            label: 'Mime type'
+        status:
+          expose:
+            label: Status
+        type:
+          expose:
+            label: Type
+      title: Files
+      empty:
+        area_text_custom:
+          content: 'No files available.'
+  overview:
+    display_title: 'Files overview'
+    display_options:
+      menu:
+        title: Files
+  usage:
+    display_title: 'File usage'
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'This file is not currently used.'
+      pager:
+        options:
+          tags:
+            previous: '‹ previous'
+            next: 'next ›'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      fields:
+        entity_label:
+          label: Entity
+        type:
+          label: 'Entity type'
+        module:
+          label: 'Registering module'
+        count:
+          label: 'Use count'
+          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+      title: 'File usage'
+      arguments:
+        fid:
+          exception:
+            title: All
+          title: 'File usage information for {{ arguments.fid }}'
+      menu:
+        title: Usage
+        description: 'Overview content that uses this file'
+      header:
+        area_text_custom:
+          content: 'This table lists all of the places where <em>{{ arguments.fid }}</em> is used.'

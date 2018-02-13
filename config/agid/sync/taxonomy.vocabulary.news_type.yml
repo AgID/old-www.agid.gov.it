@@ -1,0 +1,9 @@
+uuid: 381a09ec-a898-4550-a853-902e062599e3
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologia Notizia'
+vid: news_type
+description: 'Elenco delle tipologie di notizie'
+hierarchy: 0
+weight: 0

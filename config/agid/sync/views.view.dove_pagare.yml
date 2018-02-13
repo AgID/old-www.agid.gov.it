@@ -1,0 +1,827 @@
+uuid: a2df328b-ed63-47ad-a73f-cbc9fba06f57
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active
+    - field.storage.node.field_active_mod12
+    - field.storage.node.field_active_mod3
+    - node.type.pagopa
+    - taxonomy.vocabulary.pagopa_type
+  content:
+    - 'taxonomy_term:pagopa_type:6d570af5-507c-43a9-b9c6-db6ed28ecdba'
+  module:
+    - node
+    - taxonomy
+    - user
+id: dove_pagare
+label: '[PagoPA - PSP] Dove Pagare'
+module: views
+description: 'Pagina di accesso alla lista dei contenuti PagoPa della tipologia PSP (Prestatori di Servizi di Pagamento)'
+tag: ''
+base_table: node_field_data
+base_field: nid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 50
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            field_active: field_active
+            field_active_mod12: field_active_mod12
+            field_active_mod3: field_active_mod3
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_active:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_active_mod12:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_active_mod3:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: title
+          empty_table: false
+      row:
+        type: fields
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Denominazione
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_active:
+          id: field_active
+          table: node__field_active
+          field: field_active
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Attivo
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_active_mod12:
+          id: field_active_mod12
+          table: node__field_active_mod12
+          field: field_active_mod12
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Attivo dal portale dell''Ente'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_active_mod3:
+          id: field_active_mod3
+          table: node__field_active_mod3
+          field: field_active_mod3
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Attivo presso i canali del PSP'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            pagopa: pagopa
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Denominazione
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_help_desk_value:
+          id: field_help_desk_value
+          table: node__field_help_desk
+          field: field_help_desk_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_help_desk_value_op
+            label: 'Sportello fisico'
+            description: ''
+            use_operator: false
+            operator: field_help_desk_value_op
+            identifier: field_help_desk_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: true
+          group_info:
+            label: 'Sportello fisico'
+            description: ''
+            identifier: field_help_desk_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Sì per tutti'
+                operator: '='
+                value: 'Sì per tutti'
+              2:
+                title: 'Sì per propri correntisti'
+                operator: '='
+                value: 'Sì per propri correntisti'
+              3:
+                title: 'No'
+                operator: '='
+                value: 'No'
+              4:
+                title: 'Non comunicato'
+                operator: '='
+                value: 'non comunicato'
+          plugin_id: string
+        field_online_value:
+          id: field_online_value
+          table: node__field_online
+          field: field_online_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_online_value_op
+            label: 'Online (field_online)'
+            description: null
+            use_operator: false
+            operator: field_online_value_op
+            identifier: field_online_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Online
+            description: ''
+            identifier: field_online_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Sì per tutti'
+                operator: '='
+                value: 'Sì per tutti'
+              2:
+                title: 'Sì per propri correntisti'
+                operator: '='
+                value: 'Sì per propri correntisti'
+              3:
+                title: 'No'
+                operator: '='
+                value: 'No'
+              4:
+                title: 'Non comunicato'
+                operator: '='
+                value: 'non comunicato'
+          plugin_id: string
+        field_mobile_banking_value:
+          id: field_mobile_banking_value
+          table: node__field_mobile_banking
+          field: field_mobile_banking_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_mobile_banking_value_op
+            label: 'Mobile Banking (field_mobile_banking)'
+            description: null
+            use_operator: false
+            operator: field_mobile_banking_value_op
+            identifier: field_mobile_banking_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: 'Mobile Banking'
+            description: ''
+            identifier: field_mobile_banking_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Sì per tutti'
+                operator: '='
+                value: 'Sì per tutti'
+              2:
+                title: 'Sì per propri correntisti'
+                operator: '='
+                value: 'Sì per propri correntisti'
+              3:
+                title: 'No'
+                operator: '='
+                value: 'No'
+              4:
+                title: 'Non comunicato'
+                operator: '='
+                value: 'non comunicato'
+          plugin_id: string
+        field_phone_banking_value:
+          id: field_phone_banking_value
+          table: node__field_phone_banking
+          field: field_phone_banking_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_phone_banking_value_op
+            label: 'Phone Banking (field_phone_banking)'
+            description: null
+            use_operator: false
+            operator: field_phone_banking_value_op
+            identifier: field_phone_banking_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: 'Phone Banking'
+            description: ''
+            identifier: field_phone_banking_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Sì per tutti'
+                operator: '='
+                value: 'Sì per tutti'
+              2:
+                title: 'Sì per propri correntisti'
+                operator: '='
+                value: 'Sì per propri correntisti'
+              3:
+                title: 'No'
+                operator: '='
+                value: 'No'
+              4:
+                title: 'Non comunicato'
+                operator: '='
+                value: 'non comunicato'
+          plugin_id: string
+        field_atm_value:
+          id: field_atm_value
+          table: node__field_atm
+          field: field_atm_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_atm_value_op
+            label: 'ATM (field_atm)'
+            description: null
+            use_operator: false
+            operator: field_atm_value_op
+            identifier: field_atm_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: ATM
+            description: ''
+            identifier: field_atm_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Sì per tutti'
+                operator: '='
+                value: 'Sì per tutti'
+              2:
+                title: 'Sì per propri correntisti'
+                operator: '='
+                value: 'Sì per propri correntisti'
+              3:
+                title: 'No'
+                operator: '='
+                value: 'No'
+              4:
+                title: 'Non comunicato'
+                operator: '='
+                value: 'non comunicato'
+          plugin_id: string
+        field_pagopa_type_target_id:
+          id: field_pagopa_type_target_id
+          table: node__field_pagopa_type
+          field: field_pagopa_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            221: 221
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: pagopa_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      sorts: {  }
+      title: 'Dove Pagare'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<p>pagoPA è un sistema unico per i pagamenti elettronici verso la pubblica amministrazione. </p>\n\n<p>In questa pagina puoi consultare <strong> l’elenco aggiornato di tutti i Prestatori di Servizi di Pagamento (PSP) </strong>presso i quali puoi pagare con pagoPA. <br/>\nPer ciascun PSP puoi verificare i <strong>canali di pagamento disponibili</strong> (sportello fisico; home banking; app mobile; phone banking, ATM) sia per i correntisti che per i non correntisti. </p>\n\n<p>Per saperne di più: <a href=\"http://www.agid.gov.it/agenda-digitale/pubblica-amministrazione/pagamenti-elettronici\">Cos’è e come funziona pagoPA</a></p>\n<h2>Elenco dei PSP</h2>\n<p>E’ possibile scaricare l’elenco dei PSP:</p>\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-psp.csv\">Elenco dei canali degli operatori presso cui è possibile presentare un avviso di pagamento (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-psp.xlsx\">Elenco dei canali degli operatori presso cui è possibile presentare un avviso di pagamento (XSLX).</a></li>\n</ul>"
+            format: filtered_text
+          plugin_id: text
+      footer: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>La ricerca non ha prodotto alcun risultato.</p>'
+            format: filtered_text
+          plugin_id: text
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: true
+      css_class: view-table-pagination
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_active'
+        - 'config:field.storage.node.field_active_mod12'
+        - 'config:field.storage.node.field_active_mod3'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: piattaforme/pagopa/dove-pagare
+      exposed_block: false
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_active'
+        - 'config:field.storage.node.field_active_mod12'
+        - 'config:field.storage.node.field_active_mod3'

@@ -1,0 +1,33 @@
+uuid: 99233d71-0258-46ff-9fa4-9745bbe12e76
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_abstract
+    - node.type.news
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.news.field_news_abstract
+field_name: field_news_abstract
+entity_type: node
+bundle: news
+label: Abstract
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

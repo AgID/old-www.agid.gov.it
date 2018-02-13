@@ -1,0 +1,18 @@
+uuid: 89677c31-d5a5-4858-bdb9-aa978e31b97b
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cad
+id: taxonomy_term.cad.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: cad
+label: Changed
+description: 'La data e l''ora in cui il termine è stato mofificato l''ultima volta.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

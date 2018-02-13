@@ -1,0 +1,28 @@
+uuid: b0433cd5-08c6-43bb-aa10-4b615787a38b
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_type
+    - file_entity.type.image
+    - taxonomy.vocabulary.file_type
+id: file.image.field_type
+field_name: field_type
+entity_type: file
+bundle: image
+label: 'Tipologia file'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      file_type: file_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,35 @@
+uuid: 77bc9073-6cd4-4358-9e2a-99b4512d1e8c
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:fb0c33f8-aca9-4afa-85ff-979734cd2c57'
+  module:
+    - block_content
+    - webform
+  theme:
+    - agid
+id: haidubbi
+theme: agid
+region: content
+weight: -11
+provider: null
+plugin: 'block_content:fb0c33f8-aca9-4afa-85ff-979734cd2c57'
+settings:
+  id: 'block_content:fb0c33f8-aca9-4afa-85ff-979734cd2c57'
+  label: 'Hai dubbi?'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  webform:
+    id: webform
+    webforms:
+      contact: contact
+    negate: false
+    context_mapping:
+      webform: '@webform.webform_route_context:webform'
+      webform_submission: '@webform.webform_submission_route_context:webform_submission'
+      node: '@node.node_route_context:node'

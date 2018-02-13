@@ -1,0 +1,35 @@
+uuid: aaac9fb3-106d-4056-8f66-084091c32550
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.faq
+  module:
+    - menu_block
+    - system
+  theme:
+    - agid
+id: domandefrequenti
+theme: agid
+region: content
+weight: -13
+provider: null
+plugin: 'menu_block:faq'
+settings:
+  id: 'menu_block:faq'
+  label: 'Domande frequenti'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand: 0
+  parent: 'faq:'
+  follow: 0
+  follow_parent: 0
+  suggestion: faq
+visibility:
+  request_path:
+    id: request_path
+    pages: /domande-frequenti
+    negate: false
+    context_mapping: {  }

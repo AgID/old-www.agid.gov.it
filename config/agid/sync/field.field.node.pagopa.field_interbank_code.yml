@@ -1,0 +1,33 @@
+uuid: 12b65bd3-fdc0-4796-9682-c0f272acdbbe
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interbank_code
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_interbank_code
+field_name: field_interbank_code
+entity_type: node
+bundle: pagopa
+label: 'Codice Interbancario'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

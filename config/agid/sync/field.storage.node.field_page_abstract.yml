@@ -1,0 +1,18 @@
+uuid: ba6a5561-cba0-44fd-8949-1d69ff7aab02
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_page_abstract
+field_name: field_page_abstract
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

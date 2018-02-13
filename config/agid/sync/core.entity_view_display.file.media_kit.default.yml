@@ -1,0 +1,89 @@
+uuid: 45248df9-c5c7-4e74-b39c-9df0118e1dc9
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.file.media_kit.field_arguments
+    - field.field.file.media_kit.field_description
+    - field.field.file.media_kit.field_file_category
+    - field.field.file.media_kit.field_original_file_source
+    - field.field.file.media_kit.field_title
+    - field.field.file.media_kit.field_type
+    - file_entity.type.media_kit
+  module:
+    - file
+    - file_entity
+    - text
+id: file.media_kit.default
+targetEntityType: file
+bundle: media_kit
+mode: default
+content:
+  field_arguments:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_description:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_file_category:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_title:
+    weight: 2
+    label: above
+    settings:
+      link_to_file: true
+    third_party_settings: {  }
+    type: file_link
+    region: content
+  filemime:
+    type: string
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  filename:
+    type: string
+    label: hidden
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  filesize:
+    type: file_size
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+hidden:
+  field_original_file_source: true
+  field_type: true
+  langcode: true
+  uri: true

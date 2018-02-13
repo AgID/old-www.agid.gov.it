@@ -1,0 +1,8 @@
+uuid: 3e8e739c-f9fa-4744-8bac-249f411c9c47
+langcode: it
+status: true
+dependencies: {  }
+id: faq
+label: 'Domande frequenti'
+description: ''
+locked: false

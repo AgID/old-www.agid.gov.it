@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * This is a template file for a pop-up informing a user that he has already
+ * agreed to cookies according to the styleguides.
+ *
+ * When overriding this template it is important to note that jQuery will use
+ * the following classes to assign actions to buttons:
+ *
+ * hide-popup-button - destroy the pop-up
+ * find-more-button  - link to an information page
+ *
+ * Variables available:
+ * - message:  Contains the text that will be display whithin the pop-up
+ * - hide_button: Label for the hide button
+ * - find_more_button: Label for the find out more button
+ */
+#}
+
+{% set container_classes = [
+'CookieBar', 'js-CookieBar', 'u-background-95', 'u-padding-r-all'
+] %}
+{% set text_classes = [
+'u-color-white', 'u-text-r-xs', 'u-lineHeight-m', 'u-padding-r-bottom'
+] %}
+{% set agree_button_classes = [
+'Button', 'Button--default', 'u-text-r-xxs', 'js-cookieBarAccept',
+'u-inlineBlock', 'u-margin-r-all'
+] %}
+{% set disagree_classes = [
+'u-text-r-xs', 'u-color-teal-50'
+] %}
+
+<div class="{{ container_classes | join(' ') }}"
+        {{ attribute('id', 'cookie-bar') }}
+        {{ attribute('aria-hidden', false) }}
+        {{ attribute('aria-live', 'polite') }}>
+  <p class="{{ text_classes | join(' ') }}">{{ message }}</p>
+  <p>
+    <button class="{{ agree_button_classes | join(' ') }} hide-popup-button">
+      {{ hide_button }}
+    </button>
+    <button class="{{ agree_button_classes | join(' ') }} find-more-button">
+      {{ find_more_button }}
+    </button>
+  </p>
+</div>

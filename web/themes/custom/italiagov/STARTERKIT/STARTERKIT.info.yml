@@ -1,0 +1,44 @@
+name: ItaliaGov Sub-theme starter kit
+type: theme
+description: 'Ita-web-toolkit D8 starter theme.'
+hidden: true
+screenshot: screenshot.png
+# This theme is compatible with Drupal 8 core. And it is a sub-theme of ItaliaGov.
+base theme: italiagov
+core: 8.x
+version: VERSION
+
+libraries:
+  - STARTERKIT/global
+
+# Override ita-web-toolkit library loading built assets from the sub theme instead of base theme
+libraries-override:
+  italiagov/ita-web-toolkit:
+    css:
+      theme:
+        build/build.css: build/build.css
+    js:
+      js/iwt_settings.js: js/iwt_settings.js
+      build/IWT.min.js: build/IWT.min.js
+
+regions:
+  cookiebar: 'Cookie bar'
+  header_top: 'Header top'
+  header_branding: 'Header branding'
+  header_search: 'Header search'
+  offcanvas: Offcanvas
+  breadcrumb: Breadcrum
+  help: Help
+  hero: Hero
+  content: Content
+  sidebar_right: 'Sidebar Right'
+  postscript_first: 'Postscript First'
+  postscript_second: 'Postscript Second'
+  postscript_third: 'Postscript Third'
+  postscript_fourth: 'Postscript Fourth'
+  leads : Leads
+  pre_footer : 'Pre Footer'
+  footer_top : 'Footer top'
+  footer_top_right : 'Footer top right'
+  footer_middle : 'Footer middle'
+  footer_bottom : 'Footer bottom'

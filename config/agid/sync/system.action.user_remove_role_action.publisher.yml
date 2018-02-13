@@ -1,0 +1,14 @@
+uuid: 81f3a99c-2511-4238-98ff-64397692920a
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.publisher
+  module:
+    - user
+id: user_remove_role_action.publisher
+label: 'Remove the Editore role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: publisher

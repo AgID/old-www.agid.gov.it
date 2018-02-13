@@ -1,0 +1,19 @@
+uuid: 049e189a-7ca8-45ab-940a-7cc2eb9cf9b8
+langcode: it
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_tax_cad_permalink
+field_name: field_tax_cad_permalink
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

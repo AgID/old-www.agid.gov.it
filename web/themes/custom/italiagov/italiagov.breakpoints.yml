@@ -1,0 +1,18 @@
+italiagov.small:
+  label: small
+  mediaQuery: 'screen and (min-width: 768px) and (max-width: 991px)'
+  weight: 0
+  multipliers:
+    - 1x
+italiagov.medium:
+  label: medium
+  mediaQuery: 'screen and (min-width: 992px) and (max-width: 1365px)'
+  weight: 1
+  multipliers:
+    - 1x
+italiagov.large:
+  label: large
+  mediaQuery: 'screen and (min-width: 1366px)'
+  weight: 2
+  multipliers:
+    - 1x

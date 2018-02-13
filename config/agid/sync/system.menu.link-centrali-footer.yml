@@ -1,0 +1,8 @@
+uuid: 6ff307e0-4194-443a-9b60-47f24c46b178
+langcode: it
+status: true
+dependencies: {  }
+id: link-centrali-footer
+label: 'Link centrali footer'
+description: 'Link centrali footer'
+locked: false

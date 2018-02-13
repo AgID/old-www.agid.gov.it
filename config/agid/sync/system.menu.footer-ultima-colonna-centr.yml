@@ -1,0 +1,8 @@
+uuid: cb1ed66c-b65d-4ee4-a522-944b1365a2c0
+langcode: it
+status: true
+dependencies: {  }
+id: footer-ultima-colonna-centr
+label: 'Footer ultima colonna centrale'
+description: ''
+locked: false

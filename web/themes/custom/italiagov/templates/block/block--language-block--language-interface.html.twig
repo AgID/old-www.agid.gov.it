@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override to display the default language switcher block.
+ */
+#}
+
+{% set container_classes = [
+'Header-languages'
+] %}
+
+{% set active_language_classes = [
+'Header-language',
+'u-border-none',
+'u-zindex-max',
+'u-inlineBlock'
+] %}
+
+{% set active_language_span_classes = [
+'Icon',
+'Icon-expand',
+'u-padding-left-xs'
+] %}
+
+<div{{ attributes.addClass(container_classes) }}>
+  {% block content %}
+
+    {# Active language #}
+    {% if content.active_language %}
+      <a aria-controls="languages" aria-haspopup="true" class="{{ active_language_classes | join(' ') }}"
+         data-menu-trigger="languages" href="#languages" role="button">
+        <span class="u-hiddenVisually">{{ content.active_language.label_hidden }}:</span>
+        <span>{{ content.active_language.language_name | upper }}</span>
+        <span class="{{ active_language_span_classes | join(' ') }}"></span>
+      </a>
+    {% endif %}
+
+    {{ content }}
+
+  {% endblock %}
+</div>

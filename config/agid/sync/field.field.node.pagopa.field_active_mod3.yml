@@ -1,0 +1,23 @@
+uuid: ac99c477-98a4-4df5-9ca9-1714990f0d63
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active_mod3
+    - node.type.pagopa
+id: node.pagopa.field_active_mod3
+field_name: field_active_mod3
+entity_type: node
+bundle: pagopa
+label: 'Attivo Mod3'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: si
+  off_label: 'no'
+field_type: boolean

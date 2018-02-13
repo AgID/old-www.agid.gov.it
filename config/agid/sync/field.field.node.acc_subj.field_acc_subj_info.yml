@@ -1,0 +1,33 @@
+uuid: 0f8acac4-61ea-4396-8c2e-970b90bcc8bc
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_info
+    - node.type.acc_subj
+    - paragraphs.paragraphs_type.more_info
+  module:
+    - entity_reference_revisions
+id: node.acc_subj.field_acc_subj_info
+field_name: field_acc_subj_info
+entity_type: node
+bundle: acc_subj
+label: 'Ulteriori informazioni'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      more_info: more_info
+    target_bundles_drag_drop:
+      more_info:
+        enabled: true
+        weight: 3
+      external_link:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

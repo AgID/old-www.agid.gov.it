@@ -1,0 +1,28 @@
+uuid: b2dcdc1e-81b6-4427-8991-3e396eba7300
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_original_file_source
+    - file_entity.type.document
+    - taxonomy.vocabulary.original_file_source
+id: file.document.field_original_file_source
+field_name: field_original_file_source
+entity_type: file
+bundle: document
+label: 'Contenuto di origine del file'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      original_file_source: original_file_source
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

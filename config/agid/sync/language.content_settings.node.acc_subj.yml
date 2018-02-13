@@ -1,0 +1,16 @@
+uuid: 9169b716-98d2-4515-8622-e411f143149f
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.acc_subj
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.acc_subj
+target_entity_type_id: node
+target_bundle: acc_subj
+default_langcode: site_default
+language_alterable: true

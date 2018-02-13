@@ -1,0 +1,5 @@
+name: Agid Software
+type: module
+description: All stuff for Software content type
+core: 8.x
+package: Agid

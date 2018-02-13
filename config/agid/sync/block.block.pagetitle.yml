@@ -1,0 +1,25 @@
+uuid: fed085d1-1533-4dea-bc43-4503275ab16f
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agid
+id: pagetitle
+theme: agid
+region: breadcrumb
+weight: -9
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,26 @@
+uuid: 4ed1db2f-62a0-4a5f-be7c-53754f2bbae5
+langcode: it
+status: true
+dependencies:
+  module:
+    - imce
+    - node
+third_party_settings:
+  imce:
+    use: false
+    scheme: public
+id: link_content
+label: 'Link content'
+description: ''
+attributes: {  }
+matchers:
+  46a40354-27f4-464d-b1a9-19ef03195a09:
+    uuid: 46a40354-27f4-464d-b1a9-19ef03195a09
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles:
+        page: page
+      group_by_bundle: false
+      include_unpublished: false

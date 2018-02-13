@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - STARTERKIT
+id: STARTERKIT_messages
+theme: STARTERKIT
+region: help
+weight: -4
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

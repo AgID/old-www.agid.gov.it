@@ -1,0 +1,56 @@
+name: agid fixtures
+type: module
+description: All fixtures for agid project.
+core: 8.x
+package: Agid
+dependencies:
+  - migrate_source_csv
+  - migrate_plus
+  - migrate_tools
+  - system (>=8.3)
+  - migrate_google_sheets
+config_devel:
+  install:
+    - migrate_plus.migration.agid_fixtures_ct_person
+    - migrate_plus.migration.agid_fixtures_pagina
+    - migrate_plus.migration.agid_fixtures_empty_page
+    - migrate_plus.migration.agid_fixtures_empty_page_main_menu
+    - migrate_plus.migration.agid_fixtures_empty_page_footer_middle
+    - migrate_plus.migration.agid_fixtures_menu_links
+    - migrate_plus.migration.agid_fixtures_menu_footer_middle
+    - migrate_plus.migration.agid_fixtures_menu_footer_bottom
+    - migrate_plus.migration.agid_fixtures_menu_siti_tematici
+    - migrate_plus.migration.agid_fixtures_taxonomy_pagopa_type
+    - migrate_plus.migration.agid_fixtures_taxonomy_offices
+    - migrate_plus.migration.agid_fixtures_taxonomy_roles
+    - migrate_plus.migration.agid_fixtures_ct_pagopa_psp
+    - migrate_plus.migration.agid_fixtures_ct_pagopa_intermediari
+    - migrate_plus.migration.agid_fixtures_ct_pagopa_ec
+    - migrate_plus.migration.agid_fixtures_images
+    - migrate_plus.migration.agid_fixtures_paragraph_image
+    - migrate_plus.migration.agid_fixtures_paragraph_titletext
+    - migrate_plus.migration.agid_fixtures_organizational_chart_queue
+    - migrate_plus.migration.agid_fixtures_basic_custom_block
+    - migrate_plus.migration.agid_fixtures_menu_faq
+    - migrate_plus.migration.agid_fixtures_paragraph_position
+    - migrate_plus.migration.agid_fixtures_taxonomy_file_category
+    - migrate_plus.migration.agid_fixtures_paragraph_more_info_spid_auth
+    - migrate_plus.migration.agid_fixtures_paragraph_more_info_spid_code
+    - migrate_plus.migration.agid_fixtures_paragraph_external_link_ente_manual
+    - migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_details
+    - migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_doc
+    - migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_info
+    - migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_meta
+    - migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_reg
+    - migrate_plus.migration.agid_fixtures_paragraph_more_info_ente_head
+    - migrate_plus.migration.agid_fixtures_paragraph_more_info_ente_substitut
+    - migrate_plus.migration.agid_fixtures_paragraph_more_info_ente_x500
+    - migrate_plus.migration.agid_fixtures_paragraph_more_info_spid_sec_level
+    - migrate_plus.migration.agid_fixtures_taxonomy_acc_subj_type
+    - migrate_plus.migration.agid_fixtures_taxonomy_tags
+    - migrate_plus.migration.agid_fixtures_taxonomy_profiles
+    - migrate_plus.migration.agid_fixtures_taxonomy_news_type
+    - migrate_plus.migration.agid_fixtures_taxonomy_contact_form
+    - migrate_plus.migration.agid_fixtures_home_page_highlight_queue
+    - migrate_plus.migration.agid_fixtures_users
+    - migrate_plus.migration.agid_fixtures_taxonomy_acc_subj_type

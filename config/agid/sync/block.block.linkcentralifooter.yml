@@ -1,0 +1,29 @@
+uuid: 06865805-b53c-4ec0-940b-4d0393bfab3e
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.link-centrali-footer
+  module:
+    - menu_block
+  theme:
+    - agid
+id: linkcentralifooter
+theme: agid
+region: footer_middle
+weight: -6
+provider: null
+plugin: 'menu_block:link-centrali-footer'
+settings:
+  id: 'menu_block:link-centrali-footer'
+  label: 'Link centrali footer'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand: 0
+  parent: 'link-centrali-footer:'
+  follow: 0
+  follow_parent: 0
+  suggestion: link_centrali_footer
+visibility: {  }

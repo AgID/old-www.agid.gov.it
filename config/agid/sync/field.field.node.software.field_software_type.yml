@@ -1,0 +1,21 @@
+uuid: 3602c075-079a-453e-9cf1-358f6f444106
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_software_type
+    - node.type.software
+  module:
+    - options
+id: node.software.field_software_type
+field_name: field_software_type
+entity_type: node
+bundle: software
+label: Tipologia
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

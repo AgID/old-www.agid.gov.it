@@ -1,0 +1,22 @@
+uuid: 3da24b20-4558-46a5-802a-2931d0224c92
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: news_pathauto
+label: 'News pathauto'
+type: 'canonical_entities:node'
+pattern: '/agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi/[node:title]'
+selection_criteria:
+  ac8b1071-8655-4686-b854-7105113153a5:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ac8b1071-8655-4686-b854-7105113153a5
+selection_logic: and
+weight: -5
+relationships: {  }

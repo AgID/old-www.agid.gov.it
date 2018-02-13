@@ -1,0 +1,21 @@
+uuid: 3344ac65-d93b-4930-9523-f73a469cbb38
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_description
+    - file_entity.type.image
+  module:
+    - text
+id: file.image.field_description
+field_name: field_description
+entity_type: file
+bundle: image
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

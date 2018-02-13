@@ -1,0 +1,56 @@
+uuid: ebdd6e44-0449-4475-829a-ad1ff961d310
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.agid_offices.field_e_mail
+    - taxonomy.vocabulary.agid_offices
+  module:
+    - path
+    - text
+id: taxonomy_term.agid_offices.default
+targetEntityType: taxonomy_term
+bundle: agid_offices
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_e_mail:
+    weight: 31
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+hidden: {  }

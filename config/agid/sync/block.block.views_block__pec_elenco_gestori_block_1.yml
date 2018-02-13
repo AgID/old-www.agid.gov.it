@@ -1,0 +1,30 @@
+uuid: 916b506e-d54b-447c-a0d0-9dbb7eb7167e
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.pec_elenco_gestori
+  module:
+    - system
+    - views
+  theme:
+    - agid
+id: views_block__pec_elenco_gestori_block_1
+theme: agid
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:pec_elenco_gestori-block_1'
+settings:
+  id: 'views_block:pec_elenco_gestori-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /piattaforme/firma-elettronica-qualificata/prestatori-di-servizi-fiduciari-attivi-in-italia
+    negate: false
+    context_mapping: {  }

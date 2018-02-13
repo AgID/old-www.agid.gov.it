@@ -1,0 +1,33 @@
+uuid: fb7ee287-32ae-4c02-9a3a-a8dbd99fffe3
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_first_name
+    - node.type.person
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.person.field_first_name
+field_name: field_first_name
+entity_type: node
+bundle: person
+label: Nome
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

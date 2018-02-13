@@ -1,0 +1,23 @@
+uuid: eaa3c7a7-cce6-41bc-a22f-f5676f373d2d
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_software_number
+    - node.type.software
+id: node.software.field_software_number
+field_name: field_software_number
+entity_type: node
+bundle: software
+label: 'Numero identificativo'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

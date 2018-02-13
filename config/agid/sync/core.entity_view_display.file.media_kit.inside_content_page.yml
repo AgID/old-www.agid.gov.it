@@ -1,0 +1,48 @@
+uuid: c11d1e54-7686-45f1-9f7a-d469b104aa4a
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.file.inside_content_page
+    - field.field.file.media_kit.field_arguments
+    - field.field.file.media_kit.field_description
+    - field.field.file.media_kit.field_file_category
+    - field.field.file.media_kit.field_original_file_source
+    - field.field.file.media_kit.field_title
+    - field.field.file.media_kit.field_type
+    - file_entity.type.media_kit
+  module:
+    - file
+id: file.media_kit.inside_content_page
+targetEntityType: file
+bundle: media_kit
+mode: inside_content_page
+content:
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_file: true
+    third_party_settings: {  }
+    type: file_link
+    region: content
+  filemime:
+    type: file_filemime
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_file: false
+      filemime_image: false
+    third_party_settings: {  }
+hidden:
+  field_arguments: true
+  field_description: true
+  field_file_category: true
+  field_original_file_source: true
+  field_type: true
+  filename: true
+  filesize: true
+  langcode: true
+  uid: true
+  uri: true

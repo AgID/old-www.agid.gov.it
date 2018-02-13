@@ -1,0 +1,119 @@
+id: agid_fixtures_ct_event
+# A human-friendly description of the migration.
+label: Import to "event" elements from "evento"
+migration_group: agid_fixtures_group_contents
+# this is compulsory after 8.1 upgrade
+
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: evento
+
+status: true
+destination:
+  plugin: entity:node
+process:
+#  nid and vid commented out will allow them to autoincrement. Safe as long
+#    as nothing else is referencing them.
+#  nid: nid
+#  vid: vid
+  type:
+    plugin: default_value
+    default_value: event
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'it'
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+
+  #Custom Fields.
+  field_event_description:
+    plugin: agid_textfilter
+    source: field_evt_descrizione
+
+  field_arguments:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_tags/0/tid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_taxonomy_tags
+      no_stub: true
+      source: field_tags
+
+  event_start_date:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_evt_data/0/value
+    -
+      plugin: extract
+      source: field_evt_data
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+    -
+      plugin: date_modify
+      format: 'Y-m-d\TH:i:s'
+      modifier: '-2 hours'
+
+  field_event_start_date/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: '@event_start_date'
+    -
+      plugin: get
+      source: '@event_start_date'
+
+  event_end_date:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_evt_data/0/value2
+    -
+      plugin: extract
+      source: field_evt_data
+      index:
+        - 0
+        - value2
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+    -
+      plugin: date_modify
+      format: 'Y-m-d\TH:i:s'
+      modifier: '-2 hours'
+
+  field_event_end_date/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: '@event_end_date'
+    -
+      plugin: get
+      source: '@event_end_date'
+
+  field_event_location: field_evt_luogo
+
+# Required stuff.
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_tags
+

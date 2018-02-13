@@ -1,0 +1,18 @@
+uuid: c948265d-0151-41e6-92d8-b9026fb9ced7
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_type
+id: taxonomy_term.news_type.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: news_type
+label: Changed
+description: 'La data e l''ora in cui il termine è stato mofificato l''ultima volta.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

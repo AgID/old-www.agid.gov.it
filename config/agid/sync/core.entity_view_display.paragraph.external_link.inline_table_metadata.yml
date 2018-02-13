@@ -1,0 +1,37 @@
+uuid: 96b45cea-934a-4a18-b193-f453b65b48fb
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.inline_table_metadata
+    - field.field.paragraph.external_link.field_external_link_label
+    - field.field.paragraph.external_link.field_external_link_url
+    - paragraphs.paragraphs_type.external_link
+  module:
+    - link
+    - options
+id: paragraph.external_link.inline_table_metadata
+targetEntityType: paragraph
+bundle: external_link
+mode: inline_table_metadata
+content:
+  field_external_link_label:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_external_link_url:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

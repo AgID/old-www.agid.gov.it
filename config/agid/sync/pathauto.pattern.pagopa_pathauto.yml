@@ -1,0 +1,22 @@
+uuid: 904d5f23-8148-43c6-b603-9e3d776571f1
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: pagopa_pathauto
+label: 'PagoPA pathauto'
+type: 'canonical_entities:node'
+pattern: '/piattaforme/pagopa/[node:title]'
+selection_criteria:
+  c55681bd-6791-4e6a-b8eb-4c535e4fe531:
+    id: node_type
+    bundles:
+      pagopa: pagopa
+    negate: false
+    context_mapping:
+      node: node
+    uuid: c55681bd-6791-4e6a-b8eb-4c535e4fe531
+selection_logic: and
+weight: -5
+relationships: {  }

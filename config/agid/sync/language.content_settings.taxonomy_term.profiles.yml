@@ -1,0 +1,16 @@
+uuid: 726ce0a1-49cc-4ea6-a518-7b95a9f9d596
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.profiles
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.profiles
+target_entity_type_id: taxonomy_term
+target_bundle: profiles
+default_langcode: site_default
+language_alterable: true

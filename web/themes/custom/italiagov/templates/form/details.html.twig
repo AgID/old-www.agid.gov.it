@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override for a details element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the details element.
+ * - errors: (optional) Any errors for this details element, may not be set.
+ * - title: (optional) The title of the element, may not be set.
+ * - description: (optional) The description of the element, may not be set.
+ * - children: (optional) The children of the element, may not be set.
+ * - value: (optional) The value of the element, may not be set.
+ *
+ * @see template_preprocess_details()
+ */
+#}
+<details{{ attributes.addClass(['Details', 'u-margin-bottom-l']) }}>
+  {%
+    set summary_classes = [
+      required ? 'js-form-required',
+      required ? 'form-required',
+      'Details-summary',
+      'u-padding-bottom-xxs',
+    ]
+  %}
+  {%- if title -%}
+    <summary{{ summary_attributes.addClass(summary_classes) }}>
+      <span class="u-text-r-xxs Icon Icon-chevron-right"></span> {{ title }}
+    </summary>
+  {%- endif -%}
+
+  {% if errors %}
+    <div class="Details-errors">
+      {{ errors }}
+    </div>
+  {% endif %}
+
+  <div class="Details-content u-padding-right-l u-padding-left-l u-padding-top-s u-padding-bottom-xxs">
+    {{ description }}
+    {{ children }}
+    {{ value }}
+  </div>
+</details>

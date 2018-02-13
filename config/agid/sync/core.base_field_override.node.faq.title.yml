@@ -1,0 +1,18 @@
+uuid: e851af8c-7f7b-4217-8ba7-25682418d75c
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.faq
+id: node.faq.title
+field_name: title
+entity_type: node
+bundle: faq
+label: Domanda
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

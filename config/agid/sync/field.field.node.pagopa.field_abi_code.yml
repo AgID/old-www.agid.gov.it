@@ -1,0 +1,33 @@
+uuid: 733f4b62-f252-45c7-8765-3c4e31dd6983
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abi_code
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_abi_code
+field_name: field_abi_code
+entity_type: node
+bundle: pagopa
+label: 'Codice ABI'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

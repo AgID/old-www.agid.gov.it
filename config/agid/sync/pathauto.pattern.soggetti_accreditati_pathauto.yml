@@ -1,0 +1,22 @@
+uuid: 15128800-1917-49d0-806b-924511676cd0
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: soggetti_accreditati_pathauto
+label: 'Soggetti Accreditati PathAuto'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  71f725da-d3c1-4661-8117-575a84488fcc:
+    id: node_type
+    bundles:
+      acc_subj: acc_subj
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 71f725da-d3c1-4661-8117-575a84488fcc
+selection_logic: and
+weight: -5
+relationships: {  }

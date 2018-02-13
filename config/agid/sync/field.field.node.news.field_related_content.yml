@@ -1,0 +1,25 @@
+uuid: 57a20dff-9410-4b64-ba46-92b902429cae
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.news
+id: node.news.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: news
+label: Approfondisci
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: agid_related_contents
+      display_name: related_contents
+      arguments: {  }
+field_type: entity_reference

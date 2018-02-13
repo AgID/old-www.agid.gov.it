@@ -1,0 +1,28 @@
+uuid: e375afdf-2037-43fc-b9a6-8ced23eedd60
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profiles
+    - node.type.event
+    - taxonomy.vocabulary.profiles
+id: node.event.field_profiles
+field_name: field_profiles
+entity_type: node
+bundle: event
+label: Profili
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      profiles: profiles
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

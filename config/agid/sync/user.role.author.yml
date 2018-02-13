@@ -1,0 +1,47 @@
+uuid: 8bdc6421-79b3-4326-852f-db1b61739ce5
+langcode: it
+status: true
+dependencies: {  }
+id: author
+label: Redattore
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access mediakit_file_browser entity browser pages'
+  - 'access repository_files_browser entity browser pages'
+  - 'access toolbar'
+  - 'create acc_subj content'
+  - 'create content translations'
+  - 'create event content'
+  - 'create faq content'
+  - 'create files'
+  - 'create news content'
+  - 'create press content'
+  - 'create software content'
+  - 'edit own acc_subj content'
+  - 'edit own event content'
+  - 'edit own faq content'
+  - 'edit own news content'
+  - 'edit own page content'
+  - 'edit own press content'
+  - 'edit own software content'
+  - 'translate acc_subj node'
+  - 'translate block_content'
+  - 'translate event node'
+  - 'translate faq node'
+  - 'translate news node'
+  - 'translate page node'
+  - 'translate press node'
+  - 'translate software node'
+  - 'update content translations'
+  - 'update home_page_highlight entityqueue'
+  - 'use text format filtered_text'
+  - 'view all revisions'
+  - 'view files'
+  - 'view own files'
+  - 'view own private files'
+  - 'view own unpublished content'
+  - 'view the administration theme'

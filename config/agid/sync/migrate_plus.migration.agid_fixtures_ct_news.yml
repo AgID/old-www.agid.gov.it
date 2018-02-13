@@ -1,0 +1,153 @@
+uuid: 1c7cc107-6414-4286-a52a-169b84496d3e
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_ct_news
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: agid_fixtures_group_contents
+label: 'Import to "news" elements from "pagina_notizia"'
+source:
+  plugin: d7_node
+  node_type: pagina_novita
+  constants:
+    default_icon: Icon-link
+process:
+  type:
+    plugin: default_value
+    default_value: news
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: it
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  field_news_date/value:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_data/0/value
+    -
+      plugin: extract
+      source: field_data
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y-m-d\TH:i:s'
+    -
+      plugin: date_modify
+      format: 'Y-m-d\TH:i:s'
+      modifier: '-2 hours'
+  field_news_abstract:
+    plugin: agid_textfilter
+    source: field_descrizione
+  body:
+    plugin: agid_textfilter
+    source: body
+  field_news_link/uri:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_link_nodi/0/url
+    -
+      plugin: extract
+      source: field_link_nodi
+      index:
+        - 0
+        - url
+  field_news_link/title:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_link_nodi/0/title
+    -
+      plugin: extract
+      source: field_link_nodi
+      index:
+        - 0
+        - title
+  field_iconfont:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_link_nodi/0/url
+    -
+      plugin: default_value
+      default_value: constants/default_icon
+  field_news_type:
+    plugin: migration_lookup
+    migration: agid_fixtures_taxonomy_news_type
+    no_stub: true
+    source: field_categoria
+  field_profiles:
+    plugin: migration_lookup
+    migration: agid_fixtures_taxonomy_profiles
+    no_stub: true
+    source: field_profili
+  field_arguments:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_tags/0/tid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_taxonomy_tags
+      no_stub: true
+      source: field_tags
+  field_news_related_event:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_argomenti_correlati_ref/target_id
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_ct_event
+      no_stub: true
+      source: field_argomenti_correlati_ref
+  field_image:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_immagine/0/fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+      source: field_immagine/0/fid
+  field_repository_files:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_documentazione_allegata/0/fid
+    -
+      plugin: filter_keys
+      source: field_documentazione_allegata
+      keys:
+        - fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_news_type
+    - agid_fixtures_taxonomy_profiles
+    - agid_fixtures_taxonomy_tags
+    - agid_fixtures_ct_event
+  optional:
+    - agid_fixtures_files

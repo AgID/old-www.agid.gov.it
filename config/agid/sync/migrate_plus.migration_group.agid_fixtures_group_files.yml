@@ -1,0 +1,12 @@
+uuid: 58d52408-d7cb-4a12-84ec-c69c10d289ae
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_group_files
+label: 'Files migrations'
+description: 'files migrations.'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: db_migration

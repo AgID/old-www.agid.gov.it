@@ -1,0 +1,43 @@
+uuid: 1bb8d705-6082-404c-b634-0cf539758507
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.page
+    - field.field.node.faq.field_arguments
+    - field.field.node.faq.field_faq_answer
+    - field.field.node.faq.field_faq_question_full
+    - field.field.node.faq.field_profiles
+    - node.type.faq
+  module:
+    - text
+    - user
+id: node.faq.page
+targetEntityType: node
+bundle: faq
+mode: page
+content:
+  field_arguments:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_faq_answer:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_faq_question_full: true
+  field_profiles: true
+  langcode: true

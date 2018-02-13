@@ -1,0 +1,402 @@
+uuid: f5545e42-96bc-4bec-b88b-ce8c86aff6ea
+langcode: it
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.repository_files_browser
+    - field.field.node.acc_subj.field_acc_subj_acc_date
+    - field.field.node.acc_subj.field_acc_subj_attorney
+    - field.field.node.acc_subj.field_acc_subj_end_date
+    - field.field.node.acc_subj.field_acc_subj_external_link
+    - field.field.node.acc_subj.field_acc_subj_fc
+    - field.field.node.acc_subj.field_acc_subj_info
+    - field.field.node.acc_subj.field_acc_subj_last_update_date
+    - field.field.node.acc_subj.field_acc_subj_logo
+    - field.field.node.acc_subj.field_acc_subj_pec
+    - field.field.node.acc_subj.field_acc_subj_phone
+    - field.field.node.acc_subj.field_acc_subj_registered_office
+    - field.field.node.acc_subj.field_acc_subj_service_logo
+    - field.field.node.acc_subj.field_acc_subj_service_name
+    - field.field.node.acc_subj.field_acc_subj_state
+    - field.field.node.acc_subj.field_acc_subj_type
+    - field.field.node.acc_subj.field_acc_subj_vat
+    - field.field.node.acc_subj.field_acc_subj_website
+    - field.field.node.acc_subj.field_arguments
+    - field.field.node.acc_subj.field_offices
+    - field.field.node.acc_subj.field_repository_files
+    - image.style.thumbnail
+    - node.type.acc_subj
+  module:
+    - datetime
+    - entity_browser
+    - field_group
+    - image
+    - link
+    - paragraphs
+    - path
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_registry
+        - group_state
+        - group_assets
+        - group_documents
+        - group_categories
+        - group_external_links
+        - group_other
+      parent_name: ''
+      weight: 12
+      format_type: tabs
+      format_settings:
+        label: Tabs
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Tabs
+    group_categories:
+      children:
+        - field_offices
+        - field_arguments
+      parent_name: group_tabs
+      weight: 24
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Categorizzazione
+    group_assets:
+      children:
+        - field_acc_subj_logo
+        - field_acc_subj_service_logo
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Assets
+    group_other:
+      children:
+        - field_acc_subj_info
+      parent_name: group_tabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Informazioni addizionali'
+    group_state:
+      children:
+        - field_acc_subj_state
+        - field_acc_subj_acc_date
+        - field_acc_subj_end_date
+        - field_acc_subj_last_update_date
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        label: 'Stato e date'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Stato e date'
+    group_registry:
+      children:
+        - field_acc_subj_fc
+        - field_acc_subj_vat
+        - field_acc_subj_attorney
+        - field_acc_subj_registered_office
+        - field_acc_subj_website
+        - field_acc_subj_pec
+        - field_acc_subj_phone
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Anagrafica
+    group_documents:
+      children:
+        - field_repository_files
+      parent_name: group_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Documenti
+    group_external_links:
+      children:
+        - field_acc_subj_external_link
+      parent_name: group_tabs
+      weight: 25
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Link esterni'
+id: node.acc_subj.default
+targetEntityType: node
+bundle: acc_subj
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_acc_subj_acc_date:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_acc_subj_attorney:
+    weight: 6
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+    type: string_textarea
+    region: content
+  field_acc_subj_end_date:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_acc_subj_external_link:
+    type: entity_reference_paragraphs
+    weight: 24
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: external_link
+    third_party_settings: {  }
+    region: content
+  field_acc_subj_fc:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_acc_subj_info:
+    type: entity_reference_paragraphs
+    weight: 25
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_acc_subj_last_update_date:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_acc_subj_logo:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_acc_subj_pec:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: example@pec.it
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_acc_subj_phone:
+    weight: 10
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+    type: string_textarea
+    region: content
+  field_acc_subj_registered_office:
+    weight: 7
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+    type: string_textarea
+    region: content
+  field_acc_subj_service_logo:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_acc_subj_service_name:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_acc_subj_state:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_acc_subj_type:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_acc_subj_vat:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_acc_subj_website:
+    weight: 8
+    settings:
+      placeholder_url: 'Link al sito internet del soggetto accreditato o del fornitore di servizio.'
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_arguments:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_offices:
+    weight: 25
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_repository_files:
+    weight: 11
+    settings:
+      entity_browser: repository_files_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 14
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

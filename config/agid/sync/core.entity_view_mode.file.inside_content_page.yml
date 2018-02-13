@@ -1,0 +1,10 @@
+uuid: 5f7e6f27-2c0d-4b3d-a046-b71c6c0a220e
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+id: file.inside_content_page
+label: 'Inside content page'
+targetEntityType: file
+cache: true

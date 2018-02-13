@@ -1,0 +1,30 @@
+uuid: af67aa5d-b645-4947-9706-80f654b686d0
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_acc_subj_state
+field_name: field_acc_subj_state
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: attivo
+      label: 'In corso'
+    -
+      value: cessato
+      label: Cessato
+    -
+      value: revocato
+      label: Revocato
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

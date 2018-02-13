@@ -1,0 +1,38 @@
+id: agid_fixtures_taxonomy_acc_subj_type
+label: Import "Tipologia ente accreditato" terms
+migration_group: agid_fixtures_group_taxonomies_db
+migration_tags:
+  - Drupal 7
+deriver: Drupal\taxonomy\Plugin\migrate\D7TaxonomyTermDeriver
+source:
+  plugin: d7_taxonomy_term
+  bundle: tipologia_ente_accreditato
+process:
+  vid:
+    plugin: default_value
+    default_value: acc_subj_type
+  name: name
+  uuid: uuid
+  'description/value': description
+  'description/format': format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  changed: timestamp
+destination:
+  plugin: entity:taxonomy_term
+migration_dependencies:
+  required:
+    {}
+  optional:
+    - d7_field_instance

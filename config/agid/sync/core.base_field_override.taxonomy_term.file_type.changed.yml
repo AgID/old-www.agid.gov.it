@@ -1,0 +1,18 @@
+uuid: 2e63b93c-0c47-40a1-b47d-740fec014a9f
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.file_type
+id: taxonomy_term.file_type.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: file_type
+label: Changed
+description: 'La data e l''ora in cui il termine è stato mofificato l''ultima volta.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,16 @@
+uuid: 77af52ad-cf68-4933-86e0-96b4b3dd06b8
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.pagopa
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.pagopa
+target_entity_type_id: node
+target_bundle: pagopa
+default_langcode: site_default
+language_alterable: false

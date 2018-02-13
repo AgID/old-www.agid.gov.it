@@ -1,0 +1,28 @@
+uuid: 6c48d2e7-99de-49a8-97bc-66adcd0102b7
+langcode: it
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - italiagov
+_core:
+  default_config_hash: Hh8kzbM_qs7_74tyXCD7NwFBrAgi-JmPvNEAFKnFxyo
+id: italiagov_languageswitcher
+theme: italiagov
+region: header_top
+weight: 0
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  provider: language
+  label_display: '0'
+visibility:
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes: {  }

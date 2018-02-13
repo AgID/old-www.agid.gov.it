@@ -1,0 +1,30 @@
+uuid: faf076cf-492c-4209-ac77-f60e667bc3a3
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_page_source
+field_name: field_page_source
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: first_level_page
+      label: 'Pagina di primo livello'
+    -
+      value: second_level_page
+      label: 'Pagina di secondo livello'
+    -
+      value: third_level_page
+      label: 'Pagina di terzo livello'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

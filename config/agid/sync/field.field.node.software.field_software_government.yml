@@ -1,0 +1,32 @@
+uuid: 7ab58f18-06f2-41d3-b095-469ad1171347
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_software_government
+    - node.type.software
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.software.field_software_government
+field_name: field_software_government
+entity_type: node
+bundle: software
+label: Amministrazione
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

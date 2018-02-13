@@ -1,0 +1,12 @@
+uuid: 7f43948f-9cbc-4837-8641-1846693495f1
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 8F2hk_FsvBPDlAeJRldXyaKYTW01BmFZZhT8PHlf0wU
+id: agid_fixtures_group_taxonomies
+label: 'Taxonomies migrations'
+description: 'taxonomies migrations.'
+source_type: 'Google sheet'
+module: null
+shared_configuration: null

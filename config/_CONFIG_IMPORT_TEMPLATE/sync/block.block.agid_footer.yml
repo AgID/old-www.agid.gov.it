@@ -1,0 +1,26 @@
+uuid: e3dad27c-5708-4456-8295-58321567b5c4
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - agid
+_core:
+  default_config_hash: nBb8iDSOpoM_gGVE_JV67D6vhNqz_1BMy4xFGK141tQ
+id: agid_footer
+theme: agid
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

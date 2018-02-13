@@ -1,0 +1,22 @@
+name: AgID backend theme
+type: theme
+description: Subtheme of Adminimal for backend of AgID project.
+package: AgID
+core: 8.x
+libraries:
+  - agid_back/global
+
+base theme: adminimal_theme
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first

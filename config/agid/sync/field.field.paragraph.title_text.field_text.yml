@@ -1,0 +1,33 @@
+uuid: 6d0be266-b8ef-4bee-9ecd-b720967d8443
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.title_text
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: parent_id
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.title_text.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: title_text
+label: Text
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

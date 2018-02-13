@@ -1,0 +1,30 @@
+uuid: fd5a2df4-da46-4844-a94a-48e3da9d9c05
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_external_link
+    - node.type.acc_subj
+    - paragraphs.paragraphs_type.external_link
+  module:
+    - entity_reference_revisions
+id: node.acc_subj.field_acc_subj_external_link
+field_name: field_acc_subj_external_link
+entity_type: node
+bundle: acc_subj
+label: 'Link esterno'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      external_link: external_link
+    target_bundles_drag_drop:
+      external_link:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

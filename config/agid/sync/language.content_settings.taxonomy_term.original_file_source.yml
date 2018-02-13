@@ -1,0 +1,16 @@
+uuid: 52f13f83-c48f-4838-97ea-396a4844e63d
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.original_file_source
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.original_file_source
+target_entity_type_id: taxonomy_term
+target_bundle: original_file_source
+default_langcode: site_default
+language_alterable: true

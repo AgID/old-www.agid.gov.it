@@ -1,0 +1,22 @@
+uuid: 75200b41-ff7e-43de-8c93-267dd845d6c9
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.software
+id: node.software.promote
+field_name: promote
+entity_type: node
+bundle: software
+label: 'Promosso alla prima pagina'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

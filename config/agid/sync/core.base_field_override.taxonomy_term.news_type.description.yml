@@ -1,0 +1,20 @@
+uuid: 02e20cda-7002-4d2a-9bd5-4a1690b57d24
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_type
+  module:
+    - text
+id: taxonomy_term.news_type.description
+field_name: description
+entity_type: taxonomy_term
+bundle: news_type
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

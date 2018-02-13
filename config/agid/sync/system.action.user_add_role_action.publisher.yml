@@ -1,0 +1,14 @@
+uuid: 543986a8-aa9c-4184-a86d-4ac693bc523f
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.publisher
+  module:
+    - user
+id: user_add_role_action.publisher
+label: 'Add the Editore role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: publisher

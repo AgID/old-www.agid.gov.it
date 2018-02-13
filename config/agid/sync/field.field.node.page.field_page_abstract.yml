@@ -1,0 +1,33 @@
+uuid: 94f0ca2c-c123-4ac2-95e8-6f43cde87754
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_abstract
+    - node.type.page
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.page.field_page_abstract
+field_name: field_page_abstract
+entity_type: node
+bundle: page
+label: Abstract
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

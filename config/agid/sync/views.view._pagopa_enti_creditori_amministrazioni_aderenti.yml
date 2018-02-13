@@ -1,0 +1,864 @@
+uuid: 03e439b2-8e81-41fe-a4a8-7aa6f26e0ddb
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fiscal_code
+    - field.storage.node.field_gs1gln_code
+    - field.storage.node.field_ipa_code
+    - field.storage.node.field_istat_type
+    - field.storage.node.field_partner_mediator
+    - node.type.pagopa
+    - taxonomy.vocabulary.pagopa_type
+  content:
+    - 'taxonomy_term:pagopa_type:d8afee0d-2f0c-4ff6-9d04-15bf221b3bcd'
+  module:
+    - node
+    - taxonomy
+    - text
+    - user
+id: _pagopa_enti_creditori_amministrazioni_aderenti
+label: '[PagoPA - Enti Creditori] Amministrazioni aderenti'
+module: views
+description: 'Pagina di accesso alla lista dei contenuti PagoPa della tipologia Enti Creditori'
+tag: ''
+base_table: node_field_data
+base_field: nid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: input_required
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: '<p>Seleziona qualsiasi filtro e clicca su Applica per visualizzare i risultati</p>'
+          text_input_required_format: filtered_text
+      pager:
+        type: full
+        options:
+          items_per_page: 100
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            field_ipa_code: field_ipa_code
+            field_fiscal_code: field_fiscal_code
+            field_gs1gln_code: field_gs1gln_code
+            field_istat_type: field_istat_type
+            field_partner_mediator: field_partner_mediator
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ipa_code:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_fiscal_code:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_gs1gln_code:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_istat_type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_partner_mediator:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: title
+          empty_table: false
+      row:
+        type: fields
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Denominazione
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_ipa_code:
+          id: field_ipa_code
+          table: node__field_ipa_code
+          field: field_ipa_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Codice IPA'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_fiscal_code:
+          id: field_fiscal_code
+          table: node__field_fiscal_code
+          field: field_fiscal_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Codice fiscale'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_gs1gln_code:
+          id: field_gs1gln_code
+          table: node__field_gs1gln_code
+          field: field_gs1gln_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Codice GS1GLN'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_istat_type:
+          id: field_istat_type
+          table: node__field_istat_type
+          field: field_istat_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Tipologia
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_partner_mediator:
+          id: field_partner_mediator
+          table: node__field_partner_mediator
+          field: field_partner_mediator
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Intermediario/Partner
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            pagopa: pagopa
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_pagopa_type_target_id:
+          id: field_pagopa_type_target_id
+          table: node__field_pagopa_type
+          field: field_pagopa_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            219: 219
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: pagopa_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: Ricerca
+            description: ''
+            use_operator: false
+            operator: combine_op
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            title: title
+            field_istat_type: field_istat_type
+            field_partner_mediator: field_partner_mediator
+          plugin_id: combine
+        field_active_value:
+          id: field_active_value
+          table: node__field_active
+          field: field_active_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Attivo (field_active)'
+            description: null
+            use_operator: false
+            operator: field_active_value_op
+            identifier: field_active_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Attivo
+            description: ''
+            identifier: field_active_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Seleziona tutto'
+                operator: '='
+                value: All
+              2:
+                title: 'no'
+                operator: '='
+                value: '0'
+              3:
+                title: si
+                operator: '='
+                value: '1'
+          plugin_id: boolean
+        field_active_mod12_value:
+          id: field_active_mod12_value
+          table: node__field_active_mod12
+          field: field_active_mod12_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Attivo Mod12 (field_active_mod12)'
+            description: null
+            use_operator: false
+            operator: field_active_mod12_value_op
+            identifier: field_active_mod12_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: 'Attivo dal portale dell''Ente'
+            description: ''
+            identifier: field_active_mod12_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Seleziona tutto'
+                operator: '='
+                value: All
+              2:
+                title: 'no'
+                operator: '='
+                value: '0'
+              3:
+                title: si
+                operator: '='
+                value: '1'
+          plugin_id: boolean
+        field_active_mod3_value:
+          id: field_active_mod3_value
+          table: node__field_active_mod3
+          field: field_active_mod3_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Attivo Mod3 (field_active_mod3)'
+            description: null
+            use_operator: false
+            operator: field_active_mod3_value_op
+            identifier: field_active_mod3_value
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: 'Attivo presso i canali del PSP'
+            description: ''
+            identifier: field_active_mod3_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Seleziona tutto'
+                operator: '='
+                value: All
+              2:
+                title: 'no'
+                operator: '='
+                value: '0'
+              3:
+                title: si
+                operator: '='
+                value: '1'
+          plugin_id: boolean
+      sorts:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          order: ASC
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+      title: 'Amministrazioni aderenti'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<p>Ricerca gli Enti Creditori aderenti al Sistema pagoPA. Per ciascun Ente puoi conoscere i modelli di pagamento offerti: pagamento dal portale dell’Ente; pagamento presso i canali dei PSP.</p>\n<p>Puoi effettuare una ricerca libera all’interno dei campi denominazione, tipologia o Intermediario/Partner dell’Ente e applicare i filtri disponibili.</p>\n<p>Tutte le informazioni sono disponibili all’interno delle pagine di dettaglio, raggiungibili cliccando sul nome dell’Ente di interesse.</p>\n<p>Dati aggiornati al 09 maggio 2017.</p>\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-ec.csv\">Elenco degli enti creditori aderenti a PagoPA (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-ec.xlsx\">Elenco degli enti creditori aderenti a PagoPA (XSLX).</a></li>\n</p>"
+            format: filtered_text
+          plugin_id: text
+      footer: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<p>La ricerca non ha prodotto alcun risultato.</p>'
+            format: filtered_text
+          plugin_id: text
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: true
+      css_class: view-table-pagination
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_fiscal_code'
+        - 'config:field.storage.node.field_gs1gln_code'
+        - 'config:field.storage.node.field_ipa_code'
+        - 'config:field.storage.node.field_istat_type'
+        - 'config:field.storage.node.field_partner_mediator'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: piattaforme/pagopa/amministrazioni-aderenti
+      rendering_language: '***LANGUAGE_language_interface***'
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_fiscal_code'
+        - 'config:field.storage.node.field_gs1gln_code'
+        - 'config:field.storage.node.field_ipa_code'
+        - 'config:field.storage.node.field_istat_type'
+        - 'config:field.storage.node.field_partner_mediator'

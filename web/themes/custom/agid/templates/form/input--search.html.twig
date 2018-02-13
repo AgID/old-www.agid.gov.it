@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{% set classes = [
+'Form-input',
+'Form-input--ultraLean',
+'Grid-cell',
+'u-sizeFill',
+'u-color-black',
+'u-text-r-xs',
+'u-borderRadius-s',
+] %}
+
+{% set attributes = attributes.removeAttribute('size').removeAttribute('maxlength').setAttribute('required', true) %}
+{% set field_id = attributes.id %}
+
+<input {{ attributes.addClass(classes) }} />
+<label class="Form-label u-color-grey-50 u-text-r-xxs" for="{{ field_id }}">{{ 'Search...' | t }}</label>
+{{ children }}

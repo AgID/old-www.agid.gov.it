@@ -1,0 +1,28 @@
+uuid: 8ab67831-80e5-4676-a1f6-dfdf627b0ff7
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arguments
+    - node.type.event
+    - taxonomy.vocabulary.arguments
+id: node.event.field_arguments
+field_name: field_arguments
+entity_type: node
+bundle: event
+label: Argomenti
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      arguments: arguments
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

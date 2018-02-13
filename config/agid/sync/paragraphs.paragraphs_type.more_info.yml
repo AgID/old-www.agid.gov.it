@@ -1,0 +1,9 @@
+uuid: 71270919-bbbf-4c9b-bbf8-7bbf67daef1d
+langcode: it
+status: true
+dependencies: {  }
+id: more_info
+label: 'Ulteriori informazioni'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

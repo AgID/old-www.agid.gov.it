@@ -1,0 +1,9 @@
+uuid: 30a0630a-0c3e-4c55-a76d-cc24c60f3e77
+langcode: it
+status: true
+dependencies: {  }
+id: person_position
+label: 'Qualifica persona'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

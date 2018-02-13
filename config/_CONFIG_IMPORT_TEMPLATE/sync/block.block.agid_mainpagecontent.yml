@@ -1,0 +1,22 @@
+uuid: 294f39b1-3db4-4a16-8d1e-4b19573d9779
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agid
+_core:
+  default_config_hash: W6_AEz4abaKwEHkaMGl7ca2Z48shNJ77SWt4lMBMlZ0
+id: agid_mainpagecontent
+theme: agid
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

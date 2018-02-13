@@ -1,0 +1,23 @@
+uuid: 552eb5ae-3b7f-481b-8089-327e4b299db9
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.more_info.field_more_info_label
+    - field.field.paragraph.more_info.field_more_info_texts
+    - paragraphs.paragraphs_type.more_info
+id: paragraph.more_info.preview
+targetEntityType: paragraph
+bundle: more_info
+mode: preview
+content:
+  field_more_info_texts:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  field_more_info_label: true

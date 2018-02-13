@@ -1,0 +1,597 @@
+<?php
+
+/**
+ * @file
+ * Contains functions to alter Drupal's markup for the ItaliaGov theme.
+ *
+ * IMPORTANT WARNING: DO NOT MODIFY THIS FILE.
+ *
+ * The base ItaliaGov theme is designed to be easily extended by its sub-themes.
+ * You shouldn't modify this or any of the CSS or PHP files in the root
+ * italiagov/ folder.
+ */
+
+use Drupal\block\Entity\Block;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function italiagov_preprocess_html(&$variables) {
+  // Add prefix body classes.
+  $variables['attributes']['class'][] = 't-Pac';
+  $variables['attributes']['class'][] = 'iwt-italiagov';
+
+  // Path to the directory of the IWT build.
+  $variables['directory_build'] = $variables['directory'] . '/build';
+
+  // Building social links listing.
+  $socials = italiagov_preprocess_social_links($variables);
+  // Populate regions.
+  if (!empty($socials)) {
+    foreach ($socials as $region_name => $render) {
+      /* @var $region_name
+       * contains the region name selected in the settings form
+       * but the exception is for the 'header' case, because there isn't a real
+       * region with this name. Still handled in the page.html.twig
+       */
+      $label = $render['#theme'];
+      $render = [$region_name => [$label => $render]];
+      $variables['page'] = array_merge_recursive($variables['page'], $render);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function italiagov_preprocess_page(&$variables) {
+  // Retrive theme settings and set variables for template usage.
+  $variables['afferent_administration_url'] = theme_get_setting('header_settings.italiagov_afferent_administration_url');
+  $variables['afferent_administration_name'] = theme_get_setting('header_settings.italiagov_afferent_administration_name');
+  $variables['government_name'] = 'The name of the Public Administration';
+  $variables['scrolltop_text'] = t('Return to the top');
+
+  // Retrieving of the footer setting variables for the page view.
+  $variables['footer_settings'] = theme_get_setting('footer_settings');
+
+  // If we are in an error 403 or 404 page, we should retrieve the error
+  // page setting variables based on the status code itself.
+  $status_code = italiagov_get_exception_code();
+  if ($status_code && in_array($status_code, ['403', '404'])) {
+    $settings = theme_get_setting('error_page_settings.error_page_settings_details_' . $status_code);
+    $variables['error_code'] = $status_code;
+
+    $settings_subtitle = $settings['italiagov_error_page_' . $status_code . '_subtitle'];
+    $variables['subtitle'] = isset($settings_subtitle) ? $settings_subtitle : '';
+
+    $settings_text = $settings['italiagov_error_page_' . $status_code . '_text'];
+    $variables['text'] = isset($settings_text) ? $settings_text : '';
+
+    $settings_return_home = $settings['italiagov_error_page_' . $status_code . '_return_text'];
+    $variables['return_home'] = isset($settings_return_home) ? $settings_return_home : '';
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function italiagov_preprocess_region(array &$variables) {
+  $region = $variables['region'];
+
+  // Get custom settings for main page regions.
+  // I can add some classes to the region wrapper for the regions
+  // in the following array.
+  $main_page_regions = [
+    'hero',
+    'postscript_first',
+    'postscript_second',
+    'postscript_third',
+    'postscript_fourth',
+    'leads',
+    'pre_footer',
+  ];
+  if (in_array($region, $main_page_regions)) {
+    $region_custom_classes = theme_get_setting('advanced_region_settings.italiagov_region_classes_' . $region);
+    $variables['custom_classes'] = trim($region_custom_classes);
+  }
+
+  // Retrieving of the footer settings for the filtered footer regions.
+  $footer_regions = [
+    'footer_top',
+    'footer_top_right',
+    'footer_middle',
+  ];
+  if (in_array($region, $footer_regions)) {
+    $variables['footer_settings'] = theme_get_setting('footer_settings');
+  }
+}
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ *
+ * Adds the "title" variable so that the current page can be added as a
+ * breadcrumb.
+ */
+function italiagov_preprocess_breadcrumb(&$variables) {
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $title = \Drupal::service('title_resolver')
+    ->getTitle($request, $route_match->getRouteObject());
+  $variables['title'] = $title;
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function italiagov_theme_suggestions_alter(&$suggestions, $variables, $hook) {
+  // I want to add an hook suggestion specific for each region in which
+  // a system menu block is printed.
+  // So if a block and the relative menu is printed in the [region_name] region,
+  // I'm expecting this block and this menu will have a
+  // block--system-menu-block--[region_name].html.twig and a
+  // menu--[region_name].html.twig suggestions.
+  // This will allow me to customize system menus blocks based on region they
+  // are printed.
+  if ($hook === 'menu' || $hook === 'block') {
+    // Get all blocks.
+    $all_blocks = \Drupal::service('block.repository')
+      ->getVisibleBlocksPerRegion();
+
+    foreach ($all_blocks as $region => $blocks_in_region) {
+      // If we have an empty region or the content region, we return.
+      // We do not add custom suggestions to block in content region.
+      if (empty($blocks_in_region) || $region == 'content') {
+        continue;
+      }
+      italiagov_add_region_based_menu_block_suggestion($suggestions, $variables, $hook, $region, $blocks_in_region);
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function italiagov_theme_suggestions_page_alter(&$suggestions, $variables) {
+  // Custom suggestion for error pages.
+  $status_code = italiagov_get_exception_code();
+  // I want suggestions for 403 and 404 error pages only.
+  if (!$status_code && !in_array($status_code, ['403', '404'])) {
+    return;
+  }
+
+  // My suggestions should be, in order of specificity:
+  // - page__403 / page__404
+  // - page__error
+  // - [other Drupal suggestions].
+  $error_common_suggestion = 'page__error';
+  $error_most_specific_suggestion = 'page__' . $status_code;
+  // If the page__403 or page__404 suggestion is available we want to
+  // insert our page__error suggestion before this one.
+  if (in_array($error_most_specific_suggestion, $suggestions)) {
+    italiagov_insert_theme_suggestion_before_specific_position($error_most_specific_suggestion, $error_common_suggestion, $suggestions);
+  }
+  else {
+    $suggestions[] = 'page__error';
+    $suggestions[] = 'page__' . $status_code;
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function italiagov_theme_suggestions_region_alter(&$suggestions, $variables) {
+  // The current region name.
+  $region_name = $variables['elements']['#region'];
+  // I want a common more generic region suggestion for all header, footer
+  // and postscript regions.
+  // Regions we can group together.
+  $groupable_region_names = [
+    'footer',
+    'header',
+    'postscript',
+  ];
+  // Add a more generic hook suggestion for groupable regions, so that the
+  // suggestions should look as:
+  // region--header-top.html.twig
+  // region--header.html.twig
+  // region.html.twig.
+  foreach ($groupable_region_names as $name) {
+    // All groupable regions begins with the $name string.
+    if (strpos($region_name, $name) === 0) {
+      $new_suggestion = 'region__' . $name;
+      array_unshift($suggestions, $new_suggestion);
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function italiagov_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id'])) {
+    // Load block entity to informations (like region name).
+    $block = Block::load($variables['elements']['#id']);
+
+    // Remove duplicate elements inside $suggestions array.
+    $suggestions = array_unique($suggestions);
+
+    $pluginid_parts = explode(':', $variables['elements']['#plugin_id']);
+    $block_region_suggestion = 'block__' . $block->getRegion();
+    $block_pluginid_first = 'block__' . $pluginid_parts[0];
+    $key_pluginid_first = array_search($block_pluginid_first, $suggestions);
+
+    // Add region suggestion after first plugin_id suggestion.
+    italiagov_insert_theme_suggestion_at_specific_position($suggestions[$key_pluginid_first], $block_region_suggestion, $suggestions);
+
+    // Add region + block_id suggestion after block_id suggestion.
+    $block_region_pluginidfirst_sugg = 'block__' . $block->getRegion() . '__' . $pluginid_parts[0];
+    italiagov_insert_theme_suggestion_before_specific_position('block__' . $variables['elements']['#id'], $block_region_pluginidfirst_sugg, $suggestions);
+
+    // Add region + block_id suggestion after block_id suggestion.
+    $block_region_blockid_sugg = 'block__' . $block->getRegion() . '__' . $variables['elements']['#id'];
+    italiagov_insert_theme_suggestion_at_specific_position('block__' . $variables['elements']['#id'], $block_region_blockid_sugg, $suggestions);
+  }
+}
+
+/**
+ * Menu theme suggestion based on region.
+ *
+ * Add a menu and a block hook suggestion for system menu blocks based on the
+ * region in which the block is printed.
+ *
+ * @param array $suggestions
+ *   The suggestions array passed by reference (this is the value we want
+ *   to alter).
+ * @param array $variables
+ *   All variables available in the hook_suggestion_alter.
+ * @param string $hook
+ *   The current hook.
+ * @param string $region
+ *   The current region name.
+ * @param array $blocks_in_region
+ *   The array with the list of all blocks in the current region.
+ */
+function italiagov_add_region_based_menu_block_suggestion(array &$suggestions, array $variables, $hook, $region, array $blocks_in_region) {
+  foreach ($blocks_in_region as $block) {
+    $plugin = $block->getPlugin();
+    $base_id = $plugin->getBaseId();
+
+    if ($base_id === 'system_menu_block' || $base_id == 'block_content') {
+      $menu_name = str_replace('-', '_', $plugin->getDerivativeId());
+      if ($hook === 'menu' && $variables['theme_hook_original'] == 'menu__' . $menu_name) {
+        $new_suggestion = 'menu__' . $region;
+        italiagov_insert_theme_suggestion_at_specific_position('menu', $new_suggestion, $suggestions);
+        $suggestions[] = 'menu__' . $region . '__' . $menu_name;
+        break;
+      }
+    }
+  }
+}
+
+/**
+ * Insert a new theme suggestion after an existing suggestion.
+ *
+ * All existing suggestions will be maintained, the new suggestion will
+ * be inserted after the $preceding_suggestion.
+ * If $preceding_suggestion doesn't exist, add suggestion as first.
+ *
+ * @param string $preceding_suggestion
+ *   The existing suggestion positioned before the new one.
+ * @param string $new_suggestion
+ *   The new theme hook suggestion.
+ * @param array $suggestions
+ *   Variable containing theme hook suggesitons passed by reference.
+ */
+function italiagov_insert_theme_suggestion_at_specific_position($preceding_suggestion, $new_suggestion, array &$suggestions) {
+  $key = array_search($preceding_suggestion, $suggestions);
+  $index = 0;
+  if ($key !== FALSE) {
+    $index = $key + 1;
+  }
+  array_splice($suggestions, $index, 0, $new_suggestion);
+}
+
+/**
+ * Insert a new theme suggestion before an existing suggestion.
+ *
+ * All existing suggestions will be maintained, the new suggestion will
+ * be inserted before the $succeeding_suggestion.
+ * If $succeeding_suggestion doesn't exist, do nothing.
+ *
+ * @param string $succeeding_suggestion
+ *   The existing suggestion positioned after the new one.
+ * @param string $new_suggestion
+ *   The new theme hook suggestion.
+ * @param array $suggestions
+ *   Variable containing theme hook suggesitons passed by reference.
+ */
+function italiagov_insert_theme_suggestion_before_specific_position($succeeding_suggestion, $new_suggestion, array &$suggestions) {
+  $key_succ = array_search($succeeding_suggestion, $suggestions);
+  if (!$key_succ) {
+    return;
+  }
+  array_splice($suggestions, $key_succ, 0, $new_suggestion);
+}
+
+/**
+ * Function dedicated to the building of social links.
+ *
+ * @return array|void
+ *   Structured array able to listing social links.
+ */
+function italiagov_preprocess_social_links() {
+  $output = [];
+  $social_settings = theme_get_setting('social_settings');
+
+  // todo: verify the flow of this condition with the fallback settings enabled.
+  if (empty($social_settings)) {
+    return NULL;
+  }
+
+  $locations = [];
+  // Verify existance of socials location settings.
+  foreach ($social_settings['italiagov_socials_locations'] as $region) {
+    if (!empty($region)) {
+      $locations[] = $region;
+    }
+  }
+
+  if (empty($locations)) {
+    // todo: insert this result in the cache too.
+    return NULL;
+  }
+
+  // Building of social item.
+  $social_items = italiagov_building_social_items($social_settings);
+
+  foreach ($locations as $location) {
+    // Defining of theme according to the target region selected.
+    $theme = 'italiagov_social_links_footer';
+    if ($location == 'header') {
+      $theme = 'italiagov_social_links_header';
+    }
+    // Defining of social links renderable array.
+    $output_item = [
+      '#theme' => $theme,
+      '#social_items' => $social_items,
+      '#social_title' => $social_settings['italiagov_socials_title'],
+    ];
+    $output[$location] = $output_item;
+  }
+
+  return $output;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function italiagov_theme($existing, $type, $theme, $path) {
+  $themes = [];
+  $tpl_pattern = ['header', 'footer'];
+  foreach ($tpl_pattern as $region) {
+    $themes['italiagov_social_links_' . $region] = [
+      'variables' => [
+        'social_items' => [],
+        'social_title' => '',
+      ],
+      'template' => 'italiagov-social-links-' . $region,
+      'path' => $path . '/templates/misc',
+    ];
+  }
+
+  $themes['italiagov_language_title_wrapper'] = [
+    'variables' => [
+      'language_code' => NULL,
+      'language_name' => NULL,
+    ],
+    'template' => 'italiagov-language-title-wrapper',
+    'path' => $path . '/templates/misc',
+  ];
+
+  return $themes;
+}
+
+/**
+ * Building of the data array structured as expected by the template.
+ *
+ * @param array $social_settings
+ *   Array of theme settings.
+ *
+ * @see templates/misc/italiagov-social-links-footer.html.twig
+ *
+ * @return array
+ *   Array of printable structured data.
+ */
+function italiagov_building_social_items(array &$social_settings) {
+  array_pop($social_settings);
+  $social_items = [];
+  foreach ($social_settings as $setting_name => $href) {
+    preg_match("/([a-zA-Z]+)$/i", $setting_name, $match);
+    $social_name = $match[0];
+    $class = '';
+    $readable_name = '';
+    switch ($social_name) {
+      case 'facebook':
+        $class = 'Icon-facebook';
+        $readable_name = 'Facebook';
+        break;
+
+      case 'twitter':
+        $class = 'Icon-twitter';
+        $readable_name = 'Twitter';
+        break;
+
+      case 'youtube':
+        $class = 'Icon-youtube';
+        $readable_name = 'Youtube';
+        break;
+
+      case 'instagram':
+        $class = 'Icon-instagram';
+        $readable_name = 'Instagram';
+        break;
+
+      case 'medium':
+        $class = 'Icon-medium';
+        $readable_name = 'Medium';
+        break;
+
+    }
+    $social_items[] = [
+      'href' => $href,
+      'class' => $class,
+      'readable_name' => $readable_name,
+    ];
+  }
+  // Remove title from item links.
+  array_shift($social_items);
+
+  return $social_items;
+}
+
+/**
+ * Implements hook_theme_suggestions_form_alter().
+ */
+function italiagov_theme_suggestions_form_alter(array &$suggestions, array $variables, $hook) {
+  $form_id = $variables['element']['#form_id'];
+  $suggestions[] = 'form__' . $form_id;
+}
+
+/**
+ * Implements hook_theme_suggestions_form_element_alter().
+ */
+function italiagov_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook) {
+  $type = $variables['element']['#type'];
+  $suggestions[] = 'form_element__' . str_replace('-', '_', $type);
+
+  // A suggestion for checkbox single elements.
+  if ($variables['element']['#type'] == 'checkbox' && $variables['element']['#tree'] == FALSE) {
+    $suggestions[] = 'form_element__checkbox__single';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_input_alter().
+ */
+function italiagov_theme_suggestions_input_alter(array &$suggestions, array $variables, $hook) {
+  $element = $variables['element'];
+  $id = str_replace('-', '_', $element['#id']);
+  $suggestion = [
+    'input',
+    $element['#type'],
+    $id,
+  ];
+  $suggestions[] = implode('__', $suggestion);
+
+  // Add element specific suggestion defined by data-twig-context attribute.
+  if (isset($element['#attributes']['data-twig-context'])) {
+    $id = array_pop($suggestion);
+    $suggestion[] = $element['#attributes']['data-twig-context'];
+    $suggestions[] = implode('__', $suggestion);
+    $suggestion[] = $id;
+    $suggestions[] = implode('__', $suggestion);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function italiagov_form_alter(&$form) {
+  // Graphic transformation of links to buttons.
+  italiagov_link2button($form);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function italiagov_form_search_block_form_alter(&$form) {
+  $form['actions']['submit']['#attributes']['data-twig-context'] = 'search_block_form';
+}
+
+/**
+ * Function to render a form action link element to button.
+ *
+ * @param array $form
+ *   Form structured as array.
+ */
+function italiagov_link2button(array &$form) {
+  // Retrieve of actions defined.
+  if (!empty($form['actions'])) {
+    return NULL;
+  }
+  $actions = &$form['actions'];
+  foreach ($actions as &$action) {
+    if (empty($action['#type'])) {
+      continue;
+    };
+    // Catch every link.
+    if ($action['#type'] == 'link') {
+      $action['#attributes']['class'] = [
+        'Button',
+        'Button--default',
+        'u-text-r-xs',
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function italiagov_preprocess_block__language_block__language_interface(&$variables) {
+  // Retrieving of the active language.
+  $active_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if (empty($active_language)) {
+    return NULL;
+  }
+  $links = $variables['content']['#links'];
+  $content = &$variables['content'];
+
+  // Setting of active language element to the layout language switcher.
+  if (!empty($links[$active_language])) {
+    $active_link = $content['#links'][$active_language];
+    $content['active_language'] = [
+      'label_hidden' => t('Lingua attiva'),
+      'language_name' => $active_link['language']->getId(),
+    ];
+  }
+
+  // Removing the active language from the language list.
+  unset($content['#links'][$active_language]);
+
+  // Adding 'u-padding-r-all' class to every links
+  // and wrapping the title with toolkit span.
+  foreach ($content['#links'] as $language_code => &$link) {
+    $link['attributes']['class'][] = 'u-padding-r-all';
+    $language_name = $link['title'];
+    $link['title'] = [
+      '#theme' => 'italiagov_language_title_wrapper',
+      '#language_code' => $language_code,
+      '#language_name' => $language_name,
+    ];
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function italiagov_page_attachments_alter(&$page) {
+  // I need to add an info to the assets dir for webpack async loader.
+  // @see https://github.com/webpack/docs/wiki/configuration#outputpublicpath.
+  $theme_path = base_path() . drupal_get_path('theme', 'italiagov');
+  $assets_path = $theme_path . '/build/';
+  $page['#attached']['library'][] = 'italiagov/ita-web-toolkit';
+  $page['#attached']['drupalSettings']['italiagov']['webpackPublicPath'] = $assets_path;
+}
+
+/**
+ * Return page error code or NULL if no exception error.
+ */
+function italiagov_get_exception_code() {
+  $exception = \Drupal::request()->get('exception');
+  if (empty($exception)) {
+    return NULL;
+  }
+  return $exception->getStatusCode();
+}

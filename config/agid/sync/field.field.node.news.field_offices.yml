@@ -1,0 +1,28 @@
+uuid: 6ea5201f-c31b-4cee-a409-ce23f2739e55
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_offices
+    - node.type.news
+    - taxonomy.vocabulary.agid_offices
+id: node.news.field_offices
+field_name: field_offices
+entity_type: node
+bundle: news
+label: Uffici
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      agid_offices: agid_offices
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

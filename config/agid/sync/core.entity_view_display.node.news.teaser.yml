@@ -1,0 +1,75 @@
+uuid: 61f74849-6dec-491f-aeec-80b65153b6cd
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news.body
+    - field.field.node.news.field_arguments
+    - field.field.node.news.field_iconfont
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_abstract
+    - field.field.node.news.field_news_date
+    - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_related_event
+    - field.field.node.news.field_news_type
+    - field.field.node.news.field_offices
+    - field.field.node.news.field_profiles
+    - field.field.node.news.field_related_content
+    - field.field.node.news.field_repository_files
+    - image.style.medium
+    - node.type.news
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.news.teaser
+targetEntityType: node
+bundle: news
+mode: teaser
+content:
+  field_image:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+  field_news_abstract:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_news_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_arguments: true
+  field_iconfont: true
+  field_news_arguments: true
+  field_news_image: true
+  field_news_link: true
+  field_news_offices: true
+  field_news_profiles: true
+  field_news_related_content: true
+  field_news_related_event: true
+  field_news_subtitle: true
+  field_news_type: true
+  field_offices: true
+  field_profiles: true
+  field_related_content: true
+  field_repository_files: true
+  langcode: true
+  links: true

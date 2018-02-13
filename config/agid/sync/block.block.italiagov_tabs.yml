@@ -1,0 +1,22 @@
+uuid: de0a6a0b-4b2f-48f6-8e68-d127f2dcd7e2
+langcode: it
+status: true
+dependencies:
+  theme:
+    - italiagov
+_core:
+  default_config_hash: Alk-Xnm2J_eYOQ_Yi2iM2A7k33kVpcj5qnPOXn5qI6w
+id: italiagov_tabs
+theme: italiagov
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

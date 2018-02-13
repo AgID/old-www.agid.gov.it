@@ -1,0 +1,67 @@
+uuid: 5098c45f-f918-420d-a9b0-52dc316d8314
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_users
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 8'
+  - User
+migration_group: agid_fixtures_group_system
+label: 'Import Users'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/12/public/values?alt=json'
+  item_selector: null
+  fields:
+    -
+      name: id
+      label: id
+      selector: id
+    -
+      name: username
+      label: username
+      selector: username
+    -
+      name: email
+      label: email
+      selector: email
+    -
+      name: password
+      label: password
+      selector: password
+    -
+      name: roles
+      label: roles
+      selector: roles
+    -
+      name: status
+      label: status
+      selector: status
+    -
+      name: uid
+      label: uid
+      selector: uid
+  ids:
+    id:
+      type: string
+process:
+  name: username
+  mail: email
+  pass: password
+  roles:
+    plugin: explode
+    source: roles
+    delimiter: '|'
+  status: status
+  uid: uid
+destination:
+  plugin: 'entity:user'
+  md5_passwords: true
+migration_dependencies:
+  required: {  }
+  optional: {  }

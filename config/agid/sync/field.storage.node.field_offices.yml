@@ -1,0 +1,20 @@
+uuid: cea16899-8608-47d4-9e53-ddad84a8fe95
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_offices
+field_name: field_offices
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

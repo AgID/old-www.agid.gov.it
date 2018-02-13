@@ -1,0 +1,20 @@
+uuid: 6b097b4b-d8be-47ab-8733-38f1e6b509fb
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.profiles
+  module:
+    - text
+id: taxonomy_term.profiles.description
+field_name: description
+entity_type: taxonomy_term
+bundle: profiles
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

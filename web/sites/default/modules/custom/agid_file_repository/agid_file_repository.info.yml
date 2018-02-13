@@ -1,0 +1,10 @@
+name: Agid File Repository
+type: module
+description: Handles configurations and features about Agid File Repository
+core: 8.x
+package: Agid
+dependencies:
+  - agid_base
+  - file_entity
+  - entity_browser
+  - dropzonejs

@@ -1,0 +1,9 @@
+uuid: f1f3c2e5-a862-4518-95fd-771b6f30a0d5
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologia File'
+vid: file_type
+description: 'Elenco delle tipologie di file'
+hierarchy: 0
+weight: 0

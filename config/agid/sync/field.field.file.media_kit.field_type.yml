@@ -1,0 +1,28 @@
+uuid: d7982efe-78b0-4ac1-90dd-3aad88a08ef3
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_type
+    - file_entity.type.media_kit
+    - taxonomy.vocabulary.file_type
+id: file.media_kit.field_type
+field_name: field_type
+entity_type: file
+bundle: media_kit
+label: 'Tipologia file'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      file_type: file_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

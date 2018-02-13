@@ -1,0 +1,20 @@
+uuid: d8b40c6e-297f-4851-849e-0da16130544d
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.arguments
+  module:
+    - path
+id: taxonomy_term.arguments.path
+field_name: path
+entity_type: taxonomy_term
+bundle: arguments
+label: 'Alias URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

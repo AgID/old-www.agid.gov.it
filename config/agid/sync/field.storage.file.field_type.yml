@@ -1,0 +1,20 @@
+uuid: 70a7a8c4-36c4-4b64-9746-93f1825ef910
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+    - taxonomy
+id: file.field_type
+field_name: field_type
+entity_type: file
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

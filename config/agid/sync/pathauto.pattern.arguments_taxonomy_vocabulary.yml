@@ -1,0 +1,23 @@
+uuid: 5175c78d-0477-4626-ae9d-b045e5ac96a1
+langcode: it
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: arguments_taxonomy_vocabulary
+label: 'Arguments taxonomy vocabulary'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria:
+  92e9a7fe-a359-44d6-9a39-38db8e35570d:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      arguments: arguments
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 92e9a7fe-a359-44d6-9a39-38db8e35570d
+selection_logic: and
+weight: -5
+relationships: {  }

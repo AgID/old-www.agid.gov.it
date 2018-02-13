@@ -1,0 +1,34 @@
+uuid: ce05533c-5677-493e-8a03-740a321533d0
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_paragraph_more_info_spid_sec_level
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: agid_fixtures_group_spid_paragraphs
+label: 'Import into paragraph "more_info" from "field_livello_di_sicurezza" of "spid_dati_identity_provider" CT'
+source:
+  plugin: d7_node
+  node_type: spid_dati_identity_provider
+process:
+  type:
+    plugin: default_value
+    default_value: more_info
+  field_more_info_label:
+    plugin: default_value
+    default_value: security_level
+  field_more_info_texts:
+    plugin: skip_on_empty
+    method: row
+    source: field_livello_di_sicurezza
+  created: '@created'
+  uid:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: more_info
+migration_dependencies: {  }

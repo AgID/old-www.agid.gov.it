@@ -1,0 +1,73 @@
+uuid: e1e2d33e-b471-4c3d-a799-d3a15e950d5d
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_organizational_chart_queue
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 8'
+  - Persona
+migration_group: agid_fixtures_group_new_contents
+label: 'Import queue for organizational chart'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/7/public/values?alt=json'
+  item_selector: feed/entry
+  fields:
+    -
+      name: id
+      label: id
+      selector: id
+    -
+      name: bundle
+      label: bundle
+      selector: bundle
+    -
+      name: person
+      label: person
+      selector: person
+    -
+      name: delta
+      label: delta
+      selector: delta
+  ids:
+    bundle:
+      type: string
+    delta:
+      type: integer
+process:
+  bundle: bundle
+  entity_id: bundle
+  revision_id: bundle
+  delta: delta
+  langcode:
+    plugin: default_value
+    default_value: it
+  items_target_id:
+    -
+      source: person
+      plugin: migration
+      migration:
+        - agid_fixtures_ct_person
+destination:
+  plugin: table
+  table_name: entity_subqueue__items
+  id_fields:
+    bundle:
+      type: string
+    delta:
+      type: integer
+  fields:
+    bundle: bundle
+    entity_id: entity_id
+    revision_id: revision_id
+    items_target_id: items_target_id
+    delta: delta
+    langcode: langcode
+migration_dependencies:
+  required:
+    - agid_fixtures_ct_person

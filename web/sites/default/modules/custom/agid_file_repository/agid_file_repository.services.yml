@@ -1,0 +1,7 @@
+services:
+  agid_file_repository.entity_browser:
+    class: Drupal\agid_file_repository\EventSubscriber\EntityBrowserSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+

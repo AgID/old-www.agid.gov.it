@@ -1,0 +1,18 @@
+uuid: 78b90b72-aee8-4b94-9d42-601896258e92
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.profiles
+id: taxonomy_term.profiles.name
+field_name: name
+entity_type: taxonomy_term
+bundle: profiles
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,30 @@
+uuid: 51427ac4-8fd1-43c2-a1f7-f80296277346
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.conservatori_accreditati
+  module:
+    - system
+    - views
+  theme:
+    - agid
+id: views_block__conservatori_accreditati_block_1
+theme: agid
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:conservatori_accreditati-block_1'
+settings:
+  id: 'views_block:conservatori_accreditati-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /piattaforme/conservazione/conservatori-accreditati
+    negate: false
+    context_mapping: {  }

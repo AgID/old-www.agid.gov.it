@@ -1,0 +1,59 @@
+id: agid_fixtures_taxonomy_contact_form
+label: Import Agid Contact Form Arguments taxonomy
+migration_group: agid_fixtures_group_taxonomies
+migration_dependencies: {}
+migration_tags: null
+status: true
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  # The feed file for the spreadsheet. The Google Spreadsheet should be either “Public” or set to “Anyone with link can
+  # view” in order for the feed to work. Note that the <SHEET> param is the order of the tabs and WILL change if the
+  # tabs are re-ordered.
+  # Template: 'https://spreadsheets.google.com/feeds/list/<KEY>/<SHEET>/public/values?alt=json'
+  urls: 'https://spreadsheets.google.com/feeds/list/1a4vefAvA3YHLSyJDgdCIPGuu1jgwGLC-vcQ8U1WEJ68/8/public/values?alt=json'
+  # Under 'fields', we list the data items to be imported. The first level keys
+  # are the source field names we want to populate (the names to be used as
+  # sources in the process configuration below). For each field we're importing,
+  # we provide a label (optional - this is for display in migration tools) and
+  # an selector (xpath) for retrieving that value. It's important to note that this xpath
+  # is relative to the elements retrieved by item_selector.
+  # For Google Spreadsheet XML feeds the actual columns are named with gsx: followed by the cleaned column name (lower,
+  # limited punctuation, etc).
+  item_selector:
+  fields:
+    -
+      name: id
+      label: 'id'
+      selector: 'id'
+    -
+      name: label
+      label: 'label'
+      selector: 'label'
+
+  # Under 'ids', we identify source fields populated above which will uniquely
+  # identify each imported item. The 'type' makes sure the migration map table
+  # uses the proper schema type for stored the IDs.
+  ids:
+    id:
+      type: integer
+
+destination:
+  plugin: entity:taxonomy_term
+
+process:
+  vid:
+    plugin: default_value
+    default_value: contact_form_arguments
+  name:
+    plugin: get
+    source: label
+  weight:
+    plugin: default_value
+    default_value: 0
+  langcode:
+    plugin: default_value
+    default_value: 'it'
+  'description/value': []
+  'description/format': 'filtered_text'

@@ -1,0 +1,16 @@
+uuid: 2c6ac8f8-2c21-425f-989d-6f7ef47c12a6
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.faq
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.faq
+target_entity_type_id: node
+target_bundle: faq
+default_langcode: site_default
+language_alterable: true

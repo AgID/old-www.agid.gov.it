@@ -1,0 +1,88 @@
+label: File
+description: 'Trova e gestisci i file.'
+display:
+  default:
+    display_title: Principale
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtra
+          reset_button_label: Ripristina
+          exposed_sorts_label: 'Ordina per'
+          sort_asc_label: Asc
+          sort_desc_label: Disc
+      pager:
+        options:
+          tags:
+            previous: '‹ Precedente'
+            next: 'Seguente ›'
+          expose:
+            items_per_page_label: 'Voci per pagina'
+            items_per_page_options_all_label: '- Tutto -'
+            offset_label: Scostamento
+      fields:
+        filename:
+          label: Nome
+          separator: ', '
+        filemime:
+          label: 'Tipo MIME'
+        filesize:
+          label: Dimensione
+        status:
+          label: Stato
+          settings:
+            format_custom_false: Temporaneo
+            format_custom_true: Permanente
+        created:
+          label: 'Data di caricamento'
+        changed:
+          label: 'Data di ultima modifica'
+        count:
+          label: 'Usato in'
+          format_plural_string: "1 luogo\x03@count luoghi"
+      filters:
+        filename:
+          expose:
+            label: 'Nome file'
+        filemime:
+          expose:
+            label: 'Tipo MIME'
+        status:
+          expose:
+            label: Stato
+      title: File
+      empty:
+        area_text_custom:
+          content: 'Nessun file disponibile.'
+  page_1:
+    display_title: 'Panoramica file'
+    display_options:
+      menu:
+        title: File
+  page_2:
+    display_title: 'Utilizzo del file'
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: '‹ Precedente'
+            next: 'Seguente ›'
+          expose:
+            items_per_page_label: 'Voci per pagina'
+            items_per_page_options_all_label: '- Tutto -'
+            offset_label: Scostamento
+      fields:
+        entity_label:
+          label: Entità
+        type:
+          label: 'Tipo di entità'
+        module:
+          label: 'Registrazione del modulo'
+        count:
+          label: 'Contatore di utilizzo'
+          format_plural_string: "1\x03@count"
+      title: 'Utilizzo del file'
+      arguments:
+        fid:
+          exception:
+            title: Tutti

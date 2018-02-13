@@ -1,0 +1,81 @@
+id: agid_fixtures_ct_press
+# A human-friendly description of the migration.
+label: Import to "press" elements from "ufficio_stampa"
+migration_group: agid_fixtures_group_contents
+# this is compulsory after 8.1 upgrade
+
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: ufficio_stampa
+
+
+status: true
+destination:
+  plugin: entity:node
+process:
+#  nid and vid commented out will allow them to autoincrement. Safe as long
+#    as nothing else is referencing them.
+#  nid: nid
+#  vid: vid
+  type:
+    plugin: default_value
+    default_value: press
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'it'
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+
+  #Custom Fields.
+  field_press_publish_date:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: 'field_data_pubblicazione/0/value'
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y-m-d'
+
+  field_press_year:
+    -
+      plugin: extract
+      source: field_data_pubblicazione
+      index:
+        - 0
+        - value
+    -
+      plugin: format_date
+      from_format: 'Y-m-d H:i:s'
+      to_format: 'Y'
+
+  field_press_number:
+    plugin: default_value
+    default_value: null
+
+  field_repository_file:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_documentazione_allegata/0/fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+      source: field_documentazione_allegata/0/fid
+
+# Required stuff.
+migration_dependencies:
+  optional:
+    - agid_fixtures_files

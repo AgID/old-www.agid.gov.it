@@ -1,0 +1,25 @@
+uuid: cdca791e-7bb6-4020-8d1f-784939c4387a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_content
+    - node.type.page
+id: node.page.field_related_content
+field_name: field_related_content
+entity_type: node
+bundle: page
+label: 'Pagine correlate'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: agid_related_contents
+      display_name: related_contents
+      arguments: {  }
+field_type: entity_reference

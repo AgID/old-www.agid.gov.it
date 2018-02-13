@@ -1,0 +1,240 @@
+uuid: 637c9dd4-10d9-4df5-8688-a6199ed9c88c
+langcode: it
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.repository_files_browser
+    - field.field.node.event.field_arguments
+    - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_end_date
+    - field.field.node.event.field_event_geolocation
+    - field.field.node.event.field_event_location
+    - field.field.node.event.field_event_start_date
+    - field.field.node.event.field_image
+    - field.field.node.event.field_offices
+    - field.field.node.event.field_profiles
+    - field.field.node.event.field_related_content
+    - field.field.node.event.field_repository_files
+    - image.style.thumbnail
+    - node.type.event
+  module:
+    - datetime
+    - entity_browser
+    - field_group
+    - image
+    - maxlength
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_event_info
+        - group_assets
+        - group_categorizzazione
+      parent_name: ''
+      weight: 2
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Tabs
+    group_categorizzazione:
+      children:
+        - field_arguments
+        - field_offices
+        - field_profiles
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Categorizzazione
+    group_assets:
+      children:
+        - field_event_image
+        - field_image
+        - field_repository_files
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Assets
+    group_event_info:
+      children:
+        - field_event_start_date
+        - field_event_end_date
+        - field_event_description
+        - field_event_location
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        label: 'Dettagli evento'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Dettagli evento'
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_arguments:
+    weight: 12
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_event_description:
+    weight: 4
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+    type: text_textarea
+    region: content
+  field_event_end_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_event_location:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_event_start_date:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_image:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_offices:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_profiles:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_related_content:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_repository_files:
+    weight: 6
+    settings:
+      entity_browser: repository_files_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_event_geolocation: true

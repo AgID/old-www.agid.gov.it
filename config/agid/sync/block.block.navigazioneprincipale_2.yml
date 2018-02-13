@@ -1,0 +1,29 @@
+uuid: a9c8fedc-dff8-40b0-a0a7-c4dbfc61c849
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - agid
+id: navigazioneprincipale_2
+theme: agid
+region: header_bottom
+weight: 0
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Navigazione principale'
+  provider: menu_block
+  label_display: '0'
+  level: 2
+  depth: 4
+  expand: 0
+  parent: 'main:'
+  follow: 0
+  follow_parent: 0
+  suggestion: main_header_bottom
+visibility: {  }

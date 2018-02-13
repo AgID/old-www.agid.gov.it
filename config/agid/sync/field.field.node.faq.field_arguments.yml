@@ -1,0 +1,28 @@
+uuid: 99c3f2c5-94b7-4e2f-8715-972f5ad8510e
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arguments
+    - node.type.faq
+    - taxonomy.vocabulary.arguments
+id: node.faq.field_arguments
+field_name: field_arguments
+entity_type: node
+bundle: faq
+label: Argomenti
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      arguments: arguments
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

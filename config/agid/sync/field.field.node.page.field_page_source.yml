@@ -1,0 +1,21 @@
+uuid: 0f861bad-d954-4f29-a549-ef80e497e8f9
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_source
+    - node.type.page
+  module:
+    - options
+id: node.page.field_page_source
+field_name: field_page_source
+entity_type: node
+bundle: page
+label: 'Tipo di contenuto originale'
+description: 'Questo campo indica il tipo di contenuto da cui deriva questa pagina prima della migrazione dal vecchio sito.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

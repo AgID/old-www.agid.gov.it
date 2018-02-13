@@ -1,0 +1,17 @@
+uuid: 1941d6af-f652-4911-b835-0962599cdcb6
+langcode: it
+status: true
+dependencies: {  }
+id: media_kit
+label: 'Media Kit'
+description: 'A <em>Media Kit</em> file is a compressed archive.'
+mimetypes:
+  - application/zip
+  - application/zip-compressed
+  - application/x-zip-compressed
+  - multipart/x-zip
+  - application/x-rar-compressed
+  - application/x-tar
+  - application/x-compressed
+  - application/x-gzip
+  - multipart/x-gzip

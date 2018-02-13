@@ -1,0 +1,86 @@
+uuid: a2ffe6d1-27c1-4d26-85a4-63b90514e99c
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event.field_arguments
+    - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_end_date
+    - field.field.node.event.field_event_geolocation
+    - field.field.node.event.field_event_location
+    - field.field.node.event.field_event_start_date
+    - field.field.node.event.field_image
+    - field.field.node.event.field_offices
+    - field.field.node.event.field_profiles
+    - field.field.node.event.field_related_content
+    - field.field.node.event.field_repository_files
+    - image.style.medium
+    - node.type.event
+  module:
+    - datetime
+    - image
+    - text
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  field_event_description:
+    type: text_trimmed
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+  field_event_end_date:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+  field_event_location:
+    type: string
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_event_start_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_arguments: true
+  field_event_arguments: true
+  field_event_geolocation: true
+  field_event_image: true
+  field_event_offices: true
+  field_event_profiles: true
+  field_event_related_content: true
+  field_offices: true
+  field_profiles: true
+  field_related_content: true
+  field_repository_files: true
+  langcode: true
+  links: true

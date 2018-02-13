@@ -1,0 +1,8 @@
+uuid: da89706d-7465-4e85-b216-2fec9f8113d1
+langcode: und
+status: true
+dependencies: {  }
+id: agid_default
+label: 'AgID - default'
+locked: false
+pattern: 'j F Y'

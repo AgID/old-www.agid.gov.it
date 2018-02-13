@@ -1,0 +1,23 @@
+uuid: a7365470-5497-4af3-b0a2-7b4f28b3e11d
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active_mod12
+    - node.type.pagopa
+id: node.pagopa.field_active_mod12
+field_name: field_active_mod12
+entity_type: node
+bundle: pagopa
+label: 'Attivo Mod12'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: si
+  off_label: 'no'
+field_type: boolean

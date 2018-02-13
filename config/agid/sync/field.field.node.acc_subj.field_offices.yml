@@ -1,0 +1,28 @@
+uuid: 2e1bf0d0-409b-4c0b-bc5d-3314c5a850eb
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_offices
+    - node.type.acc_subj
+    - taxonomy.vocabulary.agid_offices
+id: node.acc_subj.field_offices
+field_name: field_offices
+entity_type: node
+bundle: acc_subj
+label: Uffici
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      agid_offices: agid_offices
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

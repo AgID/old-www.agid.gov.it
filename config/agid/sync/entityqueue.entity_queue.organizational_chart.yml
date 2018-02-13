@@ -1,0 +1,25 @@
+uuid: 721e7e05-6848-4204-b29c-64e912aded79
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: organizational_chart
+label: Organigramma
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false

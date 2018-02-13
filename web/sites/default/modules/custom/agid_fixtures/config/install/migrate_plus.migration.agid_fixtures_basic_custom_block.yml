@@ -1,0 +1,129 @@
+id: agid_fixtures_basic_custom_block
+label: Import Basic custom block data
+migration_group: agid_fixtures_group_new_contents
+migration_tags:
+  - Drupal 8
+  - Block
+status: true
+source:
+  plugin: url
+  constants:
+    source_base_path: 'sites/default/modules/custom/agid_fixtures/assets'
+    destination_base_path: 'public:/'
+    images_folder: 'images'
+  data_fetcher_plugin: http
+  data_parser_plugin: google_sheets
+  # The feed file for the spreadsheet. The Google Spreadsheet should be either “Public” or set to “Anyone with link can
+  # view” in order for the feed to work. Note that the <SHEET> param is the order of the tabs and WILL change if the
+  # tabs are re-ordered.
+  # Template: 'https://spreadsheets.google.com/feeds/list/<KEY>/<SHEET>/public/values?alt=json'
+  urls: 'https://spreadsheets.google.com/feeds/list/14qYDVAtbFQKT2cL_qXTXtzjMOBbWaKY1vgxvCuwxBl0/8/public/values?alt=json'
+  # Under 'fields', we list the data items to be imported. The first level keys
+  # are the source field names we want to populate (the names to be used as
+  # sources in the process configuration below). For each field we're importing,
+  # we provide a label (optional - this is for display in migration tools) and
+  # an selector (xpath) for retrieving that value. It's important to note that this xpath
+  # is relative to the elements retrieved by item_selector.
+  # For Google Spreadsheet XML feeds the actual columns are named with gsx: followed by the cleaned column name (lower,
+  # limited punctuation, etc).
+  item_selector:
+  fields:
+    -
+      name: id
+      label: 'id'
+      selector: 'id'
+    -
+      name: title
+      label: 'title'
+      selector: 'title'
+    -
+      name: body
+      label: 'body'
+      selector: 'body'
+    -
+      name: img
+      label: 'img'
+      selector: 'img'
+    -
+      name: uuid
+      label: 'uuid'
+      selector: 'uuid'
+    -
+      name: bundle
+      label: 'bundle'
+      selector: 'bundle'
+
+  # Under 'ids', we identify source fields populated above which will uniquely
+  # identify each imported item. The 'type' makes sure the migration map table
+  # uses the proper schema type for stored the IDs.
+  ids:
+    id:
+      type: string
+
+destination:
+  plugin: entity:block_content
+
+process:
+  type: bundle
+
+  info/value: title
+
+  body/value: body
+  body/format:
+      plugin: default_value
+      default_value: filtered_text
+
+
+  source_full_path_images:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: img
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - constants/images_folder
+        - img
+    -
+      plugin: urlencode
+
+  destination_full_path_images:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: img
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/destination_base_path
+        - constants/images_folder
+        - img
+    -
+      plugin: urlencode
+
+  field_image/target_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: img
+    -
+      plugin: file_copy
+      source:
+        - '@source_full_path_images'
+        - '@destination_full_path_images'
+    -
+      plugin: entity_generate
+      entity_type: image
+  
+  field_image/alt: title
+
+  uuid:
+      plugin: skip_on_empty
+      method: process
+      source: uuid
+
+
+migration_dependencies: {}

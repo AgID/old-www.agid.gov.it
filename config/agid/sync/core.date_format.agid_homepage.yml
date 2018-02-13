@@ -1,0 +1,8 @@
+uuid: 37793ab1-4a18-4ed1-86c9-0f17cd2f632d
+langcode: it
+status: true
+dependencies: {  }
+id: agid_homepage
+label: 'AGID - Homepage'
+locked: false
+pattern: d/m/Y

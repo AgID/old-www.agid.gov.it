@@ -1,0 +1,18 @@
+uuid: 583c77f6-26ca-4eb7-906f-d11944657ec9
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agid_offices
+id: taxonomy_term.agid_offices.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: agid_offices
+label: Changed
+description: 'La data e l''ora in cui il termine è stato mofificato l''ultima volta.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

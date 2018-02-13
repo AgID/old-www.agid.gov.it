@@ -1,0 +1,21 @@
+uuid: 7587da79-df32-49f7-aa8c-5cf31a996001
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_end_date
+    - node.type.acc_subj
+  module:
+    - datetime
+id: node.acc_subj.field_acc_subj_end_date
+field_name: field_acc_subj_end_date
+entity_type: node
+bundle: acc_subj
+label: 'Data cessazione'
+description: 'La data in cui scadrà la certificazione come soggetto accreditato.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

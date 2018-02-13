@@ -1,0 +1,20 @@
+uuid: cdb2f81c-8003-43f9-908e-80df9e57727e
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_atm
+field_name: field_atm
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: ea7c21f7-938d-44ca-a0a8-16df7f6989eb
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: page_pathauto
+label: 'Page pathauto'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parent:url:path]/[node:menu-link]'
+selection_criteria:
+  49880c5a-f51e-4135-84f4-c5f47f68ecec:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 49880c5a-f51e-4135-84f4-c5f47f68ecec
+selection_logic: and
+weight: -5
+relationships: {  }

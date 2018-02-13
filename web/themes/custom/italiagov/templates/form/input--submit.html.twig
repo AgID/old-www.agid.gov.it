@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Theme default for 'submit' form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{% set classes = [
+'Button',
+'Button--default',
+'u-text-r-xs',
+] %}
+
+{% set value = attributes.value %}
+
+<button {{ attributes.addClass(classes).removeAttribute('value') }}>
+  {{ value }}
+</button>
+{{ children }}

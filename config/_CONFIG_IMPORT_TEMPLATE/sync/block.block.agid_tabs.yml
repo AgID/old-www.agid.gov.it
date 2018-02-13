@@ -1,0 +1,22 @@
+uuid: 9db50b65-1afe-4d77-8866-c54783649c3e
+langcode: it
+status: true
+dependencies:
+  theme:
+    - agid
+_core:
+  default_config_hash: eVnfGuOj0rV24u-VwY4wztYBJ30EooM_y5aHB7B3jsM
+id: agid_tabs
+theme: agid
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

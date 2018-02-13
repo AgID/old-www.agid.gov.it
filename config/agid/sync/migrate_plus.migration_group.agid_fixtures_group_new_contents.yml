@@ -1,0 +1,10 @@
+uuid: 0a2acf66-41ae-4c77-9d12-52acbf5b02b7
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_group_new_contents
+label: 'Contents migrations'
+description: 'contents migrations.'
+source_type: 'Google sheet'
+module: null
+shared_configuration: null

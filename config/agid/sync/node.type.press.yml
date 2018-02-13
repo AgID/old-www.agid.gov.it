@@ -1,0 +1,17 @@
+uuid: ee6a1a20-8cdf-4282-b0c5-0f1a79959c79
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Comunicato Stampa'
+type: press
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

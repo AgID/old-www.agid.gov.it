@@ -1,0 +1,20 @@
+uuid: bb5b73c4-a0de-44d5-a169-ac40813a4a93
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.acc_subj_type
+  module:
+    - text
+id: taxonomy_term.acc_subj_type.description
+field_name: description
+entity_type: taxonomy_term
+bundle: acc_subj_type
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

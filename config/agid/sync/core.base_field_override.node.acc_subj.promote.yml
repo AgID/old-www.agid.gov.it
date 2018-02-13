@@ -1,0 +1,22 @@
+uuid: 26804fe1-e1d2-4230-ae7c-1117632fac01
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.acc_subj
+id: node.acc_subj.promote
+field_name: promote
+entity_type: node
+bundle: acc_subj
+label: 'Promosso alla prima pagina'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

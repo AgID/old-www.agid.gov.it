@@ -1,0 +1,16 @@
+uuid: 77172a74-88ba-4c04-9e9c-1b0ac01d13df
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.acc_subj_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.acc_subj_type
+target_entity_type_id: taxonomy_term
+target_bundle: acc_subj_type
+default_langcode: site_default
+language_alterable: true

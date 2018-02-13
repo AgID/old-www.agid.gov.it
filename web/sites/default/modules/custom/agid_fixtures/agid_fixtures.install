@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_fixtures.install.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function agid_fixtures_uninstall() {
+
+  $configs = [
+    'migrate_plus.migration.agid_fixtures_ct_acc_subj_from_ente',
+    'migrate_plus.migration.agid_fixtures_ct_acc_subj_from_spid',
+    'migrate_plus.migration.agid_fixtures_ct_event',
+    'migrate_plus.migration.agid_fixtures_ct_faq',
+    'migrate_plus.migration.agid_fixtures_ct_news',
+    'migrate_plus.migration.agid_fixtures_ct_press',
+    'migrate_plus.migration.agid_fixtures_ct_software',
+    'migrate_plus.migration.agid_fixtures_paragraph_external_link_ente_manual',
+    'migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_details',
+    'migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_doc',
+    'migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_info',
+    'migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_meta',
+    'migrate_plus.migration.agid_fixtures_paragraph_external_link_spid_reg',
+    'migrate_plus.migration.agid_fixtures_paragraph_more_info_ente_head',
+    'migrate_plus.migration.agid_fixtures_paragraph_more_info_ente_substitut',
+    'migrate_plus.migration.agid_fixtures_paragraph_more_info_ente_x500',
+    'migrate_plus.migration.agid_fixtures_paragraph_more_info_spid_auth',
+    'migrate_plus.migration.agid_fixtures_paragraph_more_info_spid_code',
+    'migrate_plus.migration.agid_fixtures_paragraph_more_info_spid_sec_level',
+    'migrate_plus.migration.agid_fixtures_taxonomy_acc_subj_type',
+    'migrate_plus.migration.agid_fixtures_taxonomy_cad',
+    'migrate_plus.migration.agid_fixtures_taxonomy_news_type',
+    'migrate_plus.migration.agid_fixtures_taxonomy_profiles',
+    'migrate_plus.migration.agid_fixtures_taxonomy_tags',
+    'migrate_plus.migration_group.agid_fixtures_group_contents',
+    'migrate_plus.migration_group.agid_fixtures_group_contents_bigdata',
+    'migrate_plus.migration_group.agid_fixtures_group_ente_paragraphs',
+    'migrate_plus.migration_group.agid_fixtures_group_spid_paragraphs',
+    'migrate_plus.migration_group.agid_fixtures_group_taxonomies',
+    'migrate_plus.migration_group.agid_fixtures_group_taxonomies_db',
+  ];
+
+  foreach ($configs as $config) {
+
+    Drupal::configFactory()->getEditable($config)->delete();
+
+  }
+  drupal_flush_all_caches();
+}

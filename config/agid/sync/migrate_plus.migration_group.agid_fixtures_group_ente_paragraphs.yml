@@ -1,0 +1,12 @@
+uuid: ff0d0ba8-1ede-47f2-a0cc-03cfa9f68908
+langcode: it
+status: true
+dependencies: {  }
+id: agid_fixtures_group_ente_paragraphs
+label: 'Paragraphs migrations from CT ente'
+description: 'Contains migrations from fields of the old ente CT into paragraphs'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: db_migration

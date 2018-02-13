@@ -1,0 +1,18 @@
+uuid: 37e6be6f-02b2-4ba3-aa97-4b709c629afd
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.acc_subj
+id: node.acc_subj.title
+field_name: title
+entity_type: node
+bundle: acc_subj
+label: 'Ragione sociale'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

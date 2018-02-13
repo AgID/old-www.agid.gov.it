@@ -1,0 +1,23 @@
+uuid: 41a71164-865e-428e-b782-90a858d156fd
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_website
+    - node.type.acc_subj
+  module:
+    - link
+id: node.acc_subj.field_acc_subj_website
+field_name: field_acc_subj_website
+entity_type: node
+bundle: acc_subj
+label: 'Sito internet'
+description: 'Link al sito internet del soggetto accreditato o del fornitore di servizio.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

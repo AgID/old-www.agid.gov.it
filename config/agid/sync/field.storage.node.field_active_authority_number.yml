@@ -1,0 +1,20 @@
+uuid: e6d60b3c-1b13-4eab-a747-f3dbe556d614
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_active_authority_number
+field_name: field_active_authority_number
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

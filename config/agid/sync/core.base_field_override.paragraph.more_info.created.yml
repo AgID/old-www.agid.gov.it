@@ -1,0 +1,18 @@
+uuid: f83cf066-1718-43f5-bb5b-e8fb90f53c68
+langcode: it
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.more_info
+id: paragraph.more_info.created
+field_name: created
+entity_type: paragraph
+bundle: more_info
+label: 'Creato il'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

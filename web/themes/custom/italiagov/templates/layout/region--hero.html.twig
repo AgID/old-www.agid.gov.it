@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override to display a hero region.
+ */
+#}
+{% if content %}
+  {%
+    set classes = [
+      custom_classes,
+      'Hero',
+    ]
+  %}
+  <section{{ attributes.addClass(classes) }}>
+    <div class="Hero-content">
+      {{ content }}
+    </div>
+  </section>
+{% endif %}

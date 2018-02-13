@@ -1,0 +1,28 @@
+uuid: d95da49c-b2f6-4731-a7eb-1e498be8a0a0
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cad
+    - node.type.page
+    - taxonomy.vocabulary.cad
+id: node.page.field_cad
+field_name: field_cad
+entity_type: node
+bundle: page
+label: 'Codice di amministrazione digitale'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cad: cad
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

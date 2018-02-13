@@ -1,0 +1,21 @@
+uuid: 6274ac91-5dfa-4876-a501-f3b97bed6a27
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faq_question_full
+    - node.type.faq
+  module:
+    - text
+id: node.faq.field_faq_question_full
+field_name: field_faq_question_full
+entity_type: node
+bundle: faq
+label: 'Domanda estesa'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

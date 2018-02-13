@@ -1,0 +1,21 @@
+uuid: e6d2963e-ad90-4781-a48d-4a45514e2359
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_description
+    - file_entity.type.document
+  module:
+    - text
+id: file.document.field_description
+field_name: field_description
+entity_type: file
+bundle: document
+label: Descrizione
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

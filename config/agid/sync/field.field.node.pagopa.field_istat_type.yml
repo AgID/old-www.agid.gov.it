@@ -1,0 +1,33 @@
+uuid: 16834ba2-2951-4e2a-9442-e8bc480e11a1
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_istat_type
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_istat_type
+field_name: field_istat_type
+entity_type: node
+bundle: pagopa
+label: 'Tipologia ISTAT'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,24 @@
+uuid: 10c8e681-8d07-4451-8ed0-39a33020ad99
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: home_page_highlight
+label: 'Home page - Highlight'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 3
+  max_size: 3
+  act_as_queue: false
+  reverse_in_admin: false

@@ -1,0 +1,30 @@
+uuid: 5f1fbff1-ddfa-4bfc-aa41-55251bc124fd
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.home_page_highlight
+  module:
+    - system
+    - views
+  theme:
+    - agid
+id: views_block__home_page_highlight_block_1
+theme: agid
+region: postscript_second
+weight: -12
+provider: null
+plugin: 'views_block:home_page_highlight-block_1'
+settings:
+  id: 'views_block:home_page_highlight-block_1'
+  label: 'In primo piano'
+  provider: views
+  label_display: visible
+  views_label: 'In primo piano'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

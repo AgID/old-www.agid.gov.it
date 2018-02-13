@@ -1,0 +1,18 @@
+uuid: c246a560-b734-4083-b15f-f6f5d854aee4
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_active_mod12
+field_name: field_active_mod12
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

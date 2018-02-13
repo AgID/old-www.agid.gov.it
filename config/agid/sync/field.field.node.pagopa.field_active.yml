@@ -1,0 +1,23 @@
+uuid: de637e33-6a23-4980-b0b3-ef2b5699b0b2
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active
+    - node.type.pagopa
+id: node.pagopa.field_active
+field_name: field_active
+entity_type: node
+bundle: pagopa
+label: Attivo
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: si
+  off_label: 'no'
+field_type: boolean

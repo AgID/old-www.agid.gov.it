@@ -1,0 +1,81 @@
+uuid: 3e72a31a-f1fa-4075-8721-236adddf22a0
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.acc_subj.field_acc_subj_acc_date
+    - field.field.node.acc_subj.field_acc_subj_attorney
+    - field.field.node.acc_subj.field_acc_subj_end_date
+    - field.field.node.acc_subj.field_acc_subj_external_link
+    - field.field.node.acc_subj.field_acc_subj_fc
+    - field.field.node.acc_subj.field_acc_subj_info
+    - field.field.node.acc_subj.field_acc_subj_last_update_date
+    - field.field.node.acc_subj.field_acc_subj_logo
+    - field.field.node.acc_subj.field_acc_subj_pec
+    - field.field.node.acc_subj.field_acc_subj_phone
+    - field.field.node.acc_subj.field_acc_subj_registered_office
+    - field.field.node.acc_subj.field_acc_subj_service_logo
+    - field.field.node.acc_subj.field_acc_subj_service_name
+    - field.field.node.acc_subj.field_acc_subj_state
+    - field.field.node.acc_subj.field_acc_subj_type
+    - field.field.node.acc_subj.field_acc_subj_vat
+    - field.field.node.acc_subj.field_acc_subj_website
+    - field.field.node.acc_subj.field_arguments
+    - field.field.node.acc_subj.field_offices
+    - field.field.node.acc_subj.field_repository_files
+    - node.type.acc_subj
+  module:
+    - datetime
+    - user
+id: node.acc_subj.teaser
+targetEntityType: node
+bundle: acc_subj
+mode: teaser
+content:
+  field_acc_subj_acc_date:
+    type: datetime_default
+    weight: 0
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+  field_acc_subj_fc:
+    type: string
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_acc_subj_last_update_date:
+    type: datetime_default
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+hidden:
+  field_acc_subj_attorney: true
+  field_acc_subj_end_date: true
+  field_acc_subj_external_link: true
+  field_acc_subj_info: true
+  field_acc_subj_logo: true
+  field_acc_subj_pec: true
+  field_acc_subj_phone: true
+  field_acc_subj_registered_office: true
+  field_acc_subj_service_logo: true
+  field_acc_subj_service_name: true
+  field_acc_subj_state: true
+  field_acc_subj_type: true
+  field_acc_subj_vat: true
+  field_acc_subj_website: true
+  field_arguments: true
+  field_offices: true
+  field_repository_files: true
+  langcode: true
+  links: true

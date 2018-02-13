@@ -1,0 +1,30 @@
+uuid: 4e47ce70-7868-4111-859d-ba294e0f4f22
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.more_info.field_more_info_label
+    - field.field.paragraph.more_info.field_more_info_texts
+    - paragraphs.paragraphs_type.more_info
+  module:
+    - options
+id: paragraph.more_info.default
+targetEntityType: paragraph
+bundle: more_info
+mode: default
+content:
+  field_more_info_label:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_more_info_texts:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

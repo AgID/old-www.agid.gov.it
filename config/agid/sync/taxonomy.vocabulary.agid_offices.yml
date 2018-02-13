@@ -1,0 +1,9 @@
+uuid: 4c00d2f5-06f7-4b85-a1a6-e710bc905307
+langcode: it
+status: true
+dependencies: {  }
+name: Uffici
+vid: agid_offices
+description: 'Uffici AgID'
+hierarchy: 0
+weight: 0

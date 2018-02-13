@@ -1,0 +1,19 @@
+uuid: 253a4113-688f-49d0-91e9-d0b7bdc46879
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_title
+    - file_entity.type.document
+id: file.document.field_title
+field_name: field_title
+entity_type: file
+bundle: document
+label: Titolo
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

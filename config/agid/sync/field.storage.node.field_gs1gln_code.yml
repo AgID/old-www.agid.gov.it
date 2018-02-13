@@ -1,0 +1,20 @@
+uuid: d7bf2495-dc01-4357-8137-69c6647310cb
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_gs1gln_code
+field_name: field_gs1gln_code
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

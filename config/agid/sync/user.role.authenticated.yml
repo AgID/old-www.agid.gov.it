@@ -1,0 +1,16 @@
+uuid: 7964ca42-98ee-44ae-9ad0-12e9d64ecd27
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Utente autenticato'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use text format filtered_text'
+  - 'view empty pages'
+  - 'view files'

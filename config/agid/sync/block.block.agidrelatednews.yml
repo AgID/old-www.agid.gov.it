@@ -1,0 +1,29 @@
+uuid: 8cdb22af-e8b1-458e-93b9-c0b823937bab
+langcode: en
+status: true
+dependencies:
+  module:
+    - agid_blocks
+    - ctools
+  theme:
+    - agid
+id: agidrelatednews
+theme: agid
+region: content
+weight: -4
+provider: null
+plugin: agid_related_news_block
+settings:
+  id: agid_related_news_block
+  label: 'Notizie correlate'
+  provider: agid_blocks
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      news: news
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

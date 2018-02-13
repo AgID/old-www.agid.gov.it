@@ -1,0 +1,18 @@
+uuid: 68a3a00d-54a7-4f41-9d26-cac0d710f9df
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cad
+id: taxonomy_term.cad.name
+field_name: name
+entity_type: taxonomy_term
+bundle: cad
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

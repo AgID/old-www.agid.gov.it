@@ -1,0 +1,20 @@
+uuid: e94f369d-2f70-4042-b9fd-3da99f4be02f
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_profiles
+field_name: field_profiles
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

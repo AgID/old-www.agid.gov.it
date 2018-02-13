@@ -1,0 +1,31 @@
+uuid: 83c6745d-2e63-44cc-bed9-39a7f6325a8d
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_custom_block:adf8e6d0-c656-419d-b551-6ca7c90df4ed'
+  module:
+    - block_content
+    - system
+  theme:
+    - agid
+id: intestazioneorganigramma
+theme: agid
+region: content
+weight: -8
+provider: null
+plugin: 'block_content:adf8e6d0-c656-419d-b551-6ca7c90df4ed'
+settings:
+  id: 'block_content:adf8e6d0-c656-419d-b551-6ca7c90df4ed'
+  label: 'Intestazione organigramma'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /agenzia/chi-siamo/organizzazione
+    negate: false
+    context_mapping: {  }

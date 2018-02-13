@@ -1,0 +1,41 @@
+uuid: b28b8054-54f3-4a8e-bac1-e0c5943ac12b
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.pagopa
+  module:
+    - user
+id: node.pagopa.teaser
+targetEntityType: node
+bundle: pagopa
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_abi_code: true
+  field_active: true
+  field_active_authority_number: true
+  field_active_mod12: true
+  field_active_mod3: true
+  field_atm: true
+  field_bic_code: true
+  field_fiscal_code: true
+  field_gs1gln_code: true
+  field_help_desk: true
+  field_interbank_code: true
+  field_ipa_code: true
+  field_istat_type: true
+  field_key: true
+  field_mobile_banking: true
+  field_name: true
+  field_online: true
+  field_pagopa_type: true
+  field_partner_intermediary: true
+  field_partner_mediator: true
+  field_phone_banking: true
+  field_seller_bank_code: true
+  langcode: true

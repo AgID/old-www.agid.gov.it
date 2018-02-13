@@ -1,0 +1,19 @@
+uuid: 968aefb6-4074-4622-8aca-6a09b686cbad
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_pec
+    - node.type.acc_subj
+id: node.acc_subj.field_acc_subj_pec
+field_name: field_acc_subj_pec
+entity_type: node
+bundle: acc_subj
+label: PEC
+description: 'Indirizzo di posta elettronica certificata.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

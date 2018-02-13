@@ -1,0 +1,38 @@
+id: agid_fixtures_paragraph_more_info_ente_x500
+label: Import into paragraph "more_info" from "field_ente_nome_x_500" of "ente" CT
+migration_group: agid_fixtures_group_ente_paragraphs
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: ente
+status: true
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: more_info
+process:
+  type:
+    plugin: default_value
+    default_value: 'more_info'
+
+  # Label
+  field_more_info_label:
+    plugin: default_value
+    # Nome X.500
+    default_value: 'name_x500'
+
+  # Informazioni (Nome X.500)
+  field_more_info_texts:
+    plugin: skip_on_empty
+    method: row
+    source: field_ente_nome_x_500/0/value
+
+  created: '@created'
+
+  uid:
+    plugin: default_value
+    default_value: 1
+
+# Required stuff.
+migration_dependencies: {}

@@ -1,0 +1,5 @@
+name: Agid Press
+type: module
+description: All stuff for Press content type
+core: 8.x
+package: Agid

@@ -1,0 +1,9 @@
+uuid: cd075db5-ee3b-44a7-b058-9da6ed541fcf
+langcode: it
+status: true
+dependencies: {  }
+id: external_link
+label: 'Link esterno'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

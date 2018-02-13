@@ -1,0 +1,19 @@
+uuid: 275bcc04-7d7a-4a9c-b447-026965d1e307
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_acc_subj_registered_office
+field_name: field_acc_subj_registered_office
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

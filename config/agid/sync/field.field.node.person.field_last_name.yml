@@ -1,0 +1,33 @@
+uuid: ac0b93de-6a99-45e6-a1ec-b04855d4b361
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_name
+    - node.type.person
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.person.field_last_name
+field_name: field_last_name
+entity_type: node
+bundle: person
+label: Cognome
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,20 @@
+uuid: 2246f8c7-5b46-466d-a1ab-d537ce632bac
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_fiscal_code
+field_name: field_fiscal_code
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

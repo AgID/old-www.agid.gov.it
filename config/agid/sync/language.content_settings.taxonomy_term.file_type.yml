@@ -1,0 +1,16 @@
+uuid: 2424db69-2d0e-4524-8190-330b16221994
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.file_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.file_type
+target_entity_type_id: taxonomy_term
+target_bundle: file_type
+default_langcode: site_default
+language_alterable: true

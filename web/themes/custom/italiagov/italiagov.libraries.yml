@@ -1,0 +1,22 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      css/italiagov.css: {}
+fonts:
+  version: VERSION
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,600,700': { type: external, minified: true }
+ita-web-toolkit:
+  version: VERSION
+  css:
+    theme:
+      build/build.css: {}
+  js:
+    js/iwt_settings.js: {}
+    build/IWT.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

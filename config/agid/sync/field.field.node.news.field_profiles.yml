@@ -1,0 +1,28 @@
+uuid: c1cfd300-37e1-455d-b794-a2f681edd391
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profiles
+    - node.type.news
+    - taxonomy.vocabulary.profiles
+id: node.news.field_profiles
+field_name: field_profiles
+entity_type: node
+bundle: news
+label: Profili
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      profiles: profiles
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

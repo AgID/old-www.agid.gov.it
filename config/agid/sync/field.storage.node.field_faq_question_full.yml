@@ -1,0 +1,19 @@
+uuid: 2ce0c14a-2113-4a20-b759-c065d4e80157
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_faq_question_full
+field_name: field_faq_question_full
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

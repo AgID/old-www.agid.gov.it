@@ -1,0 +1,23 @@
+uuid: 3a1daf24-5139-4973-9271-92e877b13082
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_press_year
+    - node.type.press
+id: node.press.field_press_year
+field_name: field_press_year
+entity_type: node
+bundle: press
+label: 'Anno comunicato'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

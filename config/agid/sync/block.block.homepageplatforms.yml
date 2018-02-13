@@ -1,0 +1,31 @@
+uuid: 5e787f1f-caaa-4545-8cde-456e733caecd
+langcode: it
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:12413d38-1b98-404e-a02a-5d799f3736b6'
+  module:
+    - block_content
+    - system
+  theme:
+    - agid
+id: homepageplatforms
+theme: agid
+region: postscript_third
+weight: 0
+provider: null
+plugin: 'block_content:12413d38-1b98-404e-a02a-5d799f3736b6'
+settings:
+  id: 'block_content:12413d38-1b98-404e-a02a-5d799f3736b6'
+  label: Piattaforme
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

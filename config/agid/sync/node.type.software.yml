@@ -1,0 +1,17 @@
+uuid: 21a01cbc-844d-4736-b0ff-103d7f500d42
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Software riusabile'
+type: software
+description: 'Questo tipo di contenuto deve essere utilizzato per l''aggiunta di contenuti del tipo "Software riusabile"'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

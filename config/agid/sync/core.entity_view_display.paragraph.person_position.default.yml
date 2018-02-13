@@ -1,0 +1,30 @@
+uuid: 95b7c28e-e15d-485e-a6bc-212d9e5c975a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person_position.field_office
+    - field.field.paragraph.person_position.field_role
+    - paragraphs.paragraphs_type.person_position
+id: paragraph.person_position.default
+targetEntityType: paragraph
+bundle: person_position
+mode: default
+content:
+  field_office:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_role:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

@@ -1,0 +1,16 @@
+uuid: b857ff88-ac7c-45ea-874c-9697038fd2f3
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.roles
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.roles
+target_entity_type_id: taxonomy_term
+target_bundle: roles
+default_langcode: site_default
+language_alterable: false

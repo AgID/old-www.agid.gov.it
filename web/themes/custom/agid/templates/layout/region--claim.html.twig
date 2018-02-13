@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a generic region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% if content %}
+  {%
+    set classes = [
+      custom_classes,
+      'u-margin-top-xxl',
+      'u-margin-bottom-xxl',
+      'u-padding-top-xl',
+      'u-padding-bottom-xl',
+      'u-border-top-xxs',
+      'u-border-bottom-xxs',
+      'u-text-r-l',
+      'u-textWeight-600',
+      'claim'
+    ]
+  %}
+  <section{{ attributes.addClass(classes) }}>
+    <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+      {{ content }}
+    </div>
+  </section>
+{% endif %}

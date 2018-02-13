@@ -1,0 +1,33 @@
+uuid: a604173f-b98f-48e9-850a-075d498a1af2
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_active_authority_number
+    - node.type.pagopa
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.pagopa.field_active_authority_number
+field_name: field_active_authority_number
+entity_type: node
+bundle: pagopa
+label: 'Numero Enti Attivi'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

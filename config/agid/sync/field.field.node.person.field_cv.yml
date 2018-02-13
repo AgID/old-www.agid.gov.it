@@ -1,0 +1,23 @@
+uuid: cea3f085-aaee-4a70-9805-5c9bb645b804
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cv
+    - node.type.person
+  module:
+    - link
+id: node.person.field_cv
+field_name: field_cv
+entity_type: node
+bundle: person
+label: 'Curriculum Vitae'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

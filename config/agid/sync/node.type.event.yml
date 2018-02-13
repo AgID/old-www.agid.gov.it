@@ -1,0 +1,17 @@
+uuid: 1597007f-9e9d-4bea-bf83-a19c9ae68590
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Evento
+type: event
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

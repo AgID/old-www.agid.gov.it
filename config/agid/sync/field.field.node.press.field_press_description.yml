@@ -1,0 +1,21 @@
+uuid: 95c00b1a-1dd7-435c-9923-5573c8581c41
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_press_description
+    - node.type.press
+  module:
+    - text
+id: node.press.field_press_description
+field_name: field_press_description
+entity_type: node
+bundle: press
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

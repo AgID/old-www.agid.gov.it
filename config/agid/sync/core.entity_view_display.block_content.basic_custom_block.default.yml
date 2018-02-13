@@ -1,0 +1,34 @@
+uuid: 7c37c42f-c038-4da0-931d-5ebbe03290fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic_custom_block
+    - field.field.block_content.basic_custom_block.body
+    - field.field.block_content.basic_custom_block.field_image
+  module:
+    - image
+    - text
+id: block_content.basic_custom_block.default
+targetEntityType: block_content
+bundle: basic_custom_block
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true

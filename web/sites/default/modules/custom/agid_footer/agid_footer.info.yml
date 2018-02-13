@@ -1,0 +1,5 @@
+name: AGID Footer
+type: module
+description: Gestione degli elementi del footer AGID
+core: 8.x
+package: Agid

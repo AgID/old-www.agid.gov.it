@@ -1,0 +1,18 @@
+uuid: 8aa1cfce-2a6a-495b-a28b-f8afd81a33b5
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.arguments
+id: taxonomy_term.arguments.name
+field_name: name
+entity_type: taxonomy_term
+bundle: arguments
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

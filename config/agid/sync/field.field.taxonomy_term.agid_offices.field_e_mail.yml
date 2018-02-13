@@ -1,0 +1,33 @@
+uuid: 8b7acdc5-6d63-4876-bb76-319b6a118983
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_e_mail
+    - taxonomy.vocabulary.agid_offices
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: name
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: taxonomy_term.agid_offices.field_e_mail
+field_name: field_e_mail
+entity_type: taxonomy_term
+bundle: agid_offices
+label: E-mail
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

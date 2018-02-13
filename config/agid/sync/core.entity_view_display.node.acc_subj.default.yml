@@ -1,0 +1,191 @@
+uuid: 226fd2df-5a1c-411a-a29d-1659761ae5fc
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.acc_subj.field_acc_subj_acc_date
+    - field.field.node.acc_subj.field_acc_subj_attorney
+    - field.field.node.acc_subj.field_acc_subj_end_date
+    - field.field.node.acc_subj.field_acc_subj_external_link
+    - field.field.node.acc_subj.field_acc_subj_fc
+    - field.field.node.acc_subj.field_acc_subj_info
+    - field.field.node.acc_subj.field_acc_subj_last_update_date
+    - field.field.node.acc_subj.field_acc_subj_logo
+    - field.field.node.acc_subj.field_acc_subj_pec
+    - field.field.node.acc_subj.field_acc_subj_phone
+    - field.field.node.acc_subj.field_acc_subj_registered_office
+    - field.field.node.acc_subj.field_acc_subj_service_logo
+    - field.field.node.acc_subj.field_acc_subj_service_name
+    - field.field.node.acc_subj.field_acc_subj_state
+    - field.field.node.acc_subj.field_acc_subj_type
+    - field.field.node.acc_subj.field_acc_subj_vat
+    - field.field.node.acc_subj.field_acc_subj_website
+    - field.field.node.acc_subj.field_arguments
+    - field.field.node.acc_subj.field_offices
+    - field.field.node.acc_subj.field_repository_files
+    - image.style.medium
+    - node.type.acc_subj
+  module:
+    - datetime
+    - entity_reference_revisions
+    - image
+    - link
+    - options
+    - user
+id: node.acc_subj.default
+targetEntityType: node
+bundle: acc_subj
+mode: default
+content:
+  field_acc_subj_acc_date:
+    weight: 4
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_acc_subj_attorney:
+    weight: 13
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_acc_subj_end_date:
+    weight: 5
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_acc_subj_external_link:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: inline
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_acc_subj_fc:
+    weight: 10
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_acc_subj_info:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: inline
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_acc_subj_logo:
+    weight: 9
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_acc_subj_pec:
+    weight: 14
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_acc_subj_phone:
+    weight: 16
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_acc_subj_registered_office:
+    weight: 12
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_acc_subj_service_logo:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_acc_subj_service_name:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_acc_subj_state:
+    weight: 3
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_acc_subj_type:
+    type: entity_reference_label
+    weight: 17
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_acc_subj_vat:
+    weight: 11
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_acc_subj_website:
+    weight: 15
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_repository_files:
+    type: entity_reference_entity_view
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      view_mode: inside_table
+      link: false
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_acc_subj_last_update_date: true
+  field_arguments: true
+  field_offices: true
+  langcode: true

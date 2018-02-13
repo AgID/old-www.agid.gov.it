@@ -1,0 +1,21 @@
+uuid: 03cf73b2-0ad3-4233-a6ef-047a19e947df
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faq_answer
+    - node.type.faq
+  module:
+    - text
+id: node.faq.field_faq_answer
+field_name: field_faq_answer
+entity_type: node
+bundle: faq
+label: Risposta
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

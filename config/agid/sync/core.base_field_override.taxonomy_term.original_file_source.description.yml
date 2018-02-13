@@ -1,0 +1,20 @@
+uuid: 6674d5d3-3761-40ec-921f-c56e50754840
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.original_file_source
+  module:
+    - text
+id: taxonomy_term.original_file_source.description
+field_name: description
+entity_type: taxonomy_term
+bundle: original_file_source
+label: Descrizione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

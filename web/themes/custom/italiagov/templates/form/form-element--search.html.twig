@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Theme override for a form search element.
+ *
+ * @see template_preprocess_form_element()
+ */
+#}
+
+{{ children }}
+{% if errors %}
+  <div class="form-item--error-message">
+    {{ errors }}
+  </div>
+{% endif %}

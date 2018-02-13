@@ -1,0 +1,34 @@
+uuid: 0cf4b3b1-89c6-4510-8cb2-fabdbf7f78f8
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_geolocation
+    - node.type.event
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: source
+    field: field_event_location
+    plugins:
+      - agid_googlemaps
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.event.field_event_geolocation
+field_name: field_event_geolocation
+entity_type: node
+bundle: event
+label: Geolocalizzazione
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

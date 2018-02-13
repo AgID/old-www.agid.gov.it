@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+<div class="u-layout-centerContent u-padding-r-bottom u-padding-top-s">
+    <section class="u-layout-wide">
+
+        <div class="Grid Grid--withGutter highlighted-data">
+
+        {% for row in rows %}
+          {%
+            set row_classes = [
+              default_row_class ? 'views-row',
+              'Grid-cell'
+            ]
+          %}
+            {% if loop.index0 == 0 %}
+                {% set row_classes = row_classes|merge(['u-nbfc', 'u-md-size2of4', 'u-lg-size2of4']) %}
+            {% else %}
+                {% set row_classes = row_classes|merge(['u-md-size1of4', 'u-lg-size1of4', 'u-padding-r-left']) %}
+            {% endif %}
+          <div{{ row.attributes.addClass(row_classes) }}>
+            {{ row.content }}
+          </div>
+        {% endfor %}
+
+        </div>
+    </section>
+</div>

@@ -1,0 +1,65 @@
+id: agid_fixtures_ct_software
+# A human-friendly description of the migration.
+label: Import to "software" elements from "catalogo_pac"
+migration_group: agid_fixtures_group_contents
+# this is compulsory after 8.1 upgrade
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: catalogo_pac
+status: true
+destination:
+  plugin: entity:node
+  default_bundle: software
+process:
+#  nid and vid commented out will allow them to autoincrement. Safe as long
+#    as nothing else is referencing them.
+#  nid: nid
+#  vid: vid
+  type:
+    plugin: default_value
+    default_value: software
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'it'
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+
+  # Custom Fields:
+  # Amministrazione
+  field_software_government: field_catalogo_amministrazione
+
+  # Anno
+  field_software_year: field_catalogo_anno
+
+  # Numero identificativo
+  field_software_number: field_catalogo_numero
+
+  # Tipologia
+  field_software_type: field_pac_catalogo_tipologia
+
+  field_repository_file:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_catalogo_scheda/0/fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+      source: field_catalogo_scheda/0/fid
+
+# Required stuff.
+migration_dependencies:
+  optional:
+    - agid_fixtures_files

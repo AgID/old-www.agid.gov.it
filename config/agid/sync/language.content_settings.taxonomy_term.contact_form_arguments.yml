@@ -1,0 +1,16 @@
+uuid: db35cda2-cb30-458d-b51e-022a69f1d3ee
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.contact_form_arguments
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.contact_form_arguments
+target_entity_type_id: taxonomy_term
+target_bundle: contact_form_arguments
+default_langcode: site_default
+language_alterable: false

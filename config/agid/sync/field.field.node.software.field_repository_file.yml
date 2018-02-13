@@ -1,0 +1,30 @@
+uuid: fdbb4b08-c299-4e20-b698-235502480f7a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_repository_file
+    - file_entity.type.document
+    - file_entity.type.media_kit
+    - node.type.software
+id: node.software.field_repository_file
+field_name: field_repository_file
+entity_type: node
+bundle: software
+label: Scheda
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings:
+    target_bundles:
+      document: document
+      media_kit: media_kit
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference

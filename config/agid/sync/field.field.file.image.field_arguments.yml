@@ -1,0 +1,28 @@
+uuid: 40bcab66-cb9c-4c99-b712-da7007455527
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_arguments
+    - file_entity.type.image
+    - taxonomy.vocabulary.arguments
+id: file.image.field_arguments
+field_name: field_arguments
+entity_type: file
+bundle: image
+label: Argomenti
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      arguments: arguments
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,35 @@
+uuid: 3dca414c-631d-479d-a26f-1d5e9be1c091
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+    - system
+  theme:
+    - agid
+id: navigazionesecondaria
+theme: agid
+region: content
+weight: -6
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Navigazione secondaria'
+  provider: menu_block
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand: 0
+  parent: 'main:'
+  follow: 1
+  follow_parent: 0
+  suggestion: internalmenupage
+visibility:
+  request_path:
+    id: request_path
+    pages: "/agenzia\r\n/piattaforme\r\n/infrastrutture\r\n/sicurezza\r\n/dati\r\n/norme_e_regole_tecniche"
+    negate: false
+    context_mapping: {  }

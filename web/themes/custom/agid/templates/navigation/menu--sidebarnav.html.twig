@@ -1,0 +1,111 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+
+{#
+<h5 class="u-text-h4 u-padding-top-s">{{ menu_label }}</h5>
+#}
+
+{% import _self as menus %}
+{% if items %}
+    {% for item in items %}
+        {% if item.in_active_trail and item.below %}
+{{ menus.menu_links(items, attributes, 0, false) }}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% macro menu_links(items, attributes, menu_level, is_opened) %}
+    {% import _self as menus %}
+    {%
+    set root_classes = [
+    'Linklist',
+    'Linklist--padded',
+    'Treeview',
+    'Treeview--default',
+    'js-Treeview',
+    'u-text-r-xs',
+    'sidebar-menu',
+    'sidebarnav-menu'
+    ]
+    %}
+
+    {% if items %}
+
+        {% if menu_level == 0 %}
+            <ul{{ attributes.addClass(root_classes) }}>
+        {% else %}
+            <ul {{ attributes
+        .setAttribute('role', 'group')
+        .setAttribute('aria-hidden', is_opened ? false : true )
+        .setAttribute('style', 'display: ' ~ is_opened ? 'block' : 'none' ~ ';')
+        }}>
+        {% endif %}
+
+        {% for item in items %}
+
+            {% set lattributes = [] %}
+            {% set children_class = [] %}
+
+            {# If has children: parent LI #}
+            {% if (item.below) %}
+                {% set class = ['Treeview-parent'] %}
+            <li{{ item.attributes
+            .setAttribute('role', 'treeitem')
+            .addClass(class)
+            .addClass(item.in_active_trail ? 'hasFocus' : '')
+            .setAttribute('aria-expanded', item.in_active_trail ? 'true' : 'false' )
+            }}>
+            {% else %}
+                {# If has children: signle LI #}
+                <li{{ item.attributes
+            .setAttribute('role', 'treeitem')
+            .addClass(item.in_active_trail ? 'isActive' : '')}}>
+            {% endif %}
+
+            {# If has children #}
+            {% if item.below %}
+                {% set lattributes = {
+                'class': '',
+                'aria-label': 'expand',
+                'role': 'button'
+                }
+                %}
+            {% endif %}
+            {{ link(item.title, item.url, lattributes) }}
+
+            {# If has children #}
+            {% if item.below %}
+                {% set children_attributes = create_attribute() %}
+                {{ menus.menu_links(
+                item.below,
+                children_attributes.addClass(children_class),
+                menu_level + 1,
+                item.in_active_trail
+                )
+                }}
+            {% endif %}
+
+            </li>
+        {% endfor %}
+
+        </ul>
+    {% endif %}
+{% endmacro %}

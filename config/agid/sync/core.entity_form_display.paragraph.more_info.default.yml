@@ -1,0 +1,38 @@
+uuid: f1d913ca-79fa-4e7b-a08e-3eac81ee90af
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.more_info.field_more_info_label
+    - field.field.paragraph.more_info.field_more_info_texts
+    - paragraphs.paragraphs_type.more_info
+  module:
+    - maxlength
+id: paragraph.more_info.default
+targetEntityType: paragraph
+bundle: more_info
+mode: default
+content:
+  field_more_info_label:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_more_info_texts:
+    weight: 1
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+    type: string_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

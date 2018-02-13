@@ -1,0 +1,14 @@
+uuid: a2579403-aa04-408c-a85c-5706a63dbb04
+langcode: it
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: uufe-cvkzFTMpj7bNQOQHqlf92lVQ5DM6dd0NDnNVt4
+id: creditcard_codes
+label: 'Credit card codes'
+category: Pagamento
+likert: false
+options: "VI: 'Visa'\nMC: 'Mastercard'\nAE: 'American Express'\nDC: 'Discover'\n"

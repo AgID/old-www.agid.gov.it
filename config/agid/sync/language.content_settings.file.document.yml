@@ -1,0 +1,11 @@
+uuid: f4cdf73d-b925-4ba0-bfc8-2f05392764ea
+langcode: it
+status: true
+dependencies:
+  config:
+    - file_entity.type.document
+id: file.document
+target_entity_type_id: file
+target_bundle: document
+default_langcode: site_default
+language_alterable: false

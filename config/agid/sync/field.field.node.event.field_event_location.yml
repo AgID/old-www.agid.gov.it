@@ -1,0 +1,32 @@
+uuid: 5e5819db-7ef3-4959-91c9-6a54ed59d665
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_location
+    - node.type.event
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.event.field_event_location
+field_name: field_event_location
+entity_type: node
+bundle: event
+label: 'luogo:'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

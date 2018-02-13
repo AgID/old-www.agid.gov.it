@@ -1,0 +1,29 @@
+uuid: 4161ad46-d3f6-4387-8c84-894087859886
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_related_event
+    - node.type.event
+    - node.type.news
+id: node.news.field_news_related_event
+field_name: field_news_related_event
+entity_type: node
+bundle: news
+label: 'Evento correlato'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

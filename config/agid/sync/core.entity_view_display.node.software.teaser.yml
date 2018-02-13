@@ -1,0 +1,28 @@
+uuid: 09818196-0acb-4b4b-a635-72e9d7b6591b
+langcode: it
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.software.field_software_government
+    - field.field.node.software.field_software_number
+    - field.field.node.software.field_software_type
+    - field.field.node.software.field_software_year
+    - node.type.software
+  module:
+    - user
+id: node.software.teaser
+targetEntityType: node
+bundle: software
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_repository_file: true
+  field_software_government: true
+  field_software_number: true
+  field_software_type: true
+  field_software_year: true
+  langcode: true

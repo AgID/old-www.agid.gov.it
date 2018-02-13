@@ -1,0 +1,20 @@
+uuid: d83cdc37-143e-4bef-b76b-55ad62df0007
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_help_desk
+field_name: field_help_desk
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

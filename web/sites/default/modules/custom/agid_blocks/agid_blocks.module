@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_blocks.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function agid_blocks_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the agid_blocks module.
+    case 'help.page.agid_blocks':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('AGID custom blocks') . '</p>';
+      return $output;
+
+    default:
+  }
+}

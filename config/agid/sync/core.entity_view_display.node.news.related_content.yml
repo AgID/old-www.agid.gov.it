@@ -1,0 +1,52 @@
+uuid: c9e35986-a0e0-4b19-b0e3-94210209006c
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.related_content
+    - field.field.node.news.body
+    - field.field.node.news.field_arguments
+    - field.field.node.news.field_iconfont
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_abstract
+    - field.field.node.news.field_news_date
+    - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_related_event
+    - field.field.node.news.field_news_type
+    - field.field.node.news.field_offices
+    - field.field.node.news.field_profiles
+    - field.field.node.news.field_related_content
+    - field.field.node.news.field_repository_files
+    - node.type.news
+  module:
+    - datetime
+    - user
+id: node.news.related_content
+targetEntityType: node
+bundle: news
+mode: related_content
+content:
+  field_news_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  body: true
+  field_arguments: true
+  field_iconfont: true
+  field_image: true
+  field_news_abstract: true
+  field_news_link: true
+  field_news_related_event: true
+  field_news_type: true
+  field_offices: true
+  field_profiles: true
+  field_related_content: true
+  field_repository_files: true
+  langcode: true
+  links: true

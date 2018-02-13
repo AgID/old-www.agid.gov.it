@@ -1,0 +1,11 @@
+name: Agid base
+type: module
+description: Base functionalities for AgID project.
+core: 8.x
+package: Agid
+dependencies:
+  - system (>=8.1)
+project: agid_base
+version: '8.x-1.0'
+interface translation project: agid_base
+interface translation server pattern: modules/custom/agid_base/agid_base-%version.%language.po

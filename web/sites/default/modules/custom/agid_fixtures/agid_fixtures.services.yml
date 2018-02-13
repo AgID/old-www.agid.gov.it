@@ -1,0 +1,14 @@
+services:
+  agid_fixtures.migration.subscriber:
+    class: Drupal\agid_fixtures\EventSubscriber\MigrationSubscriber
+    arguments: ["@entity_type.manager"]
+    tags:
+      - { name: event_subscriber }
+
+  plugin.manager.agid_fixtures.repository_file_migrator:
+    class: Drupal\agid_fixtures\Plugin\RepositoryFileMigratorManager
+    parent: default_plugin_manager
+
+  agid_fixtures.repository_file_migration.factory:
+    class: Drupal\agid_fixtures\AgidFixturesRepositoryFileMigrationFactory
+    parent: container.trait

@@ -1,0 +1,43 @@
+id: agid_fixtures_ct_pagopa_intermediari
+label: Import of 'PagoPA Intermediari' contents
+migration_group: agid_fixtures_group_pagopa
+migration_tags:
+  - Drupal 8
+  - PagoPA
+status: true
+source:
+  plugin: csv_url
+  url: 'http://www.agid.gov.it/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.csv'
+  delimiter: ';'
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - denominazione
+  column_names:
+    0:
+      denominazione: "Denominazione"
+    1:
+      cdf: "Codice Fiscale"
+    2:
+      numero_enti_attivi: "Numero Enti Attivi"
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: pagopa
+
+  field_pagopa_type:
+    -
+      plugin: default_value
+      default_value: "Intermediari"
+    -
+      plugin: insert_or_select_taxonomy_term
+      vocabulary_name: pagopa_type
+
+  title: denominazione
+  field_name: denominazione
+  field_fiscal_code: cdf
+  field_active_authority_number: numero_enti_attivi

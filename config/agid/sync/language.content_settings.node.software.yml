@@ -1,0 +1,16 @@
+uuid: 85fe73b0-1e81-4e28-8ac3-ceb254659221
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.software
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.software
+target_entity_type_id: node
+target_bundle: software
+default_langcode: site_default
+language_alterable: true

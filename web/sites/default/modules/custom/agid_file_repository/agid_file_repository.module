@@ -1,0 +1,330 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_file_repository.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\file_entity\Entity\FileEntity;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\file\FileInterface;
+use Drupal\Core\Database\Query\AlterableInterface;
+
+/**
+ * Implements hook_help().
+ */
+function agid_file_repository_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the agid_file_repository module.
+    case 'help.page.agid_file_repository':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Handles configurations and features about Agid File Repository') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function agid_file_repository_field_widget_form_alter(&$element, FormStateInterface &$form_state, $context) {
+  /** @var \Drupal\Core\Field\FieldItemListInterface $items */
+  $items = $context['items'];
+  $file_repository_fields = ['field_repository_file', 'field_repository_files'];
+  if (!in_array($items->getName(), $file_repository_fields)) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entityManager */
+  $entityManager = \Drupal::service('entity_field.manager');
+  $entity_type = 'file';
+  $field_definitions = $entityManager->getFieldStorageDefinitions($entity_type);
+  $field_map = $entityManager->getFieldMap()[$entity_type];
+  $field_storage = \Drupal::entityTypeManager()->getStorage('field_config');
+
+  $fields = [];
+  $mandatory_fields = [];
+
+  // Build an array containing all fields grouped by bundle name.
+  foreach ($field_map as $name => $map) {
+    foreach ($map['bundles'] as $bundle) {
+      $fields[$bundle][] = $name;
+    }
+  }
+
+  /** @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entityTypeBundleInfo */
+  $entityTypeBundleInfo = \Drupal::service('entity_type.bundle.info');
+
+  // For each field, check if are mandatory and add them to the ad-hoc array.
+  foreach ($entityTypeBundleInfo->getBundleInfo($entity_type) as $bundle => $info) {
+    $field_config = "$entity_type.$bundle.";
+    foreach ($fields[$bundle] as $field) {
+      if (empty($field_definitions[$field]) || !preg_match('/^field\_/', $field)) {
+        continue;
+      }
+
+      /** @var \Drupal\field\Entity\FieldConfig $field_config_instance */
+      $field_config_instance = $field_storage->load($field_config . $field);
+      if (!empty($field_config_instance) && $field_config_instance->isRequired()) {
+        $mandatory_fields[$bundle][$field][] = $field_definitions[$field]->getMainPropertyName();
+      }
+    }
+  }
+
+  // Save mandatory fields info into the form state storage in order to reuse
+  // these settings during the validation process.
+  $storage = $form_state->getStorage();
+  $storage['entity_browser']['mandatory_fields'] = $mandatory_fields;
+  $form_state->setStorage($storage);
+
+  $element['#element_validate'][] = 'agid_file_repository_validate_entity_browser_files';
+  $element['#attached']['library'][] = 'agid_file_repository/entity_browser';
+}
+
+/**
+ * Validation callback: Check for entity browser files mandatory fields.
+ *
+ * @param array $element
+ *   The form element array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function agid_file_repository_validate_entity_browser_files(array &$element, FormStateInterface $form_state) {
+  // Skip validation if the form has not been submitted (eg: during an ajax
+  // request), or if we are deleting a file.
+  $button_type = end($form_state->getTriggeringElement()['#parents']);
+  if (!$form_state->isSubmitted() || ($button_type == 'remove_button')) {
+    return;
+  }
+
+  $storage = $form_state->getStorage();
+  if (empty($storage['entity_browser_widget'])) {
+    return;
+  }
+  $mandatory_fields = $storage['entity_browser']['mandatory_fields'];
+
+  // Check if exists a mandatory field with an empty value.
+  foreach ($storage['entity_browser_widget'] as $item) {
+    foreach ($item as $fid) {
+      $file = FileEntity::load($fid)->toArray();
+      $bundle = $file['type'][0]['target_id'];
+
+      foreach (array_keys($mandatory_fields[$bundle]) as $field) {
+        if (empty($file[$field])) {
+          // Set an error message and break the validation process. One error is
+          // enough here.
+          $message = t('You must fill all the mandatory fields of the attached file in order to submit this form.');
+          $form_state->setError($element, $message);
+          return;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function agid_file_repository_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'file') {
+    $fields = [];
+
+    $fields['checksum'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Checksum'))
+      ->setDescription(t('A string representing the file checksum'));
+
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function agid_file_repository_file_presave(EntityInterface $entity) {
+  /** @var \Drupal\file\Entity\File $entity */
+  $bundle = $entity->bundle();
+  $storage = \Drupal::entityTypeManager()->getStorage('file_type');
+  $bundles = array_keys($storage->loadByProperties(['status' => TRUE]));
+
+  if (in_array($bundle, $bundles) && $entity->get('checksum')->isEmpty()) {
+    // Add the file entity's checksum field value.
+    $checksum = md5_file($entity->getFileUri());
+    $entity->set('checksum', $checksum);
+  }
+}
+
+/**
+ * Implements hook_file_validate().
+ */
+function agid_file_repository_file_validate(FileInterface $file) {
+  $errors = [];
+
+  $checksum = md5_file($file->getFileUri());
+  $existing_files = \Drupal::entityQuery('file')
+    ->condition('checksum', $checksum)
+    ->execute();
+
+  // Skip validation if this file has never been uploaded before.
+  if (empty($existing_files)) {
+    return $errors;
+  }
+
+  foreach ($existing_files as $fid) {
+    // Skip validation if this file is being "updated" and not "saved".
+    if ($fid == $file->id()) {
+      continue;
+    }
+
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $repo_file = $storage->loadByProperties(['field_repository_file' => $fid]);
+    $repo_files = $storage->loadByProperties(['field_repository_files' => $fid]);
+
+    // Skip validation if this file is not used by a repository file field.
+    if (empty($repo_file) && empty($repo_files)) {
+      continue;
+    }
+
+    /** @var \Drupal\file\Entity\File $existing_file */
+    $existing_file = \Drupal::entityTypeManager()
+      ->getStorage('file')
+      ->load($fid);
+    $errors[] = t('This file has already been uploaded: %name', [
+      '%name' => $existing_file->getFilename(),
+    ]);
+    break;
+  }
+  return $errors;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function agid_file_repository_form_entity_browser_repository_files_browser_form_alter(&$form, FormStateInterface &$form_state) {
+  if (empty($form['widget']['upload']['#max_files'])) {
+    return;
+  }
+  $form['#attached']['library'][] = 'agid_file_repository/dropzone';
+}
+
+/**
+ * Implements hook_query_TAG_alter().
+ */
+function agid_file_repository_query_duplicated_files_alter(AlterableInterface $query) {
+  $duplicated_checksum = get_duplicated_checksum();
+  if (empty($duplicated_checksum)) {
+    return;
+  }
+
+  /** @var \Drupal\Core\Database\Driver\mysql\Select $query */
+  $conditions = &$query->conditions();
+  /** @var \Drupal\Core\Database\Query\Condition $condition */
+  $condition = &$conditions[0]['field']->conditions()[0]['field']->conditions();
+  $condition[1]['value'] = array_keys($duplicated_checksum);
+  $condition[1]['operator'] = 'IN';
+}
+
+/**
+ * Get duplicated files checksum.
+ */
+function get_duplicated_checksum() {
+  $db = \Drupal::database()->select('file_managed', 'fm');
+  $db->addField('fm', 'checksum');
+  $db->addExpression('COUNT(fm.checksum)');
+  $db->condition('fm.checksum', 'NULL', '!=');
+  $db->condition('fm.type', ['document', 'media_kit'], 'IN');
+  $db->groupBy('fm.checksum');
+  $db->having('COUNT(fm.checksum) > 1');
+  return $db->execute()->fetchAllKeyed();
+}
+
+
+/**
+ * Implements hook_node_insert().
+ */
+function agid_file_repository_node_insert(\Drupal\node\Entity\Node $node) {
+  if (!$node->hasField('field_repository_file') && !$node->hasField('field_repository_files')) {
+    return;
+  }
+
+  /** @var \Drupal\file\FileUsage\FileUsageInterface $file_usage */
+  $file_usage = \Drupal::service('file.usage');
+  $files = [];
+  if ($node->hasField('field_repository_file')) {
+    $files[] = $node->get('field_repository_file')->entity;
+  }
+
+  if ($node->hasField('field_repository_files')) {
+    foreach ($node->get('field_repository_files') as $item) {
+      if (empty($item->entity)) {
+        continue;
+      }
+      $files[$item->entity->id()] = $item->entity;
+    }
+  }
+
+  $files = array_filter($files);
+  if (empty($files)) {
+    return;
+  }
+
+  /** @var FileEntity $file */
+  foreach ($files as $file) {
+    $usage = $file_usage->listUsage($file);
+    if (empty($usage) || !isset($usage['file']['node'][$node->id()])) {
+      $file_usage->add($file, 'file', 'node', $node->id());
+    }
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function agid_file_repository_node_update(\Drupal\node\Entity\Node $node) {
+  if (!$node->hasField('field_repository_file') && !$node->hasField('field_repository_files')) {
+    return;
+  }
+
+  /** @var \Drupal\file\FileUsage\FileUsageInterface $file_usage */
+  $file_usage = \Drupal::service('file.usage');
+  $files = [];
+  $original_files = [];
+  if ($node->hasField('field_repository_file')) {
+    $files[] = $node->get('field_repository_file')->entity;
+    $original_files[] = $node->original->get('field_repository_file')->entity;
+  }
+
+  if ($node->hasField('field_repository_files')) {
+    foreach ($node->get('field_repository_files') as $item) {
+      $files[$item->entity->id()] = $item->entity;
+    }
+    foreach ($node->original->get('field_repository_files') as $item) {
+      $original_files[$item->entity->id()] = $item->entity;
+    }
+  }
+
+  $files = array_filter($files);
+  $original_files = array_filter($original_files);
+
+  if (!empty($original_files)) {
+    $delta = array_diff_key($original_files, $files);
+    foreach ($delta as $file) {
+      $file_usage->delete($file, 'file', 'node', $node->id());
+    }
+  }
+
+  if (!empty($files)) {
+    /** @var FileEntity $file */
+    foreach ($files as $file) {
+      $usage = $file_usage->listUsage($file);
+      if (empty($usage) || !isset($usage['file']['node'][$node->id()])) {
+        $file_usage->add($file, 'file', 'node', $node->id());
+      }
+    }
+  }
+}

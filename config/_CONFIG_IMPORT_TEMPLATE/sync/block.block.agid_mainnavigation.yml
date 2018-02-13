@@ -1,0 +1,26 @@
+uuid: bda8800d-4336-4fc6-937e-213bb261a3e9
+langcode: it
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - agid
+_core:
+  default_config_hash: dEV_mRzyGsGtr56SHRxiFGP--FumcfiWYKggzsPjhZw
+id: agid_mainnavigation
+theme: agid
+region: offcanvas
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

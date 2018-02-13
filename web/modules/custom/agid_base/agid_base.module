@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_base.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Breadcrumb\Breadcrumb;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function agid_base_theme($existing, $type, $theme, $path) {
+  $theme = [];
+  $theme['agid_base_share_links'] = [
+    'template' => 'agid-base-share-links',
+    'path' => $path . '/templates',
+    'variables' => [
+      'entity_url' => NULL,
+      'entity_title' => NULL,
+      'entity_summary' => NULL,
+    ],
+  ];
+  return $theme;
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function agid_base_field_widget_form_alter(&$element, FormStateInterface &$form_state, $context) {
+  /** @var \Drupal\Core\Field\FieldItemListInterface $items */
+  $items = $context['items'];
+  if ($items->getName() != 'field_iconfont') {
+    return;
+  }
+
+  $element['value']['#type'] = 'select';
+  $element['value']['#options'] = agid_base_get_icon_options();
+  unset($element['value']['#size']);
+}
+
+/**
+ * Get a list of icon options.
+ *
+ * @return array
+ *   An array containing the class name as key and the icon name as value.
+ */
+function agid_base_get_icon_options() {
+  $options = [];
+  $dir = drupal_get_path('theme', 'italiagov') . '/build/src/icons/icons/img/SVG';
+  foreach (file_scan_directory($dir, '/\.svg$/', []) as $icon) {
+    $options['Icon-' . $icon->name] = $icon->name;
+  }
+
+  return ['' => t('-- Select -- ')] + $options;
+}
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ */
+function agid_base_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+  if ($route_match->getRouteName() == 'entity.webform.canonical') {
+    $links = $breadcrumb->getLinks();
+    $breadcrumb = new Breadcrumb();
+    $breadcrumb->setLinks([end($links)]);
+  }
+}

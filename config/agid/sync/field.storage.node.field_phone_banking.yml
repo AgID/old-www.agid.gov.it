@@ -1,0 +1,20 @@
+uuid: 1eccda71-d90e-45aa-982a-ab10b148dd23
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_phone_banking
+field_name: field_phone_banking
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

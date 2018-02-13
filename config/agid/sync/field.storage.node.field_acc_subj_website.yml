@@ -1,0 +1,19 @@
+uuid: c5e8524b-edbd-4e8e-a849-f02ed52f3116
+langcode: it
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_acc_subj_website
+field_name: field_acc_subj_website
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

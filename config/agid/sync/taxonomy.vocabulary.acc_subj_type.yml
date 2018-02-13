@@ -1,0 +1,9 @@
+uuid: de4d096b-c3dd-45cf-b933-49f0422f1b31
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologia ente accreditato'
+vid: acc_subj_type
+description: 'Elenco delle tipologie di soggetti accreditati per la fornitura di servizi'
+hierarchy: 0
+weight: 0

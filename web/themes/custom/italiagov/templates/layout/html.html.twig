@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js ie89 ie8 {{ html_attributes.class }}" lang="{{ html_attributes.lang }}"
+      dir="{{ html_attributes.dir }}" prefix="{{ html_attributes.prefix }}">
+<![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie89 ie9 {{ html_attributes.class }}" lang="{{ html_attributes.lang }}"
+      dir="{{ html_attributes.dir }}" prefix="{{ html_attributes.prefix }}">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js {{ html_attributes.class }}" lang="{{ html_attributes.lang }}"
+      dir="{{ html_attributes.dir }}" prefix="{{ html_attributes.prefix }}">
+<!--<![endif]-->
+  <head>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+  </head>
+  <body {{ attributes }}>
+
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+
+    <!--[if IE 8]>
+    <script src="{{ directory_build }}/vendor/respond.min.js"></script>
+    <script src="{{ directory_build }}/vendor/rem.min.js"></script>
+    <script src="{{ directory_build }}/vendor/selectivizr.js"></script>
+    <script src="{{ directory_build }}/vendor/slice.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="{{ directory_build }}/vendor/polyfill.min.js"></script>
+    <![endif]-->
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  </body>
+</html>

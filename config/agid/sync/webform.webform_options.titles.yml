@@ -1,0 +1,14 @@
+uuid: bbad7170-1c85-4ede-8763-88757563bcad
+langcode: it
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: PEUoedWrfYEX7oZ8CcOukfBTVxar1cPSROX8534esuU
+id: titles
+label: Titoli
+category: Demographic
+likert: false
+options: "Miss: Miss\nMs: Ms\nMr: Mr\nMrs: Mrs\nDr: Dr\n"

@@ -1,0 +1,84 @@
+id: agid_fixtures_ct_faq
+# A human-friendly description of the migration.
+label: Import to "faq" elements from "domande_frequenti"
+migration_group: agid_fixtures_group_contents
+# this is compulsory after 8.1 upgrade
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: domande_frequenti
+status: true
+destination:
+  plugin: entity:node
+  default_bundle: faq
+process:
+#  nid and vid commented out will allow them to autoincrement. Safe as long
+#  as nothing else is referencing them.
+#  nid: nid
+#  vid: vid
+  type:
+    plugin: default_value
+    default_value: faq
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'it'
+  title: title
+  uid:
+    plugin: default_value
+    default_value: 1
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+
+  #Custom Fields.
+  field_faq_question_full:
+    plugin: agid_textfilter
+    source: field_domanda_estesa
+
+  field_faq_answer:
+    plugin: agid_textfilter
+    source: field_risposta
+
+  #Taxonomy.
+  field_profiles:
+    plugin: migration_lookup
+    migration: agid_fixtures_taxonomy_profiles
+    source: field_profili
+
+  #Simple text field to taxonomy term.
+  field_arguments:
+#    -
+#      plugin: extract
+#      source: field_argomento
+#      index:
+#        - 0
+#        - value
+# The following is the same than an extract as shown above in the comment.
+    -
+      plugin: skip_on_empty
+      method: process
+      source: 'field_argomento/0/value'
+    -
+      plugin: callback
+      callable: strtolower
+    -
+      plugin: explode
+      delimiter: ,
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: get_term_id_from_name
+      vocabulary_name: 'arguments'
+      method: process
+
+# Required stuff.
+migration_dependencies:
+  required:
+    - agid_fixtures_taxonomy_profiles
+    - agid_fixtures_taxonomy_tags

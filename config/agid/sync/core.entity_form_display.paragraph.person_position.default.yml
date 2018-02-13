@@ -1,0 +1,35 @@
+uuid: ccefdf14-f08a-4b87-aae4-c4fd992a72cf
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person_position.field_office
+    - field.field.paragraph.person_position.field_role
+    - paragraphs.paragraphs_type.person_position
+id: paragraph.person_position.default
+targetEntityType: paragraph
+bundle: person_position
+mode: default
+content:
+  field_office:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_role:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

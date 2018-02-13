@@ -1,0 +1,8 @@
+uuid: 14f6439b-cba5-432d-b1f1-f320cf6584da
+langcode: it
+status: true
+dependencies: {  }
+id: foo-menu
+label: 'Foo menu'
+description: ''
+locked: false

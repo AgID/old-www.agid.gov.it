@@ -1,0 +1,35 @@
+uuid: 111caae1-ff65-4614-a42d-c30bb06ebcfb
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.original_file_source.field_migrated
+    - field.field.taxonomy_term.original_file_source.field_original_bundle
+    - taxonomy.vocabulary.original_file_source
+  module:
+    - text
+id: taxonomy_term.original_file_source.default
+targetEntityType: taxonomy_term
+bundle: original_file_source
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_migrated:
+    type: boolean
+    weight: 1
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+hidden:
+  field_original_bundle: true
+  langcode: true

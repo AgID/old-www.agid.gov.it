@@ -1,0 +1,17 @@
+uuid: 2b01f719-3f4b-4b25-9594-51b4a87be6ea
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Notizia
+type: news
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

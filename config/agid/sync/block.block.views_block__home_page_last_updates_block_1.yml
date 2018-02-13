@@ -1,0 +1,30 @@
+uuid: f9f91940-9779-4633-963a-4368cef0ada6
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.home_page_last_updates
+  module:
+    - system
+    - views
+  theme:
+    - agid
+id: views_block__home_page_last_updates_block_1
+theme: agid
+region: postscript_third
+weight: -12
+provider: null
+plugin: 'views_block:home_page_last_updates-block_1'
+settings:
+  id: 'views_block:home_page_last_updates-block_1'
+  label: Aggiornamenti
+  provider: views
+  label_display: visible
+  views_label: Aggiornamenti
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

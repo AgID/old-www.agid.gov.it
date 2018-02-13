@@ -1,0 +1,23 @@
+uuid: fa9871ca-7fe2-4233-bfe6-4db53844cffa
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_tax_cad_permalink
+    - taxonomy.vocabulary.cad
+  module:
+    - link
+id: taxonomy_term.cad.field_tax_cad_permalink
+field_name: field_tax_cad_permalink
+entity_type: taxonomy_term
+bundle: cad
+label: Permalink
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

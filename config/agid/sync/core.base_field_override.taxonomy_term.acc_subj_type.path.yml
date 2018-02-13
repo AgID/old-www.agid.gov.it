@@ -1,0 +1,20 @@
+uuid: 730cbb5f-8052-4197-be18-5233b8800a36
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.acc_subj_type
+  module:
+    - path
+id: taxonomy_term.acc_subj_type.path
+field_name: path
+entity_type: taxonomy_term
+bundle: acc_subj_type
+label: 'Alias URL'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

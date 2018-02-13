@@ -1,0 +1,38 @@
+id: agid_fixtures_paragraph_more_info_spid_auth
+label: Import into paragraph "more_info" from "field_fattori_di_autenticazione" of "spid_dati_identity_provider" CT
+migration_group: agid_fixtures_group_spid_paragraphs
+migration_tags:
+  - Drupal 7
+deriver: Drupal\node\Plugin\migrate\D7NodeDeriver
+source:
+  plugin: d7_node
+  node_type: spid_dati_identity_provider
+status: true
+destination:
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: 'more_info'
+process:
+  type:
+    plugin: default_value
+    default_value: 'more_info'
+
+  # Label
+  field_more_info_label:
+    plugin: default_value
+    # Fattori di autenticazione
+    default_value: 'autentication_factors'
+
+  # Informazioni (Fattori di autenticazione)
+  field_more_info_texts:
+    plugin: skip_on_empty
+    method: row
+    source: field_fattori_di_autenticazione
+
+  created: '@created'
+
+  uid:
+    plugin: default_value
+    default_value: 1
+
+# Required stuff.
+migration_dependencies: {}

@@ -1,0 +1,10 @@
+uuid: e702ac90-8370-44f9-b7c7-c1773c2c25c2
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+id: file.inside_table_spid
+label: 'Inside table SPID'
+targetEntityType: file
+cache: true

@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Custom theme implementation for social links in the site footer.
+ */
+#}
+{% set container_classes = [
+'Footer-block',
+'Grid-cell',
+'u-md-size1of4',
+'u-lg-size1of4'
+] %}
+
+{% if social_items %}
+  <div{{ attributes.addClass(container_classes) }}>
+
+    {#<a class="Footer-bigLink" href="#">Mappa sito</a>#}
+
+    {# Title #}
+    {{ title_prefix }}
+    {% if social_title %}
+      <h2 class="Footer-blockTitle">{{ social_title|t }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    {# Listing social links #}
+    <div class="Footer-subBlock">
+      <ul class="Footer-socialIcons">
+        {% for social in social_items %}
+          {% if social.href %}
+            <li>
+              <a href="{{ social.href }}">
+                <span class="Icon {{ social.class }}"></span>
+                <span class="u-hiddenVisually">{{ social.readable_name }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+{% endif %}

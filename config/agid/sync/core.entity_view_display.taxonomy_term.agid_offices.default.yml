@@ -1,0 +1,30 @@
+uuid: 739ff158-b0e4-4a76-a224-b13c0512c690
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.agid_offices.field_e_mail
+    - taxonomy.vocabulary.agid_offices
+  module:
+    - text
+id: taxonomy_term.agid_offices.default
+targetEntityType: taxonomy_term
+bundle: agid_offices
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_e_mail:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  langcode: true

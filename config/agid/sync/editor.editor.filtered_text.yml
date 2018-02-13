@@ -1,0 +1,70 @@
+uuid: e98c7c6d-0349-4043-9e0c-cbb0e64411c6
+langcode: it
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_text
+  module:
+    - ckeditor
+format: filtered_text
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formattazione
+          items:
+            - Bold
+            - Italic
+            - RemoveFormat
+        -
+          name: Operations
+          items:
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+        -
+          name: Collegamenti
+          items:
+            - Linkit
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Liste
+          items:
+            - BulletedList
+            - NumberedList
+            - '-'
+            - Outdent
+            - Indent
+            - HorizontalRule
+            - Blockquote
+        -
+          name: Tools
+          items:
+            - Source
+            - ShowBlocks
+            - Maximize
+        -
+          name: File
+          items:
+            - ImceLink
+            - DrupalImage
+  plugins:
+    stylescombo:
+      styles: ''
+    language:
+      language_list: un
+    linkit:
+      linkit_profile: link_content
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

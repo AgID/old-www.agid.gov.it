@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_software.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function agid_software_node_presave(EntityInterface $entity) {
+
+  if ($entity->getType() !== 'software') {
+    return;
+  }
+  // Get "Numero identificativo" value, check if it has already a value and
+  // if it's empty add value. The value is the sum of "Software riusabile"
+  // nodes + 1.
+  $entityfields = $entity->getFields();
+  $software_number_value = $entityfields['field_software_number']->getValue();
+
+  $software_nodes = \Drupal::entityQuery('node')
+    ->condition('type', 'software')
+    ->sort('field_software_number', 'DESC')
+    ->range(0, 1)
+    ->execute();
+
+  $software_last_nid = end($software_nodes);
+  $software_last_node = \Drupal::entityTypeManager()->getStorage('node')->load($software_last_nid);
+
+  $software_last_number_value = 0;
+  if (!empty($software_last_node)) {
+    $software_last_number_array = $software_last_node->getFields()['field_software_number']->getValue();
+    $software_last_number_value = $software_last_number_array[0]['value'];
+  }
+
+  if (empty($software_number_value)) {
+    $entity->set('field_software_number', $software_last_number_value + 1);
+  }
+
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function agid_software_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Disable field_software_number field (not editable).
+  $form_id_to_process = ['node_software_form', 'node_software_edit_form'];
+  if (!in_array($form_id, $form_id_to_process)) {
+    return;
+  }
+
+  if ($form_id == 'node_software_form') {
+    $form['field_software_number']['#access'] = FALSE;
+  }
+  elseif ($form_id == 'node_software_edit_form') {
+    $form['field_software_number']['#disabled'] = TRUE;
+  }
+}

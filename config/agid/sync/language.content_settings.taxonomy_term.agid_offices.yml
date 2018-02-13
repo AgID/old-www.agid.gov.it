@@ -1,0 +1,16 @@
+uuid: 8aa2dda0-0620-425e-b8bf-3b8c90fd875d
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agid_offices
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.agid_offices
+target_entity_type_id: taxonomy_term
+target_bundle: agid_offices
+default_langcode: site_default
+language_alterable: true
