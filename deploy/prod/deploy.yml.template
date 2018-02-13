@@ -1,0 +1,21 @@
+---
+- name: Deploy Dashboard to stage environment
+  hosts: all
+  remote_user: "@USER@"
+
+  vars:
+    ansistrano_deploy_from: "../../"
+    ansistrano_deploy_to: "@DEPLOY_TO@"
+    ansistrano_deploy_environment: "prod"
+    ansistrano_keep_releases: 3
+    ansistrano_deploy_via: "git"
+    ansistrano_git_repo: "git@github.com:AgID/www.agid.gov.it.git"
+    ansistrano_git_branch: "master"
+    ansistrano_git_identity_key_path: ""
+    ansistrano_shared_paths:
+      - web/sites/default/files
+    ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/hooks/after-symlink-tasks.yml"
+    ansistrano_before_cleanup_tasks_file: "{{ playbook_dir }}/hooks/before-cleanup-tasks.yml"
+
+  roles:
+    - { role: carlosbuenosvinos.ansistrano-deploy }

@@ -1,0 +1,17 @@
+- name: Link .htaccess
+  file:
+    state: link
+    path: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/web/.htaccess"
+    src: "{{ ansistrano_deploy_to }}/{{ ansistrano_version_dir }}/{{ ansistrano_release_version }}/deploy/{{ ansistrano_deploy_environment }}/config/htaccess.{{ ansistrano_deploy_environment }}"
+
+- name: Link robots.txt
+  file:
+    state: link
+    path: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/web/robots.txt"
+    src: "{{ ansistrano_deploy_to }}/{{ ansistrano_version_dir }}/{{ ansistrano_release_version }}/deploy/{{ ansistrano_deploy_environment }}/config/robots.txt.{{ ansistrano_deploy_environment }}"
+
+- name: Links settings.php
+  file:
+    state: link
+    path: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/web/sites/default/settings.php"
+    src: "{{ ansistrano_deploy_to }}/{{ ansistrano_version_dir }}/{{ ansistrano_release_version }}/deploy/{{ ansistrano_deploy_environment }}/config/settings.php.{{ ansistrano_deploy_environment }}"
