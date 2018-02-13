@@ -14,6 +14,7 @@
     ansistrano_git_identity_key_path: ""
     ansistrano_shared_paths:
       - web/sites/default/files
+    ansistrano_shared_files:
       - web/sites/default/settings.php
     ansistrano_after_symlink_tasks_file: "{{ playbook_dir }}/hooks/after-symlink-tasks.yml"
     ansistrano_before_cleanup_tasks_file: "{{ playbook_dir }}/hooks/before-cleanup-tasks.yml"
