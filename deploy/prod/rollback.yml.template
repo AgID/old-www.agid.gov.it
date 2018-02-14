@@ -2,6 +2,6 @@
 - name: Rollback Drupal 8 to develop server
   hosts: all
   vars:
-    ansistrano_deploy_to: "/var/www/html"
+    ansistrano_deploy_to: "@DEPLOY_TO@"
   roles:
     - { role: carlosbuenosvinos.ansistrano-rollback }
