@@ -12,7 +12,22 @@ Main repository for AgID website.
 
 ### Procedure
 
-`make deploy-prod`
+
+`git clone https://github.com/AgID/www.agid.gov.it`
+`cd deploy/stage`
+
+```
+# configure ansistrano
+# - ssh user
+# - target host address
+# - web root (ie. /home/agid/sites/www.agid.gov.it)
+./configure.sh
+```
+
+Configure creates deploy/stage/deploy_*yaml
+edit deploy/stage/deploy_*yaml
+
+`make deploy-stage`
 
 ### How is done
 
