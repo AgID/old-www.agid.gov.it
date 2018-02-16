@@ -1,5 +1,5 @@
 ---
-- name: Rollback Drupal 8 to prod server
+- name: Rollback Drupal 8 to stage server
   hosts: all
   vars:
     ansistrano_deploy_to: "@DEPLOY_TO@"
