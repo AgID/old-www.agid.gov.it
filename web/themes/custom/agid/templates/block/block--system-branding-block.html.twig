@@ -14,12 +14,12 @@
 #}
 {% block content %}
   {% if site_logo %}
-  <div class="Header-agid Grid-cell u-size1of2" aria-hidden="true">
-    <div class="u-size3of4 u-md-size2of4 u-lg-size2of4">
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+  <div class="Header-agid Grid-cell u-size2of3 u-sm-size1of2 u-md-size1of2 u-lg-size1of2" aria-hidden="true">
+      <a href="{{ path('<front>') }}" class="u-text-r-m" title="{{ 'Home'|t }}" rel="home">
         <img class="Logo-img" src="{{ site_logo }}" />
+        <span class="separator"></span>
+        <span class="Site-name">{{ site_name }}</span>
       </a>
-    </div>
   </div>
   {% endif %}
     {#

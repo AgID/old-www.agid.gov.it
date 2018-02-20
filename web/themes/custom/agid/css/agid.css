@@ -336,16 +336,18 @@ nav.Megamenu--default {
 /* Header */
 
 .Header-banner {
-  background-color: #0059b3;
+  background-color: #003183;
+  padding: 0!important;
 }
 
 .Header-navbar {
-  background-color: #0059b3;
-  padding: 0 !important;
+  background-color: #0059B3;
+  padding-left: 0!important;
+  padding-right: 0!important;
 }
 
 .Header-languages {
-  background-color: #0059b3;
+  background-color: #003183;
 }
 
 .Header-right > div {
@@ -353,18 +355,43 @@ nav.Megamenu--default {
 }
 
 .Logo-img {
-  width: 100%;
+  vertical-align: middle;
+  width: 8em;
 }
 
-@media screen and (min-width: 1350px) {
-  div.Header-agid {
-    position: relative;
-  }
+.Header-agid a {
+  text-decoration: none!important;
+  color: #fff!important;
+  display: inline-block;
+}
 
-  div.Header-agid > div {
-    position: absolute;
-    left: -45px;
+.Header-agid .Site-name {
+  display: inline-block;
+  width: 7em;
+  vertical-align: middle;
+}
+
+.Header-agid .separator {
+  border-left: 0.1em solid #fff;
+  vertical-align: middle;
+  margin-right: 0.3em;
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 767px) {
+  .Header-agid a {
+    font-size: 1.5rem !important;
   }
+  .Footer .Header-agid a {
+    font-size: 2rem !important;
+  }
+  .Logo-img {
+    width: 7em;
+  }
+}
+
+.Header-searchTrigger button {
+  background-color: #0059B3;
 }
 
 /* Home page */
