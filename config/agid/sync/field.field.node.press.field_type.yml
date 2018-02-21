@@ -1,0 +1,29 @@
+uuid: 96d51826-3b29-4f1f-80fb-ec31fef7602f
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.press
+    - taxonomy.vocabulary.press_release_type
+id: node.press.field_type
+field_name: field_type
+entity_type: node
+bundle: press
+label: Tipologia
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      press_release_type: press_release_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

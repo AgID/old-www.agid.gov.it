@@ -61,5 +61,5 @@ process:
 
 # Required stuff.
 migration_dependencies:
-  optional:
-    - agid_fixtures_files
+  required:
+    - migrate_plus.migration.agid_fixtures_files

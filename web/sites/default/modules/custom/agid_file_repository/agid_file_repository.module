@@ -301,9 +301,15 @@ function agid_file_repository_node_update(\Drupal\node\Entity\Node $node) {
 
   if ($node->hasField('field_repository_files')) {
     foreach ($node->get('field_repository_files') as $item) {
+      if (!isset($item->entity)) {
+        continue;
+      }
       $files[$item->entity->id()] = $item->entity;
     }
     foreach ($node->original->get('field_repository_files') as $item) {
+      if (!isset($item->entity)) {
+        continue;
+      }
       $original_files[$item->entity->id()] = $item->entity;
     }
   }

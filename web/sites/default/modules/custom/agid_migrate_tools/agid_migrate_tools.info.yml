@@ -1,0 +1,11 @@
+name: agid migrate tools
+type: module
+description: All migrate plugin and addons for agid project.
+core: 8.x
+package: Agid
+dependencies:
+  - migrate_source_csv
+  - migrate_plus
+  - migrate_tools
+  - system (>=8.3)
+  - migrate_google_sheets

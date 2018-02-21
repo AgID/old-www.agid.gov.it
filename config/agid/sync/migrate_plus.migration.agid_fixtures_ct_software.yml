@@ -1,4 +1,4 @@
-uuid: 16f6d2c9-4630-4a1b-84bd-677917221452
+uuid: 3ad5e567-6a29-4996-9d03-48bcdc1cc550
 langcode: it
 status: true
 dependencies: {  }
@@ -34,7 +34,19 @@ process:
   field_software_year: field_catalogo_anno
   field_software_number: field_catalogo_numero
   field_software_type: field_pac_catalogo_tipologia
+  field_repository_file:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_catalogo_scheda/0/fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+      source: field_catalogo_scheda/0/fid
 destination:
   plugin: 'entity:node'
   default_bundle: software
-migration_dependencies: {  }
+migration_dependencies:
+  required:
+    - migrate_plus.migration.agid_fixtures_files

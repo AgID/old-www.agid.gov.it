@@ -7,6 +7,8 @@ module:
   agid_file_repository: 0
   agid_fixtures: 0
   agid_footer: 0
+  agid_migrate_tools: 0
+  agid_pagopa: 0
   agid_press: 0
   agid_software: 0
   block: 0

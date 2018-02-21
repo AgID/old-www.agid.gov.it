@@ -1,4 +1,4 @@
-uuid: d00301d9-869a-4ac8-a244-c61441700310
+uuid: 6dc93641-8c06-469d-a148-f920bb61af65
 langcode: it
 status: true
 dependencies: {  }
@@ -21,7 +21,10 @@ process:
     plugin: default_value
     source: language
     default_value: it
-  title: title
+  title:
+    -
+      plugin: get
+      source: title
   uid:
     plugin: default_value
     default_value: 1
@@ -53,6 +56,22 @@ process:
   field_press_number:
     plugin: default_value
     default_value: null
+  field_repository_file:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: field_documentazione_allegata/0/fid
+    -
+      plugin: migration_lookup
+      migration: agid_fixtures_files
+      no_stub: true
+      source: field_documentazione_allegata/0/fid
+  field_type:
+    plugin: insert_or_select_taxonomy_term
+    vocabulary_name: press_release_type
+    source: field_tipologia_articolo/0/value
 destination:
   plugin: 'entity:node'
-migration_dependencies: {  }
+migration_dependencies:
+  required:
+    - migrate_plus.migration.agid_fixtures_files

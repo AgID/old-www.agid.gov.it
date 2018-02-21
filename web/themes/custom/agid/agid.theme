@@ -32,11 +32,12 @@ function agid_preprocess_field(&$variables) {
     if (!is_numeric($k)) {
       continue;
     }
+    /** @var Drupal\file_entity\Entity\FileEntity $file */
     $file = $item['#file'];
     if (is_null($file)) {
       continue;
     }
-    $field_file_category = $file->get('field_file_category');
+    $field_file_category = $file->hasField('field_file_category') ? $file->get('field_file_category') : null;
     if ( $field_file_category != null && $file->get('field_file_category')->getValue() != null ) {
       /** @var \Drupal\taxonomy\Entity\Term $term */
       $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_file_category->getValue()['0']['target_id']);

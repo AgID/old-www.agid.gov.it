@@ -148,11 +148,11 @@ process:
   field_acc_subj_external_link:
     plugin: default_value
     source:
-      - @temp_external_link_details
-      - @temp_external_link_doc
-      - @temp_external_link_info
-      - @temp_external_link_meta
-      - @temp_external_link_reg
+      - '@temp_external_link_details'
+      - '@temp_external_link_doc'
+      - '@temp_external_link_info'
+      - '@temp_external_link_meta'
+      - '@temp_external_link_reg'
 
   # Ulteriori informazioni
   # I'm using three temporary variables to store paragraphs references
@@ -172,9 +172,9 @@ process:
   field_acc_subj_info:
     plugin: default_value
     source:
-      - @temp_info_spid_auth
-      - @temp_info_spid_code
-      - @temp_info_sec_level
+      - '@temp_info_spid_auth'
+      - '@temp_info_spid_code'
+      - '@temp_info_sec_level'
 
 # Required stuff.
 migration_dependencies:
@@ -188,5 +188,4 @@ migration_dependencies:
     - agid_fixtures_paragraph_external_link_spid_info
     - agid_fixtures_paragraph_external_link_spid_meta
     - agid_fixtures_paragraph_external_link_spid_reg
-  optional:
-    - agid_fixtures_files
+    - migrate_plus.migration.agid_fixtures_files

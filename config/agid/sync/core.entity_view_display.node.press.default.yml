@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.press.field_related_content
     - field.field.node.press.field_repository_file
     - field.field.node.press.field_repository_files
+    - field.field.node.press.field_type
     - node.type.press
   module:
     - datetime
@@ -93,4 +94,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_type: true
   langcode: true

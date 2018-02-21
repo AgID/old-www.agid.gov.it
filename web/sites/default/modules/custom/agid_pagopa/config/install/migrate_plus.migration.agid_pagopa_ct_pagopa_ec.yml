@@ -1,0 +1,67 @@
+id: agid_pagopa_ct_pagopa_ec
+label: Import of 'PagoPA Enti Creditori' contents
+migration_group: agid_pagopa_group_pagopa
+migration_tags:
+  - Drupal 8
+  - PagoPA
+status: true
+source:
+  plugin: csv_url
+  url: 'http://www.agid.gov.it/sites/default/files/pagamenti_amministrazione/pagopa-ec.csv'
+  delimiter: ';'
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - chiave
+  column_names:
+    0:
+      chiave: "Chiave"
+    1:
+      denominazione: "Denominazione"
+    2:
+      tipologia_istat: "Tipologia ISTAT"
+    3:
+      cdf: "Codice Fiscale"
+    4:
+      codice_ipa: "Codice IPA"
+    5:
+      codice_gs1gln: "Codice GS1 GLN"
+    6:
+      codice_interbank: "Codice Interbancario"
+    7:
+      codice_partner: "Intermediario/Partner"
+    8:
+      active: "Attivo"
+    9:
+      mod12: "Attivo Modello 1 e/o 2"
+    10:
+      mod3: "Attivo Modello 3"
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: pagopa
+
+  field_pagopa_type:
+    -
+      plugin: default_value
+      default_value: "Enti Creditori"
+    -
+      plugin: insert_or_select_taxonomy_term
+      vocabulary_name: pagopa_type
+
+  title: denominazione
+  field_name: denominazione
+  field_key: chiave
+  field_istat_type: tipologia_istat
+  field_fiscal_code: cdf
+  field_ipa_code: codice_ipa
+  field_gs1gln_code: codice_gs1gln
+  field_interbank_code: codice_interbank
+  field_partner_mediator: codice_partner
+  field_active: active
+  field_active_mod12: mod12
+  field_active_mod3: mod3

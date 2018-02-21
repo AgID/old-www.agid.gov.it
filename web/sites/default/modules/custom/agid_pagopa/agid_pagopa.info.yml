@@ -1,0 +1,15 @@
+name: agid pagopa
+type: module
+description: All pagopa entities for agid project.
+core: 8.x
+package: Agid
+dependencies:
+  - migrate_source_csv
+  - migrate_plus
+  - migrate_tools
+  - system (>=8.3)
+config_devel:
+  install:
+    - migrate_plus.migration.agid_pagopa_ct_pagopa_psp
+    - migrate_plus.migration.agid_pagopa_ct_pagopa_intermediari
+    - migrate_plus.migration.agid_pagopa_ct_pagopa_ec

@@ -1,4 +1,4 @@
-agidid: agid_fixtures_files
+id: agid_fixtures_files
 # A human-friendly description of the migration.
 label: 'Import "D7 files" into "D8 file entities"'
 migration_group: agid_fixtures_group_files
