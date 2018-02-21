@@ -54,8 +54,8 @@ process:
       from_format: 'Y-m-d H:i:s'
       to_format: 'Y'
   field_press_number:
-    plugin: default_value
-    default_value: null
+    plugin: get
+    source: field_numero_comunicato/0/value
   field_repository_file:
     -
       plugin: skip_on_empty
