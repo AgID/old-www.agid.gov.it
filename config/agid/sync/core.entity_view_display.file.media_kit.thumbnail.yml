@@ -19,7 +19,7 @@ bundle: media_kit
 mode: thumbnail
 content:
   field_title:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link_to_file: true
@@ -28,7 +28,7 @@ content:
     region: content
   filemime:
     type: file_filemime
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:

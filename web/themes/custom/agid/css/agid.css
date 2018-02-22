@@ -1448,3 +1448,8 @@ article.event-page .field--name-field-event-description {
 .file--view-mode-thumbnail .field--name-filemime {
   display: inline-block;
 }
+
+div.documentation div.file {
+  margin-bottom: 1rem;
+}
+

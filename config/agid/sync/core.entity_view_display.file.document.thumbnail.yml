@@ -22,7 +22,7 @@ mode: thumbnail
 content:
   field_title:
     type: file_link
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings:
@@ -30,7 +30,7 @@ content:
     third_party_settings: {  }
   filemime:
     type: file_filemime
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:
