@@ -1,0 +1,25 @@
+uuid: 2d509f71-979f-43f1-8f14-d226c05222a6
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: generic_pathauto_for_ct_domanda_frequente_persona_comunicato_stampa_software_riusabile
+label: 'Generic Pathauto for CT: Domanda frequente, Persona, Comunicato Stampa, Software riusabile'
+type: 'canonical_entities:node'
+pattern: '[node:content-type]/[node:title]'
+selection_criteria:
+  7b98b390-46ab-45e8-b375-2eb218427c08:
+    id: node_type
+    bundles:
+      faq: faq
+      person: person
+      press: press
+      software: software
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 7b98b390-46ab-45e8-b375-2eb218427c08
+selection_logic: and
+weight: -5
+relationships: {  }

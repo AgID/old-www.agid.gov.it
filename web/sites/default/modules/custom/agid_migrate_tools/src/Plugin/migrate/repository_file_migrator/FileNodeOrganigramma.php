@@ -33,12 +33,20 @@ class FileNodeOrganigramma extends RepositoryFileMigratorBase {
    * {@inheritdoc}
    */
   public function getFileDescription() {
+
+    // If the value for the description field has been already gathered,
+    // return the cached value.
+    if (!is_null($this->description)) {
+      return $this->description;
+    }
+
     $field = $this->getFileDescriptionField();
     if (is_array($field)) {
       $field = $this->extractFieldName($field);
     }
 
     if (empty($field)) {
+      $this->description = '';
       return '';
     }
 
@@ -46,7 +54,9 @@ class FileNodeOrganigramma extends RepositoryFileMigratorBase {
     $query = $this->select('field_data_' . $field, 'f');
     $query->fields('f', [$field . '_' . $description_column]);
     $query->condition($field . '_fid', $this->getFid());
-    return $query->execute()->fetchField();
+    $this->description = $query->execute()->fetchField();
+
+    return $this->description;
   }
 
 }

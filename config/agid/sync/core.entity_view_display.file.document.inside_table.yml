@@ -34,12 +34,20 @@ content:
     settings:
       link: false
     third_party_settings: {  }
+  filemime:
+    type: file_filemime
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_file: false
+      filemime_image: false
+    third_party_settings: {  }
 hidden:
   field_arguments: true
   field_description: true
   field_file_category: true
   field_original_file_source: true
-  filemime: true
   filename: true
   filesize: true
   langcode: true

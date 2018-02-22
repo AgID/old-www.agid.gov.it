@@ -63,6 +63,9 @@ function agid_preprocess_breadcrumb(&$variables) {
       $variables['title'] = str_replace('-', ' ', ucfirst($t));
     }
   }
+
+  // Add cache context based on url.
+  $variables['#cache']['contexts'][] = 'url';
 }
 
 /**

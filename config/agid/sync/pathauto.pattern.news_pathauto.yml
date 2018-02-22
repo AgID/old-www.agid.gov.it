@@ -5,18 +5,19 @@ dependencies:
   module:
     - node
 id: news_pathauto
-label: 'News pathauto'
+label: 'News and event pathauto'
 type: 'canonical_entities:node'
 pattern: '/agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi/[node:title]'
 selection_criteria:
-  ac8b1071-8655-4686-b854-7105113153a5:
+  5e2d7d5e-0010-4ed6-b409-ea7475c2780e:
     id: node_type
     bundles:
+      event: event
       news: news
     negate: false
     context_mapping:
       node: node
-    uuid: ac8b1071-8655-4686-b854-7105113153a5
+    uuid: 5e2d7d5e-0010-4ed6-b409-ea7475c2780e
 selection_logic: and
 weight: -5
 relationships: {  }

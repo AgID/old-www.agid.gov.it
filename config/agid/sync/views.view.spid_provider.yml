@@ -325,7 +325,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            - 423
+            - 425
           group: 1
           exposed: false
           expose:
