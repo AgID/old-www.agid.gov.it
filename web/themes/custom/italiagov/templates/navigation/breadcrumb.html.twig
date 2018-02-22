@@ -10,9 +10,9 @@
 #}
 {% if breadcrumb %}
   <nav aria-label="{{ 'You are here:'|t }}">
-    <ul class="Breadcrumb">
+    <ul class="Breadcrumb u-layout-prose">
     {% for item in breadcrumb %}
-      <li class="Breadcrumb-item">
+      <li class="Breadcrumb-item u-lineHeight-l">
         {% if item.url %}
           <a class="Breadcrumb-link u-color-50" href="{{ item.url }}">{{ item.text }}</a>
         {% else %}
