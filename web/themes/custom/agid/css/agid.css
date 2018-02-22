@@ -15,7 +15,7 @@ h6 {
 }
 
 h1.u-text-h2 {
-  margin-bottom: 0 !important;
+  max-width: 10em;
 }
 
 h1 {
@@ -27,7 +27,7 @@ h1 {
 
 h2 {
   font-size: 28px;
-  line-height: 42px;
+  line-height: 1.5;
   margin-top: 2rem;
 }
 
@@ -84,6 +84,10 @@ p {
   line-height: 27px;
 }
 
+.Breadcrumb-link {
+  font-weight: 400 !important;
+}
+
 #block-agid-mainpagecontent p {
   color: #00264c;
 }
@@ -97,7 +101,7 @@ p {
   font-family: "Titillium Web";
   font-size: 18px;
   line-height: 27px;
-  color: #0d00ff;
+  color: #0066cc;
   text-decoration: underline;
 }
 
@@ -119,6 +123,7 @@ header ul {
 
 header li {
   list-style: disc;
+  list-style-position: inside;
   color: #0059b3;
 }
 
@@ -230,7 +235,7 @@ tr:nth-child(odd) {
 
 .Header .Megamenu-subnavGroup li > a {
   display: inline-block;
-  text-transform: capitalize !important;
+  text-transform: none !important;
   padding: 0.5rem;
   font-size: 16px !important;
   line-height: 27px;
@@ -657,6 +662,7 @@ div.application\/pdf:before {
 .news-events-list .field--name-field-event-location {
   color: #666666;
   line-height: 30px;
+  margin-top: 1em;
 }
 
 div.Prose,
@@ -706,7 +712,7 @@ div.Prose,
 }
 
 .highlighted-region {
-  background-color: #fcfcfc;
+  background-color: #f2f7fb;
 }
 
 .highlighted-data > div article {
@@ -1201,6 +1207,10 @@ nav.contextual-menu-mobile ul > li li a.is-active {
 #search-form > div {
   position: relative;
   margin-bottom: 2rem;
+}
+
+#search-form label {
+  display: none;
 }
 
 #search-form > div > button {
