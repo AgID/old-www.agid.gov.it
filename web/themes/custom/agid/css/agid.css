@@ -127,6 +127,10 @@ header li {
   color: #0059b3;
 }
 
+header .Dropdown-menu li {
+  list-style: none;
+}
+
 table {
   margin-top: 3rem;
   border: 1px solid #d0e2f5;
