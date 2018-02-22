@@ -1336,9 +1336,11 @@ article.accsubj .field--name-field-acc-subj-logo
   display: inline;
 }
 
+article.pagopa-content .field--label-inline .field__label,
 article.accsubj .field--label-inline .field__label {
   font-weight: 600;
 }
+
 article.accsubj .field--label-inline .field__label:after {
   content: ":";
 }

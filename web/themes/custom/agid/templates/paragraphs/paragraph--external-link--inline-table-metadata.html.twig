@@ -50,7 +50,7 @@
     {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <a href="{{ content.field_external_link_url.0 }}">Link</a>
+      <a href="{{ content.field_external_link_url.0 }}">Link&nbsp;<span class="u-text-r-xxs Icon Icon-external-link"></span></a>
     {% endblock %}
   </div>
 {% endblock paragraph %}
