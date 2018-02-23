@@ -1,0 +1,9 @@
+uuid: 605fb9a0-25be-46ad-897f-8e0545f4a411
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_roles
+action: page_redirect
+allow_override: 1
+redirect: /
+redirect_code: 302

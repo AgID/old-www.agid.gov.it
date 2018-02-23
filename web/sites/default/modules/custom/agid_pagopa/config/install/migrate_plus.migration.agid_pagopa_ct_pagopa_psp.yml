@@ -1,0 +1,74 @@
+id: agid_pagopa_ct_pagopa_psp
+label: Import of 'PagoPA PSP' contents
+migration_group: agid_pagopa_group_pagopa
+migration_tags:
+  - Drupal 8
+  - PagoPA
+status: true
+source:
+  plugin: csv_url
+  url: 'http://www.agid.gov.it/sites/default/files/pagamenti_amministrazione/pagopa-psp.csv'
+  delimiter: ';'
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - denominazione
+  column_names:
+    0:
+      denominazione: "Denominazione"
+    1:
+      cdf: "Codice Fiscale"
+    2:
+      codice_abi: "Codice ABI"
+    3:
+      codice_bic: "Codice BIC"
+    4:
+      codice_seller_bank: "Cod. Seller Bank"
+    5:
+      attivo: "Attivo"
+    6:
+      attivo_mod12: "Attivo dal portale dell'Ente (Mod. 1 e/o 2)"
+    7:
+      attivo_mod3: "Attivo presso i canali del PSP (Mod. 3)"
+    8:
+      sportello_fisico: "Sportello fisico"
+    9:
+      online: "Online"
+    10:
+      mobile_banking_app: "Mobile banking (App)"
+    11:
+      phone_banking: "Phone banking"
+    12:
+      atm: "ATM"
+
+
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: pagopa
+
+  field_pagopa_type:
+    -
+      plugin: default_value
+      default_value: "PSP"
+    -
+      plugin: insert_or_select_taxonomy_term
+      vocabulary_name: pagopa_type
+
+  title: denominazione
+  field_name: denominazione
+  field_fiscal_code: cdf
+  field_abi_code: codice_abi
+  field_bic_code: codice_bic
+  field_seller_bank_code: codice_seller_bank
+  field_active: attivo
+  field_active_mod12: attivo_mod12
+  field_active_mod3: attivo_mod3
+  field_help_desk: sportello_fisico
+  field_online: online
+  field_mobile_banking: mobile_banking_app
+  field_phone_banking: phone_banking
+  field_atm: atm

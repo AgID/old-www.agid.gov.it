@@ -10,6 +10,7 @@ description: 'A <em>Document</em> file is written information.'
 mimetypes:
   - text/plain
   - text/csv
+  - application/octet-stream
   - application/msword
   - application/vnd.ms-excel
   - application/pdf

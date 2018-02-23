@@ -1,0 +1,24 @@
+- name: Check if composer executable exists
+  command: "which composer"
+  register: composer_exec
+  ignore_errors: True
+
+- name: Composer Install components
+  shell: "{{ composer_exec.stdout }} install -d {{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }} --no-interaction --prefer-dist"
+  when: composer_exec|succeeded
+
+- name: Set correct permissions
+  file:
+    path: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/web/sites/default"
+    mode: u=rwX,g=rX,o=rX
+    recurse: yes
+
+- name: Rebuild Configuration Import to be sure that all is synced
+  shell: "{{ item }} chdir={{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}"
+  with_items:
+    - "bin/drush --root={{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/web -y cim sync"
+
+- name: Rebuild Drupal Cache
+  shell: "{{ item }} chdir={{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}"
+  with_items:
+    - "bin/drush --root={{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}/web cr all -y"

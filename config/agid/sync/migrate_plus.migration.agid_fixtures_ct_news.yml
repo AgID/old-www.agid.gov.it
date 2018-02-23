@@ -1,4 +1,4 @@
-uuid: 1c7cc107-6414-4286-a52a-169b84496d3e
+uuid: 26ad1420-ac07-4206-81b3-7e931bc529d9
 langcode: it
 status: true
 dependencies: {  }
@@ -149,5 +149,4 @@ migration_dependencies:
     - agid_fixtures_taxonomy_profiles
     - agid_fixtures_taxonomy_tags
     - agid_fixtures_ct_event
-  optional:
-    - agid_fixtures_files
+    - migrate_plus.migration.agid_fixtures_files

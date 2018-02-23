@@ -85,6 +85,8 @@ permissions:
   - 'edit own software content'
   - 'edit terms in arguments'
   - 'manipulate entityqueues'
+  - 'rabbit hole bypass node'
+  - 'rabbit hole bypass taxonomy_term'
   - 'revert acc_subj revisions'
   - 'revert all revisions'
   - 'revert event revisions'

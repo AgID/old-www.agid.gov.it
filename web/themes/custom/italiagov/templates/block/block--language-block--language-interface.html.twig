@@ -22,6 +22,12 @@
 'u-padding-left-xs'
 ] %}
 
+{% set active_languages = {
+'it':'ita',
+'en': 'eng'
+} %}
+
+
 <div{{ attributes.addClass(container_classes) }}>
   {% block content %}
 
@@ -30,7 +36,7 @@
       <a aria-controls="languages" aria-haspopup="true" class="{{ active_language_classes | join(' ') }}"
          data-menu-trigger="languages" href="#languages" role="button">
         <span class="u-hiddenVisually">{{ content.active_language.label_hidden }}:</span>
-        <span>{{ content.active_language.language_name | upper }}</span>
+        <span>{{ active_languages[content.active_language.language_name] | upper }}</span>
         <span class="{{ active_language_span_classes | join(' ') }}"></span>
       </a>
     {% endif %}

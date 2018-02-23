@@ -1,0 +1,9 @@
+uuid: e9dd669f-418b-456c-bc7b-b1c66517a18b
+langcode: it
+status: true
+dependencies: {  }
+id: node_type_pagopa
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

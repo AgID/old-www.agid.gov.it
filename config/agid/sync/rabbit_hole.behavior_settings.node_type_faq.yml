@@ -1,0 +1,9 @@
+uuid: 4296e306-61d8-4019-a368-dc7fdac9aa23
+langcode: it
+status: true
+dependencies: {  }
+id: node_type_faq
+action: page_redirect
+allow_override: 1
+redirect: /domande-frequenti
+redirect_code: 302

@@ -7,6 +7,8 @@ module:
   agid_file_repository: 0
   agid_fixtures: 0
   agid_footer: 0
+  agid_migrate_tools: 0
+  agid_pagopa: 0
   agid_press: 0
   agid_software: 0
   block: 0
@@ -36,6 +38,7 @@ module:
   field_ui: 0
   file: 0
   file_entity: 0
+  filemime: 0
   filter: 0
   geocoder: 0
   geocoder_field: 0
@@ -62,7 +65,10 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  rabbit_hole: 0
   redis: 0
+  rh_node: 0
+  rh_taxonomy: 0
   search: 0
   sitemap: 0
   system: 0

@@ -1,0 +1,10 @@
+uuid: 5309917f-49c8-4437-b139-4f33ffc46216
+langcode: it
+status: true
+dependencies: {  }
+id: agid_pagopa_group_pagopa
+label: agid_pagopa_group_pagopa
+description: ''
+source_type: null
+module: null
+shared_configuration: null

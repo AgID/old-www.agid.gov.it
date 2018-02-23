@@ -150,7 +150,9 @@
     "drupal/console": "^1.4",
     "drupal/webform": "^5.0@RC",
     "drupal/sitemap": "^1.3",
-    "drupal/redis": "^1.0@RC"
+    "drupal/redis": "^1.0@RC",
+    "drupal/filemime": "^1.0",
+    "drupal/rabbit_hole": "^1.0@beta"
   },
   "require-dev": {
     "phing/phing": "2.12.*",

@@ -16,6 +16,30 @@ function agid_press_node_presave(EntityInterface $entity) {
     return;
   }
 
+  /** @var Drupal\Core\Field\EntityReferenceFieldItemList $type */
+  $type = $entity->get('field_type');
+
+  if (empty($type)) {
+    return;
+  }
+
+  $tid = $type->getValue() != null ? $type->getValue()[0]['target_id'] : null;
+
+  if (empty($tid)) {
+    return;
+  }
+
+  /** @var \Drupal\taxonomy\Entity\Term $term */
+  $term = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->load($tid);
+
+  if (empty($term)) {
+    return;
+  }
+
+  if ($term->label() != 'Comunicato Stampa') {
+    return;
+  }
+
   if ($entity->get('field_press_year')->isEmpty()) {
     $entity->set('field_press_year', date('Y'));
   }

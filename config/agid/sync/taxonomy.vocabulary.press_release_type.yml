@@ -1,0 +1,9 @@
+uuid: b19a35ed-72fd-4ee2-a925-3acd427220a2
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologia Comunicato Stampa'
+vid: press_release_type
+description: ''
+hierarchy: 0
+weight: 0

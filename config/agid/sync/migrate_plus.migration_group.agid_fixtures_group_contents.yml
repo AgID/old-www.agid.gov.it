@@ -1,9 +1,7 @@
-uuid: a7e4fcde-c8de-48f4-9f1f-96f3929710bf
+uuid: f05ca64b-c867-4bd3-bafa-318eb49878bb
 langcode: it
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: d-zUSi3_KuhkX1nXjJ1TJ1H_fUM1KHPFT-SSVmuubAo
 id: agid_fixtures_group_contents
 label: 'Contents migrations'
 description: 'contents migrations.'

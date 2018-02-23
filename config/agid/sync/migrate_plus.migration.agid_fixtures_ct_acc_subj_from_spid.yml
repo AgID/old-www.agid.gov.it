@@ -1,4 +1,4 @@
-uuid: d3a845c7-126a-4320-8c78-f0a9dc68c86a
+uuid: 092a39ac-a579-45cd-bc98-350713650765
 langcode: it
 status: true
 dependencies: {  }
@@ -77,15 +77,6 @@ process:
       format: 'Y-m-d\TH:i:s'
       modifier: '-1 hours'
   field_acc_subj_service_name: field_nome_servizio_spid
-  documents:
-    -
-      plugin: get
-      source:
-        - field_determina_accreditamento
-        - field_convenzione
-        - field_determina
-        - field_manuale_operativo
-        - field_manuale_utente
   field_repository_files:
     -
       plugin: get
@@ -163,5 +154,4 @@ migration_dependencies:
     - agid_fixtures_paragraph_external_link_spid_info
     - agid_fixtures_paragraph_external_link_spid_meta
     - agid_fixtures_paragraph_external_link_spid_reg
-  optional:
-    - agid_fixtures_files
+    - migrate_plus.migration.agid_fixtures_files

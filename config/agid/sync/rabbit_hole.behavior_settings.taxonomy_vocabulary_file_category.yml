@@ -1,0 +1,9 @@
+uuid: 6e9f973d-c29d-4cd8-bdec-ed68ce98356e
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_file_category
+action: page_redirect
+allow_override: 1
+redirect: /
+redirect_code: 302

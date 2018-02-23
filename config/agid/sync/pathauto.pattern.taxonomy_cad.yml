@@ -1,0 +1,23 @@
+uuid: ed9c8296-0814-46aa-87c0-b52302cf40b6
+langcode: it
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: taxonomy_cad
+label: 'Taxonomy CAD'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria:
+  0f110549-d1e0-40bb-aaf9-be5366211b8f:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      cad: cad
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 0f110549-d1e0-40bb-aaf9-be5366211b8f
+selection_logic: and
+weight: -5
+relationships: {  }

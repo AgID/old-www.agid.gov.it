@@ -1,0 +1,9 @@
+uuid: 3cb4992e-bad4-4dfc-80f8-179c97bba1f8
+langcode: it
+status: true
+dependencies: {  }
+id: node_type_person
+action: page_redirect
+allow_override: 1
+redirect: /agenzia/chi-siamo/organizzazione
+redirect_code: 302

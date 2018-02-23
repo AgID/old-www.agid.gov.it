@@ -1,0 +1,9 @@
+uuid: 2df84b67-159b-4083-8b48-97f618d6f035
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_profiles
+action: page_redirect
+allow_override: 1
+redirect: /
+redirect_code: 302

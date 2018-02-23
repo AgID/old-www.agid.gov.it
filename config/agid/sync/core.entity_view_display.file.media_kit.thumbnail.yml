@@ -19,20 +19,28 @@ bundle: media_kit
 mode: thumbnail
 content:
   field_title:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link_to_file: true
     third_party_settings: {  }
     type: file_link
     region: content
+  filemime:
+    type: file_filemime
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_file: false
+      filemime_image: false
+    third_party_settings: {  }
 hidden:
   field_arguments: true
   field_description: true
   field_file_category: true
   field_original_file_source: true
   field_type: true
-  filemime: true
   filename: true
   filesize: true
   langcode: true

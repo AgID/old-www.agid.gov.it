@@ -29,40 +29,22 @@
             {# Accordion #}
             <div{{ attributes
                 .addClass(accordion_classes)
-            .setAttribute('id', 'accordion-1') }}>
+            .setAttribute('id', 'accordion-faq-1') }}>
 
                 {% for row in rows %}
                     {# Accordion item #}
                     <h2 class="Accordion-header js-fr-accordion__header fr-accordion__header"
-                        id="{{ 'accordion-header-' ~ loop.index0 }}">
+                        id="{{ 'accordion-header-faq-' ~ loop.index0 }}">
                         <span class="Accordion-link">{{ row.content['#node'].title.value }}</span>
                     </h2>
                     {# Accordion panel #}
-                    <div id="{{ 'accordion-panel-' ~ loop.index0 }}"
+                    <div id="{{ 'accordion-panel-faq-' ~ loop.index0 }}"
                          class="Accordion-panel fr-accordion__panel js-fr-accordion__panel">
                         {{ row.content }}
                     </div>
                 {% endfor %}
 
             </div>
-{#
-        {% for row in rows %}
-          {%
-            set row_classes = [
-              default_row_class ? 'views-row',
-              'Grid-cell'
-            ]
-          %}
-            {% if loop.index0 == 0 %}
-                {% set row_classes = row_classes|merge(['u-nbfc', 'u-size1of1', 'u-md-size1of2', 'u-lg-size1of2', 'u-padding-right-s']) %}
-            {% elseif loop.index0 == 1 %}
-                {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of2', 'u-lg-size1of2', 'u-padding-r-left']) %}
-            {% endif %}
-          <div{{ row.attributes.addClass(row_classes) }}>
-            {{ row.content }}
-          </div>
-        {% endfor %}
-#}
         </div>
     </section>
 </div>

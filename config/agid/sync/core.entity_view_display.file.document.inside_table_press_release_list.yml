@@ -1,0 +1,48 @@
+uuid: e1d4a878-61fe-4a03-9870-5d165a30aa9c
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.file.inside_table_press_release_list
+    - field.field.file.document.field_arguments
+    - field.field.file.document.field_description
+    - field.field.file.document.field_file_category
+    - field.field.file.document.field_original_file_source
+    - field.field.file.document.field_title
+    - field.field.file.document.field_type
+    - file_entity.type.document
+  module:
+    - file
+id: file.document.inside_table_press_release_list
+targetEntityType: file
+bundle: document
+mode: inside_table_press_release_list
+content:
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_file: true
+    third_party_settings: {  }
+    type: file_link
+    region: content
+  filemime:
+    type: file_filemime
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_file: false
+      filemime_image: false
+    third_party_settings: {  }
+hidden:
+  field_arguments: true
+  field_description: true
+  field_file_category: true
+  field_original_file_source: true
+  field_type: true
+  filename: true
+  filesize: true
+  langcode: true
+  uid: true
+  uri: true

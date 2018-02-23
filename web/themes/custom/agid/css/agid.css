@@ -58,7 +58,7 @@ h2.Accordion-header {
 
 .Accordion--default .Accordion-header {
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 0 !importa
   border-top: 0 !important;
 }
 
@@ -325,6 +325,14 @@ nav.Megamenu--default {
   display: none;
 }
 
+#block-agid-mainnavigation ul ul ul {
+  display: none;
+}
+
+#block-agid-mainnavigation ul ul li a > span {
+  display: none !important;
+}
+
 /* Header */
 
 .Header-banner {
@@ -441,7 +449,7 @@ nav.Megamenu--default {
   display: grid;
 }
 .field--name-field-repository-files .field__item {
-  display: inline-block;
+  display: inline-block !important;
 }
 .field--name-field-repository-files .field__item:nth-child(even) {
   grid-column: 2;
@@ -1289,9 +1297,11 @@ article.accsubj .field--name-field-acc-subj-logo {
   display: inline;
 }
 
+article.pagopa-content .field--label-inline .field__label,
 article.accsubj .field--label-inline .field__label {
   font-weight: 600;
 }
+
 article.accsubj .field--label-inline .field__label:after {
   content: ":";
 }
@@ -1384,5 +1394,33 @@ article.event-page .field--name-field-event-start-date {
 }
 
 article.event-page .field--name-field-event-description {
+  margin-top: 2rem;
+}
+
+.views-element-container table div.field--name-filemime {
+  display: inline-block;
+}
+
+.views-element-container table div.field--name-field-title {
+  display: inline;
+}
+
+.file--view-mode-thumbnail .field--name-field-title {
+  display: inline;
+}
+
+.file--view-mode-thumbnail .field--name-filemime {
+  display: inline-block;
+}
+
+div.documentation div.file {
+  margin-bottom: 1rem;
+}
+
+div.pagopa-channel-section {
+  padding: 1rem;
+  background-color: rgba(176, 176, 176, 0.5);
+  font-weight: 700;
+  margin-bottom: 1rem;
   margin-top: 2rem;
 }

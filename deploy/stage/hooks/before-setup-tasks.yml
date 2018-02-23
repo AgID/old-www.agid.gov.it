@@ -1,0 +1,28 @@
+- name: Set date variable
+  set_fact: datetime="{{lookup('pipe','date \"+%Y%m%d%H%M\"')}}"
+
+- name: Dump database
+  mysql_db:
+    state: dump
+    name: "{{ ansistrano_drupal_dbname }}"
+    login_user: "{{ ansistrano_drupal_dbuser }}"
+    login_password: "{{ ansistrano_drupal_dbpass }}"
+    target: "{{ ansistrano_deploy_to }}/backups/{{ ansistrano_drupal_dbname }}_{{ datetime }}.dump"
+
+- name: Zip dumped file
+  archive:
+    path: "{{ ansistrano_deploy_to }}/backups/{{ ansistrano_drupal_dbname }}_{{ datetime }}.dump"
+    remove: True
+    format: bz2
+
+- name: Collect backups older than 30d
+  find:
+    paths: "{{ ansistrano_deploy_to }}/backups"
+    age: 30d
+  register: files_to_delete
+
+- name: Remove backup files collected from previous task
+  file:
+    path: "{{ ansistrano_deploy_to }}/backups"
+    state: absent
+  with_items: "{{ files_to_delete.files }}"
