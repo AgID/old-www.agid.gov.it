@@ -66,6 +66,8 @@ $config['system.performance']['js']['preprocess'] = FALSE;
  */
 $settings['cache']['bins']['render'] = 'cache.backend.null';
 
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+
 /**
  * Disable Dynamic Page Cache.
  *
