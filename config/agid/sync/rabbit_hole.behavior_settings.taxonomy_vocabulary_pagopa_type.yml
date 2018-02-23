@@ -1,0 +1,9 @@
+uuid: f2589cbb-7705-4745-a2a6-bc43a6fcfd8a
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_pagopa_type
+action: page_redirect
+allow_override: 1
+redirect: /piattaforme/pagopa
+redirect_code: 302

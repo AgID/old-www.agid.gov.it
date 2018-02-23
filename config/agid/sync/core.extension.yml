@@ -65,7 +65,10 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  rabbit_hole: 0
   redis: 0
+  rh_node: 0
+  rh_taxonomy: 0
   search: 0
   sitemap: 0
   system: 0

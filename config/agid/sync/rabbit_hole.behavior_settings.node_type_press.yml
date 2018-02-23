@@ -1,0 +1,9 @@
+uuid: ea15120c-438b-4e8e-adf0-db600bd8bb80
+langcode: it
+status: true
+dependencies: {  }
+id: node_type_press
+action: page_redirect
+allow_override: 1
+redirect: /agenzia/ufficio-stampa-e-comunicazione/comunicati-e-focus
+redirect_code: 302

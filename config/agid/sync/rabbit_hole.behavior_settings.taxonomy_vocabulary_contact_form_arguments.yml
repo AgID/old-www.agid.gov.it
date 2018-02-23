@@ -1,0 +1,9 @@
+uuid: 5f0abb1d-98a8-466c-9fac-4e1a1ab0e12e
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_contact_form_arguments
+action: page_redirect
+allow_override: 1
+redirect: /
+redirect_code: 302

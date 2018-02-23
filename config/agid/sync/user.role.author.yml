@@ -28,6 +28,8 @@ permissions:
   - 'edit own page content'
   - 'edit own press content'
   - 'edit own software content'
+  - 'rabbit hole bypass node'
+  - 'rabbit hole bypass taxonomy_term'
   - 'translate acc_subj node'
   - 'translate block_content'
   - 'translate event node'
