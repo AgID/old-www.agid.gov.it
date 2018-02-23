@@ -67,13 +67,15 @@
 
     {% if page.header_top or (afferent_administration_name and afferent_administration_url) %}
       <div class="Header-banner">
-        <div class="Header-owner">
-          {% if afferent_administration_url and afferent_administration_name %}
-            <a href="{{ afferent_administration_url }}" target="_blank">
-              <span>{{ afferent_administration_name|t }}</span>
-            </a>
-          {% endif %}
-          {{ page.header_top }}
+        <div class="u-layoutCenter u-layout-wide u-layout-r-withGutter">
+          <div class="Header-owner">
+            {% if afferent_administration_url and afferent_administration_name %}
+              <a href="{{ afferent_administration_url }}" target="_blank">
+                <span>{{ afferent_administration_name|t }}</span>
+              </a>
+            {% endif %}
+            {{ page.header_top }}
+          </div>
         </div>
       </div>
     {% endif %}
@@ -89,7 +91,7 @@
         {# Search bar trigger for mobile users #}
         <div class="Header-searchTrigger Grid-cell">
           <button aria-controls="header-search" aria-hidden="false" aria-label="{{ 'Enable the search form'|t }}"
-                  class="js-Header-search-trigger Icon Icon-search" title="{{ 'Enable the search form'|t }}">
+                  class="js-Header-search-trigger Icon Icon-search Icon--rotated" title="{{ 'Enable the search form'|t }}">
           </button>
           <button aria-controls="header-search" aria-hidden="true" aria-label="{{ 'Disable the search form'|t }}"
                   class="js-Header-search-trigger Icon Icon-close u-hidden" title="{{ 'Disable the search form'|t }}">
@@ -263,10 +265,12 @@
 
           {# Footer header #}
           <div class="Grid Grid--withGutter">
-            <div class="Header-agid Grid-cell u-size1of2" aria-hidden="true">
-              <div class="u-size3of4 u-md-size2of4 u-lg-size2of4">
-                <object class="Logo-img" type="image/svg+xml" data="{{ site_logo }}"></object>
-              </div>
+            <div class="Header-agid Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2" aria-hidden="true">
+                <a href="{{ path('<front>') }}" class="u-text-r-m" title="{{ 'Home'|t }}" rel="home">
+                  <img class="Logo-img" src="{{ site_logo }}" alt="{{ site_name }}"/>
+                  <span class="separator"></span>
+                  <span class="Site-name">{{ site_name }}</span>
+                </a>
             </div>
             {# Footer top_right #}
             {% if page.footer_top_right %}
