@@ -381,13 +381,13 @@ nav.Megamenu--default {
 
 @media screen and (max-width: 767px) {
   .Header-agid a {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
   }
   .Footer .Header-agid a {
     font-size: 2rem !important;
   }
   .Logo-img {
-    width: 7em;
+    width: 6em;
   }
 }
 
