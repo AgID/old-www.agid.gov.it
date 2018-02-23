@@ -1453,3 +1453,10 @@ div.documentation div.file {
   margin-bottom: 1rem;
 }
 
+div.pagopa-channel-section {
+  padding: 1rem;
+  background-color: rgba(176, 176, 176, 0.5);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
