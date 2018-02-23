@@ -1,0 +1,10 @@
+uuid: 623f2072-e178-43d4-8106-d54fc174ea3b
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+id: file.inside_table_press_release_list
+label: 'Inside table Press Release list'
+targetEntityType: file
+cache: true

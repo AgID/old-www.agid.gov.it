@@ -1,4 +1,4 @@
-uuid: 70a89b35-8a8b-459b-9150-ab9cdfd08f68
+uuid: d69c9b56-fe63-4c6d-8841-6a414d4fd787
 langcode: it
 status: true
 dependencies: {  }
@@ -172,5 +172,4 @@ migration_dependencies:
     - agid_fixtures_paragraph_more_info_ente_substitut
     - agid_fixtures_paragraph_more_info_ente_x500
     - agid_fixtures_paragraph_external_link_ente_manual
-  optional:
-    - agid_fixtures_files
+    - migrate_plus.migration.agid_fixtures_files

@@ -1,0 +1,9 @@
+uuid: 22e904c5-8ccf-4524-b6d4-07dab2b414ad
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_acc_subj_type
+action: page_redirect
+allow_override: 1
+redirect: /
+redirect_code: 302

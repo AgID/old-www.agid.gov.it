@@ -60,5 +60,6 @@ hidden:
   field_related_content: true
   field_repository_file: true
   field_repository_files: true
+  field_type: true
   langcode: true
   links: true

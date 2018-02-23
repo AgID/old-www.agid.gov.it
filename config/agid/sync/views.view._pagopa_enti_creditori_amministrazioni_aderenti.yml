@@ -551,7 +551,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            219: 219
+            231: 231
           group: 1
           exposed: false
           expose:

@@ -1,0 +1,9 @@
+uuid: 0bea0ca2-65a2-4d4f-9159-7523bb6d772b
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_agid_offices
+action: page_redirect
+allow_override: 1
+redirect: /agenzia/chi-siamo/organizzazione
+redirect_code: 302

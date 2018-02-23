@@ -157,7 +157,7 @@ process:
   field_acc_subj_external_link:
     plugin: default_value
     source:
-      - @temp_external_link_manual
+      - '@temp_external_link_manual'
 
   # Ulteriori informazioni
   # I'm using three temporary variables to store paragraphs references
@@ -177,9 +177,9 @@ process:
   field_acc_subj_info:
     plugin: default_value
     source:
-      - @temp_info_ente_head
-      - @temp_info_ente_subst
-      - @temp_info_ente_x500
+      - '@temp_info_ente_head'
+      - '@temp_info_ente_subst'
+      - '@temp_info_ente_x500'
 
   # Documentazione correlata
   field_repository_files:
@@ -224,5 +224,4 @@ migration_dependencies:
     - agid_fixtures_paragraph_more_info_ente_substitut
     - agid_fixtures_paragraph_more_info_ente_x500
     - agid_fixtures_paragraph_external_link_ente_manual
-  optional:
-    - agid_fixtures_files
+    - migrate_plus.migration.agid_fixtures_files

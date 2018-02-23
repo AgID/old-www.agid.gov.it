@@ -1,0 +1,8 @@
+uuid: f9da7070-b93a-4045-873f-b767bf1b5168
+langcode: it
+status: true
+dependencies: {  }
+id: agid_short_month_name
+label: 'AGID - Short month name'
+locked: false
+pattern: 'j M Y'

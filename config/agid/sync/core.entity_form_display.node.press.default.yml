@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.press.field_related_content
     - field.field.node.press.field_repository_file
     - field.field.node.press.field_repository_files
+    - field.field.node.press.field_type
     - node.type.press
   module:
     - datetime
@@ -100,6 +101,15 @@ content:
       field_widget_display_settings: {  }
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_type:
+    weight: 122
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   path:
     type: path

@@ -266,7 +266,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            220: 220
+            232: 232
           group: 1
           exposed: false
           expose:

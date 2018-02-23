@@ -107,5 +107,4 @@ migration_dependencies:
   required:
     - agid_fixtures_taxonomy_profiles
     - agid_fixtures_ct_faq
-  optional:
-    - agid_fixtures_files
+    - migrate_plus.migration.agid_fixtures_files

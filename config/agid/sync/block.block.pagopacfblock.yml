@@ -17,7 +17,8 @@ settings:
   id: pagopacfblock
   label: 'Stato attivazione:'
   provider: agid_blocks
-  label_display: visible
+  label_display: '0'
+  pagopa_type_term: '231'
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'

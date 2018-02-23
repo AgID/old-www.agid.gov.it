@@ -1,0 +1,72 @@
+uuid: 1c4d63f2-d347-49e3-9e4d-16c3ac857d84
+langcode: it
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 00PrrdU08G8wiEdwPOXTo8XTlYUBUgJ9kJXNPUdSg-I
+id: agid_pagopa_ct_pagopa_ec
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 8'
+  - PagoPA
+migration_group: agid_pagopa_group_pagopa
+label: 'Import of ''PagoPA Enti Creditori'' contents'
+source:
+  plugin: csv_url
+  url: 'http://www.agid.gov.it/sites/default/files/pagamenti_amministrazione/pagopa-ec.csv'
+  delimiter: ;
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - chiave
+  column_names:
+    -
+      chiave: Chiave
+    -
+      denominazione: Denominazione
+    -
+      tipologia_istat: 'Tipologia ISTAT'
+    -
+      cdf: 'Codice Fiscale'
+    -
+      codice_ipa: 'Codice IPA'
+    -
+      codice_gs1gln: 'Codice GS1 GLN'
+    -
+      codice_interbank: 'Codice Interbancario'
+    -
+      codice_partner: Intermediario/Partner
+    -
+      active: Attivo
+    -
+      mod12: 'Attivo Modello 1 e/o 2'
+    -
+      mod3: 'Attivo Modello 3'
+process:
+  type:
+    plugin: default_value
+    default_value: pagopa
+  field_pagopa_type:
+    -
+      plugin: default_value
+      default_value: 'Enti Creditori'
+    -
+      plugin: insert_or_select_taxonomy_term
+      vocabulary_name: pagopa_type
+  title: denominazione
+  field_name: denominazione
+  field_key: chiave
+  field_istat_type: tipologia_istat
+  field_fiscal_code: cdf
+  field_ipa_code: codice_ipa
+  field_gs1gln_code: codice_gs1gln
+  field_interbank_code: codice_interbank
+  field_partner_mediator: codice_partner
+  field_active: active
+  field_active_mod12: mod12
+  field_active_mod3: mod3
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null

@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /piattaforme/firma-elettronica-certificata/elenco-gestori-pec
+    pages: /piattaforme/posta-elettronica-certificata/elenco-gestori-pec
     negate: false
     context_mapping: {  }
