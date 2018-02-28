@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js ie89 ie8 {{ html_attributes.class }}" lang="{{ html_attributes.lang }}"
+      dir="{{ html_attributes.dir }}" prefix="{{ html_attributes.prefix }}">
+<![endif]-->
+<!--[if IE 9]>
+<html class="no-js ie89 ie9 {{ html_attributes.class }}" lang="{{ html_attributes.lang }}"
+      dir="{{ html_attributes.dir }}" prefix="{{ html_attributes.prefix }}">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js {{ html_attributes.class }}" lang="{{ html_attributes.lang }}"
+      dir="{{ html_attributes.dir }}" prefix="{{ html_attributes.prefix }}">
+<!--<![endif]-->
+  <head>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ icon_path }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ icon_path }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ icon_path }}/favicon-16x16.png">
+    <link rel="manifest" href="{{ icon_path }}/site.webmanifest">
+    <link rel="mask-icon" href="{{ icon_path }}/safari-pinned-tab.svg" color="#0066cc">
+    <link rel="shortcut icon" href="{{ icon_path }}/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Agenzia per l'Italia Digitale">
+    <meta name="application-name" content="Agenzia per l'Italia Digitale">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="{{ icon_path }}/browserconfig.xml">
+    <meta name="theme-color" content="#0066cc">
+  </head>
+  <body {{ attributes }}>
+
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+
+    <!--[if IE 8]>
+    <script src="{{ directory_build }}/vendor/respond.min.js"></script>
+    <script src="{{ directory_build }}/vendor/rem.min.js"></script>
+    <script src="{{ directory_build }}/vendor/selectivizr.js"></script>
+    <script src="{{ directory_build }}/vendor/slice.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="{{ directory_build }}/vendor/polyfill.min.js"></script>
+    <![endif]-->
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  </body>
+</html>
