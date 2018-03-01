@@ -44,3 +44,6 @@ regions:
   footer_top_right : 'Footer top right'
   footer_middle : 'Footer middle'
   footer_bottom : 'Footer bottom'
+
+features:
+  favicon: false
