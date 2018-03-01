@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Theme override to set h1 header in front page.
+ */
+#}
+{% extends "page.html.twig" %}
+{% block page_body %}
+  <h1 class="u-hiddenVisually">{{ "Agenzia per l'Italia Digitale"|t }}</h1>
+  {{ parent() }}
+{% endblock %}
