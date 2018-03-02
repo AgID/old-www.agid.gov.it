@@ -54,7 +54,8 @@
 ] %}
 
 <div class="u-padding-top-l wrapper documentation">
-
+{{ 'ciao' }}
+{{ file_types }}
   {# Title #}
   <h4 class="u-text-h4" title="{{ label }}">{{ 'Documentation' | t }}</h4>
 
@@ -63,23 +64,23 @@
   .addClass(accordion_classes)
   .setAttribute('id', 'accordion-1') }}>
 
-    {% for file_category in file_categories %}
+    {% for file_type in file_types %}
 
       {# Accordion item #}
       <h2 class="Accordion-header js-fr-accordion__header fr-accordion__header"
           id="{{ 'accordion-header-' ~ loop.index0 }}">
-        <span class="Accordion-link">{{ file_category }}</span>
+        <span class="Accordion-link">{{ file_type }}</span>
       </h2>
       {# Accordion panel #}
       <div id="{{ 'accordion-panel-' ~ loop.index0 }}"
            class="Accordion-panel fr-accordion__panel js-fr-accordion__panel">
-        <p class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all">
+        <div class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all">
           {% for item in items %}
-            {% if item_file_categories[loop.index0] == file_category %}
+            {% if item_file_types[loop.index0] == file_type %}
               {{ item.content }}
             {% endif %}
           {% endfor %}
-        </p>
+        </div>
       </div>
     {% endfor %}
 

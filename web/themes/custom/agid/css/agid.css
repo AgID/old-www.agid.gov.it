@@ -58,13 +58,9 @@ h2.Accordion-header {
 
 .Accordion--default .Accordion-header {
   padding-top: 0 !important;
-  padding-bottom: 0 !importa
-  border-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
-h2.Accordion-header:not(:last-of-type) > span {
-  border-bottom: 1px solid #d0e2f5;
-}
 h2.Accordion-header > span {
   margin: 0 0 0 1rem;
 }
