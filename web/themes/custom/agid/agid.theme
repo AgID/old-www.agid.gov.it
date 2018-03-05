@@ -26,8 +26,8 @@ function agid_preprocess_field(&$variables) {
     return;
   }
 
-  $variables['item_file_categories'] = [];
-  $variables['file_categories'] = [];
+  $variables['item_file_types'] = [];
+  $variables['file_types'] = [];
   foreach ($field as $k => $item) {
     if (!is_numeric($k)) {
       continue;
@@ -37,18 +37,18 @@ function agid_preprocess_field(&$variables) {
     if (is_null($file)) {
       continue;
     }
-    $field_file_category = $file->hasField('field_file_category') ? $file->get('field_file_category') : null;
-    if ( $field_file_category != null && $file->get('field_file_category')->getValue() != null ) {
+    $field_type = $file->hasField('field_type') ? $file->get('field_type') : null;
+    if ( $field_type != null && $file->get('field_type')->getValue() != null ) {
       /** @var \Drupal\taxonomy\Entity\Term $term */
-      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_file_category->getValue()['0']['target_id']);
+      $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($field_type->getValue()['0']['target_id']);
       $item_title = $term->getName();
     }
     if (empty($item_title)) {
       $item_title = $file->get('filename')->getValue()[0]['value'];
     }
-    $variables['item_file_categories'][] = $item_title;
-    if ( !in_array($item_title, $variables['file_categories']) ) {
-      $variables['file_categories'][] = $item_title;
+    $variables['item_file_types'][] = $item_title;
+    if ( !in_array($item_title, $variables['file_types']) ) {
+      $variables['file_types'][] = $item_title;
     }
   }
 }
