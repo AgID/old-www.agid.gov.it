@@ -99,7 +99,7 @@
     "composer/installers": "^1.0.20",
     "drupal-composer/drupal-scaffold": "~1",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.4.4",
+    "drupal/core": "8.4.5",
     "drush/drush": "~8.1",
     "drupal/config_installer": "1.*",
     "behat/behat": "^3.1.0",
@@ -152,7 +152,9 @@
     "drupal/sitemap": "^1.3",
     "drupal/redis": "^1.0@RC",
     "drupal/filemime": "^1.0",
-    "drupal/rabbit_hole": "^1.0@beta"
+    "drupal/rabbit_hole": "^1.0@beta",
+    "drupal/rename_admin_paths": "^1.1",
+    "drupal/login_security": "^1.3"
   },
   "require-dev": {
     "phing/phing": "2.12.*",
