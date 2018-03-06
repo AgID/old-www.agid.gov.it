@@ -20,35 +20,46 @@ h1.u-text-h2 {
 
 h1 {
   font-size: 30px;
-  line-height: 45px;
+  line-height: 1.25;
   margin-top: 4rem;
   margin-bottom: 0;
 }
 
+.Prose > h2,
+.Prose > h3,
+.Prose > h4,
+.Prose > h5 {
+  font-weight: 400 !important;
+}
+
+.Prose > h2 {
+  font-size: 2em !important;
+}
+
 h2 {
   font-size: 28px;
-  line-height: 1.5;
+  line-height: 1.25;
   margin-top: 2rem;
 }
 
 h3 {
   font-size: 26px;
-  line-height: 39px;
+  line-height: 1.25;
 }
 
 h4 {
   font-size: 24px;
-  line-height: 36px;
+  line-height: 1.55;
 }
 
 h5 {
   font-size: 22px;
-  line-height: 33px;
+  line-height: 1.55;
 }
 
 h6 {
   font-size: 20px;
-  line-height: 30px;
+  line-height: 1.55;
 }
 
 h2.Accordion-header {
@@ -333,13 +344,13 @@ nav.Megamenu--default {
 
 .Header-banner {
   background-color: #003183;
-  padding: 0!important;
+  padding: 0 !important;
 }
 
 .Header-navbar {
-  background-color: #0059B3;
-  padding-left: 0!important;
-  padding-right: 0!important;
+  background-color: #0059b3;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .Header-languages {
@@ -356,8 +367,8 @@ nav.Megamenu--default {
 }
 
 .Header-agid a {
-  text-decoration: none!important;
-  color: #fff!important;
+  text-decoration: none !important;
+  color: #fff !important;
   display: inline-block;
 }
 
@@ -388,7 +399,7 @@ nav.Megamenu--default {
 }
 
 .Header-searchTrigger button {
-  background-color: #0059B3;
+  background-color: #0059b3;
 }
 
 /* Home page */
@@ -731,7 +742,6 @@ div.Prose,
 @media screen and (max-width: 991px) {
   .homepage-news div.views-row {
     border-left: 0 !important;
-    padding-left: 0 !important;
   }
 
   .homepage-news div.views-row:not(:first-child) {
@@ -1130,9 +1140,6 @@ a.Footer-contact {
   #block-navigazioneprincipale {
     display: none;
   }
-  header {
-    margin-bottom: 5rem;
-  }
 }
 
 @media screen and (min-width: 992px) {
@@ -1447,4 +1454,9 @@ div.pagopa-channel-section {
   font-weight: 700;
   margin-bottom: 1rem;
   margin-top: 2rem;
+}
+
+.Page .Abstract p {
+  font-size: 1.1em !important;
+  color: #0059b3 !important;
 }
