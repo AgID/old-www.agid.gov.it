@@ -25,13 +25,20 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes }}>
+{%
+  set block_classes = [
+    'u-padding-r-left',
+    'u-padding-r-right'
+  ]
+%}
+<section{{ attributes.addClass(block_classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}><a href="/agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi" title="{{ 'See all news'|t }}">{{ label }}</a></h2>
+    <h2{{ title_attributes }}><a href="/agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi" title="{{ 'See all news'|t }}" 
+      class="u-text-r-l">{{ label }}</a></h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
     {{ content }}
   {% endblock %}
-</div>
+</section>
