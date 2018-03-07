@@ -29,10 +29,12 @@ class AgidRelatedNewsBlock extends AgidRelatedContentBlock {
     /** @var ViewExecutable $viewExecutable */
     $viewExecutable = $this->viewExecutableFactory->get($view);
 
-    $viewExecutable->executeDisplay(AgidBlocks::VIEW_RELATED_NEWS_DISPLAY, [$this->taxonomy_ids]);
+    $viewExecutable->executeDisplay(AgidBlocks::VIEW_RELATED_NEWS_DISPLAY,
+      [$this->taxonomy_ids, $this->node->id()]);
 
     if (count($viewExecutable->result) > 0) {
-      $build['agid_related_news_block'] = $viewExecutable->buildRenderable(AgidBlocks::VIEW_RELATED_NEWS_DISPLAY, [$this->taxonomy_ids]);
+      $build['agid_related_news_block'] = $viewExecutable->buildRenderable(AgidBlocks::VIEW_RELATED_NEWS_DISPLAY, 
+        [$this->taxonomy_ids, $this->node->id()]);
     }
 
     return $build;
