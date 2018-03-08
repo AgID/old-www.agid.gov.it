@@ -46,6 +46,13 @@ abstract class AgidRelatedContentBlock extends BlockBase implements ContainerFac
   protected $taxonomy_ids;
 
   /**
+   * The value for the current node.
+   *
+   * @var \Drupal\node\NodeInterface $node
+   */
+  protected $node;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(
@@ -61,6 +68,7 @@ abstract class AgidRelatedContentBlock extends BlockBase implements ContainerFac
     $this->entityTypeManager = $entity_type_manager;
     $this->viewExecutableFactory = $view_executable_factory;
 
+    $this->node = $this->currentRouteMatch->getParameter('node');
     $this->taxonomy_ids = $this->retrieveDataFromRoute();
 
     if ( is_null($this->taxonomy_ids) ) {
@@ -87,9 +95,9 @@ abstract class AgidRelatedContentBlock extends BlockBase implements ContainerFac
    */
   public function getCacheTags() {
     // With this when your node change your block will rebuild.
-    if ($node = $this->currentRouteMatch->getParameter('node')) {
+    if ($this->node) {
       // If there is node add its cachetag.
-      return Cache::mergeTags(parent::getCacheTags(), ['node:' . $node->id()]);
+      return Cache::mergeTags(parent::getCacheTags(), ['node:' . $this->node->id()]);
     }
     else {
       // Return default tags instead.
@@ -113,7 +121,7 @@ abstract class AgidRelatedContentBlock extends BlockBase implements ContainerFac
   private function retrieveDataFromRoute() {
     
     /** @var \Drupal\node\NodeInterface $node */
-    $node = $this->currentRouteMatch->getParameter('node');
+    $node = $this->node;
 
     if (empty($node)) {
       return;
