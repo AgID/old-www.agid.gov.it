@@ -244,12 +244,16 @@ tr:nth-child(odd) {
   /* padding-right: 1rem !important; */
 }
 
+.Megamenu-subnavGroup:not(.Megamenu-pageLink) > li {
+  width: 10em !important;
+}
+
 .Header .Megamenu-subnavGroup li > a {
   display: inline-block;
   text-transform: none !important;
   padding: 0.5rem;
-  font-size: 16px !important;
-  line-height: 27px;
+  font-weight: 600 !important;
+  font-size: 1em !important;
 }
 
 .Header .Megamenu-subnavGroup li > a:hover {
@@ -433,6 +437,10 @@ nav.Megamenu--default {
   margin-top: 2rem;
   font-weight: 600 !important;
   color: #0059b3;
+}
+
+.field--label-inline {
+  padding: 0.5em 0;
 }
 
 /** Field news date */
