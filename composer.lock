@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be860c194ca2a7232ae3a952b2bcb746",
-    "content-hash": "f1d92b5056a0e4e18f81d55b43583e63",
+    "hash": "de9e385e050207de9af916e2c065d104",
+    "content-hash": "bd615247d2c13026ba016a98da14f55d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2056,6 +2056,66 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/adminimal_theme"
             }
+        },
+        {
+            "name": "drupal/backup_migrate",
+            "version": "dev-4.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/backup_migrate",
+                "reference": "b82e545d2faf4a4d587476bf43e897791ee4ec5d"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0-rc1+1-dev",
+                    "datestamp": "1519214884",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ronan Dowling",
+                    "homepage": "https://www.drupal.org/u/ronan",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "DamienMcKenna",
+                    "homepage": "https://www.drupal.org/user/108450"
+                },
+                {
+                    "name": "dgorton",
+                    "homepage": "https://www.drupal.org/user/19044"
+                },
+                {
+                    "name": "ikit-claw",
+                    "homepage": "https://www.drupal.org/user/3285813"
+                },
+                {
+                    "name": "ronan",
+                    "homepage": "https://www.drupal.org/user/72815"
+                }
+            ],
+            "description": "Backup and Migrate Drupal Module",
+            "homepage": "https://www.drupal.org/project/backup_migrate",
+            "support": {
+                "source": "http://cgit.drupalcode.org/backup_migrate",
+                "issues": "https://www.drupal.org/project/issues/backup_migrate"
+            },
+            "time": "2018-02-21 12:04:27"
         },
         {
             "name": "drupal/captcha",
@@ -11042,6 +11102,7 @@
         "drupal/webform": 5,
         "drupal/redis": 5,
         "drupal/rabbit_hole": 10,
+        "drupal/backup_migrate": 20,
         "jcalderonzumba/gastonjs": 20,
         "drupal/migrate_devel": 20
     },
