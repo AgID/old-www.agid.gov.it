@@ -24,7 +24,7 @@
 
 {% set value = attributes.value %}
 
-<button {{ attributes.addClass(classes).removeAttribute('value') }}>
-  {{ 'Search'|trans }}
+<button {{ attributes.addClass(classes) }}>
+  {{ value }}
 </button>
 {{ children }}

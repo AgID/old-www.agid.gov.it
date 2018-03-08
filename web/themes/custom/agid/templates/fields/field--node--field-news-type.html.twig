@@ -47,7 +47,6 @@ set classes = [
 <div{{ attributes.addClass(classes, 'field__items u-cf') }}>
   {% for item in items %}
     <div{{ item.attributes.addClass('field__item', 'u-floatLeft','u-margin-right-l') }}>
-      <span class="Dot u-background-50"></span>
       <span class="u-textClean u-textWeight-700 u-text-r-xs u-color-50">{{ item.content }}</span>
     </div>
   {% endfor %}
