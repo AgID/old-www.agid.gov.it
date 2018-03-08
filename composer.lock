@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "646e970a4a68daccedefdf0667895167",
-    "content-hash": "315523dd0ae4ef231aca6bac12bbab6b",
+    "hash": "58b43eed21b02d49d1b95b9bc7e9b933",
+    "content-hash": "4a15df6eb5d00e7c21bf668655f74163",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3736,6 +3736,61 @@
             "homepage": "https://www.drupal.org/project/eu_cookie_compliance",
             "support": {
                 "source": "http://cgit.drupalcode.org/eu_cookie_compliance"
+            }
+        },
+        {
+            "name": "drupal/extlink",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/extlink",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/extlink-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "72591d997e4c4fc2bbc93ca4e1602ada2cf5cbb4"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1481932083",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "elachlan",
+                    "homepage": "https://www.drupal.org/user/1021502"
+                },
+                {
+                    "name": "jjeff",
+                    "homepage": "https://www.drupal.org/user/17190"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                }
+            ],
+            "description": "Modify behavior and appearance of external links.",
+            "homepage": "https://www.drupal.org/project/extlink",
+            "support": {
+                "source": "http://cgit.drupalcode.org/extlink"
             }
         },
         {
