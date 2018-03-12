@@ -28,13 +28,16 @@
 {%
   set block_classes = [
     'u-padding-r-left',
-    'u-padding-r-right'
+    'u-padding-r-right',
+    'u-inlineBlock',
+    'u-md-size2of3',
+    'u-lg-size2of3'
   ]
 %}
 <section{{ attributes.addClass(block_classes) }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}><a href="/agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi" title="{{ 'See all news'|t }}" 
+    <h2{{ title_attributes }}><a href="/agenzia/stampa-e-comunicazione/notizie" title="{{ 'See all news'|t }}"
       class="u-text-r-l">{{ label }}</a></h2>
   {% endif %}
   {{ title_suffix }}

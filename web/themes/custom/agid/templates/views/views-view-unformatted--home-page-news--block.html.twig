@@ -26,11 +26,9 @@
       ]
     %}
       {% if loop.index0 == 0 %}
-          {% set row_classes = row_classes|merge(['u-nbfc', 'u-size1of1', 'u-md-size1of3', 'u-lg-size1of3']) %}
-      {% elseif loop.index0 == 1 %}
-          {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of3', 'u-lg-size1of3', 'u-border-left-xxs']) %}
+          {% set row_classes = row_classes|merge(['u-nbfc', 'u-size1of1', 'u-md-size1of2', 'u-lg-size1of2']) %}
       {% else %}
-          {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of3', 'u-lg-size1of3', 'u-border-left-xxs']) %}
+          {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of2', 'u-lg-size1of2', 'u-border-left-xxs']) %}
       {% endif %}
     <div{{ row.attributes.addClass(row_classes) }}>
       {{ row.content }}
