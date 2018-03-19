@@ -91,6 +91,25 @@ p {
   line-height: 27px;
 }
 
+.Prose ul {
+  list-style-type: square;
+}
+
+.Prose ol {
+  list-style-type: decimal
+}
+
+.Prose ul,
+.Prose ol {
+  list-style-position: outside;
+  margin-left: 3.2rem!important;
+}
+
+.Prose ul li,
+.Prose ol li {
+  line-height: 1.55!important;
+}
+
 .Breadcrumb-link {
   font-weight: 400 !important;
 }
