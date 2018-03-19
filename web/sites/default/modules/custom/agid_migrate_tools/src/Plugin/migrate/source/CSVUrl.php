@@ -55,6 +55,9 @@ class CSVUrl extends CSV implements ContainerFactoryPluginInterface {
       throw new MigrateException("Unable to save file to 'temporary://{$filename}'.");
     }
 
+    $file->setTemporary();
+    $file->save();
+
     $path = $fileSystemManager->realpath($file->getFileUri());
     if ($path === FALSE) {
       throw new MigrateException("Unable to retrieve absolute path for file '" . $file->getFileUri() . "'.");
