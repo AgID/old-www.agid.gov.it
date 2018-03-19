@@ -80,13 +80,18 @@
             .addClass(item.in_active_trail ? 'isActive' : '')}}>
             {% endif %}
 
+            {% set lattributes = {
+            'class': item.in_active_trail ? 'is-active' : ''
+            }
+            %}
+
             {# If has children #}
             {% if item.below %}
-                {% set lattributes = {
+                {% set lattributes = lattributes|merge({
                 'class': '',
                 'aria-label': 'expand',
                 'role': 'button'
-                }
+                })
                 %}
             {% endif %}
             {{ link(item.title, item.url, lattributes) }}

@@ -25,11 +25,7 @@
         'Grid-cell'
       ]
     %}
-      {% if loop.index0 == 0 %}
-          {% set row_classes = row_classes|merge(['u-nbfc', 'u-size1of1', 'u-md-size1of2', 'u-lg-size1of2']) %}
-      {% else %}
-          {% set row_classes = row_classes|merge(['u-size1of1', 'u-md-size1of2', 'u-lg-size1of2', 'u-border-left-xxs']) %}
-      {% endif %}
+    {% set row_classes = row_classes|merge(['u-nbfc', 'u-size1of1', 'u-md-size1of2', 'u-lg-size1of2', 'u-border-right-xxs']) %}
     <div{{ row.attributes.addClass(row_classes) }}>
       {{ row.content }}
     </div>
