@@ -1,0 +1,11 @@
+extlink_include: ''
+extlink_exclude: ''
+extlink_alert_text: ''
+extlink_alert: false
+extlink_target: false
+extlink_subdomains: true
+extlink_mailto_class: mailto
+extlink_img_class: true
+extlink_class: ext
+extlink_css_exclude: "header, .Footer\r\n"
+extlink_css_explicit: "main\r\n"

@@ -1,0 +1,9 @@
+uuid: e5aedd6b-3fc7-4fdc-b1b5-baf36e247240
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_cad
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

@@ -1,0 +1,80 @@
+uuid: 3ba6ab34-e953-42a6-aa19-5370e6fc2dc5
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.page
+  module:
+    - content_moderation
+id: b8448396
+label: 'Workflow editoriale pagine'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Bozza
+      published: false
+      default_revision: false
+      weight: 1
+    needs_review:
+      label: 'In attesa di pubblicazione'
+      published: false
+      default_revision: false
+      weight: 2
+    published:
+      label: Pubblicato
+      published: true
+      default_revision: true
+      weight: 3
+  transitions:
+    draft_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+      to: draft
+      weight: 1
+    draft_needs_review:
+      label: 'Request Review'
+      from:
+        - draft
+      to: needs_review
+      weight: 2
+    draft_published:
+      label: Publish
+      from:
+        - draft
+      to: published
+      weight: 3
+    needs_review_draft:
+      label: 'Send Back to Draft'
+      from:
+        - needs_review
+      to: draft
+      weight: 4
+    needs_review_needs_review:
+      label: 'Keep in Review'
+      from:
+        - needs_review
+      to: needs_review
+      weight: 5
+    needs_review_published:
+      label: Publish
+      from:
+        - needs_review
+      to: published
+      weight: 6
+    published_draft:
+      label: 'Create New Draft'
+      from:
+        - published
+      to: draft
+      weight: 7
+    published_published:
+      label: Publish
+      from:
+        - published
+      to: published
+      weight: 8
+  entity_types:
+    node:
+      - page

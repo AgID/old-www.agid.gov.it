@@ -1,0 +1,57 @@
+uuid: 56ec5b20-6f56-4246-a578-80f485ea28fd
+langcode: it
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_text_publisher_
+  module:
+    - ckeditor
+format: filtered_text_publisher_
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formattazione
+          items:
+            - Bold
+            - Italic
+            - Blockquote
+            - RemoveFormat
+            - Styles
+        -
+          name: Collegamenti
+          items:
+            - Linkit
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Liste
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Tools
+          items:
+            - PasteFromWord
+            - Table
+        -
+          name: Media
+          items:
+            - DrupalImage
+  plugins:
+    stylescombo:
+      styles: "h2.u-text-h2|Titolo paragrafo\r\n"
+    language:
+      language_list: un
+    linkit:
+      linkit_profile: link_content
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

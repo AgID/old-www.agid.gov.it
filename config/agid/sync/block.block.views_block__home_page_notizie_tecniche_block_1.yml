@@ -1,0 +1,30 @@
+uuid: 7ce0de33-c969-4c28-8fb3-7582e6ebc31b
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.home_page_notizie_tecniche
+  module:
+    - system
+    - views
+  theme:
+    - agid
+id: views_block__home_page_notizie_tecniche_block_1
+theme: agid
+region: postscript_first
+weight: 0
+provider: null
+plugin: 'views_block:home_page_notizie_tecniche-block_1'
+settings:
+  id: 'views_block:home_page_notizie_tecniche-block_1'
+  label: 'Comunicazioni tecniche'
+  provider: views
+  label_display: visible
+  views_label: 'Comunicazioni tecniche'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
