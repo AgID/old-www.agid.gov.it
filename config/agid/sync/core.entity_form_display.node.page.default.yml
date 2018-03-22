@@ -3,7 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
-    - entity_browser.browser.mediakit_file_browser
+    - entity_browser.browser.repository_files_browser
     - field.field.node.page.field_arguments
     - field.field.node.page.field_cad
     - field.field.node.page.field_content
@@ -21,6 +21,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.page
   module:
+    - content_moderation
     - entity_browser
     - field_group
     - image
@@ -80,7 +81,6 @@ third_party_settings:
         - field_related_content
         - field_repository_files
         - field_link
-        - field_related_news
       parent_name: group_tabs
       weight: 22
       format_type: tab
@@ -132,15 +132,6 @@ content:
       default_paragraph_type: _none
     third_party_settings: {  }
     region: content
-  field_faq:
-    weight: 26
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_image:
     weight: 21
     settings:
@@ -172,7 +163,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: text_textarea
     region: content
   field_page_content:
     weight: 22
@@ -206,19 +197,10 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_related_news:
-    weight: 12
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_repository_files:
     weight: 10
     settings:
-      entity_browser: mediakit_file_browser
+      entity_browser: repository_files_browser
       field_widget_display: label
       field_widget_edit: true
       field_widget_remove: true
@@ -234,6 +216,12 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 11
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path
@@ -252,7 +240,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 121
+    weight: 12
     third_party_settings: {  }
     region: content
   sticky:
@@ -284,4 +272,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_faq: true
+  field_related_news: true

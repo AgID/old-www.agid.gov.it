@@ -30,6 +30,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/agenzia/*\r\n/piattaforme/*\r\n/infrastrutture/*\r\n/sicurezza/*\r\n/dati/*\r\n/norme_e_regole_tecniche/*"
+    pages: "/design-servizi/*\r\n/agenzia/*\r\n/piattaforme/*\r\n/infrastrutture/*\r\n/sicurezza/*\r\n/dati/*\r\n/norme_e_regole_tecniche/*\r\n"
     negate: false
     context_mapping: {  }

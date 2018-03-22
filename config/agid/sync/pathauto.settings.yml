@@ -35,12 +35,12 @@ punctuation:
   back_slash: 0
 verbose: false
 separator: '-'
-max_length: 100
+max_length: 134
 max_component_length: 100
 transliterate: true
 reduce_ascii: false
 case: true
-ignore_words: 'a, an, as, at, before, but, by, for, from, is, in, into, like, of, off, on, onto, per, since, than, the, this, that, to, up, via, with'
+ignore_words: 'a, an, as, at, before, but, by, for, from, is, in, into, like, of, off, on, onto, per, since, than, the, this, that, to, up, via, with, questo, questa, queste, questi, quello, quella, quelle, quei, prima, dopo, durante, con, come, un, una, uni, une, uno, via, su, sopra, sotto, di, da, dalla, dalle, dai, della, delle, dei, per, fra, tra, alla, all, alle, allo, agli, nell, della, nel, in, e, con, le, la, lo, gli'
 update_action: 2
 _core:
   default_config_hash: GcMSgi6uAfG5R_FGEsWUVCvRPkNIzPUH2bNVcx6H0JA

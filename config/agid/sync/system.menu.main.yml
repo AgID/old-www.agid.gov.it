@@ -1,7 +1,12 @@
 uuid: cfbbb1dc-d45d-4a53-bf7a-fa99c6e52e95
 langcode: it
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - sitemap
+third_party_settings:
+  sitemap:
+    sitemap_display_name: e-procurement
 _core:
   default_config_hash: Q2Ra3jfoIVk0f3SjxJX61byRQFVBAbpzYDQOiY-kno8
 id: main

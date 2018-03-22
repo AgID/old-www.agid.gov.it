@@ -18,14 +18,13 @@ settings:
             - Bold
             - Italic
             - RemoveFormat
+            - Blockquote
         -
           name: Operations
           items:
-            - Cut
-            - Copy
-            - Paste
-            - PasteText
             - PasteFromWord
+            - Format
+            - Styles
         -
           name: Collegamenti
           items:
@@ -38,24 +37,14 @@ settings:
             - BulletedList
             - NumberedList
             - '-'
-            - Outdent
-            - Indent
-            - HorizontalRule
-            - Blockquote
         -
           name: Tools
           items:
+            - Table
             - Source
-            - ShowBlocks
-            - Maximize
-        -
-          name: File
-          items:
-            - ImceLink
-            - DrupalImage
   plugins:
     stylescombo:
-      styles: ''
+      styles: "h2.u-text-h2|Titolo paragrafo\r\n"
     language:
       language_list: un
     linkit:

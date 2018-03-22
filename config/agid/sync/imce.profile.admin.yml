@@ -16,6 +16,6 @@ conf:
   replace: 0
   folders:
     -
-      path: .
+      path: repository_files
       permissions:
         all: true

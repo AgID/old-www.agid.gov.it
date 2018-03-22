@@ -11,7 +11,7 @@ id: node.page.field_link
 field_name: field_link
 entity_type: node
 bundle: page
-label: Link
+label: 'Link utili'
 description: ''
 required: false
 translatable: false

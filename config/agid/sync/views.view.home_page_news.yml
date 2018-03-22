@@ -5,8 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.node.home_page
     - node.type.news
+    - taxonomy.vocabulary.news_type
+  content:
+    - 'taxonomy_term:news_type:4f5df977-1c77-4c1a-af2b-f6c2b034a282'
   module:
     - node
+    - taxonomy
     - user
 id: home_page_news
 label: 'Home page - News'
@@ -51,7 +55,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 3
+          items_per_page: 2
           offset: 0
       style:
         type: default
@@ -169,6 +173,50 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: language
+        field_news_type_target_id:
+          id: field_news_type_target_id
+          table: node__field_news_type
+          field: field_news_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not
+          value:
+            - 430
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: news_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -198,6 +246,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -214,6 +263,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

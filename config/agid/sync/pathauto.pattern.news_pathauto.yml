@@ -7,9 +7,9 @@ dependencies:
 id: news_pathauto
 label: 'News and event pathauto'
 type: 'canonical_entities:node'
-pattern: '/agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi/[node:title]'
+pattern: '/agenzia/stampa-e-comunicazione/notizie/[node:field_news_date:date:custom:Y]/[node:field_news_date:date:custom:m]/[node:field_news_date:date:custom:d]/[node:title]'
 selection_criteria:
-  5e2d7d5e-0010-4ed6-b409-ea7475c2780e:
+  0d352695-a4ce-418d-89ec-94209e04f20d:
     id: node_type
     bundles:
       event: event
@@ -17,7 +17,7 @@ selection_criteria:
     negate: false
     context_mapping:
       node: node
-    uuid: 5e2d7d5e-0010-4ed6-b409-ea7475c2780e
+    uuid: 0d352695-a4ce-418d-89ec-94209e04f20d
 selection_logic: and
 weight: -5
 relationships: {  }

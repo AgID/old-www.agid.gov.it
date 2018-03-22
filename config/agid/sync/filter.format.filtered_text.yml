@@ -2,9 +2,9 @@ uuid: dc843429-b907-40ec-bde0-130a1221d075
 langcode: it
 status: true
 dependencies: {  }
-name: 'Filtered text'
+name: 'Filtered text (admin)'
 format: filtered_text
-weight: 0
+weight: -10
 filters:
   filter_htmlcorrector:
     id: filter_htmlcorrector
@@ -18,7 +18,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <hr> <a href hreflang !href accesskey id rel target title> <img src alt data-entity-type data-entity-uuid>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <hr> <a href hreflang !href accesskey id rel target title> <img src alt data-entity-type data-entity-uuid> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr>'
       filter_html_help: true
       filter_html_nofollow: false
   filter_url:
@@ -28,3 +28,9 @@ filters:
     weight: 0
     settings:
       filter_url_length: 72
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }

@@ -2,8 +2,8 @@ uuid: 8a4a1a53-802a-4e34-b8eb-27dec526b3cd
 langcode: it
 status: true
 dependencies: {  }
-name: 'Codice di Amministrazione digitale'
+name: 'Codice dell''Amministrazione digitale'
 vid: cad
-description: 'Questa tassonomia è utilizzata per elencare tutti gli articoli del C.A.D.'
+description: 'Questa tassonomia è utilizzata per elencare tutti gli articoli del CAD'
 hierarchy: 0
 weight: 0

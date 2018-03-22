@@ -7,30 +7,23 @@ dependencies:
     - taxonomy.vocabulary.cad
   module:
     - link
-    - text
 id: taxonomy_term.cad.default
 targetEntityType: taxonomy_term
 bundle: cad
 mode: default
 content:
-  description:
-    label: hidden
-    type: text_default
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_tax_cad_permalink:
-    weight: 1
-    label: above
+    weight: 0
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
       url_plain: false
-      rel: ''
-      target: ''
+      rel: '0'
+      target: '0'
     third_party_settings: {  }
     type: link
     region: content
 hidden:
+  description: true
   langcode: true

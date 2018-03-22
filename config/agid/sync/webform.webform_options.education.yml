@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: SygiiynnQPRwYynG0qe5pjfY_EVLlw6CVvIUnxSy-_o
 id: education
-label: Education
+label: Istruzione
 category: Demographic
 likert: false
-options: "High School: High School\nAssociate Degree: Associate Degree\nAssociate Degree: Associate Degree\nGraduate or Professional Degree: Graduate or Professional Degree\nSome College: Some College\n"
+options: "'Scuola media': 'Scuola media'\nDiploma: Diploma\nLaurea: Laurea\nPost-laurea: Post-laurea\n"

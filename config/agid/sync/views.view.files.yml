@@ -57,7 +57,7 @@ display:
           total_pages: 0
           tags:
             previous: '‹ Previous'
-            next: 'Seguente ›'
+            next: 'Next ›'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -796,7 +796,7 @@ display:
           total_pages: 0
           tags:
             previous: '‹ Previous'
-            next: 'Seguente ›'
+            next: 'Next ›'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'

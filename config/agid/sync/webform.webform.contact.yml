@@ -12,10 +12,10 @@ close: null
 uid: null
 template: false
 id: contact
-title: Contatti
+title: 'Sede e Contatti'
 description: 'Basic email contact webform.'
 category: ''
-elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h3>Scrivici</h3>\\n<p>Per attivare il campo editabile ed inviare la tua richiesta, seleziona un servizio o un ufficio.</p>\"\nufficio:\n  '#type': webform_term_select\n  '#title': Argomento\n  '#required': true\n  '#vocabulary': contact_form_arguments\n  '#breadcrumb_delimiter': ''\nname:\n  '#type': textfield\n  '#title': 'Il tuo nome'\n  '#default_value': '[webform-authenticated-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'La tua e-mail'\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\nmessage:\n  '#type': textarea\n  '#title': 'Il tuo messaggio'\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Invia\n"
+elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h3>Scrivici</h3>\\n\\n<p>Per inviare la tua richiesta seleziona un argomento.</p>\"\nufficio:\n  '#type': webform_term_select\n  '#title': Argomento\n  '#required': true\n  '#vocabulary': contact_form_arguments\n  '#breadcrumb_delimiter': ''\nname:\n  '#type': textfield\n  '#title': 'Il tuo nome'\n  '#default_value': '[webform-authenticated-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'La tua e-mail'\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\nmessage:\n  '#type': textarea\n  '#title': 'Il tuo messaggio'\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Invia\n"
 css: ''
 javascript: ''
 settings:
@@ -73,7 +73,7 @@ settings:
   draft_loaded_message: ''
   confirmation_type: inline
   confirmation_title: ''
-  confirmation_message: "<h4>Scrivici</h4>\r\n<p>\r\nIl tuo messaggio &egrave; stato inviato. Grazie!<br />\r\nVuoi consultare la pagina <a href=\"/piattaforme/spid\">SPID</a>?\r\n</p>"
+  confirmation_message: "<h4>Scrivici</h4>\r\n\r\n<p>Il tuo messaggio &egrave; stato inviato. Grazie!</p>"
   confirmation_url: '<front>'
   confirmation_attributes: {  }
   confirmation_back: false

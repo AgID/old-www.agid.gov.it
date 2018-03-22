@@ -61,7 +61,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 10
+          items_per_page: 50
           offset: 0
           id: 0
           total_pages: null
@@ -739,7 +739,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: '<p>Elenco dei conservatori attivi accreditati presso AgID, come da <a href="/sites/default/files/circolari/circolare_accreditamento_conservatori_n_65_10-04-2014.pdf">Circolare Agid n. 65/2014 (PDF)</a>.</p>'
+            value: '<p>Elenco dei conservatori attivi accreditati presso AgID</p>'
             format: filtered_text
           plugin_id: text
       defaults:

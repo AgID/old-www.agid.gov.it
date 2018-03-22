@@ -59,7 +59,7 @@ process:
   id: mlid
   bundle:
     plugin: default_value
-    default_value: menu_link_content
+    default_value: constants/bundle
   title: title
   description: description
   menu_name: menuname

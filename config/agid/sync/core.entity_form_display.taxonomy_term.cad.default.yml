@@ -8,22 +8,13 @@ dependencies:
   module:
     - link
     - path
-    - text
 id: taxonomy_term.cad.default
 targetEntityType: taxonomy_term
 bundle: cad
 mode: default
 content:
-  description:
-    type: text_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_tax_cad_permalink:
-    weight: 31
+    weight: 1
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -32,14 +23,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -47,11 +38,14 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 2
     region: content
-hidden: {  }
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  description: true

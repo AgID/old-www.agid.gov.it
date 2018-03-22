@@ -16,10 +16,12 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: views
+  handler: 'default:node'
   handler_settings:
-    view:
-      view_name: agid_related_contents
-      display_name: related_contents
-      arguments: {  }
+    target_bundles:
+      page: page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

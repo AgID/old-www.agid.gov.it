@@ -12,11 +12,14 @@ entity_settings:
   target_type: node
   handler: 'default:node'
   handler_settings:
-    target_bundles: null
+    target_bundles:
+      press: press
+      news: news
+      page: page
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: news
 queue_settings:
   min_size: 3
   max_size: 3

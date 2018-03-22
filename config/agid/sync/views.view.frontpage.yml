@@ -180,9 +180,9 @@ display:
             offset_label: Offset
           tags:
             previous: '‹ Previous'
-            next: 'Seguente ›'
-            first: '« Prima'
-            last: 'Ultima »'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           quantity: 9
       query:
         type: views_query

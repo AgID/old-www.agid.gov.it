@@ -6,8 +6,10 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - node.type.event
     - node.type.news
+    - taxonomy.vocabulary.news_type
   module:
     - node
+    - taxonomy
     - user
 id: news
 label: 'News and events'
@@ -42,7 +44,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Conferma
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -226,6 +228,53 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: language
+        field_news_type_target_id:
+          id: field_news_type_target_id
+          table: node__field_news_type
+          field: field_news_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_news_type_target_id_op
+            label: 'Tipo di notizia'
+            description: ''
+            use_operator: false
+            operator: field_news_type_target_id_op
+            identifier: tipo_notizia
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              author: '0'
+              publisher: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: news_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -242,7 +291,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Notizie ed eventi'
+      title: Notizie
       header: {  }
       footer: {  }
       empty: {  }
@@ -255,7 +304,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -266,13 +317,15 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: agenzia/ufficio-stampa-e-comunicazione/notizie-ed-eventi
+      path: agenzia/stampa-e-comunicazione/notizie
       rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

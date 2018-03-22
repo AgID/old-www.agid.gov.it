@@ -11,7 +11,7 @@ id: taxonomy_term.cad.field_tax_cad_permalink
 field_name: field_tax_cad_permalink
 entity_type: taxonomy_term
 bundle: cad
-label: Permalink
+label: 'Link all''articolo'
 description: ''
 required: false
 translatable: true
@@ -19,5 +19,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   link_type: 16
-  title: 0
+  title: 2
 field_type: link

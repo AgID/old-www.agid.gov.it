@@ -22,11 +22,11 @@ footer_settings:
   footer_middle_title: ''
 social_settings:
   italiagov_socials_title: 'Follow us on'
-  italiagov_socials_facebook: 'http://www.facebook.com'
-  italiagov_socials_twitter: 'http://www.twitter.com'
-  italiagov_socials_youtube: 'http://www.youtube.com'
+  italiagov_socials_facebook: 'https://www.facebook.com/AgIDGovIT/'
+  italiagov_socials_twitter: 'https://twitter.com/AgidGov'
+  italiagov_socials_youtube: 'https://www.youtube.com/channel/UCxJmOWf__YcLgB19gy5dGQQ'
   italiagov_socials_instagram: ''
-  italiagov_socials_medium: ''
+  italiagov_socials_medium: 'https://medium.com/@AgidGov'
   italiagov_socials_locations:
     header: header
     footer_middle: footer_middle

@@ -11,6 +11,5 @@ is_admin: false
 permissions:
   - 'access content'
   - 'search content'
-  - 'use text format filtered_text'
   - 'view empty pages'
   - 'view files'

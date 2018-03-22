@@ -11,4 +11,4 @@ id: yes_no
 label: Sì/No
 category: General
 likert: false
-options: "Yes: Yes\nNo: No\n"
+options: "Si: Si\n'No': 'No'\n"

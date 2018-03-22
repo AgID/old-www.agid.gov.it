@@ -29,6 +29,11 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_arguments:
     weight: 6
     label: hidden
@@ -39,11 +44,12 @@ content:
     region: content
   field_cad:
     weight: 7
-    label: above
+    label: hidden
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_content:
     type: entity_reference_revisions_entity_view
