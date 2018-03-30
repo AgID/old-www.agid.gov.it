@@ -17,6 +17,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  captcha: 0
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
@@ -71,6 +72,7 @@ module:
   page_cache: 0
   path: 0
   rabbit_hole: 0
+  recaptcha: 0
   redis: 0
   rename_admin_paths: 0
   rh_node: 0
