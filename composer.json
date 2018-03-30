@@ -158,7 +158,8 @@
     "drupal/backup_migrate": "4.x-dev",
     "drupal/smtp": "1.x-dev",
     "drupal/extlink": "^1.0",
-    "drupal/rules": "3.x-dev"
+    "drupal/rules": "3.x-dev",
+    "drupal/seckit": "^1.0@alpha"
   },
   "require-dev": {
     "phing/phing": "2.12.*",
