@@ -41,3 +41,7 @@ drush/contrib
 
 # Ignore Drupal's file directory
 /web/sites/default/files
+
+# Ignore log files
+php_errors.log
+web/php_errors.log
