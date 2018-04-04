@@ -206,9 +206,10 @@ content:
       field_widget_remove: true
       selection_mode: selection_append
       open: false
-      field_widget_display_settings: {  }
+      view_mode: default
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: repo_files_widget
     region: content
   langcode:
     type: language_select
@@ -271,6 +272,11 @@ content:
       size: 60
       placeholder: ''
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_faq: true
