@@ -67,3 +67,21 @@ function agid_base_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchIn
     $breadcrumb->setLinks([end($links)]);
   }
 }
+
+/**
+ * Implements hook_editor_js_settings_alter().
+ * based on: https://drupal.stackexchange.com/questions/193521/how-do-i-modify-the-formats-dropdown-in-ckeditor
+ */
+function agid_base_editor_js_settings_alter(array &$settings) {
+  // Get current user
+  $userCurrent = \Drupal::currentUser();
+  // Load user's object
+  $userObject  = \Drupal\user\Entity\User::load($userCurrent->id());
+  // Get all user's roles
+  $roles = $userObject->getRoles();
+  // Check if has only author role and then...
+  if (in_array('author', $roles) && !in_array('administrator', $roles) && !in_array('publisher', $roles)) {
+    // ... Set only p and h2 text formats.
+    $settings['editor']['formats']['filtered_text']['editorSettings']['format_tags'] = 'p;h2';
+  }
+}
