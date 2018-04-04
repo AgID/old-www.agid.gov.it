@@ -17,11 +17,9 @@ dependencies:
     - field.field.node.news.field_profiles
     - field.field.node.news.field_related_content
     - field.field.node.news.field_repository_files
-    - image.style.medium
     - node.type.news
   module:
     - datetime
-    - image
     - text
     - user
 id: node.news.teaser
@@ -29,18 +27,9 @@ targetEntityType: node
 bundle: news
 mode: teaser
 content:
-  field_image:
-    type: image
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      image_style: medium
-      image_link: ''
-    third_party_settings: {  }
   field_news_abstract:
     type: text_default
-    weight: 2
+    weight: 1
     region: content
     label: hidden
     settings: {  }
@@ -58,6 +47,7 @@ hidden:
   body: true
   field_arguments: true
   field_iconfont: true
+  field_image: true
   field_news_arguments: true
   field_news_image: true
   field_news_link: true
