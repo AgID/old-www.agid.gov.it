@@ -42,6 +42,10 @@ settings:
           items:
             - Table
             - Source
+        -
+          name: Media
+          items:
+            - DrupalImage
   plugins:
     stylescombo:
       styles: "h2.u-text-h2|Titolo paragrafo\r\n"
@@ -50,10 +54,10 @@ settings:
     linkit:
       linkit_profile: link_content
 image_upload:
-  status: false
+  status: true
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: null
-    height: null
+    width: 800
+    height: 800
