@@ -80,8 +80,8 @@ function agid_base_editor_js_settings_alter(array &$settings) {
   // Get all user's roles
   $roles = $userObject->getRoles();
   // Check if has only author role and then...
-  if (in_array('author', $roles) && !in_array('administrator', $roles) && !in_array('publisher', $roles)) {
-    // ... Set only p and h2 text formats.
-    $settings['editor']['formats']['filtered_text']['editorSettings']['format_tags'] = 'p;h2';
+  if ((in_array('author', $roles) || in_array('publisher', $roles)) && !in_array('administrator', $roles)) {
+    // ... Set only p, h1 and h2 text formats.
+    $settings['editor']['formats']['filtered_text']['editorSettings']['format_tags'] = 'p;h1;h2';
   }
 }
