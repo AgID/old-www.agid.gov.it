@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.page.field_cad
     - field.field.node.page.field_content
     - field.field.node.page.field_faq
+    - field.field.node.page.field_focus
     - field.field.node.page.field_image
     - field.field.node.page.field_link
     - field.field.node.page.field_offices
@@ -32,8 +33,6 @@ content:
   content_moderation_control:
     weight: -20
     region: content
-    settings: {  }
-    third_party_settings: {  }
   field_arguments:
     weight: 6
     label: hidden
@@ -44,12 +43,11 @@ content:
     region: content
   field_cad:
     weight: 7
-    label: hidden
+    label: above
     settings:
-      view_mode: default
-      link: false
+      link: true
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_label
     region: content
   field_content:
     type: entity_reference_revisions_entity_view
@@ -68,6 +66,16 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_focus:
+    weight: 13
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_image:
     weight: 2
