@@ -1,0 +1,38 @@
+#block-agid-mainpagecontent {
+  > article .field--name-field-news-date:first-of-type {
+    display: block;
+    text-align: right;
+    margin: 2rem 0;
+
+    div {
+      display: inline-block;
+      font-size: 16px !important;
+      line-height: 30px !important;
+    }
+
+    .field__label {
+      color: $light-blue;
+      font-weight: 600;
+    }
+  }
+}
+
+.views-element-container table {
+  div.field--name-filemime {
+    display: inline-block;
+  }
+
+  div.field--name-field-title {
+    display: inline;
+  }
+}
+
+.file--view-mode-thumbnail {
+  .field--name-field-title {
+    display: inline;
+  }
+
+  .field--name-filemime {
+    display: inline-block;
+  }
+}

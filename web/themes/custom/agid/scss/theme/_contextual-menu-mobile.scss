@@ -1,0 +1,76 @@
+@include breakpoint(large, down) {
+  #block-navigazioneprincipale {
+    display: none;
+  }
+}
+
+@include breakpoint(large) {
+  nav.contextual-menu-mobile {
+    display: none;
+  }
+}
+
+nav.contextual-menu-mobile {
+  position: absolute;
+  right: 0;
+  z-index: 100;
+
+  .contextual {
+    display: none;
+  }
+
+  ul {
+    display: inline-block;
+    margin-left: 0;
+  }
+
+  li {
+    list-style: none;
+    text-align: left;
+  }
+
+  ul > li a {
+    background-color: $light-blue;
+    display: block;
+  }
+
+  .Treeview--default li[aria-expanded="true"] li a,
+  ul li a {
+    color: #fff !important;
+    padding: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+
+  .Treeview-handler--standalone {
+    color: #fff;
+    border-left: 0;
+    position: absolute !important;
+    left: 0;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='fill:%23ffffff' viewBox='0 0 32 32'%3E%3Ctitle%3Eexpand%3C/title%3E%3Cpath d='M3.733 6.133L0 9.866l16 16 16-16-3.733-3.733L16 18.4 3.733 6.133z'/%3E%3C/svg%3E");
+  }
+
+  .Treeview [aria-expanded="true"] > a > .Treeview-handler--standalone {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'  style='fill:%23ffffff' viewBox='0 0 32 32'%3E%3Ctitle%3Ecollapse%3C/title%3E%3Cpath d='M28.267 25.867L32 22.134l-16-16-16 16 3.733 3.733L16 13.6l12.267 12.267z'/%3E%3C/svg%3E");
+  }
+
+  li.Treeview-parent > a {
+    padding-left: 6rem !important;
+  }
+  ul > li li,
+  .Treeview--default li[aria-expanded="true"] li a {
+    background-color: #0c97ed !important;
+  }
+
+  ul > li a.is-active {
+    border-left: 6px solid #0c97ed;
+  }
+
+  ul > li li a.is-active {
+    border-left: 6px solid $light-blue;
+  }
+}

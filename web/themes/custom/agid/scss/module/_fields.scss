@@ -1,0 +1,149 @@
+.field--label-inline {
+  .field__label,
+  .field__item {
+    display: inline;
+  }
+}
+
+.field--name-field-arguments div {
+  display: inline-block;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EIcon-tag%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cg id='Canvas' transform='translate(-278 -1061)'%3E%3Cg id='Icon-tag'%3E%3Cg id='Combined Shape'%3E%3Cuse xlink:href='%23path0_fill' transform='translate(279 1062)' fill='%2300264C'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cpath id='path0_fill' fill-rule='evenodd' d='M 21.5668 10.0387L 10.0459 21.5595C 9.85068 21.7548 9.5341 21.7548 9.33883 21.5595L 0.146447 12.3671C -0.0488155 12.1719 -0.0488155 11.8553 0.146447 11.66L 11.5258 0.28063C 11.6178 0.188622 11.7421 0.136106 11.8722 0.134235L 21.206 5.27347e-05C 21.4821 -0.00391667 21.7092 0.2167 21.7132 0.492814C 21.7132 0.495209 21.7132 0.497605 21.7132 0.500001L 21.7132 9.68515C 21.7132 9.81776 21.6605 9.94493 21.5668 10.0387ZM 16.0563 5.64957C 16.8374 6.43061 18.1037 6.43061 18.8848 5.64957C 19.6658 4.86852 19.6658 3.60219 18.8848 2.82114C 18.1037 2.04009 16.8374 2.04009 16.0563 2.82114C 15.2753 3.60219 15.2753 4.86852 16.0563 5.64957Z'/%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+/** Generic content type page **/
+.field--label-above {
+  font-size: 2.8rem;
+  line-height: 1.5;
+  margin-top: 2rem;
+  font-weight: 600 !important;
+  color: $light-blue;
+}
+
+.field--label-inline {
+  padding: 0.5em 0;
+}
+
+/** Field news link (Call to action) */
+.field--name-field-news-link {
+  text-align: center;
+  margin: 4rem 0;
+
+  a {
+    background: $cta-background;
+    box-shadow: $cta-box-shadow;
+    padding: 1rem;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-size: 1.4rem !important;
+    line-height: 1.5 !important;
+    font-weight: 600;
+  }
+}
+
+/** Field repository files (Allegati) */
+.field--name-field-repository-files {
+  display: inline-block;
+  width: 100%;
+
+  .field__items {
+    display: grid;
+  }
+  .field__item {
+    display: inline-block !important;
+  }
+  .field__item:nth-child(even) {
+    grid-column: 2;
+  }
+  @include breakpoint(small, down) {
+    .field__item:nth-child(even) {
+      grid-column: 1;
+    }
+  }
+}
+
+.field--name-field-repository-files {
+  a {
+    color: $dark-blue-main !important;
+    font-size: 1.8rem !important;
+    line-height: 1.5 !important;
+    font-weight: normal !important;
+  }
+  .Icon {
+    color: $light-blue;
+    font-size: 2rem;
+    margin-left: 0.5rem;
+  }
+}
+
+/** Field related content (Approfondisci) */
+.field--name-field-related-content {
+  .field__items {
+    display: grid;
+  }
+
+  .field__item {
+    display: inline-block;
+  }
+
+  .field__item:nth-child(even) {
+    grid-column: 2;
+  }
+
+  @include breakpoint(small, down) {
+    .field__item:nth-child(even) {
+      grid-column: 1;
+    }
+  }
+
+  a {
+    color: $dark-blue-main !important;
+    font-size: 1.8rem !important;
+    line-height: 1.5 !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EIcon-chevron-right%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cg id='Canvas' transform='translate(-206 -161)'%3E%3Cg id='Icon-chevron-right'%3E%3Cg id='Path 3'%3E%3Cuse xlink:href='%23path0_fill' transform='matrix(6.12323e-17 -1 1 6.12323e-17 213.719 179.281)' fill='%2300264C'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cpath id='path0_fill' d='M 1.76825 0.359841C 1.41468 -0.0644362 0.784118 -0.12176 0.359841 0.231804C -0.0644362 0.585368 -0.12176 1.21593 0.231804 1.64021L 6.00003 8.56207L 11.7682 1.64021C 12.1218 1.21593 12.0645 0.585368 11.6402 0.231804C 11.2159 -0.12176 10.5854 -0.0644362 10.2318 0.359841L 6.00003 5.43797L 1.76825 0.359841Z'/%3E%3C/defs%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    padding-right: 3rem;
+  }
+}
+
+
+
+/** Field related event */
+.field--name-field-news-related-event {
+  margin-top: 1rem;
+  width: 50%;
+
+  a {
+    color: $dark-blue-main !important;
+    font-size: 1.8rem !important;
+    line-height: 1.5 !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EIcon-chevron-right%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cg id='Canvas' transform='translate(-206 -161)'%3E%3Cg id='Icon-chevron-right'%3E%3Cg id='Path 3'%3E%3Cuse xlink:href='%23path0_fill' transform='matrix(6.12323e-17 -1 1 6.12323e-17 213.719 179.281)' fill='%2300264C'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cpath id='path0_fill' d='M 1.76825 0.359841C 1.41468 -0.0644362 0.784118 -0.12176 0.359841 0.231804C -0.0644362 0.585368 -0.12176 1.21593 0.231804 1.64021L 6.00003 8.56207L 11.7682 1.64021C 12.1218 1.21593 12.0645 0.585368 11.6402 0.231804C 11.2159 -0.12176 10.5854 -0.0644362 10.2318 0.359841L 6.00003 5.43797L 1.76825 0.359841Z'/%3E%3C/defs%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    padding-right: 3rem;
+  }
+}
+
+/** Field Arguments **/
+.field--name-field-arguments {
+  display: inline-block;
+  margin: 2rem 0;
+
+  div:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  a {
+    color: $dark-blue-main !important;
+  }
+}
+
+.field--name-field-image {
+  margin: 2rem 0;
+}

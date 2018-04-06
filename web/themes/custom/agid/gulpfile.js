@@ -1,9 +1,71 @@
+const $ = require('gulp-load-plugins')();
 const gulp = require('gulp');
 const gulpCopy = require('gulp-copy');
 const del = require('del');
 const fs = require('fs');
+const importOnce = require('node-sass-import-once');
+const extend = require('extend');
 
-gulp.task('default', ['copy']);
+var options = {};
+
+options.gulpWatchOptions = {};
+
+options.rootPath = {
+    project     : __dirname + '/',
+    theme       : __dirname + '/'
+};
+
+options.theme = {
+    root       : options.rootPath.theme,
+    scss       : options.rootPath.theme + 'scss/',
+    css        : options.rootPath.theme + 'css/'
+};
+
+// Define the node-scss configuration.
+options.scss = {
+    importer: importOnce,
+    outputStyle: 'expanded',
+    includePaths: [],
+};
+
+var scssFiles = [
+    options.theme.scss + '**/*.scss',
+    // Do not open scss partials as they will be included as needed.
+    '!' + options.theme.scss + '**/_*.scss',
+];
+
+// The default task.
+gulp.task('default', ['build']);
+
+// Build everything.
+gulp.task('build', ['sass']);
+
+// Default watch task.
+gulp.task('watch', ['watch:css']);
+
+// Watch for changes for scss files and rebuild.
+gulp.task('watch:css', ['sass'], function () {
+    return gulp.watch(options.theme.scss + '**/*.scss', options.gulpWatchOptions, ['sass']);
+});
+
+// Build CSS for development environment.
+gulp.task('sass', ['clean:css'], function () {
+    return gulp.src(scssFiles)
+        .pipe($.sass(extend(true, {
+            noCache: true,
+            outputStyle: options.scss.outputStyle,
+            sourceMap: true
+        }, options.scss)).on('error', $.sass.logError))
+        .pipe(gulp.dest(options.theme.css));
+});
+
+// Clean CSS files.
+gulp.task('clean:css', function () {
+    return del([
+        options.theme.css + '**/*.css',
+        options.theme.css + '**/*.map'
+    ], {force: true});
+});
 
 /**
  * Task used to update build folder with the corresponding one present in Github.

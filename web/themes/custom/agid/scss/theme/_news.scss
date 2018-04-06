@@ -1,0 +1,73 @@
+.homepage-news div.views-row,
+.homepage-lastupdates div.views-row {
+  border-color: rgba(0, 38, 77, 0.1) !important;
+}
+
+.homepage-news article h2 > a,
+.homepage-lastupdates .views-field-title a,
+.homepage-lastupdates .views-field-title span,
+#block-homepageplatforms .field h2 > a,
+.related-content article h2 > a,
+.Accordion--default .Accordion-link,
+.news-events-list article h2 > a {
+  text-decoration: none;
+  color: $dark-blue-main !important;
+}
+
+.homepage-news article .field--type-datetime,
+.homepage-lastupdates .views-field-changed,
+.news-events-list .field--type-datetime,
+.news-events-list .field--name-field-event-location {
+  color: #666666;
+  line-height: 30px;
+  margin-top: 1em;
+}
+
+@include breakpoint(large, down) {
+  .homepage-news div.views-row {
+    border-left: 0 !important;
+  }
+
+  .homepage-news div.views-row:not(:first-child) {
+    margin-top: 1rem;
+    border-top: 1px solid;
+    padding-top: 0.5rem;
+  }
+}
+
+.news-events-list {
+  .views-row {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $border-default-color;
+  }
+
+  article {
+    .field--type-image {
+      float: left;
+      margin: 0;
+      padding: 1rem 1rem 0 0 !important;
+    }
+
+    div div.Prose {
+      padding-top: 0.5rem;
+    }
+
+    h2 span {
+      font-size: 28px;
+      line-height: 42px;
+    }
+  }
+
+  .field .field__label {
+    font-weight: bold;
+  }
+
+  .field div {
+    display: inline-block;
+  }
+
+  .field--name-field-event-start-date {
+    float: left;
+    margin-right: 1rem;
+  }
+}
