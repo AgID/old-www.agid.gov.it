@@ -48,6 +48,7 @@ third_party_settings:
       label: Tabs
     group_categories:
       children:
+        - field_focus
         - field_profiles
         - field_arguments
         - field_offices
@@ -104,7 +105,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_arguments:
-    weight: 7
+    weight: 28
     settings:
       match_operator: CONTAINS
       size: 60
@@ -113,7 +114,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_cad:
-    weight: 9
+    weight: 30
     settings:
       match_operator: CONTAINS
       size: 60
@@ -157,7 +158,7 @@ content:
     type: link_default
     region: content
   field_offices:
-    weight: 8
+    weight: 29
     settings:
       match_operator: CONTAINS
       size: 60
@@ -188,7 +189,7 @@ content:
     type: options_select
     region: content
   field_profiles:
-    weight: 6
+    weight: 27
     settings:
       match_operator: CONTAINS
       size: 60
