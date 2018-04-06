@@ -2,13 +2,19 @@
   "name": "AgID theme",
   "version": "1.0.0",
   "dependencies": {
-    "gulp": "^3.9.0",
-    "gulp-copy": "^0.0.2",
-    "del": "^2.2.2"
+    "del": "^3.0.0",
+    "gulp-copy": "^1.1.0"
   },
   "scripts": {
     "update-build": "gulp copy",
     "delete-toolkit": "gulp delete"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "extend": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^3.2.1",
+    "node-sass-import-once": "^1.2.0"
+  }
 }
