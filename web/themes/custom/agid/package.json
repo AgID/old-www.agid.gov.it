@@ -1,17 +1,17 @@
 {
-  "name": "AgID theme",
+  "name": "AgID-theme",
   "version": "1.0.0",
-  "dependencies": {
-    "del": "^3.0.0",
-    "gulp-copy": "^1.1.0"
-  },
   "scripts": {
-    "update-build": "gulp copy",
+    "build": "gulp",
+    "watch": "gulp watch",
+    "update-toolkit": "gulp copy",
     "delete-toolkit": "gulp delete"
   },
   "private": true,
   "devDependencies": {
+    "del": "^3.0.0",
     "extend": "^3.0.1",
+    "gulp-copy": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.5.0",
     "gulp-sass": "^3.2.1",
