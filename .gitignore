@@ -38,6 +38,7 @@ drush/contrib
 /web/sites/example.settings.local.php
 /web/sites/example.sites.php
 /web/sites/sites.php
+/web/themes/custom/agid/node_modules/
 
 # Ignore Drupal's file directory
 /web/sites/default/files
