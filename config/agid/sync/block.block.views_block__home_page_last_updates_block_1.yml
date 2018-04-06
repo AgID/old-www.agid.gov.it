@@ -17,10 +17,10 @@ provider: null
 plugin: 'views_block:home_page_last_updates-block_1'
 settings:
   id: 'views_block:home_page_last_updates-block_1'
-  label: 'Contenuti recenti'
+  label: 'Contenuti più recenti'
   provider: views
   label_display: visible
-  views_label: 'Contenuti recenti'
+  views_label: 'Contenuti più recenti'
   items_per_page: none
 visibility:
   request_path:

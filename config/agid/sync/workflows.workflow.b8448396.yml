@@ -11,11 +11,6 @@ label: 'Workflow editoriale pagine'
 type: content_moderation
 type_settings:
   states:
-    archiviato:
-      published: false
-      default_revision: true
-      label: Archiviato
-      weight: 4
     draft:
       label: Bozza
       published: false
@@ -80,20 +75,6 @@ type_settings:
         - published
       to: published
       weight: 8
-    ri_pubblica_:
-      label: 'Ri-Pubblica '
-      from:
-        - archiviato
-      to: published
-      weight: 10
-    spubblica:
-      label: Spubblica
-      from:
-        - draft
-        - needs_review
-        - published
-      to: archiviato
-      weight: 9
   entity_types:
     node:
       - page
