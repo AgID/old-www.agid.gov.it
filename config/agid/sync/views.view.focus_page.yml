@@ -216,7 +216,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: focus
+      path: agenzia/stampa-e-comunicazione/focus
       menu:
         type: none
         title: ''
