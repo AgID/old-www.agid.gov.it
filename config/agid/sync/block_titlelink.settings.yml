@@ -1,0 +1,10 @@
+views_block__home_page_notizie_tecniche_block_1:
+  title_link: '/agenzia/stampa-e-comunicazione/notizie?tipo_notizia=430'
+  display_link: 1
+  title: 'See all the technical communications'
+  target: ''
+views_block__home_page_news_block_1:
+  title_link: /agenzia/stampa-e-comunicazione/notizie
+  display_link: 1
+  title: 'See all news'
+  target: ''

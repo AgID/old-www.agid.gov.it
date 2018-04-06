@@ -277,14 +277,14 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
-      title: 'Comunicazioni tecniche'
+      title: 'Technical communications'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      css_class: ''
+      css_class: view-homepage-technical-communications
     cache_metadata:
       max-age: -1
       contexts:
@@ -302,6 +302,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
