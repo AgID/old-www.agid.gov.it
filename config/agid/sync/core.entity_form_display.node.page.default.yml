@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.page.field_cad
     - field.field.node.page.field_content
     - field.field.node.page.field_faq
-    - field.field.node.page.field_focus
     - field.field.node.page.field_image
     - field.field.node.page.field_link
     - field.field.node.page.field_offices
@@ -133,13 +132,6 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
-    region: content
-  field_focus:
-    weight: 26
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   field_image:
     weight: 21
