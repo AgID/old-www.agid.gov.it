@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9384b194315567bbd2b6b9a7e563800",
-    "content-hash": "db0daaaec96d0e2d223f614874a4784a",
+    "hash": "e3d10dbee5ef5baf91afdd8d44170d88",
+    "content-hash": "fed863bcd0d04b82c50c769f89e4eb4a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2290,7 +2290,39 @@
             "require": {
                 "drupal/core": "~8.0"
             },
-            "type": "library"
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0",
+                    "datestamp": "1518427380",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "manojapare",
+                    "homepage": "https://www.drupal.org/user/2825053"
+                },
+                {
+                    "name": "rakesh.gectcr",
+                    "homepage": "https://www.drupal.org/user/1177822"
+                }
+            ],
+            "description": "404 Broken links",
+            "homepage": "https://www.drupal.org/project/broken_link",
+            "support": {
+                "source": "http://cgit.drupalcode.org/broken_link"
+            }
         },
         {
             "name": "drupal/captcha",
