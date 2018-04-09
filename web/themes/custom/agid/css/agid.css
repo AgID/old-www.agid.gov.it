@@ -161,11 +161,11 @@ header .Dropdown-menu li {
   display: none !important;
 }
 
-#block-agid-mainpagecontent p {
+.block-agid-main-content p {
   color: #00264c;
 }
 
-#block-agid-mainpagecontent a {
+.block-agid-main-content a {
   font-family: "Titillium Web";
   font-size: 1.8rem;
   line-height: 1.5;
@@ -173,17 +173,17 @@ header .Dropdown-menu li {
   text-decoration: underline;
 }
 
-#block-agid-mainpagecontent a:hover {
+.block-agid-main-content a:hover {
   color: #004d99;
 }
 
-#block-agid-mainpagecontent a:visited {
+.block-agid-main-content a:visited {
   color: #430099;
 }
 
-#block-agid-mainpagecontent nav a,
-#block-agid-mainpagecontent nav .u-text-r-m,
-#block-agid-mainpagecontent nav .u-text-r-s {
+.block-agid-main-content nav a,
+.block-agid-main-content nav .u-text-r-m,
+.block-agid-main-content nav .u-text-r-s {
   font-size: 1.6rem !important;
   line-height: 1 !important;
   padding: 0.5rem 0.7rem !important;
@@ -382,9 +382,6 @@ article.event-page .field--name-field-event-description {
 
 /** Generic content type page **/
 .field--label-above {
-  font-size: 2.8rem;
-  line-height: 1.5;
-  margin-top: 2rem;
   font-weight: 600 !important;
   color: #0059b3;
 }
@@ -499,7 +496,6 @@ article.event-page .field--name-field-event-description {
 /** Field Arguments **/
 .field--name-field-arguments {
   display: inline-block;
-  margin: 2rem 0;
 }
 
 .field--name-field-arguments div:not(:last-child) {
@@ -1019,19 +1015,19 @@ nav.contextual-menu-mobile ul > li li a.is-active {
   box-shadow: 0 1px 2px rgba(0, 38, 77, 0.3) !important;
 }
 
-#block-agid-mainpagecontent > article .field--name-field-news-date:first-of-type {
+.block-agid-main-content > article .field--name-field-news-date:first-of-type {
   display: block;
   text-align: right;
   margin: 2rem 0;
 }
 
-#block-agid-mainpagecontent > article .field--name-field-news-date:first-of-type div {
+.block-agid-main-content > article .field--name-field-news-date:first-of-type div {
   display: inline-block;
   font-size: 16px !important;
   line-height: 30px !important;
 }
 
-#block-agid-mainpagecontent > article .field--name-field-news-date:first-of-type .field__label {
+.block-agid-main-content > article .field--name-field-news-date:first-of-type .field__label {
   color: #0059b3;
   font-weight: 600;
 }
@@ -1404,7 +1400,7 @@ ol.search-results li {
   padding-bottom: 3rem;
 }
 
-#block-agid-mainpagecontent input.form-search {
+.block-agid-main-content input.form-search {
   border: 1px solid #d0e2f5 !important;
 }
 
@@ -1455,6 +1451,10 @@ h5 {
 
 h6 {
   font-size: 2rem;
+}
+
+h3 {
+  margin-bottom: 1.95rem;
 }
 
 p {

@@ -36,6 +36,10 @@ h4, h4.u-text-h4 { font-size: $h4-font-size !important; }
 h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
 
+h3 {
+  margin-bottom: $h3-font-size * $h-line-height * .5;
+}
+
 p {
   font-family: "Titillium Web";
   font-size: $p-font-size;
