@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c62dcf57baa6c23c8e1b860dcfddf1f",
+    "content-hash": "a3f1c47aeac2501da986c7d3d25b9e56",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5411,20 +5411,20 @@
         },
         {
             "name": "drupal/recaptcha",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/recaptcha",
-                "reference": "8.x-2.2"
+                "reference": "8.x-2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/recaptcha-8.x-2.2.zip",
-                "reference": "8.x-2.2",
-                "shasum": "99a3bda62b34ad6dac1d497fcf578e25aad0a3e0"
+                "url": "https://ftp.drupal.org/files/projects/recaptcha-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "bd77c79c33c6732328a7c582adbe0aaffe704e74"
             },
             "require": {
-                "drupal/captcha": "*",
+                "drupal/captcha": "^1.0.0-alpha1",
                 "drupal/core": "~8.0"
             },
             "type": "drupal-module",
@@ -5433,8 +5433,12 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.2",
-                    "datestamp": "1469859539"
+                    "version": "8.x-2.3",
+                    "datestamp": "1521320880",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
