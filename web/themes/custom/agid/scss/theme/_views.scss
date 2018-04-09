@@ -16,3 +16,9 @@ div.pagopa-channel-section {
   font-size: 18px !important;
   line-height: 27px !important;
 }
+
+.block-home-page-tech-comm {
+  @include breakpoint(large) {
+    margin-top: 3rem;
+  }
+}

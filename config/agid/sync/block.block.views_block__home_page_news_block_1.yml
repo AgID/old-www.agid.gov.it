@@ -5,10 +5,14 @@ dependencies:
   config:
     - views.view.home_page_news
   module:
+    - block_class
     - system
     - views
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: 'block-home-page-news u-padding-r-left u-padding-r-right u-inlineBlock u-md-size2of3 u-lg-size2of3 Grid--cell'
 id: views_block__home_page_news_block_1
 theme: agid
 region: postscript_first
@@ -17,10 +21,10 @@ provider: null
 plugin: 'views_block:home_page_news-block_1'
 settings:
   id: 'views_block:home_page_news-block_1'
-  label: Notizie
+  label: ''
   provider: views
   label_display: visible
-  views_label: Notizie
+  views_label: ''
   items_per_page: none
 visibility:
   request_path:

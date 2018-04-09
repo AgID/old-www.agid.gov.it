@@ -15,7 +15,9 @@ module:
   backup_migrate: 0
   ban: 0
   block: 0
+  block_class: 0
   block_content: 0
+  block_titlelink: 0
   breakpoint: 0
   chosen: 0
   chosen_lib: 0

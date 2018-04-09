@@ -550,7 +550,7 @@ ul.Megamenu-pageLink li {
   display: none;
 }
 
-.Megamenu--default .Megamenu-list div.is-open > span > li > a.is-open {
+.Megamenu--default .Megamenu-list > li > a.is-open {
   color: #00264d !important;
   background-color: #fff !important;
   opacity: 1;
@@ -1220,12 +1220,20 @@ a.Footer-bigLink:hover {
   color: #00264c !important;
 }
 
-.homepage-news article .field--type-datetime,
-.homepage-lastupdates .views-field-changed,
 .news-events-list .field--type-datetime,
 .news-events-list .field--name-field-event-location {
   color: #666666;
   line-height: 30px;
+  margin-top: 1em;
+}
+
+.homepage-news article .field--type-datetime,
+.homepage-lastupdates .views-field-changed {
+  color: #666666;
+  line-height: 30px;
+}
+
+.homepage-lastupdates .views-row:not(:first-child) .views-field-changed {
   margin-top: 1em;
 }
 
@@ -1496,6 +1504,10 @@ div.Prose,
   color: #0059b3 !important;
 }
 
+a {
+  color: #0059b3;
+}
+
 div.documentation div.file {
   margin-bottom: 1rem;
 }
@@ -1513,4 +1525,10 @@ div.pagopa-channel-section {
 .homepage-lastupdates a {
   font-size: 18px !important;
   line-height: 27px !important;
+}
+
+@media (min-width: 992px) {
+  .block-home-page-tech-comm {
+    margin-top: 3rem;
+  }
 }
