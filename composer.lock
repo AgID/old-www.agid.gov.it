@@ -2132,6 +2132,9 @@
             },
             "require": {
                 "drupal/core": "~8.0"
+	    }
+	},
+	{
             "name": "drupal/block_class",
             "version": "dev-1.x",
             "source": {
@@ -2248,6 +2251,7 @@
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
+		    },
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
@@ -2275,8 +2279,9 @@
             ],
             "description": "404 Broken links",
             "homepage": "https://www.drupal.org/project/broken_link",
-            "support": {
-                "source": "http://cgit.drupalcode.org/broken_link"
+            "support": [
+		{
+                    "source": "http://cgit.drupalcode.org/broken_link",
                     "name": "Anybody",
                     "homepage": "https://www.drupal.org/user/291091"
                 },

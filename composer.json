@@ -159,7 +159,7 @@
     "drupal/smtp": "1.x-dev",
     "drupal/extlink": "^1.0",
     "drupal/rules": "3.x-dev",
-    "drupal/broken_link": "^3.0"
+    "drupal/broken_link": "^3.0",
     "drupal/seckit": "^1.0@alpha",
     "drupal/block_titlelink": "1.x-dev",
     "drupal/block_class": "1.x-dev"
