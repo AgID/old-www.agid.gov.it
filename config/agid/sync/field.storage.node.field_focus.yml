@@ -1,0 +1,18 @@
+uuid: 12da2ba4-1d03-4505-b341-64cba94d7890
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_focus
+field_name: field_focus
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

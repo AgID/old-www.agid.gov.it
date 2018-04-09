@@ -14,14 +14,28 @@
   color: $dark-blue-main !important;
 }
 
-.homepage-news article .field--type-datetime,
-.homepage-lastupdates .views-field-changed,
+
 .news-events-list .field--type-datetime,
 .news-events-list .field--name-field-event-location {
   color: #666666;
   line-height: 30px;
   margin-top: 1em;
 }
+
+.homepage-news article .field--type-datetime,
+.homepage-lastupdates .views-field-changed {
+  color: #666666;
+  line-height: 30px;
+}
+
+.homepage-lastupdates {
+  .views-row:not(:first-child) {
+    .views-field-changed {
+      margin-top: 1em;
+    }
+  }
+}
+
 
 @include breakpoint(large, down) {
   .homepage-news div.views-row {

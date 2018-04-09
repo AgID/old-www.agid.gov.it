@@ -18,8 +18,10 @@ ul.Megamenu-pageLink {
 
   background-color: $light-blue;
 
-  .Megamenu-list div.is-open > span {
-    display: none;
+  .Megamenu-list {
+    div.is-open > span {
+      display: none;
+    }
 
     > li {
       > a.is-open {
