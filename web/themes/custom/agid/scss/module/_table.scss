@@ -1,0 +1,42 @@
+
+table {
+  margin-top: 3rem;
+
+  width: 100%;
+
+  background-color: $table-background;
+  border: 1px solid $border-default-color;
+  border-spacing:0;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: $dark-blue;
+
+  a,
+  span {
+    color: $table-link !important;
+  }
+
+  a:hover {
+    color: $table-link-hover;
+  }
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+td,
+td a {
+  color: $medium-blue !important;
+}
+
+td a:hover {
+  color: $dark-blue-main !important;
+}
+
+tr:nth-child(odd) {
+  background-color: $table-background-row-odd;
+}

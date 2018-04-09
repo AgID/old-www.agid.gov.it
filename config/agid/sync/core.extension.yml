@@ -15,9 +15,12 @@ module:
   backup_migrate: 0
   ban: 0
   block: 0
+  block_class: 0
   block_content: 0
+  block_titlelink: 0
   breakpoint: 0
   broken_link: 0
+  captcha: 0
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
@@ -74,12 +77,14 @@ module:
   path: 0
   rabbit_hole: 0
   redirect: 0
+  recaptcha: 0
   redis: 0
   rename_admin_paths: 0
   rh_node: 0
   rh_taxonomy: 0
   rules: 0
   search: 0
+  seckit: 0
   sitemap: 0
   smtp: 0
   system: 0

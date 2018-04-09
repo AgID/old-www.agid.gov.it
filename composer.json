@@ -115,7 +115,7 @@
     "drupal/inline_entity_form": "1.0.0-beta1",
     "drupal/honeypot": "1.24.0",
     "drupal/captcha": "1.0.0-beta1",
-    "drupal/recaptcha": "2.2.0",
+    "drupal/recaptcha": "^2.3",
     "drupal/adminimal_theme": "1.3.0",
     "drupal/twig_field_value": "1.1.0",
     "drupal/migrate_google_sheets": "1.x-dev",
@@ -160,6 +160,9 @@
     "drupal/extlink": "^1.0",
     "drupal/rules": "3.x-dev",
     "drupal/broken_link": "^3.0"
+    "drupal/seckit": "^1.0@alpha",
+    "drupal/block_titlelink": "1.x-dev",
+    "drupal/block_class": "1.x-dev"
   },
   "require-dev": {
     "phing/phing": "2.12.*",

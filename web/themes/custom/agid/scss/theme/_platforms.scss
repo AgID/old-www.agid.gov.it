@@ -1,0 +1,34 @@
+#block-homepageplatforms {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  li {
+    display: inline-block;
+    width: 50%;
+    padding-right: 1rem;
+
+    &:not(:first-child) {
+      float: right;
+    }
+
+    > h2 {
+      margin: 1rem 0;
+    }
+
+    > p {
+      color: $dark-blue-main;
+      font-family: "Titillium Web";
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+}
+
+.homepage-platforms div.field {
+  background-color: #fcfcfc;
+  border: 1px solid rgba(0, 38, 77, 0.1);
+  height: 100%;
+  margin: 1rem 0 0 0;
+  padding: 2rem 1rem;
+}

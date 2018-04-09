@@ -25,21 +25,10 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set block_classes = [
-    'u-padding-r-left',
-    'u-padding-r-right',
-    'u-inlineBlock',
-    'u-floatRight',
-    'u-md-size1of3',
-    'u-lg-size1of3'
-  ]
-%}
-<section{{ attributes.addClass(block_classes) }}>
+<section{{ attributes }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}><a href="/agenzia/stampa-e-comunicazione/notizie?tipo_notizia=430" title="{{ 'See all news'|t }}"
-      class="u-text-r-l">{{ label }}</a></h2>
+    <h3{{ title_attributes }}>{{ label }}</h3>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
