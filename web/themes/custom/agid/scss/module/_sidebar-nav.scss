@@ -1,0 +1,16 @@
+/* Sidebar left main menu navigation styles */
+
+.sidebarnav-menu {
+  > li.hasFocus,
+  li.isActive {
+    cursor: auto;
+  }
+
+  > li.hasFocus > ul {
+    border-top: 1px solid #ddd;
+  }
+
+  li > span.sidebar-title {
+    border-left: 4px solid #007dfc;
+  }
+}

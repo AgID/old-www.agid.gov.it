@@ -1,0 +1,97 @@
+.webform-submission-contact-form,
+.views-exposed-form {
+  border: 1px solid $border-default-color;
+  padding: 1rem;
+  background-color: #fcfcfc;
+  margin-top: 4rem !important;
+
+  label {
+    color: $dark-blue;
+  }
+}
+
+.webform-submission-contact-form {
+  label {
+    margin: 1rem 0;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .js-form-type-webform-markup {
+    border-bottom: 1px solid rgba(0, 89, 179, 0.3);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    border: 1px solid $border-default-color;
+  }
+
+  textarea[disabled] {
+    background-color: rgba(176, 176, 176, 0.5);
+    margin-top: 2rem;
+  }
+
+  .Alert--error {
+    font-size: 1.6rem !important;
+    background-color: rgba(241, 47, 47, 0.1);
+    border: 1px solid #f12f2f;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='48' height='48' viewBox='0 0 48 48' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EIcon-error%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cg id='Canvas' transform='matrix(2 0 0 2 -412 -1692)'%3E%3Cg id='Icon-error'%3E%3Cg id='Combined Shape'%3E%3Cuse xlink:href='%23path0_fill' transform='translate(210 850)' fill='%23F12F2F'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cpath id='path0_fill' fill-rule='evenodd' d='M 0 8.01855C 0 12.4471 3.59003 16.0371 8.01855 16.0371C 12.4471 16.0371 16.0371 12.4471 16.0371 8.01855C 16.0371 3.59003 12.4471 0 8.01855 0C 3.59003 0 0 3.59003 0 8.01855ZM 11.5824 10.7904L 8.81052 8.01855L 11.5824 5.2467C 11.8011 5.02802 11.8011 4.67346 11.5824 4.45477C 11.3637 4.23608 11.0091 4.23608 10.7904 4.45477L 8.01855 7.22662L 5.24672 4.45477C 5.02802 4.23608 4.67345 4.23608 4.45476 4.45477C 4.23607 4.67346 4.23607 5.02802 4.45476 5.2467L 7.22661 8.01855L 4.45476 10.7904C 4.23607 11.0091 4.23607 11.3636 4.45476 11.5823C 4.67345 11.801 5.02802 11.801 5.24672 11.5823L 8.01855 8.81049L 10.7904 11.5823C 11.0091 11.801 11.3637 11.801 11.5824 11.5823C 11.8011 11.3636 11.8011 11.0091 11.5824 10.7904Z'/%3E%3C/defs%3E%3C/svg%3E");
+    line-height: 1.7 !important;
+    padding-bottom: 0 !important;
+    background-size: 3rem;
+
+    p {
+      padding: 0;
+      margin: 0;
+      min-height: auto;
+      margin-bottom: 1rem !important;
+    }
+  }
+}
+
+.form-item label.is-required small {
+  display: none;
+}
+.form-item label.is-required:after {
+  content: "*";
+}
+
+.webform-confirmation {
+  padding: 2rem;
+
+  p {
+    margin-top: 2rem;
+    border-left: 0.5rem solid $light-blue;
+    padding-left: 1rem;
+  }
+}
+
+/** Webform submit button **/
+.webform-actions {
+  text-align: right;
+}
+
+.webform-button--submit {
+  background: rgba(0, 0, 0, 0.0001);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 600;
+  color: #0d00ff;
+  margin: 2rem 0;
+  border: 0;
+  padding: 1rem 4rem;
+}
+
+.webform-button--submit[disabled] {
+  background-color: rgba(176, 176, 176, 0.5) !important;
+  opacity: 1;
+}

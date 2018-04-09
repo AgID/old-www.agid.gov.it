@@ -1,0 +1,108 @@
+
+header {
+  p {
+    margin-top: 2rem;
+  }
+
+  li {
+    list-style: disc;
+    list-style-position: inside;
+    color: $light-blue;
+  }
+
+  .Dropdown-menu li {
+    list-style: none;
+  }
+}
+
+.Header .Megamenu-subnavGroup li {
+  > ul {
+    display: none !important;
+  }
+
+  > a {
+    display: inline-block;
+    text-transform: none !important;
+    padding: 0.5rem;
+    font-weight: $header-link-font-weight !important;
+    font-size: $header-link-font-size !important;
+
+    &:hover {
+      color: $header-link-hover-color !important;
+    }
+
+    &:active {
+      background-color: $header-link-active-color;
+    }
+  }
+}
+
+
+.Header-banner {
+  background-color: $standard-blue;
+  padding: 0 !important;
+}
+
+.Header-navbar {
+  background-color: $light-blue;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.Header-languages {
+  background-color: $standard-blue;
+}
+
+.Header-right > div {
+  float: right;
+}
+
+.Logo-img {
+  vertical-align: middle;
+  width: 8em;
+}
+
+.Header-agid {
+  a {
+    text-decoration: none !important;
+    color: $header-link-color !important;
+    display: inline-block;
+
+    @include breakpoint(medium, down) {
+      font-size: 1.4rem !important;
+    }
+  }
+
+  .Site-name {
+    display: inline-block;
+    width: 7em;
+    vertical-align: middle;
+  }
+
+  .separator {
+    border-left: 0.1em solid $header-link-color;
+    vertical-align: middle;
+    margin-right: 0.3em;
+    margin-left: 0.1em;
+    font-size: 1.2em;
+  }
+
+}
+
+@include breakpoint(medium, down) {
+  .Footer .Header-agid a {
+    font-size: 2rem !important;
+  }
+  .Logo-img {
+    width: 6em;
+  }
+}
+
+.Header-searchTrigger button {
+  background-color: $light-blue;
+}
+
+.Header-social p {
+  color: $header-social-color;
+  margin-top: 0;
+}

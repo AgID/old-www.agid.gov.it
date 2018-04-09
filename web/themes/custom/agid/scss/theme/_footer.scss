@@ -1,0 +1,89 @@
+
+#block-sititematici {
+  h2 {
+    font-size: 26px !important;
+    margin-top: 0;
+    font-weight: 700 !important;
+  }
+
+  li {
+    padding: 0.5rem 0 !important;
+
+    > a {
+      font-weight: normal !important;
+    }
+  }
+}
+
+.Footer-block p > a {
+  font-weight: normal !important;
+}
+
+#block-linkcentralifooter {
+  li {
+    padding: 0 !important;
+
+    &:first-child {
+      padding-top: 0 !important;
+    }
+  }
+
+  a {
+    display: block;
+    font-size: 26px !important;
+    color: #fff !important;
+    margin-bottom: 2rem;
+    line-height: 42px;
+
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+a.Footer-bigLink {
+  display: block;
+  font-size: 26px !important;
+  color: #fff !important;
+  margin-bottom: 2rem;
+  line-height: 42px;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+
+@include breakpoint(small) {
+  #block-newsletter,
+  #block-haidubbi {
+    float: left;
+    width: 33%;
+  }
+
+  #block-newsletter,
+  #block-areamedia,
+  #block-haidubbi {
+    display: inline-block;
+  }
+}
+
+#block-agenziaperlitaliadigitale a,
+#block-agenziaperlitaliadigitale h2,
+#block-newsletter h2,
+#block-newsletter a,
+#block-areamedia h2,
+#block-areamedia a,
+#block-haidubbi h2,
+#block-haidubbi a {
+  color: $dark-blue !important;
+}
+
+#block-agenziaperlitaliadigitale p:last-of-type {
+  margin-top: 1rem;
+}
+
+#block-agenziaperlitaliadigitale em {
+  font-style: normal;
+  text-decoration: underline;
+}

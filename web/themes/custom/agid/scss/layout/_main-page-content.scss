@@ -1,0 +1,32 @@
+#block-agid-mainpagecontent {
+  p {
+    color: $dark-blue-main;
+  }
+
+  a {
+    font-family: "Titillium Web";
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: $mpc-link-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $mpc-link-hover-color;
+    }
+
+    &:visited {
+      color: $mpc-link-visited-color;
+    }
+  }
+
+  nav {
+    a,
+    .u-text-r-m,
+    .u-text-r-s {
+      font-size: 1.6rem !important;
+      line-height: 1 !important;
+      padding: 0.5rem 0.7rem !important;
+      color: $dark-blue !important;
+    }
+  }
+}

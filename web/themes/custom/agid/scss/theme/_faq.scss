@@ -1,0 +1,83 @@
+
+/* Sidebar left faq menu navigation styles */
+
+.back-link-mobile {
+  display: none;
+  color: $dark-blue-main !important;
+  text-decoration: none;
+  font-weight: 600;
+
+  span {
+    font-size: 14px;
+  }
+}
+
+@include breakpoint(large, down) {
+  #block-domandefrequenti-2 {
+    display: none;
+  }
+  .back-link-mobile {
+    display: block;
+  }
+}
+
+#block-domandefrequenti-2 {
+  > h2 {
+    color: $dark-blue;
+    border-bottom: 1px solid $border-default-color;
+    font-size: 24px !important;
+    line-height: 36px !important;
+    font-weight: 600 !important;
+    padding-bottom: 1rem;
+  }
+
+  li a {
+    font-weight: normal;
+  }
+
+  li.isActive span {
+    border-left: 5px solid #007dfc;
+  }
+}
+
+#block-domandefrequenti {
+  margin-top: 2rem;
+  margin-bottom: 10rem;
+}
+
+.p-bottom-right {
+  text-align: right;
+}
+
+.p-bottom-right > * {
+  padding: 1rem;
+}
+
+.faq-cell-hide {
+  display: none;
+}
+
+.faq-contact-us {
+  margin-top: 2rem;
+}
+
+.faq-cell a {
+  text-decoration: none;
+  color: $dark-blue-main !important;
+  box-shadow: 0 3px 8px rgba(0, 38, 77, 0.15);
+  display: block;
+  margin: 2rem 0;
+  padding: 2rem;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:not(:nth-child(3n)) {
+    margin-right: 2rem;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    box-shadow: 0 1px 2px rgba(0, 38, 77, 0.3) !important;
+  }
+}
