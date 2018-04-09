@@ -1,3 +1,7 @@
+main {
+  position: relative;
+}
+
 .claim {
   background-color: rgba(127, 178, 229, 0.1);
   color: #004080;
@@ -553,6 +557,17 @@ ul.Megamenu-pageLink li {
   z-index: 1000000;
 }
 
+.Megamenu--default .Megamenu-list > li.is-highlighted > a {
+  color: #00264d !important;
+  background-color: #fff !important;
+  opacity: 1;
+  z-index: 1000000;
+}
+
+.Megamenu--default .Megamenu-list > li.is-highlighted > a::after {
+  content: "\23f6";
+}
+
 .Megamenu-item > a,
 .Megamenu-item:first-child > a {
   padding-left: 1rem !important;
@@ -560,6 +575,16 @@ ul.Megamenu-pageLink li {
 
 .Megamenu-wrapper {
   background-color: #0059b3;
+}
+
+.main-overlay {
+  display: none;
+  background-color: #e0dcdc;
+  opacity: .6;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
 }
 
 /* Sidebar left menu common styles */
@@ -1506,6 +1531,14 @@ div.Prose,
 
 a {
   color: #0059b3;
+}
+
+li {
+  list-style-type: disc;
+}
+
+li li {
+  list-style-type: circle;
 }
 
 div.documentation div.file {
