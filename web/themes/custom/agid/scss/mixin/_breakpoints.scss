@@ -1,0 +1,24 @@
+
+@mixin breakpoint($point, $type:"") {
+  @if $point == small {
+    @if $type == down {
+      @media (max-width: $breakpoint-small) { @content ; }
+    } @else {
+      @media (min-width: $breakpoint-small) { @content ; }
+    }
+  }
+  @else if $point == medium {
+    @if $type == down {
+      @media (max-width: $breakpoint-medium) { @content ; }
+    } @else {
+      @media (min-width: $breakpoint-medium) { @content ; }
+    }
+  }
+  @else if $point == large {
+    @if $type == down {
+      @media (max-width: $breakpoint-large) { @content ; }
+    } @else {
+      @media (min-width: $breakpoint-large) { @content ; }
+    }
+  }
+}

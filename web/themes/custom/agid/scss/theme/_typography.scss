@@ -1,0 +1,89 @@
+h1,
+h1.u-text-h2,
+h2,
+h2.u-text-h2,
+h3,
+h4,
+h4.u-text-h4,
+h5,
+h6 {
+  font-weight: 600 !important;
+  color: $h-foreground-color;
+  line-height: $h-line-height;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  margin-top: 4rem;
+  margin-bottom: 0;
+
+  .u-text-h2 {
+    max-width: 14em;
+  }
+}
+
+h2 {
+  font-size: $h2-font-size !important;
+
+  .Accordion-header {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+h3, h3.u-text-h3 { font-size: $h3-font-size !important; }
+h4, h4.u-text-h4 { font-size: $h4-font-size !important; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
+
+p {
+  font-family: "Titillium Web";
+  font-size: $p-font-size;
+  line-height: $p-line-height;
+}
+
+div.Prose,
+.highlighted-text {
+  font-size: $p-font-size !important;
+  line-height: $p-line-height !important;
+}
+
+.Prose {
+  > h3,
+  > h4,
+  > h5 {
+    font-weight: 400 !important;
+  }
+
+  > h2 {
+    font-size: 2em !important;
+    font-weight: 400 !important;
+  }
+
+  ul {
+    list-style-type: square;
+  }
+
+  ol {
+    list-style-type: decimal
+  }
+
+  ul,
+  ol {
+    list-style-position: outside;
+    margin-left: 3.2rem !important;
+
+    li {
+      line-height: 1.55 !important;
+    }
+  }
+
+  .Abstract p {
+    font-size: 1.1em !important;
+    color: $light-blue !important;
+  }
+}
+
+a {
+  color: $light-blue;
+}

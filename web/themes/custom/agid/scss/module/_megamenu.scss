@@ -1,0 +1,44 @@
+.Megamenu-subnavGroup:not(.Megamenu-pageLink) > li {
+  width: 10em !important;
+}
+
+ul.Megamenu-pageLink {
+  border-top: 1px solid #e0e0e0;
+  display: block !important;
+  margin-top: 20px;
+
+  li {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+.Megamenu--default {
+  margin-left: -1rem;
+
+  background-color: $light-blue;
+
+  .Megamenu-list {
+    div.is-open > span {
+      display: none;
+    }
+
+    > li {
+      > a.is-open {
+        color: $dark-blue !important;
+        background-color: #fff !important;
+        opacity: 1;
+        z-index: 1000000;
+      }
+    }
+  }
+}
+
+.Megamenu-item > a,
+.Megamenu-item:first-child > a {
+  padding-left: 1rem !important;
+}
+
+.Megamenu-wrapper {
+  background-color: $light-blue;
+}
