@@ -1,0 +1,45 @@
+/* Sidebar left menu common styles */
+
+.sidebar-menu li {
+  border-top: 0 !important;
+
+  > span.sidebar-title {
+    display: block;
+    margin: 1em 0;
+    padding: 0.5rem 1em;
+    color: $dark-blue !important;
+    border-top: 0 !important;
+    cursor: auto;
+  }
+}
+
+.sidebar-menu ul > li > span.sidebar-title {
+  padding-left: 1.5em;
+  font-weight: bold;
+}
+
+.sidebar-menu ul ul > li {
+  font-size: 0.9em;
+
+  > span.sidebar-title {
+    padding-left: 2em;
+    text-decoration: underline;
+  }
+}
+
+.sidebar-menu > li {
+  > span.sidebar-title {
+    font-weight: bold;
+  }
+
+  > a {
+    font-weight: bold;
+  }
+}
+
+.Treeview--default li[aria-expanded="true"] li a,
+.Treeview--default li[aria-expanded="true"] li li a,
+.sidebar-menu li a {
+  color: $dark-blue !important;
+  background-color: #fff !important;
+}

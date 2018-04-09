@@ -233,7 +233,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Home page - News'
+      title: News
       header: {  }
       footer: {  }
       empty: {  }

@@ -2117,6 +2117,158 @@
             "time": "2018-02-21T12:04:27+00:00"
         },
         {
+            "name": "drupal/block_class",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/block_class",
+                "reference": "0a3996529627643fd3a326b0f567f4b1f5056960"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1+10-dev",
+                    "datestamp": "1519789684",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Todd Nienkerk",
+                    "homepage": "https://www.drupal.org/u/todd-nienkerk",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Renato Gonçalves (RenatoG)",
+                    "homepage": "https://www.drupal.org/u/RenatoG",
+                    "email": "renatog@ciandt.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Aaron Stanush",
+                    "homepage": "https://www.drupal.org/u/aaron-stanush",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "David Suissa (DYdave)",
+                    "homepage": "https://www.drupal.org/u/DYdave",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Four Kitchens",
+                    "homepage": "https://www.drupal.org/user/358502",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "berenddeboer",
+                    "homepage": "https://www.drupal.org/u/berenddeboer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "elliotttf",
+                    "homepage": "https://www.drupal.org/u/elliotttf",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Michal Minecki (mirzu)",
+                    "homepage": "https://www.drupal.org/u/mirzu",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Patrick Coffey (pcoffey)",
+                    "homepage": "https://www.drupal.org/u/pcoffey",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Taylor Smith (tsmith512)",
+                    "homepage": "https://www.drupal.org/u/tsmith512",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "tsmith512",
+                    "homepage": "https://www.drupal.org/user/2031446"
+                }
+            ],
+            "description": "Allows assigning classes to Blocks.",
+            "homepage": "https://www.drupal.org/project/block_class",
+            "support": {
+                "source": "https://cgit.drupalcode.org/block_class",
+                "issues": "https://www.drupal.org/project/issues/block_class",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            },
+            "time": "2018-03-27T15:46:13+00:00"
+        },
+        {
+            "name": "drupal/block_titlelink",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/block_titlelink",
+                "reference": "914fc0edf3ffe58a8755df7ba098c8b93f5d88c4"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1501598343",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Anybody",
+                    "homepage": "https://www.drupal.org/user/291091"
+                },
+                {
+                    "name": "adammalone",
+                    "homepage": "https://www.drupal.org/user/1295980"
+                },
+                {
+                    "name": "neclimdul",
+                    "homepage": "https://www.drupal.org/user/48673"
+                },
+                {
+                    "name": "ngmaloney",
+                    "homepage": "https://www.drupal.org/user/225012"
+                },
+                {
+                    "name": "thomas.frobieter",
+                    "homepage": "https://www.drupal.org/user/409335"
+                }
+            ],
+            "description": "Allows assigning links to Block titles",
+            "homepage": "https://www.drupal.org/project/block_titlelink",
+            "support": {
+                "source": "http://cgit.drupalcode.org/block_titlelink"
+            }
+        },
+        {
             "name": "drupal/captcha",
             "version": "1.0.0-beta1",
             "source": {
@@ -5534,6 +5686,61 @@
                 "source": "http://cgit.drupalcode.org/rules"
             },
             "time": "2018-02-22T16:25:27+00:00"
+        },
+        {
+            "name": "drupal/seckit",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/seckit",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/seckit-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "c873327ac8135e8939c09c8a45046f2dc5d79fbe"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1470853439",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "badjava",
+                    "homepage": "https://www.drupal.org/user/83372"
+                },
+                {
+                    "name": "jweowu",
+                    "homepage": "https://www.drupal.org/user/152788"
+                },
+                {
+                    "name": "p0deje",
+                    "homepage": "https://www.drupal.org/user/529960"
+                }
+            ],
+            "description": "Enhance security of your Drupal website.",
+            "homepage": "https://www.drupal.org/project/seckit",
+            "support": {
+                "source": "http://cgit.drupalcode.org/seckit"
+            }
         },
         {
             "name": "drupal/sitemap",
@@ -11325,6 +11532,9 @@
         "drupal/backup_migrate": 20,
         "drupal/smtp": 20,
         "drupal/rules": 20,
+        "drupal/seckit": 15,
+        "drupal/block_titlelink": 20,
+        "drupal/block_class": 20,
         "jcalderonzumba/gastonjs": 20,
         "drupal/migrate_devel": 20
     },

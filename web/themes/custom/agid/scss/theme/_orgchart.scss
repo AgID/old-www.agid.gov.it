@@ -1,0 +1,40 @@
+
+.orgchart-header {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 2em;
+}
+
+.orgchart-person {
+  margin-bottom: 5rem;
+
+
+  .field--name-field-photo {
+    padding: 1rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .field--label-inline > .field__label,
+  .field--label-inline > .field__item {
+    display: inline-block;
+  }
+
+  .field__label,
+  .field--name-field-role {
+    font-weight: bold;
+  }
+
+  .field--name-field-role {
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+  }
+
+  .field--name-field-position {
+    margin-bottom: 2rem;
+  }
+}

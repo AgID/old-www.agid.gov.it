@@ -15,7 +15,9 @@ module:
   backup_migrate: 0
   ban: 0
   block: 0
+  block_class: 0
   block_content: 0
+  block_titlelink: 0
   breakpoint: 0
   captcha: 0
   chosen: 0
@@ -79,6 +81,7 @@ module:
   rh_taxonomy: 0
   rules: 0
   search: 0
+  seckit: 0
   sitemap: 0
   smtp: 0
   system: 0

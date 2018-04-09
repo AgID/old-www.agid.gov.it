@@ -1,0 +1,55 @@
+
+div.Footer-block {
+  > h2.Footer-blockTitle {
+    margin-top: 0;
+  }
+}
+
+h2.Footer-blockTitle {
+  font-size: 2rem !important;
+  padding-bottom: 0.5em !important;
+
+  > a {
+    font-size: inherit !important;
+    color: inherit;
+  }
+}
+
+.Footer a {
+  color: $footer-link-color;
+}
+
+
+.Footer-block li {
+  border: 0 !important;
+}
+
+div.Footer-subBlock {
+  border-top: 0 !important;
+  padding: 0 !important;
+}
+
+.Footer {
+  div.search-block-form {
+    width: 100%;
+  }
+}
+
+a.Footer-contact-title {
+  margin-bottom: 0.5rem;
+}
+
+a.Footer-contact {
+  padding-top: 1.5rem;
+}
+
+.Footer-links {
+  a {
+    text-decoration: underline !important;
+  }
+}
+
+.Footer-socialIcons [class*=" Icon-"],
+.Footer-socialIcons [class^="Icon-"] {
+  background-color: $footer-social-icon-color;
+}

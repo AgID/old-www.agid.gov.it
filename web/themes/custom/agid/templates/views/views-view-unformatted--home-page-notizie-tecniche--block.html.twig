@@ -17,8 +17,9 @@
 #}
 <div class="u-layout-centerContent">
     <section class="u-layout-wide">
+      {% if title %}
         <h2 class="u-padding-bottom-m u-text-r-l u-padding-left-s">{{ title|t }}</h2>
-
+      {% endif %}
         <div class="homepage-lastupdates">
 
         {% for row in rows %}

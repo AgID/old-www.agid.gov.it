@@ -1,0 +1,51 @@
+
+h2.Accordion-header {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  &:not(:last-of-type) > span {
+    border-bottom: 1px solid $border-default-color;
+  }
+
+  > span {
+    margin: 0 0 0 1rem;
+  }
+}
+
+.Accordion--default {
+  .Accordion-header {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='%2300264c'%3E%3Ctitle%3Eexpand%3C/title%3E%3Cpath d='M3.733 6.133L0 9.866l16 16 16-16-3.733-3.733L16 18.4 3.733 6.133z'/%3E%3C/svg%3E");
+
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+
+    border-top: 0 !important;
+  }
+
+  .Accordion-link {
+    padding: 1rem 0 !important;
+  }
+}
+
+div.Accordion--default {
+  border-top: 1px solid $border-default-color;
+  border-bottom: 1px solid $border-default-color;
+}
+
+.accordion-open-all {
+  display: block;
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.Accordion-panel {
+  padding-left: 3rem;
+  border-bottom: 1px solid $border-default-color;
+}
+
+.Accordion-header[aria-expanded="true"],
+.Accordion-panel {
+  background-color: $accordion-background-color;
+}
+

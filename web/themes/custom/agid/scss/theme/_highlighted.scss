@@ -1,0 +1,61 @@
+/* Home page - Highlighted content block */
+
+.highlighted-title {
+  line-height: 34px !important;
+}
+
+.highlighted-region {
+  background-color: #f2f7fb;
+}
+
+@include breakpoint(large, down) {
+  .highlighted-data div.views-row {
+    padding-left: 0 !important;
+    margin-top: 1rem;
+  }
+}
+
+.highlighted-data {
+  > div article {
+    height: 100%;
+  }
+
+  > div .Prose,
+  a {
+    color: #fff !important;
+    text-decoration: none;
+  }
+
+  > div:first-child article {
+    background-color: $dark-blue;
+  }
+
+  > div:not(:first-child) {
+    article {
+      background-color: $medium-blue;
+    }
+
+    .highlighted-focus,
+    .highlighted-img {
+      display: none;
+    }
+  }
+
+  > div:last-child article {
+    background-color: $light-blue;
+  }
+}
+
+.highlighted-focus {
+  background-color: #0066cc;
+  display: inline-block;
+}
+
+.highlighted-img {
+  width: 50%;
+
+  > div {
+    padding: 0 2rem;
+    margin: 0 !important;
+  }
+}

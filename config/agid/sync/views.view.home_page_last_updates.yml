@@ -224,7 +224,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
-      title: 'Home page - Last updates'
+      title: 'Recent contents'
       header: {  }
       footer: {  }
       empty: {  }
