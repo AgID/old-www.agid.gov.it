@@ -1,0 +1,23 @@
+uuid: 20bddea8-4234-4e7c-bb1f-1ca24a08c431
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_focus
+    - node.type.page
+id: node.page.field_focus
+field_name: field_focus
+entity_type: node
+bundle: page
+label: Focus
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean
