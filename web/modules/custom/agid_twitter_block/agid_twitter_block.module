@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_twitter_block.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function agid_twitter_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the agid_twitter_block module.
+    case 'help.page.agid_twitter_block':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Configurable twitter block') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function agid_twitter_block_theme() {
+  return [
+    'agid_twitter_block' => [
+      'template' => 'agid-twitter-block',
+      'path' => drupal_get_path('module', 'agid_twitter_block') . '/templates',
+      'variables' => [
+        'title' => 'null',
+        'username' => NULL,
+        'tweets_to_show' => 3,
+        'tweets' => NULL,
+      ]
+    ],
+  ];
+}
