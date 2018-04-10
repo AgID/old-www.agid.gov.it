@@ -265,6 +265,16 @@ div.Accordion--default {
   background-color: #fcfcfc;
 }
 
+div.documentation span.Accordion-link {
+  font-size: 1.8rem !important;
+  line-height: 1.5;
+}
+
+div.documentation h2 {
+  background-size: 1.4rem;
+  padding-left: 2.5rem;
+}
+
 article.accsubj {
   border-top: 1px solid #d0e2f5;
 }
@@ -1568,4 +1578,13 @@ div.pagopa-channel-section {
   .block-home-page-tech-comm {
     margin-top: 3rem;
   }
+}
+
+div.documentation h3 {
+  margin-bottom: 0.975rem;
+}
+
+.related-content h3,
+.block-agid-faq-related h3 {
+  margin-bottom: 0.975rem;
 }

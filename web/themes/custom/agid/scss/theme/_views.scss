@@ -22,3 +22,16 @@ div.pagopa-channel-section {
     margin-top: 3rem;
   }
 }
+
+div.documentation {
+  h3 {
+    margin-bottom: $h3-font-size * $h-line-height * 0.25;
+  }
+}
+
+.related-content,
+.block-agid-faq-related {
+  h3 {
+    margin-bottom: $h3-font-size * $h-line-height * 0.25;
+  }
+}

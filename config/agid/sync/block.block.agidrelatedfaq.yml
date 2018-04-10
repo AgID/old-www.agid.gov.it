@@ -10,7 +10,7 @@ dependencies:
     - agid
 third_party_settings:
   block_class:
-    classes: u-padding-top-l
+    classes: 'u-padding-top-xxl block-agid-faq-related'
 id: agidrelatedfaq
 theme: agid
 region: content
