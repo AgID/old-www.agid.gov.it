@@ -1,0 +1,9 @@
+uuid: a5a369e5-eb47-40bb-883e-ac40fa89f6a2
+langcode: it
+status: true
+dependencies: {  }
+id: node
+label: Content
+tags:
+  description: '[node:summary]'
+  title: '[node:title]|[site:name]'
