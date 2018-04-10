@@ -997,13 +997,17 @@ nav.contextual-menu-mobile li {
 }
 
 nav.contextual-menu-mobile ul > li a {
-  background-color: #0059b3;
+  background-color: #fcfcfc;
   display: block;
+}
+
+nav.contextual-menu-mobile > ul > li {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav.contextual-menu-mobile .Treeview--default li[aria-expanded="true"] li a,
 nav.contextual-menu-mobile ul li a {
-  color: #fff !important;
+  color: #00264d !important;
   padding: 2rem;
   font-weight: 600;
   text-decoration: none;
@@ -1014,33 +1018,37 @@ nav.contextual-menu-mobile ul li a:hover {
   text-decoration: none !important;
 }
 
+nav.contextual-menu-mobile .Treeview--default li[aria-expanded="true"] li a:active,
+nav.contextual-menu-mobile ul li a:active {
+  background-color: #0070e0 !important;
+  color: #fff !important;
+}
+
 nav.contextual-menu-mobile .Treeview-handler--standalone {
-  color: #fff;
+  color: #fcfcfc;
   border-left: 0;
   position: absolute !important;
   left: 0;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='fill:%23ffffff' viewBox='0 0 32 32'%3E%3Ctitle%3Eexpand%3C/title%3E%3Cpath d='M3.733 6.133L0 9.866l16 16 16-16-3.733-3.733L16 18.4 3.733 6.133z'/%3E%3C/svg%3E");
+  min-width: 3em;
+  border-right: 1px solid #e0e0e0;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='fill:%2300264d' viewBox='0 0 32 32'%3E%3Ctitle%3Eexpand%3C/title%3E%3Cpath d='M3.733 6.133L0 9.866l16 16 16-16-3.733-3.733L16 18.4 3.733 6.133z'/%3E%3C/svg%3E");
 }
 
 nav.contextual-menu-mobile .Treeview [aria-expanded="true"] > a > .Treeview-handler--standalone {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'  style='fill:%23ffffff' viewBox='0 0 32 32'%3E%3Ctitle%3Ecollapse%3C/title%3E%3Cpath d='M28.267 25.867L32 22.134l-16-16-16 16 3.733 3.733L16 13.6l12.267 12.267z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='fill:%2300264d' viewBox='0 0 32 32'%3E%3Ctitle%3Ecollapse%3C/title%3E%3Cpath d='M28.267 25.867L32 22.134l-16-16-16 16 3.733 3.733L16 13.6l12.267 12.267z'/%3E%3C/svg%3E");
 }
 
 nav.contextual-menu-mobile li.Treeview-parent > a {
   padding-left: 6rem !important;
 }
 
-nav.contextual-menu-mobile ul > li li,
+nav.contextual-menu-mobile ul > li li {
+  background-color: #fcfcfc !important;
+  border-top: 1px solid #e0e0e0;
+}
+
 nav.contextual-menu-mobile .Treeview--default li[aria-expanded="true"] li a {
-  background-color: #0c97ed !important;
-}
-
-nav.contextual-menu-mobile ul > li a.is-active {
-  border-left: 6px solid #0c97ed;
-}
-
-nav.contextual-menu-mobile ul > li li a.is-active {
-  border-left: 6px solid #0059b3;
+  background-color: #fcfcfc !important;
 }
 
 /* Sidebar left faq menu navigation styles */
@@ -1308,6 +1316,32 @@ a.Footer-bigLink:hover {
 .highlighted-img > div {
   padding: 0 2rem;
   margin: 0 !important;
+}
+
+@media (max-width: 992px) {
+  .Offcanvas-content {
+    background-color: #0059b3 !important;
+  }
+  .Offcanvas-content .Linklist a {
+    color: #fff !important;
+    font-weight: bold;
+  }
+  .Offcanvas-content .Linklist a:hover {
+    background-color: inherit !important;
+  }
+  .Offcanvas-content .Linklist a > span {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23FFF' viewBox='0 0 32 32'%3E%3Ctitle%3Eexpand%3C/title%3E%3Cpath d='M3.733 6.133L0 9.866l16 16 16-16-3.733-3.733L16 18.4 3.733 6.133z'/%3E%3C/svg%3E");
+  }
+  .Offcanvas-content li li a {
+    font-weight: 600 !important;
+  }
+  .Offcanvas-content .Treeview [aria-expanded=true] > a > .Treeview-handler--standalone {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23FFF' viewBox='0 0 32 32'%3E%3Ctitle%3Ecollapse%3C/title%3E%3Cpath d='M28.267 25.867L32 22.134l-16-16-16 16 3.733 3.733L16 13.6l12.267 12.267z'/%3E%3C/svg%3E");
+  }
+  .Offcanvas--modal.is-active:after, .Offcanvas--modal:target:after {
+    background: rgba(224, 220, 220, 0.6);
+    opacity: 1;
+  }
 }
 
 .homepage-news div.views-row,
