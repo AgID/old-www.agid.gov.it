@@ -49,3 +49,14 @@ div.Accordion--default {
   background-color: $accordion-background-color;
 }
 
+div.documentation {
+  span.Accordion-link {
+    font-size: 1.8rem !important;
+    line-height: 1.5;
+  }
+
+  h2 {
+    background-size: 1.4rem;
+    padding-left: 2.5rem;
+  }
+}

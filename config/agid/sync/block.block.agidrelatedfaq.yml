@@ -4,9 +4,13 @@ status: true
 dependencies:
   module:
     - agid_blocks
+    - block_class
     - ctools
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: 'u-padding-top-xxl block-agid-faq-related'
 id: agidrelatedfaq
 theme: agid
 region: content

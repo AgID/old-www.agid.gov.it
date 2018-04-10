@@ -78,7 +78,6 @@ module:
   path: 0
   redirect: 0
   rabbit_hole: 0
-  redirect: 0
   recaptcha: 0
   redis: 0
   rename_admin_paths: 0
