@@ -1548,6 +1548,26 @@ ol.search-results li {
   border: 1px solid #d0e2f5 !important;
 }
 
+.view-table-pagopa table {
+  table-layout: fixed;
+}
+
+.view-table-pagopa table th:first-child {
+  width: 31%;
+}
+
+.view-table-pagopa table th:nth-child(3) {
+  width: 29%;
+}
+
+.view-table-pagopa table th:nth-child(4) {
+  width: 26%;
+}
+
+nav li {
+  list-style: none;
+}
+
 div.Prose,
 .highlighted-text {
   font-size: 1.8rem !important;
