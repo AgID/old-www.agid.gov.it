@@ -31,12 +31,10 @@ bundle: page
 mode: default
 content:
   content_moderation_control:
-    weight: 0
+    weight: -20
     region: content
-    settings: {  }
-    third_party_settings: {  }
   field_arguments:
-    weight: 7
+    weight: 6
     label: hidden
     settings:
       link: true
@@ -44,7 +42,7 @@ content:
     type: entity_reference_label
     region: content
   field_cad:
-    weight: 8
+    weight: 7
     label: above
     settings:
       link: true
@@ -53,7 +51,7 @@ content:
     region: content
   field_content:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -61,7 +59,7 @@ content:
     third_party_settings: {  }
     region: content
   field_faq:
-    weight: 13
+    weight: 12
     label: above
     settings:
       view_mode: page
@@ -69,8 +67,18 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_focus:
+    weight: 13
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_image:
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       image_style: ''
@@ -79,7 +87,7 @@ content:
     type: image
     region: content
   field_link:
-    weight: 11
+    weight: 10
     label: above
     settings:
       trim_length: 255
@@ -91,7 +99,7 @@ content:
     type: link
     region: content
   field_offices:
-    weight: 6
+    weight: 5
     label: hidden
     settings:
       link: true
@@ -99,7 +107,7 @@ content:
     type: entity_reference_label
     region: content
   field_page_abstract:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       trim_length: 600
@@ -107,14 +115,14 @@ content:
     type: text_trimmed
     region: content
   field_page_content:
-    weight: 4
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_related_content:
-    weight: 10
+    weight: 9
     label: above
     settings:
       link: true
@@ -122,7 +130,7 @@ content:
     type: entity_reference_label
     region: content
   field_related_news:
-    weight: 12
+    weight: 11
     label: above
     settings:
       view_mode: embedded
@@ -131,7 +139,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_repository_files:
-    weight: 9
+    weight: 8
     label: above
     settings:
       view_mode: thumbnail
@@ -140,12 +148,11 @@ content:
     type: entity_reference_entity_view
     region: content
   links:
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_focus: true
   field_page_source: true
   field_profiles: true
   langcode: true
