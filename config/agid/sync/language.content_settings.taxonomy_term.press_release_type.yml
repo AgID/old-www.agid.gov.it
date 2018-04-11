@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.press_release_type
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
 id: taxonomy_term.press_release_type
 target_entity_type_id: taxonomy_term
 target_bundle: press_release_type
