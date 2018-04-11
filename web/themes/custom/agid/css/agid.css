@@ -1,3 +1,7 @@
+main {
+  position: relative;
+}
+
 .claim {
   background-color: rgba(127, 178, 229, 0.1);
   color: #004080;
@@ -161,11 +165,11 @@ header .Dropdown-menu li {
   display: none !important;
 }
 
-#block-agid-mainpagecontent p {
+.block-agid-main-content p {
   color: #00264c;
 }
 
-#block-agid-mainpagecontent a {
+.block-agid-main-content a {
   font-family: "Titillium Web";
   font-size: 1.8rem;
   line-height: 1.5;
@@ -173,17 +177,17 @@ header .Dropdown-menu li {
   text-decoration: underline;
 }
 
-#block-agid-mainpagecontent a:hover {
+.block-agid-main-content a:hover {
   color: #004d99;
 }
 
-#block-agid-mainpagecontent a:visited {
+.block-agid-main-content a:visited {
   color: #430099;
 }
 
-#block-agid-mainpagecontent nav a,
-#block-agid-mainpagecontent nav .u-text-r-m,
-#block-agid-mainpagecontent nav .u-text-r-s {
+.block-agid-main-content nav a,
+.block-agid-main-content nav .u-text-r-m,
+.block-agid-main-content nav .u-text-r-s {
   font-size: 1.6rem !important;
   line-height: 1 !important;
   padding: 0.5rem 0.7rem !important;
@@ -259,6 +263,16 @@ div.Accordion--default {
 .Accordion-header[aria-expanded="true"],
 .Accordion-panel {
   background-color: #fcfcfc;
+}
+
+div.documentation span.Accordion-link {
+  font-size: 1.8rem !important;
+  line-height: 1.5;
+}
+
+div.documentation h2 {
+  background-size: 1.4rem;
+  padding-left: 2.5rem;
 }
 
 article.accsubj {
@@ -382,9 +396,6 @@ article.event-page .field--name-field-event-description {
 
 /** Generic content type page **/
 .field--label-above {
-  font-size: 2.8rem;
-  line-height: 1.5;
-  margin-top: 2rem;
   font-weight: 600 !important;
   color: #0059b3;
 }
@@ -499,7 +510,6 @@ article.event-page .field--name-field-event-description {
 /** Field Arguments **/
 .field--name-field-arguments {
   display: inline-block;
-  margin: 2rem 0;
 }
 
 .field--name-field-arguments div:not(:last-child) {
@@ -557,6 +567,17 @@ ul.Megamenu-pageLink li {
   z-index: 1000000;
 }
 
+.Megamenu--default .Megamenu-list > li.is-highlighted > a {
+  color: #00264d !important;
+  background-color: #fff !important;
+  opacity: 1;
+  z-index: 1000000;
+}
+
+.Megamenu--default .Megamenu-list > li.is-highlighted > a::after {
+  content: "\23f6";
+}
+
 .Megamenu-item > a,
 .Megamenu-item:first-child > a {
   padding-left: 1rem !important;
@@ -564,6 +585,16 @@ ul.Megamenu-pageLink li {
 
 .Megamenu-wrapper {
   background-color: #0059b3;
+}
+
+.main-overlay {
+  display: none;
+  background-color: #e0dcdc;
+  opacity: .6;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
 }
 
 /* Sidebar left menu common styles */
@@ -661,6 +692,77 @@ td a:hover {
 
 tr:nth-child(odd) {
   background-color: rgba(208, 226, 245, 0.1);
+}
+
+h1,
+h1.u-text-h2,
+h2,
+h2.u-text-h2,
+h3,
+h4,
+h4.u-text-h4,
+h5,
+h6 {
+  font-weight: 600 !important;
+  color: #0059b3;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 0;
+}
+
+h1 .u-text-h2 {
+  max-width: 14em;
+}
+
+h2 {
+  font-size: 2.8rem !important;
+}
+
+h2 .Accordion-header {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+h3, h3.u-text-h3 {
+  font-size: 2.6rem !important;
+}
+
+h4, h4.u-text-h4 {
+  font-size: 2.4rem !important;
+}
+
+h5 {
+  font-size: 2.2rem;
+}
+
+h6 {
+  font-size: 2rem;
+}
+
+h3 {
+  margin-bottom: 1.95rem;
+}
+
+p {
+  font-family: "Titillium Web";
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+a {
+  color: #0059b3;
+}
+
+li {
+  list-style-type: disc;
+}
+
+li li {
+  list-style-type: circle;
 }
 
 .view-table-pagination nav {
@@ -1019,19 +1121,19 @@ nav.contextual-menu-mobile ul > li li a.is-active {
   box-shadow: 0 1px 2px rgba(0, 38, 77, 0.3) !important;
 }
 
-#block-agid-mainpagecontent > article .field--name-field-news-date:first-of-type {
+.block-agid-main-content > article .field--name-field-news-date:first-of-type {
   display: block;
   text-align: right;
   margin: 2rem 0;
 }
 
-#block-agid-mainpagecontent > article .field--name-field-news-date:first-of-type div {
+.block-agid-main-content > article .field--name-field-news-date:first-of-type div {
   display: inline-block;
   font-size: 16px !important;
   line-height: 30px !important;
 }
 
-#block-agid-mainpagecontent > article .field--name-field-news-date:first-of-type .field__label {
+.block-agid-main-content > article .field--name-field-news-date:first-of-type .field__label {
   color: #0059b3;
   font-weight: 600;
 }
@@ -1145,6 +1247,10 @@ a.Footer-bigLink:hover {
 #block-agenziaperlitaliadigitale em {
   font-style: normal;
   text-decoration: underline;
+}
+
+.Footer li {
+  list-style: none;
 }
 
 /* Home page - Highlighted content block */
@@ -1404,63 +1510,8 @@ ol.search-results li {
   padding-bottom: 3rem;
 }
 
-#block-agid-mainpagecontent input.form-search {
+.block-agid-main-content input.form-search {
   border: 1px solid #d0e2f5 !important;
-}
-
-h1,
-h1.u-text-h2,
-h2,
-h2.u-text-h2,
-h3,
-h4,
-h4.u-text-h4,
-h5,
-h6 {
-  font-weight: 600 !important;
-  color: #0059b3;
-  line-height: 1.5;
-}
-
-h1 {
-  font-size: 3rem;
-  margin-top: 4rem;
-  margin-bottom: 0;
-}
-
-h1 .u-text-h2 {
-  max-width: 14em;
-}
-
-h2 {
-  font-size: 2.8rem !important;
-}
-
-h2 .Accordion-header {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-h3, h3.u-text-h3 {
-  font-size: 2.6rem !important;
-}
-
-h4, h4.u-text-h4 {
-  font-size: 2.4rem !important;
-}
-
-h5 {
-  font-size: 2.2rem;
-}
-
-h6 {
-  font-size: 2rem;
-}
-
-p {
-  font-family: "Titillium Web";
-  font-size: 1.8rem;
-  line-height: 1.5;
 }
 
 div.Prose,
@@ -1504,10 +1555,6 @@ div.Prose,
   color: #0059b3 !important;
 }
 
-a {
-  color: #0059b3;
-}
-
 div.documentation div.file {
   margin-bottom: 1rem;
 }
@@ -1531,4 +1578,13 @@ div.pagopa-channel-section {
   .block-home-page-tech-comm {
     margin-top: 3rem;
   }
+}
+
+div.documentation h3 {
+  margin-bottom: 0.975rem;
+}
+
+.related-content h3,
+.block-agid-faq-related h3 {
+  margin-bottom: 0.975rem;
 }

@@ -14,9 +14,6 @@
 
 /** Generic content type page **/
 .field--label-above {
-  font-size: 2.8rem;
-  line-height: 1.5;
-  margin-top: 2rem;
   font-weight: 600 !important;
   color: $light-blue;
 }
@@ -133,7 +130,6 @@
 /** Field Arguments **/
 .field--name-field-arguments {
   display: inline-block;
-  margin: 2rem 0;
 
   div:not(:last-child) {
     margin-right: 2rem;

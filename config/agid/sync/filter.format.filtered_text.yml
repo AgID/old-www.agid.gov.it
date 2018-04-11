@@ -36,9 +36,9 @@ filters:
     status: true
     weight: 9
     settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
     status: true
     weight: 0
     settings: {  }
@@ -48,9 +48,9 @@ filters:
     status: true
     weight: 0
     settings: {  }
-  editor_file_reference:
-    id: editor_file_reference
-    provider: editor
+  filter_caption:
+    id: filter_caption
+    provider: filter
     status: true
     weight: 0
     settings: {  }
