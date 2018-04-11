@@ -31,7 +31,7 @@ ul.Megamenu-pageLink {
         z-index: 1000000;
       }
 
-      &.is-highlighted > a {
+      &.is-active > a {
 
         color: $dark-blue !important;
         background-color: #fff !important;
@@ -41,6 +41,17 @@ ul.Megamenu-pageLink {
         &::after {
           content: "\23f6";
         }
+      }
+
+      &.menu-opened > a {
+        &::after {
+          content: "\23f7";
+        }
+      }
+
+      &.is-not-highlighted > a {
+        background-color: transparent !important;
+        color: white !important;
       }
     }
   }

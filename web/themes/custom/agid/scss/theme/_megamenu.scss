@@ -1,0 +1,32 @@
+
+@include breakpoint(large, down) {
+  .Offcanvas-content {
+    background-color: $light-blue !important;
+
+    .Linklist a {
+      color: #fff !important;
+      font-weight: bold;
+
+      &:hover {
+        background-color: inherit !important;
+      }
+
+      > span {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23FFF' viewBox='0 0 32 32'%3E%3Ctitle%3Eexpand%3C/title%3E%3Cpath d='M3.733 6.133L0 9.866l16 16 16-16-3.733-3.733L16 18.4 3.733 6.133z'/%3E%3C/svg%3E");
+      }
+    }
+
+    li li a {
+      font-weight: 600 !important;
+    }
+
+    .Treeview [aria-expanded=true] > a > .Treeview-handler--standalone {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='%23FFF' viewBox='0 0 32 32'%3E%3Ctitle%3Ecollapse%3C/title%3E%3Cpath d='M28.267 25.867L32 22.134l-16-16-16 16 3.733 3.733L16 13.6l12.267 12.267z'/%3E%3C/svg%3E");
+    }
+  }
+
+  .Offcanvas--modal.is-active:after, .Offcanvas--modal:target:after {
+    background: $mm-overlay-color;
+    opacity: 1;
+  }
+}

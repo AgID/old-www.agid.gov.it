@@ -787,7 +787,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: true
-      css_class: view-table-pagination
+      css_class: 'view-table-pagination view-table-pagopa'
     cache_metadata:
       max-age: 0
       contexts:
