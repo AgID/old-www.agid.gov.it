@@ -162,7 +162,8 @@
     "drupal/broken_link": "^3.0",
     "drupal/seckit": "^1.0@alpha",
     "drupal/block_titlelink": "1.x-dev",
-    "drupal/block_class": "1.x-dev"
+    "drupal/block_class": "1.x-dev",
+    "drupal/share_everywhere": "^1.1"
   },
   "require-dev": {
     "phing/phing": "2.12.*",
