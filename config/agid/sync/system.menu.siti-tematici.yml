@@ -1,8 +1,8 @@
 uuid: 3e0a0a78-db4c-4c88-8fe3-772a142de05e
-langcode: it
+langcode: en
 status: true
 dependencies: {  }
 id: siti-tematici
-label: 'Siti tematici'
-description: 'Raccolta di siti tematici'
+label: 'Related Sites'
+description: 'Related Sites'
 locked: false
