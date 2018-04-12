@@ -20,17 +20,32 @@ div.Prose,
     list-style-type: decimal
   }
 
-  > ul > li {
-    color: $light-blue;
-  }
-
   ul,
   ol {
     list-style-position: outside;
-    margin-left: 3.2rem !important;
+    margin-left: 1.1rem !important;
+
+    ul, ol {
+      margin-left: 2.3rem !important;
+    }
 
     li {
       line-height: 1.55 !important;
+    }
+  }
+
+  li {
+    &::before {
+      content: "\25CF";
+      color: $light-blue;
+      font-size: 2rem;
+      margin-right: 1.2rem;
+    }
+
+    li {
+      &::before {
+        content: "\25CB";
+      }
     }
   }
 
