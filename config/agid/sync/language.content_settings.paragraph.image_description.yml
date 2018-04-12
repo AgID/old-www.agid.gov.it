@@ -13,4 +13,4 @@ id: paragraph.image_description
 target_entity_type_id: paragraph
 target_bundle: image_description
 default_langcode: site_default
-language_alterable: false
+language_alterable: true

@@ -13,4 +13,4 @@ id: paragraph.external_link
 target_entity_type_id: paragraph
 target_bundle: external_link
 default_langcode: site_default
-language_alterable: false
+language_alterable: true

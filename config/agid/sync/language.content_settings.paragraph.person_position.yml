@@ -13,4 +13,4 @@ id: paragraph.person_position
 target_entity_type_id: paragraph
 target_bundle: person_position
 default_langcode: site_default
-language_alterable: false
+language_alterable: true
