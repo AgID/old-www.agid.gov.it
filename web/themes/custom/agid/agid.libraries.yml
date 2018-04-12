@@ -10,3 +10,9 @@ global:
 agid_share:
   js:
     js/agid_share.js: {}
+sitemap:
+  css:
+    theme:
+      css/sitemap.css: {}
+  js:
+    js/sitemap.js: {}

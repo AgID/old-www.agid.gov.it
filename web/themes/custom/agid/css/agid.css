@@ -774,13 +774,13 @@ a {
   color: #0059b3;
 }
 
-li {
-  list-style-type: disc;
-  color: #0059b3;
+ul, ol {
+  margin-left: 1rem !important;
 }
 
-li li {
-  list-style-type: circle;
+li {
+  list-style-type: none;
+  color: #00264c !important;
 }
 
 .view-table-pagination nav {
@@ -1052,6 +1052,16 @@ article ul li.share-everywhere {
   font-weight: 400 !important;
 }
 
+.Breadcrumb {
+  margin-top: 6rem;
+}
+
+@media (min-width: 992px) {
+  .Breadcrumb {
+    margin-top: 0;
+  }
+}
+
 #block-homepageclaim {
   text-align: center;
 }
@@ -1269,7 +1279,7 @@ div.application\/pdf:before {
 #block-sititematici h2 {
   font-size: 26px !important;
   margin-top: 0;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
 }
 
 #block-sititematici li {
@@ -1295,6 +1305,7 @@ div.application\/pdf:before {
 #block-linkcentralifooter a {
   display: block;
   font-size: 26px !important;
+  font-weight: 600 !important;
   color: #fff !important;
   margin-bottom: 2rem;
   line-height: 42px;
@@ -1307,6 +1318,7 @@ div.application\/pdf:before {
 a.Footer-bigLink {
   display: block;
   font-size: 26px !important;
+  font-weight: 600 !important;
   color: #fff !important;
   margin-bottom: 2rem;
   line-height: 42px;
@@ -1697,19 +1709,32 @@ div.Prose,
   list-style-type: decimal;
 }
 
-.Prose > ul > li {
-  color: #0059b3;
-}
-
 .Prose ul,
 .Prose ol {
   list-style-position: outside;
-  margin-left: 3.2rem !important;
+  margin-left: 1.1rem !important;
+}
+
+.Prose ul ul, .Prose ul ol,
+.Prose ol ul,
+.Prose ol ol {
+  margin-left: 2.3rem !important;
 }
 
 .Prose ul li,
 .Prose ol li {
   line-height: 1.55 !important;
+}
+
+.Prose li::before {
+  content: "\25CF";
+  color: #0059b3;
+  font-size: 2rem;
+  margin-right: 1.2rem;
+}
+
+.Prose li li::before {
+  content: "\25CB";
 }
 
 .Prose .Abstract p {

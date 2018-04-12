@@ -1,0 +1,18 @@
+uuid: 39b01c5d-ccc2-41b2-b93f-e1bee0eb5228
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.person
+id: node.person.changed
+field_name: changed
+entity_type: node
+bundle: person
+label: Changed
+description: 'Data e ora in cui il nodo è stato modificato l''ultima volta.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

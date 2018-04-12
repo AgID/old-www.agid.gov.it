@@ -1,0 +1,20 @@
+uuid: 59ac1416-250c-41b5-8f63-9b94d1ebad08
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.press_release_type
+  module:
+    - text
+id: taxonomy_term.press_release_type.description
+field_name: description
+entity_type: taxonomy_term
+bundle: press_release_type
+label: Descrizione
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

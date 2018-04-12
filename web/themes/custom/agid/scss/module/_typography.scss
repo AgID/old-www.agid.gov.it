@@ -50,11 +50,11 @@ a {
   color: $light-blue;
 }
 
-li {
-  list-style-type: disc;
-  color: $light-blue;
+ul, ol {
+  margin-left: 1rem !important;
+}
 
-  li {
-    list-style-type: circle;
-  }
+li {
+  list-style-type: none;
+  color: $dark-blue-main !important;
 }

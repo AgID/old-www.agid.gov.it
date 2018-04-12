@@ -1,0 +1,16 @@
+uuid: 4bdbe5bd-38db-4482-b12f-b52ea30cc4f0
+langcode: it
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.person_position
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+id: paragraph.person_position
+target_entity_type_id: paragraph
+target_bundle: person_position
+default_langcode: site_default
+language_alterable: false

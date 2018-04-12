@@ -1,0 +1,22 @@
+uuid: a6e5f342-ebcc-4618-b747-ab21245003ee
+langcode: it
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.title_text
+id: paragraph.title_text.status
+field_name: status
+entity_type: paragraph
+bundle: title_text
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

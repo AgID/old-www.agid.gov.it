@@ -18,6 +18,9 @@
     },
     "drupal/block_titlelink": {
       "Drupal 8 version": "https://www.drupal.org/files/issues/2018-04-06/block_titlelink-drupal_8_version-2168177-24_0.patch"
+    },
+    "drupal/recaptcha": {
+      "Ajax support / Use behaviors for 2.x": "https://www.drupal.org/files/issues/2018-03-21/2493183-ajax-support-91.patch"
     }
   }
 }
