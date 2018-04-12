@@ -86,6 +86,7 @@ module:
   rules: 0
   search: 0
   seckit: 0
+  share_everywhere: 0
   sitemap: 0
   smtp: 0
   system: 0
