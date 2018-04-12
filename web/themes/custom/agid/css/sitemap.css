@@ -13,11 +13,11 @@ ul.sitemap-menu a {
 }
 
 ul.sitemap-menu li.expanded:not(.clicked):before {
-  content: "\23f5";
+  content: "\23f6";
 }
 
 ul.sitemap-menu li.expanded.clicked:before {
-  content: "\23f6";
+  content: "\23f5";
 }
 
 ul.sitemap-menu li.expanded:not(.clicked):before,
