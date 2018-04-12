@@ -28,6 +28,17 @@
 
       var li = $(this).parent();
 
+      if ( !li.children('.Megamenu-subnav').length ) {
+        jQuery('.Megamenu .is-active').each(function (index, el) {
+          $(el).removeClass('is-not-highlighted');
+        });
+        $('.Megamenu-item').each(function() {
+          $(this).removeClass('menu-opened');
+        });
+        $('.main-overlay').hide();
+        return;
+      }
+
       if (li.hasClass('menu-opened')) {
         li.removeClass('menu-opened');
         $('.main-overlay').hide();
