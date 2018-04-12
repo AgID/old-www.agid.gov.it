@@ -7,3 +7,9 @@ global:
     js/agid.js: {}
   dependencies:
     - core/modernizr
+sitemap:
+  css:
+    theme:
+      css/sitemap.css: {}
+  js:
+    js/sitemap.js: {}
