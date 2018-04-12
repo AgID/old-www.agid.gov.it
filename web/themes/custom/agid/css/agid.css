@@ -974,6 +974,80 @@ li li {
   opacity: 1;
 }
 
+article ul li.share-everywhere {
+  list-style-type: none;
+  float: left;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.agid-share__trigger {
+  max-width: 15em;
+  background-color: #eee;
+}
+
+.agid-share__trigger__text {
+  margin-left: 2.5em;
+  margin-right: 0.5em;
+  font-size: 2.8rem;
+  padding: 0.11605em;
+  color: #5a6772;
+}
+
+.agid-share__trigger .Icon {
+  cursor: pointer;
+  height: 100%;
+  width: 2.8em;
+  display: block;
+  padding: 0.435em;
+  float: left !important;
+}
+
+.agid-share__trigger .Icon.Icon-close {
+  background-color: white !important;
+  color: #0066CC !important;
+}
+
+.agid-share__links-container {
+  /**
+     * List and links
+     */
+  width: 100%;
+}
+
+.agid-share__links-container.se-inactive {
+  display: none;
+}
+
+.agid-share__links-container.se-active {
+  display: inline-block;
+}
+
+.agid-share__links-container__link {
+  list-style: none;
+  float: left;
+  display: inline-block;
+  background: #0066cc;
+  padding-top: 0.435em;
+  padding-bottom: 0.435em;
+  padding-left: 0.87em;
+  padding-right: 0.87em;
+  margin-right: 0.05em;
+}
+
+.agid-share__links-container__link:first-child {
+  margin-left: 0.05em;
+}
+
+.agid-share__links-container__link a {
+  display: block;
+  text-align: center;
+}
+
+.agid-share__links-container__link a span::before {
+  color: white;
+}
+
 .Breadcrumb-link {
   font-weight: 400 !important;
 }
