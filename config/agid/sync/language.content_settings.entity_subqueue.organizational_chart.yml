@@ -8,4 +8,4 @@ id: entity_subqueue.organizational_chart
 target_entity_type_id: entity_subqueue
 target_bundle: organizational_chart
 default_langcode: site_default
-language_alterable: true
+language_alterable: false

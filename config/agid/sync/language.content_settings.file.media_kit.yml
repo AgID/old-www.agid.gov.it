@@ -8,4 +8,4 @@ id: file.media_kit
 target_entity_type_id: file
 target_bundle: media_kit
 default_langcode: site_default
-language_alterable: true
+language_alterable: false

@@ -8,4 +8,4 @@ id: file.audio
 target_entity_type_id: file
 target_bundle: audio
 default_langcode: site_default
-language_alterable: true
+language_alterable: false
