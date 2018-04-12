@@ -1,14 +1,38 @@
 page_title: Sitemap
 message:
   value: ''
-  format: restricted_html
-show_front: true
+  format: filtered_text
+show_front: false
 show_titles: true
 show_books: {  }
 books_expanded: true
-show_menus: {  }
+show_menus:
+  main: main
+  account: '0'
+  admin: '0'
+  devel: '0'
+  faq: '0'
+  foo-menu: '0'
+  footer: '0'
+  footer-ultima-colonna-centr: '0'
+  link-centrali-footer: '0'
+  siti-tematici: '0'
+  tools: '0'
 show_menus_hidden: false
-show_vocabularies: {  }
+show_vocabularies:
+  acc_subj_type: '0'
+  agid_offices: '0'
+  arguments: '0'
+  cad: '0'
+  contact_form_arguments: '0'
+  file_category: '0'
+  file_type: '0'
+  news_type: '0'
+  original_file_source: '0'
+  pagopa_type: '0'
+  press_release_type: '0'
+  profiles: '0'
+  roles: '0'
 show_description: true
 show_count: true
 vocabulary_depth: -1
@@ -20,6 +44,30 @@ rss_taxonomy: -1
 css: true
 order:
   front: -50
+  vocabularies_agid_offices: -50
+  vocabularies_profiles: -50
+  vocabularies_press_release_type: -50
+  vocabularies_pagopa_type: -50
+  vocabularies_original_file_source: -50
+  vocabularies_news_type: -50
+  vocabularies_file_type: -50
+  vocabularies_file_category: -50
+  vocabularies_contact_form_arguments: -50
+  vocabularies_cad: -50
+  vocabularies_arguments: -50
+  vocabularies_acc_subj_type: -50
+  menus_account: -50
+  menus_tools: -50
+  menus_siti-tematici: -50
+  menus_main: -50
+  menus_link-centrali-footer: -50
+  menus_footer-ultima-colonna-centr: -50
+  menus_footer: -50
+  menus_foo-menu: -50
+  menus_faq: -50
+  menus_devel: -50
+  menus_admin: -50
+  vocabularies_roles: -50
 _core:
   default_config_hash: yUNkiSB-fp4pyUb6B2L9HiiCdISBDvK7r1v9_XkGUaQ
 langcode: it
