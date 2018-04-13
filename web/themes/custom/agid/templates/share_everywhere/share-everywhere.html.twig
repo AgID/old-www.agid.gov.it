@@ -22,21 +22,23 @@
 
 {{ attach_library('agid/agid_share') }}
 
-<div class="agid-share" {{ attributes }}>
-  {% if title %}
-    <h3 class="agid-share__title"> {{ title }} </h3>
-  {% endif %}
-  <div class="agid-share__trigger">
-    <span class="agid-share__trigger__icon Share-revealIcon Icon Icon-share"></span>
-    <div class="agid-share__trigger__text">
-      {{ "Condividi"|t }}
+<div class="agid-share-widget">
+  <div {{ attributes.addClass('agid-share') }}>
+    {% if title %}
+      <h3 class="agid-share__title"> {{ title }} </h3>
+    {% endif %}
+    <div class="agid-share__trigger">
+      <span class="agid-share__trigger__icon Share-revealIcon Icon Icon-share"></span>
+      <div class="agid-share__trigger__text">
+        {{ "Condividi"|t }}
+      </div>
     </div>
-  </div>
-  <div class="agid-share__links-container {{ is_active }}">
-    <ul class="agid-share__links-container__links">
-      {% for key, button in buttons %}
-        <li class="agid-share__links-container__link {{ key }}"> {{ button }} </li>
-      {% endfor %}
-    </ul>
+    <div class="agid-share__links-container {{ is_active }}">
+      <ul class="agid-share__links-container__links">
+        {% for key, button in buttons %}
+          <li class="agid-share__links-container__link {{ key }}"> {{ button }} </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </div>

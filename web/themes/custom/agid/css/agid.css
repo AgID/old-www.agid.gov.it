@@ -978,10 +978,33 @@ article ul li.share-everywhere {
   list-style-type: none;
   float: left;
   width: 100%;
+  display: block;
   margin-bottom: 1em;
 }
 
+.agid-share-widget {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.agid-share {
+  display: block;
+}
+
+.agid-share.se-align-right {
+  float: right;
+  display: inline-block;
+}
+
+.agid-share.se-align-left {
+  float: left;
+  display: inline-block;
+}
+
 .agid-share__trigger {
+  display: inline;
+  float: left;
   max-width: 15em;
   background-color: #eee;
 }
@@ -1009,10 +1032,11 @@ article ul li.share-everywhere {
 }
 
 .agid-share__links-container {
+  display: inline-block;
+  float: right;
   /**
      * List and links
      */
-  width: 100%;
 }
 
 .agid-share__links-container.se-inactive {
