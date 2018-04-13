@@ -58,4 +58,29 @@
     padding: 0 2rem;
     margin: 0 !important;
   }
+
+  .img-container-outer {
+
+    .img-container-inner {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 20rem;
+      width: 100%;
+    }
+
+    img {
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
+      margin: auto;
+
+    }
+
+  }
+
+
 }
+

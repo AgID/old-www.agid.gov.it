@@ -1,0 +1,20 @@
+uuid: f7fe88a3-5db5-436a-b9bf-df1581b81231
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.press_release_type
+  module:
+    - path
+id: taxonomy_term.press_release_type.path
+field_name: path
+entity_type: taxonomy_term
+bundle: press_release_type
+label: 'Alias URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

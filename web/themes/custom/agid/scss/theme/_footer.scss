@@ -3,7 +3,7 @@
   h2 {
     font-size: 26px !important;
     margin-top: 0;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
   }
 
   li {
@@ -31,6 +31,7 @@
   a {
     display: block;
     font-size: 26px !important;
+    font-weight: 600 !important;
     color: #fff !important;
     margin-bottom: 2rem;
     line-height: 42px;
@@ -44,6 +45,7 @@
 a.Footer-bigLink {
   display: block;
   font-size: 26px !important;
+  font-weight: 600 !important;
   color: #fff !important;
   margin-bottom: 2rem;
   line-height: 42px;
@@ -86,4 +88,8 @@ a.Footer-bigLink {
 #block-agenziaperlitaliadigitale em {
   font-style: normal;
   text-decoration: underline;
+}
+
+.Footer li {
+  list-style: none;
 }

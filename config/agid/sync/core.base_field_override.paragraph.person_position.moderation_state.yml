@@ -1,0 +1,18 @@
+uuid: 0205c294-d9a3-46ea-846d-8ac0695223e3
+langcode: it
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.person_position
+id: paragraph.person_position.moderation_state
+field_name: moderation_state
+entity_type: paragraph
+bundle: person_position
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

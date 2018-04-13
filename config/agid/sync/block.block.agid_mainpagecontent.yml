@@ -3,9 +3,13 @@ langcode: it
 status: true
 dependencies:
   module:
+    - block_class
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: block-agid-main-content
 _core:
   default_config_hash: W6_AEz4abaKwEHkaMGl7ca2Z48shNJ77SWt4lMBMlZ0
 id: agid_mainpagecontent

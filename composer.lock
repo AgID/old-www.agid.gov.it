@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0345c6176613aa5c8a4fb2a9c7578832",
+    "content-hash": "0f15d258a961bf9076b0740fb4bb1124",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -5853,6 +5853,59 @@
             "homepage": "https://www.drupal.org/project/seckit",
             "support": {
                 "source": "http://cgit.drupalcode.org/seckit"
+            }
+        },
+        {
+            "name": "drupal/share_everywhere",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/share_everywhere",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/share_everywhere-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "f85926d728fccff8e977228b9ffcb1607d8932e8"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1495099986",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Malatenszki David",
+                    "homepage": "https://www.drupal.org/user/3509607",
+                    "email": "malatenszki.david@gmail.com"
+                },
+                {
+                    "name": "Rozsa Arpad",
+                    "homepage": "https://www.drupal.org/user/3452551",
+                    "email": "rozsaarpad44@gmail.com"
+                }
+            ],
+            "description": "Drupal 8 share module",
+            "homepage": "https://www.drupal.org/project/share_everywhere",
+            "support": {
+                "source": "http://cgit.drupalcode.org/share_everywhere"
             }
         },
         {

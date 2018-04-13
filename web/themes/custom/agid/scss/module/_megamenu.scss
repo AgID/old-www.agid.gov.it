@@ -30,6 +30,29 @@ ul.Megamenu-pageLink {
         opacity: 1;
         z-index: 1000000;
       }
+
+      &.is-active > a {
+
+        color: $dark-blue !important;
+        background-color: #fff !important;
+        opacity: 1;
+        z-index: 1000000;
+
+        &::after {
+          content: "\23f6";
+        }
+      }
+
+      &.menu-opened > a {
+        &::after {
+          content: "\23f7";
+        }
+      }
+
+      &.is-not-highlighted > a {
+        background-color: transparent !important;
+        color: white !important;
+      }
     }
   }
 }
@@ -41,4 +64,14 @@ ul.Megamenu-pageLink {
 
 .Megamenu-wrapper {
   background-color: $light-blue;
+}
+
+.main-overlay {
+  display: none;
+  background-color: #e0dcdc;
+  opacity: .6;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
 }
