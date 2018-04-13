@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.home_page_highlight
   module:
+    - block_class
     - system
     - views
   theme:

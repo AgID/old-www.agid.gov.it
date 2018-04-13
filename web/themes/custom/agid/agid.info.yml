@@ -40,6 +40,7 @@ regions:
   postscript_fourth: 'Postscript Fourth'
   leads : Leads
   pre_footer : 'Pre Footer'
+  twitter_area: 'Twitter Area'
   footer_top : 'Footer top'
   footer_top_right : 'Footer top right'
   footer_middle : 'Footer middle'
