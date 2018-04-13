@@ -10,6 +10,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'access sitemap'
   - 'search content'
   - 'view empty pages'
   - 'view files'
