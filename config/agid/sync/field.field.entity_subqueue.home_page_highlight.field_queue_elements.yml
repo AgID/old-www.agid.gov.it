@@ -1,0 +1,33 @@
+uuid: 473213d7-a2df-4440-a874-df11f940b7ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_page_highlight
+    - field.storage.entity_subqueue.field_queue_elements
+    - node.type.news
+    - node.type.page
+    - node.type.press
+id: entity_subqueue.home_page_highlight.field_queue_elements
+field_name: field_queue_elements
+entity_type: entity_subqueue
+bundle: home_page_highlight
+label: 'Elementi della coda'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      press: press
+      news: news
+      page: page
+    sort:
+      field: type
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: press
+field_type: entity_reference
