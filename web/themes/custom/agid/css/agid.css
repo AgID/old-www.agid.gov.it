@@ -606,6 +606,10 @@ ul.Megamenu-pageLink li {
   z-index: 10;
 }
 
+.Offcanvas-content ul, .Offcanvas-content ol {
+  margin-left: 0 !important;
+}
+
 /* Sidebar left menu common styles */
 .sidebar-menu li {
   border-top: 0 !important;
@@ -674,6 +678,8 @@ table {
 
 table th {
   text-align: left;
+  font-size: 1.6rem;
+  font-weight: 600 !important;
 }
 
 table tr {
@@ -682,11 +688,14 @@ table tr {
 
 thead {
   background-color: #00264d;
+  color: #fff;
 }
 
 thead a,
 thead span {
   color: #fff !important;
+  font-size: 1.6rem !important;
+  font-weight: 600 !important;
 }
 
 thead a:hover {

@@ -11,6 +11,8 @@ table {
 
   th {
     text-align: left;
+    font-size: $thead-font-size;
+    font-weight: $thead-font-weight !important;
   }
 
   tr {
@@ -20,10 +22,14 @@ table {
 
 thead {
   background-color: $dark-blue;
+  color: $table-link;
+
 
   a,
   span {
     color: $table-link !important;
+    font-size: $thead-font-size !important;
+    font-weight: $thead-font-weight !important;
   }
 
   a:hover {

@@ -75,3 +75,8 @@ ul.Megamenu-pageLink {
   position: absolute;
   z-index: 10;
 }
+.Offcanvas-content {
+  ul, ol {
+    margin-left: 0 !important;
+  }
+}
