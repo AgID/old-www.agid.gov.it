@@ -47,7 +47,7 @@ include_css: include_css
 include_js: include_js
 collapsible: '1'
 location: links
-alignment: left
+alignment: right
 content_types:
   news: news
   acc_subj: 0

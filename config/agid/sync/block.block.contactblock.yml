@@ -4,9 +4,13 @@ status: true
 dependencies:
   module:
     - agid_footer
+    - block_class
     - language
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: contactblock
 theme: agid
 region: footer_middle
@@ -23,7 +27,7 @@ settings:
     - 'Telefono: +39 06852641'
     - ''
     - ''
-  url_link: ''
+  url_link: /contattaci
   url_scrivici: '/contattaci#form'
   codice_fiscale: '97735020584'
   pec: protocollo@pec.agid.gov.it
