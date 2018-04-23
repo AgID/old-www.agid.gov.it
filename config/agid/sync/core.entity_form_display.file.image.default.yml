@@ -4,14 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.file.image.field_arguments
-    - field.field.file.image.field_date
     - field.field.file.image.field_description
     - field.field.file.image.field_original_file_source
     - field.field.file.image.field_title
     - field.field.file.image.field_type
     - file_entity.type.image
   module:
-    - datetime
     - path
     - text
 _core:
@@ -29,12 +27,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
-    region: content
-  field_date:
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
     region: content
   field_description:
     weight: 1

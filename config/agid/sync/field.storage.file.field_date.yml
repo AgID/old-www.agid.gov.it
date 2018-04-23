@@ -1,4 +1,4 @@
-uuid: 9bb6d9ea-e058-47b5-bbab-4a44d03b5b0a
+uuid: fa85b758-9a72-436c-8cfb-86623562e79a
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ field_name: field_date
 entity_type: file
 type: datetime
 settings:
-  datetime_type: datetime
+  datetime_type: date
 module: datetime
 locked: false
 cardinality: 1

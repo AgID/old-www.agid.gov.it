@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.file.media_kit.field_arguments
-    - field.field.file.media_kit.field_date
     - field.field.file.media_kit.field_description
     - field.field.file.media_kit.field_file_category
     - field.field.file.media_kit.field_original_file_source
@@ -84,7 +83,6 @@ content:
       link: false
     third_party_settings: {  }
 hidden:
-  field_date: true
   field_original_file_source: true
   field_type: true
   langcode: true
