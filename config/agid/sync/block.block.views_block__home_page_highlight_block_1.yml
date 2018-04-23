@@ -22,10 +22,10 @@ provider: null
 plugin: 'views_block:home_page_highlight-block_1'
 settings:
   id: 'views_block:home_page_highlight-block_1'
-  label: 'Highlighted content'
+  label: 'In primo piano'
   provider: views
   label_display: visible
-  views_label: 'Highlighted content'
+  views_label: 'In primo piano'
   items_per_page: none
 visibility:
   request_path:
