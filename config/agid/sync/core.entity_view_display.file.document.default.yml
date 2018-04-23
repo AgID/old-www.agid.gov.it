@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.file.document.field_arguments
+    - field.field.file.document.field_date
     - field.field.file.document.field_description
     - field.field.file.document.field_file_category
     - field.field.file.document.field_original_file_source
@@ -11,6 +12,7 @@ dependencies:
     - field.field.file.document.field_type
     - file_entity.type.document
   module:
+    - datetime
     - file_entity
     - text
     - user
@@ -26,6 +28,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_date:
+    weight: 9
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_description:
     weight: 7
