@@ -9,7 +9,5 @@ label: 'Utente autenticato'
 weight: 1
 is_admin: false
 permissions:
-  - 'access content'
   - 'search content'
   - 'view empty pages'
-  - 'view files'
