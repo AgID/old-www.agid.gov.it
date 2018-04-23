@@ -4,20 +4,11 @@ status: true
 dependencies:
   config:
     - entityqueue.entity_queue.home_page_highlight_en_
-    - field.field.entity_subqueue.home_page_highlight_en_.field_queue_elements
 id: entity_subqueue.home_page_highlight_en_.default
 targetEntityType: entity_subqueue
 bundle: home_page_highlight_en_
 mode: default
 content:
-  field_queue_elements:
-    weight: 1
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   items:
     label: hidden
     type: entity_reference_label
