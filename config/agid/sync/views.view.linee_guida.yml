@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.file.field_arguments
+    - field.storage.file.field_date
     - field.storage.file.field_title
     - field.storage.file.field_type
     - taxonomy.vocabulary.arguments
@@ -11,6 +12,7 @@ dependencies:
   content:
     - 'taxonomy_term:file_type:004fc6ab-d5f8-45ea-9483-4e7d2a7a39ef'
   module:
+    - datetime
     - file
     - file_entity
     - node
@@ -454,6 +456,70 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
+        field_date:
+          id: field_date
+          table: file__field_date
+          field: field_date
+          relationship: field_repository_files
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<b>Data:</b> {{ field_date }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: 'Nessuna data specificata.'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: d/m/Y
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           id: status
@@ -634,6 +700,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.file.field_arguments'
+        - 'config:field.storage.file.field_date'
         - 'config:field.storage.file.field_title'
         - 'config:field.storage.file.field_type'
   page_1:
@@ -654,5 +721,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.file.field_arguments'
+        - 'config:field.storage.file.field_date'
         - 'config:field.storage.file.field_title'
         - 'config:field.storage.file.field_type'
