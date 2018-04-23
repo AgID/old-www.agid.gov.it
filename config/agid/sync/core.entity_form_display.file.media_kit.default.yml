@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.file.media_kit.field_arguments
+    - field.field.file.media_kit.field_date
     - field.field.file.media_kit.field_description
     - field.field.file.media_kit.field_file_category
     - field.field.file.media_kit.field_original_file_source
@@ -11,6 +12,7 @@ dependencies:
     - field.field.file.media_kit.field_type
     - file_entity.type.media_kit
   module:
+    - datetime
     - path
     - text
 id: file.media_kit.default
@@ -26,6 +28,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
+    region: content
+  field_date:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_description:
     weight: 2
