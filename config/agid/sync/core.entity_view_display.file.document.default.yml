@@ -12,7 +12,6 @@ dependencies:
     - field.field.file.document.field_type
     - file_entity.type.document
   module:
-    - datetime
     - file_entity
     - text
     - user
@@ -28,15 +27,6 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_date:
-    weight: 9
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
     region: content
   field_description:
     weight: 7
@@ -103,6 +93,7 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  field_date: true
   field_original_file_source: true
   field_type: true
   langcode: true
