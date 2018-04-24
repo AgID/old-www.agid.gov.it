@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Style customization for the accredited subject page (acc_subj content type).
+ */
+.acc-sub-info__text-value {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 639px) {
+  .tablesaw .acc-sub-info__texts {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .acc-sub-info__text-value {
+    min-height: 54px;
+  }
+}
