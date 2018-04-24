@@ -467,7 +467,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<b>Data:</b> {{ field_date }}'
+            text: '<b class="u-color-50">Data:</b> {{ field_date }}'
             make_link: false
             path: ''
             absolute: false
