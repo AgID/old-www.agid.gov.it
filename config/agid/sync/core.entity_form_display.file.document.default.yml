@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.file.document.field_arguments
+    - field.field.file.document.field_date
     - field.field.file.document.field_description
     - field.field.file.document.field_file_category
     - field.field.file.document.field_original_file_source
@@ -11,6 +12,7 @@ dependencies:
     - field.field.file.document.field_type
     - file_entity.type.document
   module:
+    - datetime
     - path
     - text
 id: file.document.default
@@ -19,7 +21,7 @@ bundle: document
 mode: default
 content:
   field_arguments:
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -27,8 +29,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
     region: content
-  field_description:
+  field_date:
     weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description:
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -37,7 +45,7 @@ content:
     region: content
   field_file_category:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -45,7 +53,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_original_file_source:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -59,14 +67,14 @@ content:
     type: string_textfield
     region: content
   field_type:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   filename:
     type: string_textfield
-    weight: 7
+    weight: 8
     region: content
     settings:
       size: 60
@@ -81,7 +89,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
