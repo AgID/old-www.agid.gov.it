@@ -40,6 +40,7 @@
  * - postscript_fourth: Postscript Fourth
  * - leads : Leads
  * - pre_footer : Pre Footer
+ * - twitter_area: Twitter Area
  * - footer_top : Footer top
  * - footer_middle : Footer middle
  * - footer_bottom : Footer bottom
@@ -259,6 +260,17 @@
       {% endif %}
 
     {% endblock %}
+
+    {# Twitter Area #}
+    {% if page.twitter_area %}
+    <div class="u-background-70 u-hiddenPrint u-margin-bottom-xxl">
+      <div class="u-layout-wide u-layoutCenter">
+        <div class="Twitter-Area">
+          {{ page.twitter_area }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
 
     {# Footer #}
     <div class="u-background-95 u-hiddenPrint">
