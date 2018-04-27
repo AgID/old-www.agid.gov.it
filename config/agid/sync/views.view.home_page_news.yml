@@ -233,7 +233,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: News
+      title: Notizie
       header: {  }
       footer: {  }
       empty: {  }
