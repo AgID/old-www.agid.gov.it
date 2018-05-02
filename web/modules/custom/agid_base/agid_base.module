@@ -8,6 +8,8 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Breadcrumb\Breadcrumb;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Menu\MenuLinkInterface;
+use Drupal\menu_link_content\Plugin\Menu\MenuLinkContent;
 
 /**
  * Implements hook_theme().
@@ -84,4 +86,39 @@ function agid_base_editor_js_settings_alter(array &$settings) {
     // ... Set only p, h1 and h2 text formats.
     $settings['editor']['formats']['filtered_text']['editorSettings']['format_tags'] = 'p;h1;h2';
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function agid_base_preprocess_menu(&$variables) {
+  if ($variables['menu_name'] == 'main') {
+    // Get current language
+    $language = Drupal::languageManager()->getCurrentLanguage()->getId();
+    // Check language, foreach item...
+    foreach ($variables['items'] as $key => &$item) {
+      // Load entity by UUID
+      $menuLinkEntity = agid_base_load_entity_by_link($item['original_link']);
+      if ($menuLinkEntity !== NULL) {
+        $languages = $menuLinkEntity->getTranslationLanguages();
+        // Check if is translated...
+        if (!array_key_exists($language, $languages)) {
+          unset($variables['items'][$key]);
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Loads menu item entity by its UUID
+ */
+function agid_base_load_entity_by_link(MenuLinkInterface $menuLinkContentPlugin) {
+  $entity = NULL;
+
+  if ($menuLinkContentPlugin instanceof MenuLinkContent) {
+    list($entity_type, $uuid) = explode(':', $menuLinkContentPlugin->getPluginId(), 2);
+    $entity = \Drupal::entityManager()->loadEntityByUuid($entity_type, $uuid);
+  }
+  return $entity;
 }
