@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override for a field in the acc_subj ct.
+ */
+#}
+
+{%
+set classes = [
+  'acc-subj__' ~ field_name|clean_class,
+]
+%}
+{%
+set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% if multiple %}
+    {% if not label_hidden %}
+      <h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes }}>{{ item.content }}</div>
+    {% endfor %}
+  {% else %}
+    {% if not label_hidden %}
+      <strong{{ title_attributes.addClass('u-textWeight-600') }}>{{ label }}:</strong>
+    {% endif %}
+    {% for item in items %}
+      <span{{ item.attributes.addClass('field__item') }}>{{ item.content }}</span>
+    {% endfor %}
+  {% endif %}
+</div>

@@ -2,20 +2,33 @@
  * @file
  * Style customization for the accredited subject page (acc_subj content type).
  */
-.acc-sub-info__text-value {
+$element-padding: 0.5rem;
+
+[class*="acc-subj__"] LI,
+[class*="acc-subj__"] > DIV {
+  margin-top: $element-padding;
+  margin-bottom: $element-padding;
+}
+
+.acc-subj-info {
+  border: 1px solid #D0E2F6 !important;
+}
+
+.acc-subj-info__text-value {
   display: block;
   margin-bottom: 1.5rem;
+  line-height: 20px;
 }
 
 @media screen and (max-width: 639px) {
-  .tablesaw .acc-sub-info__texts {
+  .tablesaw .acc-subj-info__texts {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
 }
 
 @media screen and (min-width: 640px) {
-  .acc-sub-info__text-value {
-    min-height: 54px;
+  .acc-subj-info__text-value {
+    min-height: 60px;
   }
 }

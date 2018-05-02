@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override for the field_acc_subj_info field.
+ */
+#}
+{% set classes = [
+  'acc-subj-external',
+] %}
+{% set title_classes = [
+  'field__label',
+  ' u-padding-top-xl',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
+
+<h2{{ title_attributes.addClass(title_classes) }}>{{ 'Contenuti informativi<br>ed erogazione del servizio'|t }}</h2>
+<ul{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    {% set paragraph = item.content['#paragraph'] %}
+    {% set field_acc_subj_external_link_label = paragraph.get('field_external_link_label') %}
+    {% set field_acc_subj_external_link_label_key = field_acc_subj_external_link_label.getString %}
+    {% if field_acc_subj_external_link_label_key != 'metadata' %}
+      {% set link_text = field_acc_subj_external_link_label.getSetting('allowed_values')[field_acc_subj_external_link_label_key] %}
+      {% set field_acc_subj_external_link_url = paragraph.get('field_external_link_url') %}
+      {% set link_url = field_acc_subj_external_link_url.getValue()[0].uri %}
+      <li>{{ link(link_text, link_url) }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
+<h2{{ title_attributes.addClass(title_classes) }}>{{ 'Metadata'|t }}</h2>
+<ul{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    {% set paragraph = item.content['#paragraph'] %}
+    {% set field_acc_subj_external_link_label = paragraph.get('field_external_link_label') %}
+    {% set field_acc_subj_external_link_label_key = field_acc_subj_external_link_label.getString %}
+    {% if field_acc_subj_external_link_label_key == 'metadata' %}
+      {% set field_acc_subj_external_link_url = paragraph.get('field_external_link_url') %}
+      {% set link_url = field_acc_subj_external_link_url.getValue()[0].uri %}
+      <li>{{ link(link_url, link_url) }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
