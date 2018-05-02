@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.file.document.field_arguments
+    - field.field.file.document.field_date
     - field.field.file.document.field_description
     - field.field.file.document.field_file_category
     - field.field.file.document.field_original_file_source
@@ -92,6 +93,7 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  field_date: true
   field_original_file_source: true
   field_type: true
   langcode: true

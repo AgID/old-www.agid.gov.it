@@ -11,7 +11,7 @@ bundle: menu_link_content
 label: 'Titolo del link sul menu'
 description: 'Il testo da utilizzare nel menu per questo link.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

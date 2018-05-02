@@ -1,11 +1,11 @@
-uuid: 10c8e681-8d07-4451-8ed0-39a33020ad99
-langcode: it
+uuid: 6a04ccbb-2172-4ea7-b64b-1d238f9a8088
+langcode: en
 status: true
 dependencies:
   module:
     - node
-id: home_page_highlight
-label: 'Home page - Highlight (it)'
+id: home_page_highlight_en_
+label: 'Home page - Highlight (en)'
 handler: simple
 handler_configuration: {  }
 entity_settings:
@@ -19,9 +19,9 @@ entity_settings:
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: news
+    auto_create_bundle: press
 queue_settings:
-  min_size: 3
-  max_size: 3
+  min_size: 0
+  max_size: 0
   act_as_queue: false
   reverse_in_admin: false

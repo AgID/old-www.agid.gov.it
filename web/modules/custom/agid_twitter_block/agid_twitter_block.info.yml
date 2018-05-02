@@ -1,0 +1,5 @@
+name: "AGID TwitterBlock"
+type: module
+description: "Configurable twitter block"
+core: 8.x
+package: "Agid"

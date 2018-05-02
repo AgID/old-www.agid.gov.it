@@ -37,54 +37,48 @@
  */
 #}
 
-{#{% extends 'field.html.twig' %}#}
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+]
+%}
+{%
+  set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+]
+%}
 
-{% set classes = [
-'field',
-'field--name-' ~ field_name|clean_class,
-'field--type-' ~ field_type|clean_class,
-'field--label-' ~ label_display,
-] %}
-
-{% set accordion_classes = [
-'Accordion',
-'Accordion--default',
-'fr-accordion',
-'js-fr-accordion',
-] %}
-
-<div class="u-padding-top-xxl wrapper documentation">
-  {# Title #}
-  <h3 title="{{ label }}">{{ 'Documentation' | t }}</h3>
-
-   {# Accordion #}
-  <div{{ attributes
-  .addClass(accordion_classes)
-  .setAttribute('id', 'accordion-1') }}>
-
-    {% for file_type in file_types %}
-
-      {# Accordion item #}
-      <h2 class="Accordion-header js-fr-accordion__header fr-accordion__header"
-          id="{{ 'accordion-header-' ~ loop.index0 }}">
-        <span class="Accordion-link">{{ file_type }}</span>
-      </h2>
-      {# Accordion panel #}
-      <div id="{{ 'accordion-panel-' ~ loop.index0 }}"
-           class="Accordion-panel fr-accordion__panel js-fr-accordion__panel">
-        <div class="u-layout-prose u-color-grey-90 u-text-p u-padding-r-all">
-          {% for item in items %}
-            {% if item_file_types[loop.index0] == file_type %}
-              {{ item.content }}
-            {% endif %}
-            <div class="u-layout-prose u-color-60">
-              <b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}
-            </div>
-            <br>
-          {% endfor %}
-        </div>
-      </div>
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(classes, 'field__items') }}>
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
     {% endfor %}
-
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+    <div class="field__items">
+      {% endif %}
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field__item') }}>
+          {{ item.content }}
+          <p> <small><b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}</small> </p>
+          <br>
+        </div>
+      {% endfor %}
+      {% if multiple %}
+    </div>
+    {% endif %}
   </div>
-</div>
+{% endif %}

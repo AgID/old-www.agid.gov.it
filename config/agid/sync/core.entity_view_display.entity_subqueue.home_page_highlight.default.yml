@@ -1,0 +1,21 @@
+uuid: 77903ce9-a5e2-49c0-81a2-b31040d706a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_page_highlight
+id: entity_subqueue.home_page_highlight.default
+targetEntityType: entity_subqueue
+bundle: home_page_highlight
+mode: default
+content:
+  items:
+    label: hidden
+    type: entity_reference_label
+    weight: 0
+    region: content
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  langcode: true

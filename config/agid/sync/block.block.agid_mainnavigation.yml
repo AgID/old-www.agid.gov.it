@@ -5,9 +5,13 @@ dependencies:
   config:
     - system.menu.main
   module:
+    - block_class
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 _core:
   default_config_hash: dEV_mRzyGsGtr56SHRxiFGP--FumcfiWYKggzsPjhZw
 id: agid_mainnavigation
