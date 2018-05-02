@@ -116,8 +116,8 @@
       $config = $this->getConfiguration();
       // TwitterOAuth
       $connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
-      $tweets = $connection->get("statuses/user_timeline", ["screen_name" => $config['username'], "count" => $config['tweets_to_show'], "exclude_replies" => true]);
-
+      $tweets = $connection->get("statuses/user_timeline", ["screen_name" => $config['username'], "count" => $config['tweets_to_show']*2, "exclude_replies" => true]);
+      $tweets = array_slice($tweets, 0, $config['tweets_to_show']);
       return [
         '#theme' => 'agid_twitter_block',
         '#title' => $config['title'],
