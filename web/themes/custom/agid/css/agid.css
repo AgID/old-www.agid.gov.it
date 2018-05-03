@@ -275,78 +275,6 @@ div.documentation h2 {
   padding-left: 2.5rem;
 }
 
-article.accsubj {
-  border-top: 1px solid #d0e2f5;
-}
-
-article.accsubj .field--name-field-acc-subj-service-name {
-  font-size: 2.6rem;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-article.accsubj .field--name-field-acc-subj-service-logo,
-article.accsubj .field--name-field-acc-subj-logo {
-  float: left;
-  margin-top: 3rem;
-  min-height: 8rem;
-  padding: 2rem;
-}
-
-article.accsubj .field--label-inline .field__label {
-  font-weight: 600;
-}
-
-article.accsubj .field--label-inline .field__label:after {
-  content: ":";
-}
-
-article.accsubj .field--name-field-acc-subj-info {
-  clear: both;
-  margin-top: 2rem;
-}
-
-article.accsubj .field__items {
-  padding-left: 1rem;
-}
-
-article.accsubj .field--name-field-acc-subj-external-link .field__items .field__item,
-article.accsubj .field--name-field-acc-subj-info .field__items .field__item {
-  display: block;
-}
-
-article.accsubj .paragraph > div {
-  border-left: 1px solid #d0e2f5;
-  padding-left: 1rem;
-}
-
-article.accsubj .paragraph > .field__item {
-  font-weight: 600;
-  padding-bottom: 1rem;
-}
-
-article.accsubj .field--name-field-acc-subj-external-link {
-  margin-top: 2rem;
-}
-
-article.accsubj .field--name-field-acc-subj-logo {
-  min-height: 16rem;
-  margin-top: 4rem;
-}
-
-article.accsubj .accsubj-fc {
-  margin-top: 2rem;
-  border-top: 1px solid #d0e2f5;
-}
-
-article.accsubj .accsubj-fc h3 {
-  margin-bottom: 1rem;
-}
-
-article.accsubj .field--name-field-repository-files .field__item {
-  grid-column: unset;
-}
-
 article.pagopa-content .field--label-inline .field__label {
   font-weight: 600;
 }
@@ -784,7 +712,7 @@ a {
 }
 
 ul, ol {
-  margin-left: 1rem !important;
+  margin-left: 1rem;
 }
 
 li {
@@ -1087,6 +1015,7 @@ article ul li.share-everywhere {
 
 .Breadcrumb {
   margin-top: 6rem;
+  margin-left: 0;
 }
 
 @media (min-width: 992px) {
@@ -1807,4 +1736,37 @@ div.documentation h3 {
 .related-content h3,
 .block-agid-faq-related h3 {
   margin-bottom: 0.975rem;
+}
+
+/**
+ * @file
+ * Style customization for the accredited subject page (acc_subj content type).
+ */
+[class*="acc-subj__"] LI,
+[class*="acc-subj__"] > DIV {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.acc-subj-info {
+  border: 1px solid #D0E2F6 !important;
+}
+
+.acc-subj-info__text-value {
+  display: block;
+  margin-bottom: 1.5rem;
+  line-height: 20px;
+}
+
+@media screen and (max-width: 639px) {
+  .tablesaw .acc-subj-info__texts {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .acc-subj-info__text-value {
+    min-height: 60px;
+  }
 }

@@ -1,0 +1,10 @@
+uuid: 74f2318c-f1f7-471e-a952-24c0e484fddb
+langcode: it
+status: true
+dependencies:
+  module:
+    - file
+id: file.type_and_linked_title
+label: 'Type and linked title'
+targetEntityType: file
+cache: true

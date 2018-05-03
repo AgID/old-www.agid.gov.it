@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * Theme override for the type_and_linked_title view mode
+ * of the file document entity type.
+ */
+#}
+{{ title_prefix }}
+{{ title_suffix }}
+<strong class="u-textWeight-600">{{ content.field_type|field_value }}:</strong> {{ content.field_title|field_value }}

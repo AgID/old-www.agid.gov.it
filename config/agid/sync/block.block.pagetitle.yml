@@ -3,9 +3,14 @@ langcode: it
 status: true
 dependencies:
   module:
+    - block_class
+    - ctools
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: pagetitle
 theme: agid
 region: breadcrumb
@@ -23,3 +28,10 @@ visibility:
     pages: '<front>'
     negate: true
     context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      acc_subj: acc_subj
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

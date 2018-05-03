@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override for the field_acc_subj_info field.
+ */
+#}
+{% set classes = [
+  'Table',
+  'Table--withBorder',
+  'js-TableResponsive',
+  'tablesaw',
+  'tablesaw-stack',
+  'acc-subj-info',
+] %}
+{% set title_classes = [
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
+<table {{ attributes.addClass(classes) }} data-tablesaw-mode="stack">
+  <caption><h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2></caption>
+  <thead>
+    <tr>
+      {% for item in items %}
+        {% set paragraph = item.content['#paragraph'] %}
+        {% set field_more_info_label = paragraph.get('field_more_info_label') %}
+        {% set field_more_info_label_key = field_more_info_label.getString %}
+        {# We only have one label #}
+        <th scope="col">
+          <span class="acc-subj-info__label">{{ field_more_info_label.getSetting('allowed_values')[field_more_info_label_key] }}</span>
+        </th>
+      {% endfor %}
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      {% for item in items %}
+        {% set paragraph = item.content['#paragraph'] %}
+        {% set field_more_info_texts = paragraph.get('field_more_info_texts') %}
+        <td class="acc-subj-info__texts">
+          {# We can have multiple values for info texts #}
+          {% for text in field_more_info_texts.getValue %}
+            <span class="acc-subj-info__text-value">{{ text['value'] }}</span>
+          {% endfor %}
+        </td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
