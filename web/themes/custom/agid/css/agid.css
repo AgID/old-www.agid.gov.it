@@ -961,11 +961,21 @@ article ul li.share-everywhere {
   display: block;
   padding: 0.435em;
   float: left !important;
+  position: relative;
 }
 
 .agid-share__trigger .Icon.Icon-close {
   background-color: white !important;
   color: #0066CC !important;
+}
+
+.agid-share__trigger .Icon:not(.Icon-close):after {
+  content: '';
+  position: absolute;
+  width: 500%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .agid-share__links-container {

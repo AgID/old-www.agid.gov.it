@@ -41,9 +41,18 @@ article ul li.share-everywhere {
       display: block;
       padding: 0.435em;
       float: left !important;
+      position: relative;
       &.Icon-close {
         background-color: white !important;
         color: #0066CC !important;
+      }
+      &:not(.Icon-close):after {
+        content: '';
+        position: absolute;
+        width: 500%;
+        height: 100%;
+        top: 0;
+        left: 0;
       }
     }
   }
