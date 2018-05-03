@@ -1,0 +1,38 @@
+div.content > ul.sitemap-menu {
+  display: inline-block;
+}
+
+ul.sitemap-menu .leaf {
+  list-style-type: circle;
+  margin-left: 1.35em;
+  color: #0059b3;
+}
+ul.sitemap-menu a {
+  color: #1c2024 !important;
+  text-decoration: none !important;
+}
+
+ul.sitemap-menu li.expanded:not(.clicked):before {
+  content: "\23f6";
+}
+
+ul.sitemap-menu li.expanded.clicked:before {
+  content: "\23f5";
+}
+
+ul.sitemap-menu li.expanded:not(.clicked):before,
+ul.sitemap-menu li.expanded.clicked:before {
+  font-family: ita!important;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: lighter;
+  font-size: 0.75em;
+  color: #0059b3;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+  margin-right: 0.75em;
+  cursor: pointer;
+}
