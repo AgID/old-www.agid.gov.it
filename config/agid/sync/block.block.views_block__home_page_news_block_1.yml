@@ -12,7 +12,7 @@ dependencies:
     - agid
 third_party_settings:
   block_class:
-    classes: 'block-home-page-news u-padding-r-left u-padding-r-right u-inlineBlock u-md-size2of3 u-lg-size2of3 Grid--cell'
+    classes: 'block-home-page-news u-padding-r-left u-padding-r-right u-inlineBlock u-md-size3of3 u-lg-size3of3 Grid--cell'
 id: views_block__home_page_news_block_1
 theme: agid
 region: postscript_first
