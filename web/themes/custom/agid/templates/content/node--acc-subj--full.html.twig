@@ -21,7 +21,7 @@
   ]
 %}
 <h1 class="u-text-h2 u-margin-top-m"><span>{{ label }}</span></h1>
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_prefix }}
   {{ title_suffix }}
 

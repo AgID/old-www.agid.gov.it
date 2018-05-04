@@ -78,7 +78,7 @@
 'u-padding-r-all'
 ] %}
 
-<article{{ attributes.addClass(article_classes) }}>
+<article{{ attributes.addClass(article_classes)|without('role') }}>
   {{ content.field_news_type }}
   <h3 class="u-padding-r-top u-padding-r-bottom">
     <a class="u-text-h4 u-textClean u-color-50"

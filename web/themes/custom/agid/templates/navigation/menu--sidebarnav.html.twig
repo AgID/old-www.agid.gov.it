@@ -50,12 +50,12 @@
     {% if items %}
 
         {% if menu_level == 0 %}
-            <ul{{ attributes.addClass(root_classes) }}>
+            <ul{{ attributes.addClass(root_classes).setAttribute('role', 'group') }}>
         {% else %}
-            <ul {{ attributes
+            <ul{{ attributes
         .setAttribute('role', 'group')
         .setAttribute('aria-hidden', is_opened ? false : true )
-        .setAttribute('style', 'display: ' ~ is_opened ? 'block' : 'none' ~ ';')
+        .setAttribute('style', 'display: ' ~ (is_opened ? 'block' : 'none') ~ ';')
         }}>
         {% endif %}
 

@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('Prose', 'u-layout-prose') }}>
+<article{{ attributes.addClass('Prose', 'u-layout-prose')|without('role') }}>
 
   <div{{ content_attributes }}>
     {{ content }}

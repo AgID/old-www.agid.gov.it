@@ -70,12 +70,12 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('orgchart-person')|without('role') }}>
+<article{{ attributes.removeAttribute('role') }}>
 
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
-      {{ label }}
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
   {{ title_suffix }}
@@ -90,16 +90,8 @@
     </footer>
   {% endif %}
 
-  <div class="Grid">
-    <div class="Grid-cell u-size4of12">
-      {{  content.field_photo }}
-    </div>
-
-    <div class="Grid-cell u-size8of12">
-      <div{{ content_attributes }}>
-        {{ content|without('field_photo') }}
-      </div>
-    </div>
+  <div{{ content_attributes }}>
+    {{ content }}
   </div>
 
 </article>

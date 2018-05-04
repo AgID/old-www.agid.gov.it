@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('event-page') }}>
+<article{{ attributes.addClass('event-page')|without('role') }}>
 
   {{ title_prefix }}
   {% if not page %}
