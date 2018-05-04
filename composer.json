@@ -164,7 +164,8 @@
     "drupal/block_titlelink": "1.x-dev",
     "drupal/block_class": "1.x-dev",
     "abraham/twitteroauth": "^0.7.4",
-    "drupal/share_everywhere": "^1.1"
+    "drupal/share_everywhere": "^1.1",
+    "drupal/better_exposed_filters": "^3.0@alpha"
   },
   "require-dev": {
     "phing/phing": "2.12.*",

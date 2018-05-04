@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - block_class
-    - ctools
     - system
   theme:
     - agid
@@ -25,13 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "<front>\r\n/piattaforme/spid/identity-provider-accreditati/*"
     negate: true
     context_mapping: {  }
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      acc_subj: acc_subj
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'

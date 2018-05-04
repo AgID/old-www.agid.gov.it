@@ -1,0 +1,33 @@
+uuid: a7a45770-fe2c-4185-a9d3-f270771fc81c
+langcode: it
+status: true
+dependencies:
+  config:
+    - views.view.linee_guida
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - agid
+third_party_settings:
+  block_class:
+    classes: guide-lines-form
+id: exposedform_guide_lines
+theme: agid
+region: sidebar_left
+weight: -16
+provider: null
+plugin: 'views_exposed_filter_block:linee_guida-guide_lines'
+settings:
+  id: 'views_exposed_filter_block:linee_guida-guide_lines'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: "/linee-guida\r\n/linee-guida*"
+    negate: false
+    context_mapping: {  }
