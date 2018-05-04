@@ -128,6 +128,9 @@
           '#tweets' => $tweets,
         ];
       } catch (TwitterOAuthException $e) {
+        // Log TwitterOAuth's Error
+        \Drupal::logger('agid_twitter_block')->error($e->getMessage());
+        // Then return empty array
         return [
           '#theme' => 'agid_twitter_block',
           '#title' => $config['title'],
