@@ -9,6 +9,9 @@ dependencies:
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: navigazionesecondaria
 theme: agid
 region: content
