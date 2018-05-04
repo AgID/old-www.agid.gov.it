@@ -1019,6 +1019,15 @@ article ul li.share-everywhere {
   color: white;
 }
 
+.agid-twitter__tweet {
+  background: #fBfBfB;
+  border: 1px solid lightgray;
+}
+
+.agid-twitter__tweet span.ext {
+  display: none;
+}
+
 .Breadcrumb-link {
   font-weight: 400 !important;
 }
@@ -1441,6 +1450,11 @@ a.Footer-bigLink:hover {
   border-color: rgba(0, 38, 77, 0.1) !important;
 }
 
+.homepage-news div.views-row:last-child,
+.homepage-lastupdates div.views-row:last-child {
+  border-right: none !important;
+}
+
 .homepage-news article h2 > a,
 .homepage-lastupdates .views-field-title a,
 .homepage-lastupdates .views-field-title span,
@@ -1733,9 +1747,17 @@ div.pagopa-channel-section {
   line-height: 27px !important;
 }
 
-@media (min-width: 992px) {
+.block-home-page-tech-comm {
+  text-decoration: underline;
+}
+
+.block-home-page-tech-comm h3 {
+  font-size: 2.8rem !important;
+}
+
+@media (min-width: 768px) {
   .block-home-page-tech-comm {
-    margin-top: 3rem;
+    padding-right: 1em;
   }
 }
 
