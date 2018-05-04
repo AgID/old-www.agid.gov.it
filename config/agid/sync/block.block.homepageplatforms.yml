@@ -12,7 +12,7 @@ dependencies:
 id: homepageplatforms
 theme: agid
 region: postscript_third
-weight: 0
+weight: -17
 provider: null
 plugin: 'block_content:12413d38-1b98-404e-a02a-5d799f3736b6'
 settings:
