@@ -7,8 +7,6 @@ disable_core_login_error: 0
 notice_attempts_available: 0
 last_login_timestamp: 0
 last_access_timestamp: 0
-user_blocked_email_user: ''
-login_activity_email_user: ''
 notice_attempts_message: 'You have used @user_current_count out of @user_block_attempts login attempts. After all @user_block_attempts have been used, you will be unable to login.'
 host_soft_banned: 'This host is not allowed to log in to @site. Please contact your site administrator.'
 host_hard_banned: 'The IP address @ip is banned at @site, and will not be able to access any of its content from now on. Please contact the site administrator.'
@@ -20,3 +18,5 @@ login_activity_email_body: 'The configured threshold of @activity_threshold logi
 _core:
   default_config_hash: EiMrTixJ0EvnW_bm-1WWZnuWj_znhuYTsjkkif5WnrM
 langcode: it
+user_blocked_notification_emails: null
+login_activity_notification_emails: null

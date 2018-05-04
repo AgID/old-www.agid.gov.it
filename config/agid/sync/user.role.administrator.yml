@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: administrator
 label: Amministratore
-weight: 2
+weight: -8
 is_admin: true
 permissions: {  }

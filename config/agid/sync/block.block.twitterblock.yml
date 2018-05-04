@@ -5,6 +5,7 @@ dependencies:
   module:
     - agid_twitter_block
     - block_class
+    - language
     - system
   theme:
     - agid
@@ -22,7 +23,7 @@ settings:
   label: TwitterBlock
   provider: agid_twitter_block
   label_display: '0'
-  title: 'Twitter of @AgidGov'
+  title: '@AgidGov'
   username: AgidGov
   tweets_to_show: '3'
   consumer_key: vPzQm4GlixFaboAvbwerH13Aj
@@ -35,3 +36,10 @@ visibility:
     pages: '<front>'
     negate: false
     context_mapping: {  }
+  language:
+    id: language
+    langcodes:
+      it: it
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'

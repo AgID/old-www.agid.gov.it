@@ -20,7 +20,7 @@ core: '8'
 display:
   default:
     id: default
-    display_title: Master
+    display_title: Principale
     display_plugin: default
     position: 0
     display_options:
@@ -43,13 +43,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Applica
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Ripristina
+          exposed_sorts_label: 'Ordina per'
           expose_sort_order: true
           sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_desc_label: Disc
       pager:
         type: mini
         options:
@@ -59,12 +59,12 @@ display:
           total_pages: 0
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Voci per pagina'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Tutto -'
             offset: false
-            offset_label: Offset
+            offset_label: Scostamento
           tags:
             previous: ‹‹
             next: ››
@@ -77,7 +77,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Title
+          label: Titolo
           exclude: false
           alter:
             alter_text: false
@@ -124,7 +124,7 @@ display:
           id: name
           table: users_field_data
           field: name
-          label: Author
+          label: Autore
           relationship: uid
           plugin_id: field
           type: user_name
@@ -360,7 +360,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      max-age: 0
+      max-age: -1
       tags: {  }
   attachment_1:
     id: attachment_1
@@ -428,11 +428,11 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      max-age: 0
+      max-age: -1
       tags: {  }
   page_1:
     id: page_1
-    display_title: Page
+    display_title: Pagina
     display_plugin: page
     position: 1
     display_options:
@@ -455,5 +455,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      max-age: 0
+      max-age: -1
       tags: {  }

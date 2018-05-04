@@ -21,10 +21,10 @@ provider: null
 plugin: 'views_block:home_page_notizie_tecniche-block_1'
 settings:
   id: 'views_block:home_page_notizie_tecniche-block_1'
-  label: ''
+  label: 'Comunicazioni tecniche'
   provider: views
   label_display: visible
-  views_label: ''
+  views_label: 'Comunicazioni tecniche'
   items_per_page: none
 visibility:
   request_path:

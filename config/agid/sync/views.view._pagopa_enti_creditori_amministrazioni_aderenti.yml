@@ -611,6 +611,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -823,7 +824,7 @@ display:
       use_ajax: true
       css_class: view-table-pagination
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -848,7 +849,7 @@ display:
       path: piattaforme/pagopa/amministrazioni-aderenti
       rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url

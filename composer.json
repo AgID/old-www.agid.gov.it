@@ -99,7 +99,7 @@
     "composer/installers": "^1.0.20",
     "drupal-composer/drupal-scaffold": "~1",
     "cweagans/composer-patches": "~1.0",
-    "drupal/core": "8.4.5",
+    "drupal/core": "8.5.3",
     "drush/drush": "~8.1",
     "drupal/config_installer": "1.*",
     "behat/behat": "^3.1.0",

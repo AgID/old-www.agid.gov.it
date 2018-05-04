@@ -7,6 +7,7 @@
   use Drupal\Core\Block\BlockPluginInterface;
   use Drupal\Core\Form\FormStateInterface;
   use Abraham\TwitterOAuth\TwitterOAuth;
+  use Abraham\TwitterOAuth\TwitterOAuthException;
 
   /**
    * Provides 'TwitterBlock' Block.
@@ -115,15 +116,28 @@
     public function build() {
       $config = $this->getConfiguration();
       // TwitterOAuth
-      $connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
-      $tweets = $connection->get("statuses/user_timeline", ["screen_name" => $config['username'], "count" => $config['tweets_to_show']*2, "exclude_replies" => true]);
-      $tweets = array_slice($tweets, 0, $config['tweets_to_show']);
-      return [
-        '#theme' => 'agid_twitter_block',
-        '#title' => $config['title'],
-        '#username' => $config['username'],
-        '#tweets_to_show' => $config['tweets_to_show'],
-        '#tweets' => $tweets,
-      ];
+      try {
+        $connection = new TwitterOAuth($config['consumer_key'], $config['consumer_secret'], $config['access_token'], $config['access_token_secret']);
+        $tweets = $connection->get("statuses/user_timeline", ["screen_name" => $config['username'], "count" => $config['tweets_to_show']*2, "exclude_replies" => true]);
+        $tweets = array_slice($tweets, 0, $config['tweets_to_show']);
+        return [
+          '#theme' => 'agid_twitter_block',
+          '#title' => $config['title'],
+          '#username' => $config['username'],
+          '#tweets_to_show' => $config['tweets_to_show'],
+          '#tweets' => $tweets,
+        ];
+      } catch (TwitterOAuthException $e) {
+        // Log TwitterOAuth's Error
+        \Drupal::logger('agid_twitter_block')->error($e->getMessage());
+        // Then return empty array
+        return [
+          '#theme' => 'agid_twitter_block',
+          '#title' => $config['title'],
+          '#username' => $config['username'],
+          '#tweets_to_show' => 0,
+          '#tweets' => [],
+        ];
+      }
     }
   }

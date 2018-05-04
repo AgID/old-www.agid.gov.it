@@ -5,10 +5,14 @@ dependencies:
   config:
     - system.menu.main
   module:
+    - block_class
     - menu_block
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: navigazionesecondaria
 theme: agid
 region: content
@@ -30,6 +34,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/agenzia\r\n/piattaforme\r\n/infrastrutture\r\n/sicurezza\r\n/dati\r\n/norme_e_regole_tecniche\r\n/design-servizi"
+    pages: "/agenzia\r\n/piattaforme\r\n/infrastrutture\r\n/sicurezza\r\n/dati\r\n/norme_e_regole_tecniche\r\n/design-servizi\r\n/agency\r\n/platforms"
     negate: false
     context_mapping: {  }
