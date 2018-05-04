@@ -3,8 +3,8 @@ langcode: it
 status: true
 dependencies: {  }
 id: publisher
-label: Editore
-weight: 4
+label: Publisher
+weight: -7
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -26,6 +26,7 @@ permissions:
   - 'delete own faq content'
   - 'delete own news content'
   - 'delete own press content'
+  - 'edit any page content'
   - 'edit own acc_subj content'
   - 'edit own document files'
   - 'edit own event content'

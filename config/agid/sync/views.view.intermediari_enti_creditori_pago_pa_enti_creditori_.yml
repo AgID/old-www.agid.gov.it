@@ -338,7 +338,7 @@ display:
       use_ajax: true
       css_class: view-table-pagination
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -358,7 +358,7 @@ display:
       path: piattaforme/pagopa/intermediari-enti-creditori
       rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url.query_args
