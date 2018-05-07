@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8908c17d62be4bff406dc01978a65e34",
+    "content-hash": "9c645728870df58496d1ff5c00fff945",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2144,17 +2144,17 @@
         },
         {
             "name": "drupal/better_exposed_filters",
-            "version": "3.0.0-alpha3",
+            "version": "3.0.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/better_exposed_filters",
-                "reference": "8.x-3.0-alpha3"
+                "reference": "8.x-3.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha3.zip",
-                "reference": "8.x-3.0-alpha3",
-                "shasum": "0268a42ea5a4ab170c8f4aefecd26b6f3c7448d2"
+                "url": "https://ftp.drupal.org/files/projects/better_exposed_filters-8.x-3.0-alpha4.zip",
+                "reference": "8.x-3.0-alpha4",
+                "shasum": "f42013d1fc36d45212d582e18afc59bc2c364719"
             },
             "require": {
                 "drupal/core": "*"
@@ -2165,8 +2165,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha3",
-                    "datestamp": "1501274342",
+                    "version": "8.x-3.0-alpha4",
+                    "datestamp": "1525044484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -3213,7 +3213,8 @@
                     "Fixed multilingual install depends on locale module": "https://www.drupal.org/files/issues/drupal-2413191-21.patch",
                     "Fixed Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch",
                     "Twig debug output does not display all suggestions when an array of suggestions is passed to #theme": "https://www.drupal.org/files/issues/2118743-119-twig-debug-info.patch",
-                    "Add template suggestions for page__403 page__404": "https://www.drupal.org/files/issues/40x_error_theme_sugggestions-2363987-11.patch"
+                    "Add template suggestions for page__403 page__404": "https://www.drupal.org/files/issues/40x_error_theme_sugggestions-2363987-11.patch",
+                    "Attribute hreflang not allowed on element li at this point": "https://www.drupal.org/files/issues/hreflang_attribute_not-2454289-50.patch"
                 }
             },
             "autoload": {
