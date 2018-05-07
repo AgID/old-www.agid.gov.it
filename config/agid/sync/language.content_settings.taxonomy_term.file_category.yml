@@ -9,6 +9,8 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
 id: taxonomy_term.file_category
 target_entity_type_id: taxonomy_term
 target_bundle: file_category
