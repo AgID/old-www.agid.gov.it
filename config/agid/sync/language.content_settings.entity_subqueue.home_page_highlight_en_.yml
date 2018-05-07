@@ -1,0 +1,11 @@
+uuid: 6e84964d-e482-49d7-8318-4fc95a041345
+langcode: it
+status: true
+dependencies:
+  config:
+    - entityqueue.entity_queue.home_page_highlight_en_
+id: entity_subqueue.home_page_highlight_en_
+target_entity_type_id: entity_subqueue
+target_bundle: home_page_highlight_en_
+default_langcode: site_default
+language_alterable: false
