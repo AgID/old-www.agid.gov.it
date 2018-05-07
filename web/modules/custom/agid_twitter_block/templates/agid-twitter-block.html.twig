@@ -11,19 +11,19 @@
 <div class="u-text-r-xl u-padding-r-top">
   <div>
     <!-- Tweets -->
-    <div class="u-layout-centerContent u-background-70 u-padding-r-all">
+    <div class="u-layout-centerContent u-padding-r-all">
       <section class="u-layout-medium">
         <!-- Block title -->
         <div class="Grid">
-          <div class="Grid-cell u-layout-centerLeft">
-            <h2 class="u-text-r-l"><a class="u-color-white" href="https://twitter.com/{{ username }}">{{ title }}</a></h2>
+          <div class="Grid-cell u-layout-centerLeft u-padding-r-left">
+            <h2 class="u-text-r-l"><a class="u-color-70" href="https://twitter.com/{{ username }}">{{ title }}</a></h2>
           </div>
         </div>
 
-        <div class="Grid Grid--fit Grid--withGutter agid-twitter-block" data-tweets="{{ tweets_to_show }}">
+        <div class="Grid Grid--fit Grid--withGutterS agid-twitter-block" data-tweets="{{ tweets_to_show }}">
           {% for tweet in tweets %}
             <div class="Grid-cell u-sizeFull u-size1of2 u-md-size1of{{tweets_to_show}} u-lg-size1of{{tweets_to_show}} u-margin-r-bottom u-layout-matchHeight u-padding-r-all">
-              <div class="u-nbfc u-borderRadius-m u-color-grey-30 u-background-white" data-tweet="{{ loop.index }}">
+              <div class="agid-twitter__tweet u-nbfc u-borderRadius-m u-color-grey-30" data-tweet="{{ loop.index }}">
                 <section class="u-text-r-l u-padding-r-all u-layout-prose">
                   <div class="u-text-p u-padding-r-bottom">
                     <p class="u-color-50 u-text-r-xxs u-textWeight-600">{{ tweet.user.name }} (@{{ tweet.user.screen_name }})</p>
