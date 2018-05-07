@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('Prose') }}>
+<article{{ attributes.addClass('Prose')|without('role') }}>
 
   <div class="Grid u-layout-centerContent">
     <div class="Grid-cell u-md-sizeFill u-lg-sizeFill u-padding-r-left">

@@ -7,7 +7,8 @@
       "Fixed multilingual install depends on locale module": "https://www.drupal.org/files/issues/drupal-2413191-21.patch",
       "Fixed Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch",
       "Twig debug output does not display all suggestions when an array of suggestions is passed to #theme": "https://www.drupal.org/files/issues/2118743-119-twig-debug-info.patch",
-      "Add template suggestions for page__403 page__404": "https://www.drupal.org/files/issues/40x_error_theme_sugggestions-2363987-11.patch"
+      "Add template suggestions for page__403 page__404": "https://www.drupal.org/files/issues/40x_error_theme_sugggestions-2363987-11.patch",
+      "Attribute hreflang not allowed on element li at this point": "https://www.drupal.org/files/issues/hreflang_attribute_not-2454289-50.patch"
     },
     "drupal/pathauto": {
       "Drush commands for bulk alias updates": "https://www.drupal.org/files/issues/pathauto-drush-command-2717721-10.patch"

@@ -70,7 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.addClass('Prose', 'u-layout-prose', 'pagopa-content') }}>
+<article{{ attributes.addClass('Prose', 'u-layout-prose', 'pagopa-content')|without('role') }}>
 
   <div{{ content_attributes }}>
     {{ content }}

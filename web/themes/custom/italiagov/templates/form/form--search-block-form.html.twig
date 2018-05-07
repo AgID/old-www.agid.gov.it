@@ -23,8 +23,8 @@
   'u-borderRadius-s',
 ] %}
 
-<form{{ attributes.addClass(form_classes) }}>
-  <div class="{{ children_wrapper_classes | join(' ') }}" {{ attributes.setAttribute('role', 'search') }}>
+<form{{ attributes.addClass(form_classes).setAttribute('role', 'search') }}>
+  <div class="{{ children_wrapper_classes | join(' ') }}">
     {{ children }}
   </div>
 </form>
