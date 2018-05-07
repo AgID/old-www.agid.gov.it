@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.file.field_arguments
-    - field.storage.file.field_date
     - field.storage.file.field_title
     - field.storage.file.field_type
     - taxonomy.vocabulary.arguments
@@ -12,7 +11,7 @@ dependencies:
   content:
     - 'taxonomy_term:file_type:004fc6ab-d5f8-45ea-9483-4e7d2a7a39ef'
   module:
-    - datetime
+    - better_exposed_filters
     - file
     - file_entity
     - node
@@ -49,33 +48,53 @@ display:
           query_comment: ''
           query_tags: {  }
       exposed_form:
-        type: basic
+        type: bef
         options:
-          submit_button: Apply
-          reset_button: false
-          reset_button_label: Reset
+          submit_button: Applica
+          reset_button: true
+          reset_button_label: 'Tutti gli argomenti'
           exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Seleziona qualsiasi filtro e clicca su Applica per visualizzare i risultati'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Opzioni avanzate'
+              autosubmit: false
+              autosubmit_hide: false
+            field_arguments_target_id_1:
+              bef_format: bef
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+          text_input_required_format: filtered_text
       pager:
         type: none
         options:
           offset: 0
       style:
-        type: default
+        type: html_list
         options:
           grouping:
             -
               field: field_arguments
               rendered: true
               rendered_strip: false
-          row_class: ''
+          row_class: guide-line-item
           default_row_class: true
+          type: ul
+          wrapper_class: 'agid-guide-lines__group Prose u-layout-prose'
+          class: agid-guide-lines__list
       row:
         type: fields
         options:
-          default_field_elements: true
+          default_field_elements: false
           inline:
             field_arguments: field_arguments
             field_type: field_type
@@ -218,10 +237,10 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
-            text: ''
+            text: '<p>{{ field_title }}</p>'
             make_link: false
             path: ''
             absolute: false
@@ -265,10 +284,10 @@ display:
             fieldsets:
               - more
               - admin_label
-            custom_label: 1
-            label: 'Titolo documento'
-            element_label_colon: 1
-            exclude: 0
+            custom_label: 0
+            label: ''
+            element_label_colon: 0
+            exclude: 1
             element_type_enable: 0
             element_type: ''
             element_class_enable: 0
@@ -338,7 +357,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: ' ({{ filesize }})'
+            text: '{{ field_title }} ({{ filesize }})'
             make_link: false
             path: ''
             absolute: false
@@ -368,9 +387,9 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
+          element_wrapper_type: span
+          element_wrapper_class: guide-line-item__file
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -391,6 +410,73 @@ display:
           entity_type: file
           entity_field: filesize
           plugin_id: field
+        changed:
+          id: changed
+          table: file_managed
+          field: changed
+          relationship: field_repository_files
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<strong>Data:</strong> {{ changed }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: div
+          element_wrapper_class: guide-line-item__date
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: custom
+            custom_date_format: d/m/Y
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: file
+          entity_field: changed
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -402,7 +488,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<span class="u-text-r-xxs">appare in {{ title }}</span>'
+            text: '<strong>Pagina del sito:</strong> {{ title }}'
             make_link: false
             path: ''
             absolute: false
@@ -432,8 +518,8 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_type: div
+          element_wrapper_class: guide-line-item__page
           element_default_classes: false
           empty: ''
           hide_empty: false
@@ -455,70 +541,6 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: title
-          plugin_id: field
-        field_date:
-          id: field_date
-          table: file__field_date
-          field: field_date
-          relationship: field_repository_files
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<b class="u-color-50">Data:</b> {{ field_date }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: 'Nessuna data specificata.'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          click_sort_column: value
-          type: datetime_custom
-          settings:
-            timezone_override: ''
-            date_format: d/m/Y
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
           plugin_id: field
       filters:
         status:
@@ -649,22 +671,69 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-          relationship: none
+        field_arguments_target_id_1:
+          id: field_arguments_target_id_1
+          table: file__field_arguments
+          field: field_arguments_target_id
+          relationship: field_repository_files
           group_type: group
           admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_arguments_target_id_1_op
+            label: FILTRI
+            description: ''
+            use_operator: false
+            operator: field_arguments_target_id_1_op
+            identifier: arguments
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              author: '0'
+              publisher: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: arguments
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      sorts:
+        changed:
+          id: changed
+          table: file_managed
+          field: changed
+          relationship: field_repository_files
+          group_type: group
+          admin_label: ''
+          order: DESC
           exposed: false
           expose:
             label: ''
           granularity: second
+          entity_type: file
+          entity_field: changed
+          plugin_id: date
       title: 'Linee guida'
       header: {  }
       footer: {  }
@@ -690,37 +759,39 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      css_class: agid-guide-lines
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.file.field_arguments'
-        - 'config:field.storage.file.field_date'
         - 'config:field.storage.file.field_title'
         - 'config:field.storage.file.field_type'
-  page_1:
+  guide_lines:
     display_plugin: page
-    id: page_1
+    id: guide_lines
     display_title: Page
     position: 1
     display_options:
       display_extenders: {  }
       path: linee-guida
+      exposed_block: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.file.field_arguments'
-        - 'config:field.storage.file.field_date'
         - 'config:field.storage.file.field_title'
         - 'config:field.storage.file.field_type'

@@ -92,7 +92,5 @@ function agid_preprocess_page(&$variables) {
  * Implements template_preprocess_html().
  */
 function agid_preprocess_html(&$variables) {
-
   $variables['icon_path'] = '/' . drupal_get_path('theme','agid') . '/icons';
-
 }

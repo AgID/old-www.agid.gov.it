@@ -16,6 +16,7 @@ module:
   automated_cron: 0
   backup_migrate: 0
   ban: 0
+  better_exposed_filters: 0
   block: 0
   block_class: 0
   block_content: 0

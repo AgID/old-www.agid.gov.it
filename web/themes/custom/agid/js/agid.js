@@ -1,5 +1,6 @@
 /**
  * @file
+ * @file
  * A JavaScript file for the theme.
  */
 
@@ -67,7 +68,8 @@
 
     jQuery('.Megamenu-item').each(
       function (index, elem) {
-        if (jQuery(elem).find('a').length == 1)
+        // @TODO find a better solution than hardcode the "linee-guida" path.
+        if (jQuery(elem).find('a').length == 1 && window.location.pathname.indexOf('linee-guida') < 0)
           return;
         var link_orig = jQuery(elem).find('a').first();
         var link_copy = jQuery('<a/>');
@@ -191,5 +193,30 @@
       }
     }
   };
+
+  // Javascript specific for the Guide Lines page.
+  Drupal.behaviors.guideLines = {
+    attach: function (context, settings) {
+      // If we are in the guide-lines page we have the exposed filters.
+      if ($('#guideLinesFiltersMobileToggler').length) {
+
+        // Manage click on the filters toggler.
+        $('#guideLinesFiltersMobileToggler').click(function () {
+          $(this).toggleClass('is-open');
+          $('html').toggleClass('is-open-agid-guide-lines-filters');
+        })
+
+        // Manage behavior and click on the fake reset button.
+        if(window.location.search) {
+          $('#guideLinesFormReset').find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
+        }
+        $('#guideLinesFormReset').click(function () {
+          $('#views-exposed-form-linee-guida-guide-lines').find('[id*="edit-reset"]').trigger('click');
+        })
+
+        // Enable the megamenu voice.
+      }
+    }
+  }
 
 })(jQuery, Drupal, this, this.document);

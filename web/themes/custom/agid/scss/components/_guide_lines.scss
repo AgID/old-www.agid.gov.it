@@ -1,0 +1,235 @@
+/**
+ * @file
+ * Style customization for the guide lines page.
+ */
+/*Fix megamenu style (we do not have a dropdown)*/
+a[href*="linee-guida"] {
+  padding-right: 1rem !important;
+
+  &::after {
+    display: none;
+  }
+}
+
+.agid-guide-lines__group {
+  H3 {
+    padding: 2rem 1rem 0.75rem;
+    border-bottom: 1px solid #D0E2F6;
+    text-transform: capitalize;
+    font-weight: 600 !important;
+  }
+}
+
+.guide-line-item {
+  margin-bottom: 0.3rem;
+
+  A {
+    color: #00264C !important;
+  }
+
+  STRONG {
+    font-weight: 600;
+    color: #0059B3;
+  }
+}
+
+.guide-line-item__file {
+  display: inline-block;
+  margin: 0 0 0.75rem 0;
+}
+
+.guide-line-item__date,
+.guide-line-item__page,
+.guide-line-item__page A {
+  font-size: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+// Exposed form in the sidebar
+.guide-lines-form {
+  margin-top: 0 !important;
+  padding: 0;
+  background-color: transparent;
+
+  .form-submit {
+    margin-right: 16px;
+  }
+
+  .Form {
+    position: relative;
+    padding-top: 65px !important;
+  }
+
+  .Form-legend {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 50px;
+    width: auto;
+    display: block;
+    line-height: 50px;
+    padding: 0 16px;
+    color: #FFF;
+    background-color: #0059B3;
+  }
+
+  .Form-label--block {
+    position: relative;
+    padding: 1.75rem 1rem 1.75rem 46px !important;
+    min-height: auto;
+    border-width: 0;
+    line-height: 22px;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    .Form-fieldIcon {
+      position: absolute;
+      left: 5px;
+      top: 1.2rem;
+    }
+  }
+}
+
+/*Fake reset button*/
+.guide-lines-form__reset {
+  display: none;
+  width: 100%;
+  line-height: 22px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  text-transform: none;
+  color: #00264D;
+  padding-left: 46px;
+  padding-right: 1rem;
+  margin: 2rem 0 4rem;
+}
+
+.js .guide-lines-form__reset {
+  display: block;
+}
+
+.guide-lines-form__reset .Icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+/* Hyde the real reset button, we add a fake button, working with JS */
+.js .guide-lines-form #edit-reset {
+  display: none;
+}
+
+.agid-guide-lines__mobile-toggler {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  line-height: 50px;
+  color: #FFF;
+  background-color: #0059B3;
+  cursor: pointer;
+}
+
+.agid-guide-lines__mobile-toggler .Icon {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.agid-guide-lines__mobile-toggler.is-open .Icon::before {
+  content: "\25b2" !important;
+}
+
+@media screen and (max-width: 991px) {
+  /*Style exposed filters on mobile*/
+  .js .agid-guide-lines__filters-wrapper {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: -3rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8cOfOTAAIbwMzvgT++gAAAABJRU5ErkJggg==);
+  }
+
+  .js .guide-lines-form {
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    right: 0;
+    left: auto;
+    max-width: 300px;
+    background: #FFF;
+    border-width: 0;
+
+    .Form {
+      padding-top: 1.5rem !important;
+    }
+
+    .Form-legend {
+      display: none;
+    }
+
+    .Form-label--block::before {
+      content: '';
+      position: absolute;
+      top: 0rem;
+      right: 1.25rem;
+      left: 1.25rem;
+      width: auto;
+      height: 1px;
+      background: #D0E2F6;
+    }
+  }
+
+  .js .agid-guide-lines__mobile-toggler {
+    display: block;
+  }
+
+  /* Set styles when the filters are open */
+  /*Color the HTML element to simulate an overlay layer*/
+  .is-open-agid-guide-lines-filters {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8cOfOTAAIbwMzvgT++gAAAABJRU5ErkJggg==);
+
+    .agid-guide-lines__filters-wrapper {
+      display: block;
+    }
+
+    MAIN {
+      background-color: #FFF;
+    }
+
+    /*Manage footer overlay*/
+    .u-background-95 {
+      position: relative;
+    }
+
+    .u-background-95:before {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: ' ';
+      background-color: #E0DCDC;
+      /*+opacity: 60%;*/
+      -filter: alpha(opacity=60);
+      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+      -moz-opacity: 0.6;
+      opacity: 0.6;
+      z-index: 9;
+    }
+  }
+}
