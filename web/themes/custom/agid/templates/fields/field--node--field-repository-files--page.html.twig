@@ -76,11 +76,11 @@
           {% for item in items %}
             {% if item_file_types[loop.index0] == file_type %}
               {{ item.content }}
+              <div class="u-layout-prose u-color-60">
+                <b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}
+              </div>
+              <br>
             {% endif %}
-            <div class="u-layout-prose u-color-60">
-              <b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}
-            </div>
-            <br>
           {% endfor %}
         </div>
       </div>
