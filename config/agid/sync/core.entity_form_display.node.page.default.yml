@@ -22,8 +22,8 @@ dependencies:
     - image.style.thumbnail
     - node.type.page
   module:
+    - agid_repo_widget
     - content_moderation
-    - entity_browser
     - field_group
     - image
     - link
@@ -215,10 +215,9 @@ content:
       field_widget_remove: true
       selection_mode: selection_append
       open: false
-      view_mode: default
-      preview_image_style: thumbnail
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: repo_files_widget
+    type: agid_repo_widget_table_browser_entity_reference
     region: content
   langcode:
     type: language_select
