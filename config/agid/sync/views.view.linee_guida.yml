@@ -61,7 +61,7 @@ display:
         options:
           offset: 0
       style:
-        type: default
+        type: table
         options:
           grouping:
             -
@@ -70,17 +70,55 @@ display:
               rendered_strip: false
           row_class: ''
           default_row_class: true
-      row:
-        type: fields
-        options:
-          default_field_elements: true
-          inline:
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
             field_arguments: field_arguments
             field_type: field_type
-            field_title: field_title
+            filename: filename
+            filemime: filemime
             filesize: filesize
-          separator: ''
-          hide_empty: false
+          info:
+            field_arguments:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            filename:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            filemime:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            filesize:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
+      row:
+        type: fields
       fields:
         field_arguments:
           id: field_arguments
@@ -133,7 +171,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: false
+            link: true
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -215,7 +253,7 @@ display:
           relationship: field_repository_files
           group_type: group
           admin_label: ''
-          label: ''
+          label: Titolo
           exclude: false
           alter:
             alter_text: false
@@ -248,7 +286,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -264,7 +302,7 @@ display:
               - more
               - admin_label
             custom_label: 1
-            label: 'Titolo documento'
+            label: Titolo
             element_label_colon: 1
             exclude: 0
             element_type_enable: 0
@@ -325,6 +363,72 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        filemime:
+          id: filemime
+          table: file_managed
+          field: filemime
+          relationship: field_repository_files
+          group_type: group
+          admin_label: ''
+          label: Tipologia
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: file_filemime
+          settings:
+            link_to_file: false
+            filemime_image: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: file
+          entity_field: filemime
+          plugin_id: field
         filesize:
           id: filesize
           table: file_managed
@@ -332,11 +436,11 @@ display:
           relationship: field_repository_files
           group_type: group
           admin_label: ''
-          label: ''
+          label: Dimensione
           exclude: false
           alter:
-            alter_text: true
-            text: ' ({{ filesize }})'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -396,11 +500,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Appare in'
           exclude: false
           alter:
-            alter_text: true
-            text: '<span class="u-text-r-xxs">appare in {{ title }}</span>'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -410,7 +514,7 @@ display:
             trim_whitespace: false
             alt: ''
             rel: ''
-            link_class: u-text-r-xxs
+            link_class: ''
             prefix: ''
             suffix: ''
             target: ''
@@ -429,10 +533,10 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -456,46 +560,16 @@ display:
           plugin_id: field
       filters:
         status:
-          id: status
+          value: '1'
           table: node_field_data
           field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: 'Stato pubblicazione'
-            description: null
-            use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: Published
-            description: null
-            identifier: status
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1: {  }
-              2: {  }
-              3: {  }
           plugin_id: boolean
           entity_type: node
           entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
         field_type_target_id:
           id: field_type_target_id
           table: file__field_type
@@ -625,7 +699,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -645,7 +719,7 @@ display:
       display_extenders: {  }
       path: linee-guida
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
