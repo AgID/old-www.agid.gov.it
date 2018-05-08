@@ -104,6 +104,19 @@ function agid_base_preprocess_menu(&$variables) {
         // Check if is translated...
         if (!array_key_exists($language, $languages)) {
           unset($variables['items'][$key]);
+        } else {
+          // Check if has below and search for untranslated children
+          if (count($variables['items'][$key]['below']) > 0) {
+            foreach ($variables['items'][$key]['below'] as $keyBelow => $itemBelow) {
+              $menuLinkEntityBelow = agid_base_load_entity_by_link($itemBelow['original_link']);
+              if ($menuLinkEntityBelow !== NULL) {
+                $languagesBelow = $menuLinkEntityBelow->getTranslationLanguages();
+                if (!array_key_exists($language, $languagesBelow)) {
+                  unset($variables['items'][$key]['below'][$keyBelow]);
+                }
+              }
+            }
+          }
         }
       }
     }
