@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default theme implementation for Twitter share button.
+ *
+ * Available variables:
+ *  - url: The url of the page to be shared.
+ *  - content: The button's image or other content to appear on the page. (default: image)
+ *
+ */
+ <a href="https://twitter.com/intent/tweet?text=&url={{ url | url_encode }}" target="_blank" >{{ content }}</a>
+#}
+
+
+<a href="https://twitter.com/intent/tweet?text=&url={{ url | url_encode }}" target="_blank"><span class="Icon Icon-twitter"></span><span class="u-hiddenVisually">Twitter</span></a>

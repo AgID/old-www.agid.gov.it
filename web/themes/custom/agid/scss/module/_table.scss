@@ -8,14 +8,28 @@ table {
   border: 1px solid $border-default-color;
   border-spacing:0;
   border-collapse: collapse;
+
+  th {
+    text-align: left;
+    font-size: $thead-font-size;
+    font-weight: $thead-font-weight !important;
+  }
+
+  tr {
+    border-bottom: 1px solid #d0e2f5;
+  }
 }
 
 thead {
   background-color: $dark-blue;
+  color: $table-link;
+
 
   a,
   span {
     color: $table-link !important;
+    font-size: $thead-font-size !important;
+    font-weight: $thead-font-weight !important;
   }
 
   a:hover {

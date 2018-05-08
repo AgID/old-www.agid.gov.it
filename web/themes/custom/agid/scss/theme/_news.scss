@@ -1,6 +1,10 @@
 .homepage-news div.views-row,
 .homepage-lastupdates div.views-row {
   border-color: rgba(0, 38, 77, 0.1) !important;
+
+  &:last-child {
+    border-right: none !important;
+  }
 }
 
 .homepage-news article h2 > a,

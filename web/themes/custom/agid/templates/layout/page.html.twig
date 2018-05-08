@@ -40,6 +40,7 @@
  * - postscript_fourth: Postscript Fourth
  * - leads : Leads
  * - pre_footer : Pre Footer
+ * - twitter_area: Twitter Area
  * - footer_top : Footer top
  * - footer_middle : Footer middle
  * - footer_bottom : Footer bottom
@@ -153,40 +154,36 @@
 
     {% block page_body %}
 
-
     <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
       <div class="Grid Grid--withGutter">
 
-        {% if page.sidebar_left or force_left_sidebar %}
-          <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
+      {% if page.sidebar_left or force_left_sidebar %}
+        <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
 
-          </div>
-          <div class="Grid-cell u-sizeFull u-md-size9of12 u-lg-size9of12">
-        {% else %}
-          <div class="Grid-cell u-sizeFull">
+        </div>
+        <div class="Grid-cell u-sizeFull u-md-size6of12 u-lg-size6of12">
+      {% else %}
+        <div class="Grid-cell u-sizeFull">
+      {% endif %}
+
+        {# Breadcrumb #}
+        {% if page.breadcrumb %}
+          {{ page.breadcrumb }}
         {% endif %}
 
-              {# Breadcrumb #}
-              {% if page.breadcrumb %}
-                  {{ page.breadcrumb }}
-              {% endif %}
-
-
-          </div>
+        </div>
       </div>
     </div>
 
+    {# Help #}
+    {% if page.help|render|striptags|trim %}
+      {{ page.help }}
+    {% endif %}
 
-        {# Help #}
-        {% if page.help|render|striptags|trim %}
-            {{ page.help }}
-        {% endif %}
-
-        {# Hero #}
-        {% if page.hero %}
-            {{ page.hero }}
-        {% endif %}
-
+    {# Hero #}
+    {% if page.hero %}
+      {{ page.hero }}
+    {% endif %}
 
       {# Page content region #}
       <div class="u-padding-r-bottom">
@@ -210,7 +207,7 @@
             <div class="Grid Grid--withGutter">
               {# Sidebar left #}
               <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
-                  {{ page.sidebar_left }}
+                {{ page.sidebar_left }}
               </div>
               {# Content #}
               <div class="Grid-cell u-sizeFull u-md-size6of12 u-lg-size6of12">
@@ -259,6 +256,17 @@
       {% endif %}
 
     {% endblock %}
+
+    {# Twitter Area #}
+    {% if page.twitter_area %}
+    <div class="u-hiddenPrint u-margin-bottom-xxl">
+      <div class="u-layout-wide u-layoutCenter">
+        <div class="Twitter-Area">
+          {{ page.twitter_area }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
 
     {# Footer #}
     <div class="u-background-95 u-hiddenPrint">

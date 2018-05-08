@@ -18,8 +18,12 @@ div.pagopa-channel-section {
 }
 
 .block-home-page-tech-comm {
-  @include breakpoint(large) {
-    margin-top: 3rem;
+  h3 {
+    font-size: 2.8rem !important;
+  }
+  text-decoration: underline;
+  @include breakpoint(medium) {
+    padding-right: 1em;
   }
 }
 

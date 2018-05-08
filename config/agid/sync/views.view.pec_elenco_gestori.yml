@@ -716,7 +716,7 @@ display:
       display_extenders: {  }
       use_ajax: true
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1302,7 +1302,7 @@ display:
       block_description: 'Prestatori di servizi fiduciari cessati in Italia'
       title: 'Prestatori di servizi fiduciari cessati in Italia'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1326,7 +1326,7 @@ display:
       display_extenders: {  }
       path: piattaforme/firma-elettronica-qualificata/prestatori-di-servizi-fiduciari-attivi-in-italia
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

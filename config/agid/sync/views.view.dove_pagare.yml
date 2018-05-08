@@ -431,6 +431,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -471,6 +472,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: true
           group_info:
             label: 'Sportello fisico'
@@ -523,6 +525,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
           is_grouped: true
           group_info:
             label: Online
@@ -575,6 +578,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
           is_grouped: true
           group_info:
             label: 'Mobile Banking'
@@ -627,6 +631,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
           is_grouped: true
           group_info:
             label: 'Phone Banking'
@@ -679,6 +684,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
           is_grouped: true
           group_info:
             label: ATM
@@ -787,9 +793,9 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: true
-      css_class: view-table-pagination
+      css_class: 'view-table-pagination view-table-pagopa'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -812,7 +818,7 @@ display:
       path: piattaforme/pagopa/dove-pagare
       exposed_block: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

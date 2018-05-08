@@ -1,0 +1,27 @@
+uuid: 6a04ccbb-2172-4ea7-b64b-1d238f9a8088
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: home_page_highlight_en_
+label: 'Home page - Highlight (en)'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      press: press
+      news: news
+      page: page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: press
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false

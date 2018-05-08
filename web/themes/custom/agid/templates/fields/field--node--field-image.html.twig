@@ -49,5 +49,11 @@ set classes = [
 %}
 
 {% for item in items %}
-  <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+  <div{{ attributes.addClass(classes, 'field__item') }}>
+    <div class="img-container-outer">
+      <div class="img-container-inner">
+        {{ item.content }}
+      </div>
+    </div>
+  </div>
 {% endfor %}

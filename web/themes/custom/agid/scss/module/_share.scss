@@ -1,0 +1,97 @@
+article ul li.share-everywhere {
+  list-style-type: none;
+  float: left;
+  width: 100%;
+  display: block;
+  margin-bottom: 1em;
+}
+
+.agid-share-widget {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.agid-share {
+  display: block;
+  &.se-align-right {
+    float: right;
+    display: inline-block;
+  }
+  &.se-align-left {
+    float: left;
+    display: inline-block;
+  }
+  &__trigger {
+    display: inline;
+    float: left;
+    max-width: 15em;
+    background-color: #eee;
+    &__text {
+      margin-left: 2.5em;
+      margin-right: 0.5em;
+      font-size: 2.8rem;
+      padding: 0.11605em;
+      color: #5a6772;
+    }
+    .Icon {
+      cursor: pointer;
+      height: 100%;
+      width: 2.8em;
+      display: block;
+      padding: 0.435em;
+      float: left !important;
+      position: relative;
+      &.Icon-close {
+        background-color: white !important;
+        color: #0066CC !important;
+      }
+      &:not(.Icon-close):after {
+        content: '';
+        position: absolute;
+        width: 500%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  &__links-container {
+    display: inline-block;
+    float: right;
+    &.se-inactive {
+      display: none;
+    }
+    &.se-active {
+      display: inline-block;
+    }
+    /**
+     * List and links
+     */
+    $mL: 0.05em; // margin left
+    $pTB: 0.435em; // padding top & bottom
+    $pLR: $pTB * 2; // padding left & right
+
+    &__link {
+      &:first-child {
+        margin-left: $mL;
+      }
+      list-style: none;
+      float: left;
+      display: inline-block;
+      background: #0066cc;
+      padding-top: $pTB;
+      padding-bottom: $pTB;
+      padding-left: $pLR;
+      padding-right: $pLR;
+      margin-right: $mL;
+      a {
+        display: block;
+        text-align: center;
+        span::before {
+          color: white;
+        }
+      }
+    }
+  }
+}

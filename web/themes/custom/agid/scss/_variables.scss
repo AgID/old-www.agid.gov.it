@@ -12,6 +12,11 @@ $table-background-row-odd: rgba(208, 226, 245, 0.1);
 $table-link: #fff;
 $table-link-hover: #aaa;
 
+// Table header
+$thead-font-size: 1.6rem;
+$thead-font-weight: 600;
+$thead-color: #fff;
+
 // Borders colors
 $border-default-color: #d0e2f5;
 
@@ -56,7 +61,15 @@ $breakpoint-small: 600px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 992px;
 
-
 // Call to action
 $cta-background: rgba(0, 0, 0, 0.0001);
-$cta-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1)
+$cta-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+// Menu mobile
+$mm-background-color: #fcfcfc;
+$mm-background-active: #0070e0;
+$mm-color: $dark-blue;
+$mm-color-active: #fff;
+$mm-border-color: #e0e0e0;
+$mm-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+$mm-overlay-color: rgba(224, 220, 220, 0.6);

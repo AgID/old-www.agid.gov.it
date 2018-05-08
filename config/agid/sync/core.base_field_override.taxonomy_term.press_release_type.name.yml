@@ -1,0 +1,18 @@
+uuid: aaf7c3aa-7100-435e-a258-1904bf1f04ea
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.press_release_type
+id: taxonomy_term.press_release_type.name
+field_name: name
+entity_type: taxonomy_term
+bundle: press_release_type
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -50,14 +50,14 @@ display:
       exposed_form:
         type: input_required
         options:
-          submit_button: Apply
+          submit_button: Cerca
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: '<p>Seleziona qualsiasi filtro e clicca su Applica per visualizzare i risultati</p>'
+          text_input_required: ''
           text_input_required_format: filtered_text
       pager:
         type: full
@@ -611,6 +611,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -799,7 +800,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<p>Ricerca gli Enti Creditori aderenti al Sistema pagoPA. Per ciascun Ente puoi conoscere i modelli di pagamento offerti: pagamento dal portale dell’Ente; pagamento presso i canali dei PSP.</p>\n<p>Puoi effettuare una ricerca libera all’interno dei campi denominazione, tipologia o Intermediario/Partner dell’Ente e applicare i filtri disponibili.</p>\n<p>Tutte le informazioni sono disponibili all’interno delle pagine di dettaglio, raggiungibili cliccando sul nome dell’Ente di interesse.</p>\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-ec.csv\">Elenco degli enti creditori aderenti a PagoPA (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-ec.xlsx\">Elenco degli enti creditori aderenti a PagoPA (XSLX).</a></li>\n</p>"
+            value: "<p>Ricerca gli Enti Creditori aderenti al Sistema pagoPA. </p>\n<p>Per ciascun Ente puoi conoscere i modelli di pagamento offerti:</p> \n<ul>\n<li>pagamento dal portale dell’Ente;</li>\n<li>pagamento presso i canali dei PSP.</li>\n<p>Puoi effettuare una ricerca libera all’interno dei campi denominazione, tipologia o Intermediario/Partner dell’Ente e applicare i filtri disponibili.</p>\n<p>Tutte le informazioni sono disponibili all’interno delle pagine di dettaglio, raggiungibili cliccando sul nome dell’Ente di interesse.</p>\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-ec.csv\">Elenco degli enti creditori aderenti a PagoPA (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-ec.xlsx\">Elenco degli enti creditori aderenti a PagoPA (XSLX).</a></li>\n</ul>\n<p>Inserisci il testo e/o seleziona il filtro di tuo interesse e clicca su Cerca per visualizzare i risultati. </p>"
             format: filtered_text
           plugin_id: text
       footer: {  }
@@ -823,7 +824,7 @@ display:
       use_ajax: true
       css_class: view-table-pagination
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -848,7 +849,7 @@ display:
       path: piattaforme/pagopa/amministrazioni-aderenti
       rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url

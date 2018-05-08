@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override for the field_acc_subj_info field.
+ */
+#}
+{% set classes = [
+  'acc-subj-docs',
+] %}
+{% set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
+<h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
+<ul{{ attributes.addClass(classes) }}>
+  {% for item in items %}
+    <li{{ item.attributes.addClass('acc-subj-docs__item') }}>{{ item.content }}</li>
+  {% endfor %}
+</ul>

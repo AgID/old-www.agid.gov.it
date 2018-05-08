@@ -24,6 +24,8 @@
 @import 'module/typography';
 @import 'module/views';
 @import 'module/webform';
+@import 'module/share';
+@import 'module/twitter';
 
 @import 'theme/breadcrumb';
 @import 'theme/claim';
@@ -33,9 +35,15 @@
 @import 'theme/file';
 @import 'theme/footer';
 @import 'theme/highlighted';
+@import 'theme/megamenu';
 @import 'theme/news';
 @import 'theme/orgchart';
 @import 'theme/platforms';
 @import 'theme/search';
+@import 'theme/table';
 @import 'theme/typography';
 @import 'theme/views';
+
+// Styles relative to single components.
+@import 'components/acc_subj';
+@import 'components/guide_lines';

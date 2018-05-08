@@ -54,7 +54,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 3
+          items_per_page: 2
           offset: 0
       style:
         type: default
@@ -261,6 +261,46 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        langcode:
+          id: langcode
+          table: node_field_revision
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
       sorts:
         changed:
           id: changed
@@ -277,7 +317,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
-      title: 'Technical communications'
+      title: 'Comunicazioni tecniche'
       header: {  }
       footer: {  }
       empty: {  }
@@ -303,10 +343,31 @@ display:
       display_extenders: {  }
       display_description: ''
       block_hide_empty: true
+      rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: 'Block EN'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      block_hide_empty: true
+      rendering_language: '***LANGUAGE_language_interface***'
+      title: 'Technical news'
+      defaults:
+        title: false
+    cache_metadata:
+      max-age: -1
+      contexts:
         - 'languages:language_interface'
         - user
         - 'user.node_grants:view'

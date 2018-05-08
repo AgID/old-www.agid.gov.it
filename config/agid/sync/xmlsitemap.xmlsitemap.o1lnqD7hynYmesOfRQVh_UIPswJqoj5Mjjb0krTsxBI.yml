@@ -5,8 +5,8 @@ dependencies: {  }
 id: o1lnqD7hynYmesOfRQVh_UIPswJqoj5Mjjb0krTsxBI
 label: 'http://drupal8-agid-site.agid.sparkfabrik.loc/it'
 chunks: 1
-links: 401
-max_filesize: 59425
+links: 384
+max_filesize: 57261
 context:
   language: it
-updated: 1521737101
+updated: 1525446902

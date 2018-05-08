@@ -1,12 +1,9 @@
-uuid: c48d08de-eabc-4235-9ad6-afa6d14bd230
 langcode: it
 status: open
 dependencies:
   enforced:
     module:
       - webform
-_core:
-  default_config_hash: QCxQeKi6Joed6MGWIBdsYhCEgQGsu4kKTZGzxlbHJKs
 open: null
 close: null
 uid: null
@@ -15,7 +12,7 @@ id: contact
 title: 'Sede e Contatti'
 description: 'Basic email contact webform.'
 category: ''
-elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h3>Scrivici</h3>\\n\\n<p>Per inviare la tua richiesta seleziona un argomento.</p>\"\nufficio:\n  '#type': webform_term_select\n  '#title': Argomento\n  '#required': true\n  '#vocabulary': contact_form_arguments\n  '#breadcrumb_delimiter': ''\nname:\n  '#type': textfield\n  '#title': 'Il tuo nome'\n  '#default_value': '[webform-authenticated-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'La tua e-mail'\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\nmessage:\n  '#type': textarea\n  '#title': 'Il tuo messaggio'\n  '#required': true\n  '#test': 'Please ignore this email.'\ndetails_captcha:\n  '#type': details\n  '#title': CAPTCHA\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Invia\n"
+elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h3>Scrivici</h3>\\n\\n<p>Per inviare la tua richiesta seleziona un argomento.</p>\"\nufficio:\n  '#type': webform_term_select\n  '#title': Argomento\n  '#required': true\n  '#vocabulary': contact_form_arguments\n  '#breadcrumb_delimiter': ''\nname:\n  '#type': textfield\n  '#title': 'Il tuo nome'\n  '#default_value': '[webform-authenticated-user:display-name]'\nemail:\n  '#type': email\n  '#title': 'La tua e-mail'\n  '#required': true\n  '#default_value': '[webform-authenticated-user:mail]'\nmessage:\n  '#type': textarea\n  '#title': 'Il tuo messaggio'\n  '#required': true\n  '#test': 'Please ignore this email.'\nhorizontal_rule:\n  '#type': webform_horizontal_rule\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Invia\n"
 css: ''
 javascript: ''
 settings:
@@ -39,6 +36,8 @@ settings:
   form_reset: false
   form_disable_autocomplete: false
   form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
   form_unsaved: false
   form_disable_back: false
   form_submit_back: false
@@ -52,6 +51,10 @@ settings:
   submission_login: false
   submission_login_message: ''
   submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
@@ -79,6 +82,8 @@ settings:
   confirmation_back: false
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
@@ -130,6 +135,10 @@ access:
     users: {  }
     permissions: {  }
   administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
     roles: {  }
     users: {  }
     permissions: {  }
@@ -198,3 +207,6 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+uuid: c48d08de-eabc-4235-9ad6-afa6d14bd230
+_core:
+  default_config_hash: QCxQeKi6Joed6MGWIBdsYhCEgQGsu4kKTZGzxlbHJKs

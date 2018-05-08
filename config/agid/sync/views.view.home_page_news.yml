@@ -55,7 +55,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 2
+          items_per_page: 3
           offset: 0
       style:
         type: default
@@ -233,7 +233,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: News
+      title: Notizie
       header: {  }
       footer: {  }
       empty: {  }

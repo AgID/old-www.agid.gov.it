@@ -5,7 +5,7 @@ dependencies:
   module:
     - node
 id: home_page_highlight
-label: 'Home page - Highlight'
+label: 'Home page - Highlight (it)'
 handler: simple
 handler_configuration: {  }
 entity_settings:

@@ -1,4 +1,3 @@
-uuid: 63af08c8-bdbd-4e4a-bc4e-a7d26e19558c
 langcode: it
 status: open
 dependencies: {  }
@@ -10,7 +9,7 @@ id: candidatura_partecipanti_test_us
 title: 'Candidatura Partecipanti Test Usabilità'
 description: ''
 category: ''
-elements: "nome:\n  '#type': textfield\n  '#title': Nome\ncognome:\n  '#type': textfield\n  '#title': Cognome\n  '#required': true\ne_mail:\n  '#type': email\n  '#title': e-mail\n  '#required': true\n  '#required_error': 'Il campo mail è obbligatorio'\neta:\n  '#type': checkboxes\n  '#title': Età\n  '#options':\n    '<18': '<18'\n    18-34: 18-34\n    35-54: 35-54\n    '>55': '>55'\n  '#required': true\n  '#required_error': 'Ai fini dell''organizzazione dei test è necessario sapere la sua età.'\nistruzione:\n  '#type': checkboxes\n  '#title': Istruzione\n  '#options': education\n  '#options_display': side_by_side\n  '#required': true\nprofessione:\n  '#type': webform_radios_other\n  '#title': Professione\n  '#options': employment_status\n  '#options_display': side_by_side\nquanto_pensa_di_conoscere_le_nuove_tecnologie_di_comunicazione_e:\n  '#type': webform_likert\n  '#title': 'Quanto pensa di conoscere le nuove tecnologie di comunicazione (es. pc, smartphone, internet)?'\n  '#questions':\n    'Quanto pensa di conoscere le nuove tecnologie di comunicazione (es. pc, smartphone, internet)?': 'Quanto pensa di conoscere le nuove tecnologie di comunicazione (es. pc, smartphone, internet)?'\n  '#answers':\n    'Per niente': 'Per niente'\n    Poco: Poco\n    Sufficientemente: Sufficientemente\n    Discretamente: Discretamente\n    Benissimo: Benissimo\n  '#na_answer_text': ''\ndetails_captcha:\n  '#type': details\n  '#title': CAPTCHA\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Invia Candidatura'\n  '#submit__label': 'Invia Candidatura'\n"
+elements: "nome:\n  '#type': textfield\n  '#title': Nome\ncognome:\n  '#type': textfield\n  '#title': Cognome\n  '#required': true\ne_mail:\n  '#type': email\n  '#title': e-mail\n  '#required': true\n  '#required_error': 'Il campo mail è obbligatorio'\neta:\n  '#type': checkboxes\n  '#title': Età\n  '#options':\n    '<18': '<18'\n    18-34: 18-34\n    35-54: 35-54\n    '>55': '>55'\n  '#required': true\n  '#required_error': 'Ai fini dell''organizzazione dei test è necessario sapere la sua età.'\nistruzione:\n  '#type': checkboxes\n  '#title': Istruzione\n  '#options': education\n  '#options_display': side_by_side\n  '#required': true\nprofessione:\n  '#type': webform_radios_other\n  '#title': Professione\n  '#options': employment_status\n  '#options_display': side_by_side\nquanto_pensa_di_conoscere_le_nuove_tecnologie_di_comunicazione_e:\n  '#type': webform_likert\n  '#title': 'Quanto pensa di conoscere le nuove tecnologie di comunicazione (es. pc, smartphone, internet)?'\n  '#questions':\n    'Quanto pensa di conoscere le nuove tecnologie di comunicazione (es. pc, smartphone, internet)?': 'Quanto pensa di conoscere le nuove tecnologie di comunicazione (es. pc, smartphone, internet)?'\n  '#answers':\n    'Per niente': 'Per niente'\n    Poco: Poco\n    Sufficientemente: Sufficientemente\n    Discretamente: Discretamente\n    Benissimo: Benissimo\n  '#na_answer_text': ''\nhorizontal_rule:\n  '#type': webform_horizontal_rule\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Invia Candidatura'\n  '#submit__label': 'Invia Candidatura'\n"
 css: ''
 javascript: ''
 settings:
@@ -34,6 +33,8 @@ settings:
   form_reset: false
   form_disable_autocomplete: false
   form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
   form_unsaved: false
   form_disable_back: false
   form_submit_back: false
@@ -47,6 +48,10 @@ settings:
   submission_login: false
   submission_login_message: ''
   submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
@@ -74,6 +79,8 @@ settings:
   confirmation_back: true
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
@@ -128,4 +135,9 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers: {  }
+uuid: 63af08c8-bdbd-4e4a-bc4e-a7d26e19558c

@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Default theme implementation for Facebook share button.
+ *
+ * Available variables:
+ *  - url: The url of the page to be shared.
+ *  - content: The button's image or other content to appear on the page. (default: image)
+ *
+ */
+#}
+{#<a href="https://www.facebook.com/sharer/sharer.php?u={{ url | url_encode }}" target="_blank" >{{ content }}</a>#}
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ url | url_encode }}" target="_blank" title=""><span class="Icon Icon-facebook"></span><span class="u-hiddenVisually">Facebook</span></a>

@@ -3,9 +3,13 @@ langcode: it
 status: true
 dependencies:
   module:
+    - block_class
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: pagetitle
 theme: agid
 region: breadcrumb
@@ -20,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: "<front>\r\n/piattaforme/spid/identity-provider-accreditati/*"
     negate: true
     context_mapping: {  }

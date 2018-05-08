@@ -15,16 +15,16 @@ third_party_settings:
     classes: 'block-home-page-tech-comm u-padding-r-left u-padding-r-right u-inlineBlock u-size1of1 u-md-size1of3 u-lg-size1of3 Grid--cell'
 id: views_block__home_page_notizie_tecniche_block_1
 theme: agid
-region: postscript_first
-weight: 0
+region: postscript_third
+weight: -18
 provider: null
 plugin: 'views_block:home_page_notizie_tecniche-block_1'
 settings:
   id: 'views_block:home_page_notizie_tecniche-block_1'
-  label: ''
+  label: 'Comunicazioni tecniche'
   provider: views
   label_display: visible
-  views_label: ''
+  views_label: 'Comunicazioni tecniche'
   items_per_page: none
 visibility:
   request_path:

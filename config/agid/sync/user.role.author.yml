@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: author
 label: Redattore
-weight: 3
+weight: -6
 is_admin: null
 permissions:
   - 'access administration pages'

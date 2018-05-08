@@ -1,57 +1,103 @@
 /**
  * @file
+ * @file
  * A JavaScript file for the theme.
  */
 
 (function ($, Drupal, window, document) {
   'use strict';
 
+  jQuery(document).ready(function() {
+    var body = $('body');
+
+    jQuery(document).on('click', function (e) {
+      if (!e.target.closest('.Megamenu-item')) {
+
+        jQuery('.Megamenu .is-active').each(function (index, el) {
+          $(el).removeClass('is-not-highlighted');
+        });
+
+        $('.Megamenu-item').each(function() {
+          $(this).removeClass('menu-opened');
+        });
+
+        $('.main-overlay').hide();
+      }
+    });
+
+    jQuery('.Megamenu-item > a').on('click', function () {
+
+      var li = $(this).parent();
+
+      if ( !li.children('.Megamenu-subnav').length ) {
+        jQuery('.Megamenu .is-active').each(function (index, el) {
+          $(el).removeClass('is-not-highlighted');
+        });
+        $('.Megamenu-item').each(function() {
+          $(this).removeClass('menu-opened');
+        });
+        $('.main-overlay').hide();
+        return;
+      }
+
+      if (li.hasClass('menu-opened')) {
+        li.removeClass('menu-opened');
+        $('.main-overlay').hide();
+
+        jQuery('.Megamenu .is-active').each(function (index, el) {
+          $(el).removeClass('is-not-highlighted');
+        });
+      } else {
+        $('.Megamenu-item').each(function() {
+          $(this).removeClass('menu-opened');
+        });
+        li.addClass('menu-opened');
+        $('.main-overlay').show();
+
+        if (!li.hasClass('is-active')) {
+          jQuery('.Megamenu .is-active').each(function (index, el) {
+            $(el).addClass('is-not-highlighted');
+          });
+        } else {
+          jQuery('.Megamenu .is-active').each(function (index, el) {
+            $(el).removeClass('is-not-highlighted');
+          });
+        }
+      }
+    });
+
+    jQuery('.Megamenu-item').each(
+      function (index, elem) {
+        // @TODO find a better solution than hardcode the "linee-guida" path.
+        if (jQuery(elem).find('a').length == 1 && window.location.pathname.indexOf('linee-guida') < 0)
+          return;
+        var link_orig = jQuery(elem).find('a').first();
+        var link_copy = jQuery('<a/>');
+        if (window.location.pathname.indexOf(link_orig.attr('href')) == 0) {
+          jQuery(elem).addClass('is-active');
+        }
+        link_copy.attr('href', link_orig.attr('href'));
+        link_copy.html(link_orig.html());
+        var div = jQuery(elem).find('div').first();
+        var li = jQuery('<li/>');
+        li.append(link_copy);
+        var ul = jQuery('<ul/>', {class: 'Megamenu-subnavGroup Megamenu-pageLink'});
+        ul.append(li);
+        div.append(ul);
+
+        jQuery(link_orig).click(function (e) {
+          e.preventDefault();
+        });
+
+      }
+    );
+  });
+
   Drupal.behaviors.themeJS = {
     attach: function (context, settings) {
       if (typeof context['location'] !== 'undefined') {
 
-        jQuery(window).on('load', function() {
-          jQuery('.Megamenu-list > li.is-active').addClass('is-highlighted');
-        });
-
         jQuery(document).ready(function() {
-          jQuery(window).on('mouseup', function() {
-            setTimeout(function() {
-              if (jQuery('.Megamenu-list > li > a.is-open').length) {
-                jQuery('.Megamenu-list > li.is-active').removeClass('is-highlighted');
-                jQuery('.main-overlay').show();
-              } else {
-                jQuery('.Megamenu-list > li.is-active').addClass('is-highlighted');
-                jQuery('.main-overlay').hide();
-              }
-            }, 0);
-          });
-
-
-          jQuery('.Megamenu-item').each(
-            function(index, elem) {
-              if (jQuery(elem).find('a').length == 1)
-                return;
-              var link_orig = jQuery(elem).find('a').first();
-              var link_copy = jQuery('<a/>');
-              if (window.location.pathname.indexOf(link_orig.attr('href')) == 0) {
-                jQuery(elem).addClass('is-active');
-              }
-              link_copy.attr('href', link_orig.attr('href'));
-              link_copy.html(link_orig.html());
-              var div = jQuery(elem).find('div').first();
-              var li = jQuery('<li/>');
-              li.append(link_copy);
-              var ul = jQuery('<ul/>', {class: 'Megamenu-subnavGroup Megamenu-pageLink'});
-              ul.append(li);
-              div.append(ul);
-
-              jQuery(link_orig).click(function(e) {
-                e.preventDefault();
-              });
-
-            }
-          );
 
           jQuery('ul.sidebarnav-menu > li').each(function(index, elem) {
             var found = false;
@@ -147,5 +193,30 @@
       }
     }
   };
+
+  // Javascript specific for the Guide Lines page.
+  Drupal.behaviors.guideLines = {
+    attach: function (context, settings) {
+      // If we are in the guide-lines page we have the exposed filters.
+      if ($('#guideLinesFiltersMobileToggler').length) {
+
+        // Manage click on the filters toggler.
+        $('#guideLinesFiltersMobileToggler').click(function () {
+          $(this).toggleClass('is-open');
+          $('html').toggleClass('is-open-agid-guide-lines-filters');
+        })
+
+        // Manage behavior and click on the fake reset button.
+        if(window.location.search) {
+          $('#guideLinesFormReset').find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
+        }
+        $('#guideLinesFormReset').click(function () {
+          $('#views-exposed-form-linee-guida-guide-lines').find('[id*="edit-reset"]').trigger('click');
+        })
+
+        // Enable the megamenu voice.
+      }
+    }
+  }
 
 })(jQuery, Drupal, this, this.document);

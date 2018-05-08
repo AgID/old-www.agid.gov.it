@@ -1,0 +1,45 @@
+uuid: 4638da2b-9553-4e76-8945-d83994051cc6
+langcode: it
+status: true
+dependencies:
+  module:
+    - agid_twitter_block
+    - block_class
+    - language
+    - system
+  theme:
+    - agid
+third_party_settings:
+  block_class:
+    classes: ''
+id: twitterblock
+theme: agid
+region: twitter_area
+weight: -18
+provider: null
+plugin: agid_twitter_block
+settings:
+  id: agid_twitter_block
+  label: TwitterBlock
+  provider: agid_twitter_block
+  label_display: '0'
+  title: '@AgidGov'
+  username: AgidGov
+  tweets_to_show: '3'
+  consumer_key: vPzQm4GlixFaboAvbwerH13Aj
+  consumer_secret: ASzSuOZ82eFwbyDZFKqtKpFm8ZkoM3hYcwS9FzjWf6MGvMHAu5
+  access_token: 352997213-wFRj30agMYto9db9ZcLlVdpPBebh027sTcCcNQfl
+  access_token_secret: 2e1KmgRGhg0CnGKqpnEFVvD0Tv1KfY6uAwsJIis3eOYLM
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  language:
+    id: language
+    langcodes:
+      it: it
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'

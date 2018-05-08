@@ -38,21 +38,20 @@
 #}
 
 {%
-set classes = [
-'field',
-'field--name-' ~ field_name|clean_class,
-'field--type-' ~ field_type|clean_class,
-'field--label-' ~ label_display,
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
 ]
 %}
 {%
-set title_classes = [
-'field__label',
-label_display == 'visually_hidden' ? 'visually-hidden',
+  set title_classes = [
+  'field__label',
+  label_display == 'visually_hidden' ? 'visually-hidden',
 ]
 %}
-<div class="accsubj-fc">
-<h3>{{ 'Dati societari'|t }}</h3>
+
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes.addClass(classes, 'field__items') }}>
@@ -72,11 +71,14 @@ label_display == 'visually_hidden' ? 'visually-hidden',
     <div class="field__items">
       {% endif %}
       {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass('field__item') }}>
+          {{ item.content }}
+          <p> <small><b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}</small> </p>
+          <br>
+        </div>
       {% endfor %}
       {% if multiple %}
     </div>
     {% endif %}
   </div>
 {% endif %}
-</div>

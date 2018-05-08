@@ -6,10 +6,11 @@ _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous
 label: 'Utente anonimo'
-weight: 0
+weight: -10
 is_admin: false
 permissions:
   - 'access content'
+  - 'access sitemap'
   - 'search content'
   - 'view empty pages'
   - 'view files'

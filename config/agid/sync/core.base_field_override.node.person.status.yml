@@ -1,0 +1,22 @@
+uuid: 51ea4d17-3596-4f95-b3c4-d0f5664d5b65
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.person
+id: node.person.status
+field_name: status
+entity_type: node
+bundle: person
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

@@ -5,14 +5,19 @@ dependencies:
   content:
     - 'block_content:basic:12413d38-1b98-404e-a02a-5d799f3736b6'
   module:
+    - block_class
     - block_content
+    - language
     - system
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: homepageplatforms
 theme: agid
 region: postscript_third
-weight: 0
+weight: -17
 provider: null
 plugin: 'block_content:12413d38-1b98-404e-a02a-5d799f3736b6'
 settings:
@@ -29,3 +34,10 @@ visibility:
     pages: '<front>'
     negate: false
     context_mapping: {  }
+  language:
+    id: language
+    langcodes:
+      it: it
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'

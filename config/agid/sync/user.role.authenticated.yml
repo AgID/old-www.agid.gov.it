@@ -6,10 +6,8 @@ _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
 label: 'Utente autenticato'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
-  - 'access content'
   - 'search content'
   - 'view empty pages'
-  - 'view files'
