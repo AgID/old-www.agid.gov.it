@@ -70,9 +70,9 @@
                 {% for attribute, value in item.url.getOption('attributes') %}
                     {% set link_attributes = value ? link_attributes|merge([attribute ~ "=" ~ value]) : link_attributes %}
                 {% endfor %}
-                <a {{ link_attributes|join(' ') }} href="#" onclick="return false;" role="button" title="{{ item.title }}"{{ data_megamenu_class }}>
+                <button {{ link_attributes|join(' ') }} href="#" onclick="return false;" title="{{ item.title }}"{{ data_megamenu_class }}>
                     {{ item.title }}
-                </a>
+                </button>
             {% endif %}
             {% if item.below %}
                 {{ menus.menu_links(item.below, attributes, menu_level + 1) }}

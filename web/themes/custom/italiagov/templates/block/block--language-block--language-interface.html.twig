@@ -33,12 +33,12 @@
 
     {# Active language #}
     {% if content.active_language %}
-      <a aria-controls="languages" aria-haspopup="true" class="{{ active_language_classes | join(' ') }}"
-         data-menu-trigger="languages" href="#languages" role="button">
+      <button aria-label="{{ 'Seleziona la lingua'|t }}" aria-controls="languages" aria-haspopup="true" class="{{ active_language_classes | join(' ') }}"
+         data-menu-trigger="languages">
         <span class="u-hiddenVisually">{{ content.active_language.label_hidden }}:</span>
         <span>{{ active_languages[content.active_language.language_name] | upper }}</span>
         <span class="{{ active_language_span_classes | join(' ') }}"></span>
-      </a>
+      </button>
     {% endif %}
 
     {{ content }}

@@ -12,6 +12,7 @@
  */
 
 use Drupal\block\Entity\Block;
+use Drupal\Component\Utility\SafeMarkup;
 
 /**
  * Implements hook_preprocess_html().
@@ -144,6 +145,33 @@ function italiagov_theme_suggestions_alter(&$suggestions, $variables, $hook) {
         continue;
       }
       italiagov_add_region_based_menu_block_suggestion($suggestions, $variables, $hook, $region, $blocks_in_region);
+    }
+  }
+  // For the container core/themes/stable/templates/form/container.html.twig.
+  if ($hook === 'container') {
+    // We must have a type to continue.
+    if (!isset($variables['element']['#type'])) {
+      return;
+    }
+    $type = $variables['element']['#type'];
+    $suggestions[] = 'container__' . $type;
+    // The following is useful for views (The type is view, and the name
+    // is the view name.
+    if (isset($variables['element']['#name'])) {
+        $suggestions[] = 'container__' . $type . '__' . $variables['element']['#name'];
+    };
+    // For form submit actions, I add a more specific template based on ID.
+    if (($type == 'actions') && isset($variables['element']['submit'])) {
+      $submit = $variables['element']['submit']['#type'];
+      $suggestions[] = 'container__' . $type . '__' . $submit;
+      // Add an data-twig-context suggestion.
+      if (isset($variables['element']['submit']['#attributes']['data-twig-context'])) {
+        $suggestions[] = 'container__' . $type . '__' . $variables['element']['submit']['#attributes']['data-twig-context'];
+      }
+      // An finally add the more specific ID base suggestion.
+      if (isset($variables['element']['submit']['#attributes']['id'])) {
+        $suggestions[] = 'container__' . $type . '__' . $variables['element']['submit']['#attributes']['id'];
+      }
     }
   }
 }
