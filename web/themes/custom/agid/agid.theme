@@ -5,6 +5,8 @@
  * Contains the theme's functions to manipulate Drupal's default markup.
  */
 
+use Drupal\Core\Url;
+
 /**
  * Implements hook_page_attachments_alter().
  */
@@ -93,4 +95,12 @@ function agid_preprocess_page(&$variables) {
  */
 function agid_preprocess_html(&$variables) {
   $variables['icon_path'] = '/' . drupal_get_path('theme','agid') . '/icons';
+}
+
+function agid_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'language_block:language_interface') {
+    foreach ($variables['content']['#links'] as $langKey => &$langItem) {
+      $langItem['url'] = Url::fromRoute('<front>', [], $langKey);
+    }
+  }
 }
