@@ -53,6 +53,7 @@ permissions:
   - 'use b8448396 transition needs_review_needs_review'
   - 'use b8448396 transition published_draft'
   - 'use text format filtered_text'
+  - 'use text format full_html'
   - 'view all revisions'
   - 'view files'
   - 'view latest version'

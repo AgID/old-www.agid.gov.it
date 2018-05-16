@@ -678,7 +678,7 @@ display:
           relationship: field_repository_files
           group_type: group
           admin_label: ''
-          operator: not
+          operator: or
           value: {  }
           group: 1
           exposed: true
@@ -698,7 +698,7 @@ display:
               administrator: '0'
               publisher: '0'
               author: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
