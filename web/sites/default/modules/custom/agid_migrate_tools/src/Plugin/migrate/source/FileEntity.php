@@ -17,7 +17,8 @@ use Psr\Log\LoggerInterface;
  *
  * @MigrateSource(
  *   id = "file_entity",
- *   source_provider = "file"
+ *   source_provider = "file",
+ *   source_module = "agid_fixtures"
  * )
  */
 class FileEntity extends File {
