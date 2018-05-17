@@ -5,7 +5,6 @@ module:
   agid_base: 0
   agid_blocks: 0
   agid_file_repository: 0
-  agid_fixtures: 0
   agid_footer: 0
   agid_migrate_tools: 0
   agid_pagopa: 0

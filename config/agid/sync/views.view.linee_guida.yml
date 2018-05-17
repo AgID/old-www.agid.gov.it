@@ -684,7 +684,7 @@ display:
           exposed: true
           expose:
             operator_id: field_arguments_target_id_1_op
-            label: FILTRI
+            label: Filtro
             description: ''
             use_operator: false
             operator: field_arguments_target_id_1_op
@@ -696,9 +696,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              author: '0'
               publisher: '0'
-            reduce: false
+              author: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''

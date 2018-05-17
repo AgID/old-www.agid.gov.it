@@ -3,10 +3,10 @@ langcode: it
 status: true
 dependencies: {  }
 id: o1lnqD7hynYmesOfRQVh_UIPswJqoj5Mjjb0krTsxBI
-label: 'http://drupal8-agid-site.agid.sparkfabrik.loc/it'
+label: 'https://www.agid.gov.it/it'
 chunks: 1
-links: 384
-max_filesize: 57261
+links: 356
+max_filesize: 52472
 context:
   language: it
-updated: 1525446902
+updated: 1526470201
