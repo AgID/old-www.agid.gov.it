@@ -11,7 +11,7 @@ _core:
 id: agid_languageswitcher
 theme: agid
 region: header_top
-weight: 0
+weight: -19
 provider: null
 plugin: 'language_block:language_interface'
 settings:
