@@ -104,3 +104,31 @@ function agid_preprocess_block(&$variables) {
     }
   }
 }
+
+/**
+ * Alter linee_guida exposed filter form
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ */
+function agid_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Get current view object
+  $view = $form_state->getStorage('view');
+  // Check if views_exposed_form is from linee_guida
+  if ($form_id === 'views_exposed_form' && $view['view']->id() === 'linee_guida') {
+    // Unset $view, free memory.
+    unset($view);
+    // Check, foreach exposed term, if has related contents
+    foreach ($form['arguments']['#options'] as $tid => $option) {
+      // Get all files entity related $tid term
+      $files = \Drupal::entityTypeManager()->getStorage('file')->loadByProperties([ 'field_arguments' => $tid, ]);
+      // If not exists remove the term from options
+      if (count($files) == 0) {
+        unset($form['arguments']['#options'][$tid]);
+      }
+    }
+  }
+}
