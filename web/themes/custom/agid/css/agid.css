@@ -1028,8 +1028,24 @@ article ul li.share-everywhere {
   display: none;
 }
 
+.slim-header--toggle {
+  float: left;
+}
+
+@media (max-width: 767px) {
+  .slim-header--toggle {
+    display: inline-block !important;
+  }
+}
+
 .slim-header--menu {
   float: right;
+}
+
+@media (max-width: 991px) {
+  .slim-header--menu {
+    display: none !important;
+  }
 }
 
 .slim-header--menu > ul {

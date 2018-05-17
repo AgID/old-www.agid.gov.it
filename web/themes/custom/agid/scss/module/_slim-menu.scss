@@ -1,6 +1,16 @@
 $link-color: #4A9FFA;
+
 .slim-header {
+  &--toggle {
+    float: left;
+    @include breakpoint(medium, down) {
+      display: inline-block !important;
+    }
+  }
   &--menu {
+    @include breakpoint(large, down) {
+      display: none !important;
+    }
     float: right;
     & > ul {
       display: inline-block;
