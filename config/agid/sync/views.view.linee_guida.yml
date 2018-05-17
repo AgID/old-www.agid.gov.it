@@ -698,7 +698,7 @@ display:
               administrator: '0'
               publisher: '0'
               author: '0'
-            reduce: true
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
