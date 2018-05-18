@@ -1064,6 +1064,7 @@ article ul li.share-everywhere {
   height: 2px;
   bottom: -20px;
   background-color: #4A9FFA;
+  left: 0;
 }
 
 .slim-header--menu > ul li:not(:first-child) {
