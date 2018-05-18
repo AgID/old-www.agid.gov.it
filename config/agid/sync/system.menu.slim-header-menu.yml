@@ -1,0 +1,8 @@
+uuid: 3054546f-3309-477a-903f-f16af556dbd9
+langcode: it
+status: true
+dependencies: {  }
+id: slim-header-menu
+label: 'Slim Header Menu'
+description: ''
+locked: false

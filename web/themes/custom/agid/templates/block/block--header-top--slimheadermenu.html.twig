@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Theme override for a menu block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: HTML attributes for the containing element.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: HTML attributes for the title element.
+ * - content_attributes: HTML attributes for the content element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * Headings should be used on navigation menus that consistently appear on
+ * multiple pages. When this menu block's label is configured to not be
+ * displayed, it is automatically made invisible using the 'visually-hidden' CSS
+ * class, which still keeps it visible for screen-readers and assistive
+ * technology. Headings allow screen-reader and keyboard only users to navigate
+ * to or skip the links.
+ * See http://juicystudio.com/article/screen-readers-display-none.php and
+ * http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
+ */
+#}
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+{% set classes = [
+  'slim-header--menu',
+] %}
+{% set content_copy = content %}
+{# Hidden for medium up #}
+<div class="u-md-hidden u-lg-hidden u-border-right-xxs u-margin-right-xs u-padding-right-xs u-alignMiddle slim-header--toggle">
+  <a class="js-fr-offcanvas-open u-block" href="#slim-menu" aria-controls="slim-menu" aria-label="accedi al menu del network" title="accedi al menu del network">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTkuMnB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxMiAxMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSIxMDI0dXAiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSItLWhvbWUtLS1wYXJhbGxheC0tLW1vYmlsZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI0LjAwMDAwMCwgLTIwLjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iLW5ldHdvcmstc2xpbS1oZWFkZXIiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTI0LDI0IEwzNiwyNCBMMzYsMjYgTDI0LDI2IEwyNCwyNCBaIE0yNCwyMCBMMzIsMjAgTDMyLDIyIEwyNCwyMiBMMjQsMjAgWiBNMjQsMjggTDMyLDI4IEwzMiwzMCBMMjQsMzAgTDI0LDI4IFoiIGlkPSJpY29uLXNtYWxsLWJ1cmdlciI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=">
+  </a>
+</div>
+
+<nav aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }} role="navigation">
+  {# Label. If not displayed, we still provide it for screen readers. #}
+  {% if not configuration.label_display %}
+    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+  {% endif %}
+  {{ title_prefix }}
+  <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
+  {{ title_suffix }}
+
+  {# Menu. #}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</nav>
+
+<section class="Offcanvas Offcanvas--left Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone u-hiddenPrint" id="slim-menu">
+  <h2 class="u-hiddenVisually">Menu di navigazione</h2>
+  <div class="Offcanvas-content u-background-white">
+    <div class="Offcanvas-toggleContainer u-background-70 u-jsHidden">
+      <a class="Hamburger-toggleContainer u-block u-color-white u-padding-bottom-xxl u-padding-left-s u-padding-top-xxl js-fr-offcanvas-close" aria-controls="menu" aria-label="esci dalla navigazione" title="esci dalla navigazione" href="#">
+        <span class="Hamburger-toggle is-active" aria-hidden="true"></span>
+      </a>
+    </div>
+    <nav>
+      <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
+        {{ content }}
+      </ul>
+
+    </nav>
+  </div>
+</section>
