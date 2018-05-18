@@ -9,6 +9,7 @@ dependencies:
   content:
     - 'taxonomy_term:news_type:4f5df977-1c77-4c1a-af2b-f6c2b034a282'
   module:
+    - datetime
     - node
     - taxonomy
     - user
@@ -218,10 +219,10 @@ display:
           error_message: true
           plugin_id: taxonomy_index_tid
       sorts:
-        status:
-          id: status
-          table: node_field_data
-          field: status
+        field_news_date_value:
+          id: field_news_date_value
+          table: node__field_news_date
+          field: field_news_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -229,9 +230,8 @@ display:
           exposed: false
           expose:
             label: ''
-          entity_type: node
-          entity_field: status
-          plugin_id: standard
+          granularity: second
+          plugin_id: datetime
       title: Notizie
       header: {  }
       footer: {  }
