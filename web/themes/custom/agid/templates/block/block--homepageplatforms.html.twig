@@ -28,7 +28,11 @@
 <div{{ attributes.addClass('u-size1of1', 'u-md-size2of3', 'u-lg-size2of3', 'homepage-block', 'homepage-platforms', 'Grid--cell') }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}><a href="/piattaforme" title="{{ 'See all platforms'|t }}">{{ label }}</a></h2>
+    {% if (content['body']['#language'] == 'it') %}
+      <h2{{ title_attributes }}><a href="/it/piattaforme" title="{{ 'See all platforms'|t }}">{{ label }}</a></h2>
+    {% else %}
+      <h2{{ title_attributes }}><a href="/en/platforms" title="{{ 'See all platforms'|t }}">{{ label }}</a></h2>
+    {% endif %}
   {% endif %}
   {{ title_suffix }}
   {% block content %}
