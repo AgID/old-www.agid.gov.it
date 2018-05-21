@@ -28,7 +28,11 @@
 <section{{ attributes }}>
   {{ title_prefix }}
   {% if label %}
-    <h3{{ title_attributes }}><a href="/agenzia/stampa-e-comunicazione/notizie?tipo_notizia=430" title="{{ 'See all news'|t }}">{{ configuration.label }}</a></h3>
+    {% if (language == 'it') %}
+      <h3{{ title_attributes }}><a href="/it/agenzia/stampa-e-comunicazione/notizie?tipo_notizia=430" title="{{ 'See all news'|t }}">{{ configuration.label }}</a></h3>
+    {% elseif (language == 'en') %}
+      <h3{{ title_attributes }}><a href="/en/agenzia/stampa-e-comunicazione/notizie?tipo_notizia=430" title="{{ 'See all news'|t }}">{{ configuration.label }}</a></h3>
+    {% endif %}
   {% endif %}
   {{ title_suffix }}
   {% block content %}

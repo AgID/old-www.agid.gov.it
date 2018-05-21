@@ -98,6 +98,9 @@ function agid_preprocess_html(&$variables) {
 }
 
 function agid_preprocess_block(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $language;
+
   if ($variables['plugin_id'] == 'language_block:language_interface') {
     foreach ($variables['content']['#links'] as $langKey => &$langItem) {
       $langItem['url'] = Url::fromRoute('<front>', [], $langKey);
