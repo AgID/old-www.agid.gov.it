@@ -23,7 +23,7 @@ $link-color: #4A9FFA;
             width: 100%;
             height: 2px;
             bottom: -20px;
-            background-color: $link-color;
+            background-color: white;
             left: 0;
           }
         }
@@ -35,12 +35,12 @@ $link-color: #4A9FFA;
           margin-right: 1.5em;
         }
         a {
-          color: $link-color;
+          color: white;
           &:hover {
             text-decoration: none !important;
           }
           text-decoration: none;
-          font-weight: bold;
+          font-weight: normal;
         }
       }
     }
