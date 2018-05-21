@@ -5,11 +5,15 @@ dependencies:
   config:
     - core.entity_view_mode.file.thumbnail
     - field.field.file.image.field_arguments
+    - field.field.file.image.field_date
     - field.field.file.image.field_description
+    - field.field.file.image.field_original_file_source
     - field.field.file.image.field_title
+    - field.field.file.image.field_type
     - file_entity.type.image
     - image.style.thumbnail
   module:
+    - datetime
     - file_entity
 _core:
   default_config_hash: 8trPid18Dj2TjH8c4n0Eb1KrYcJR0xYIyNlgYlGk2XI
@@ -18,6 +22,15 @@ targetEntityType: file
 bundle: image
 mode: thumbnail
 content:
+  field_date:
+    type: datetime_default
+    weight: 3
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
   field_title:
     type: string
     weight: 0

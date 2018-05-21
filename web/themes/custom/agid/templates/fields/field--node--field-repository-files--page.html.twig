@@ -38,7 +38,6 @@
 #}
 
 {#{% extends 'field.html.twig' %}#}
-
 {% set classes = [
 'field',
 'field--name-' ~ field_name|clean_class,
@@ -76,10 +75,6 @@
           {% for item in items %}
             {% if item_file_types[loop.index0] == file_type %}
               {{ item.content }}
-              <div class="u-layout-prose u-color-60">
-                <b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}
-              </div>
-              <br>
             {% endif %}
           {% endfor %}
         </div>

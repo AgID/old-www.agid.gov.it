@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.file.thumbnail
     - field.field.file.media_kit.field_arguments
+    - field.field.file.media_kit.field_date
     - field.field.file.media_kit.field_description
     - field.field.file.media_kit.field_file_category
     - field.field.file.media_kit.field_original_file_source
@@ -12,12 +13,22 @@ dependencies:
     - field.field.file.media_kit.field_type
     - file_entity.type.media_kit
   module:
+    - datetime
     - file
 id: file.media_kit.thumbnail
 targetEntityType: file
 bundle: media_kit
 mode: thumbnail
 content:
+  field_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
   field_title:
     weight: 1
     label: hidden

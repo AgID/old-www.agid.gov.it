@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.file.thumbnail
     - field.field.file.document.field_arguments
+    - field.field.file.document.field_date
     - field.field.file.document.field_description
     - field.field.file.document.field_file_category
     - field.field.file.document.field_original_file_source
@@ -12,6 +13,7 @@ dependencies:
     - field.field.file.document.field_type
     - file_entity.type.document
   module:
+    - datetime
     - file
 _core:
   default_config_hash: zlB0VonOjJywsH9sIrMlYt9bIpPdi3QysmBkBUaV1YY
@@ -20,6 +22,15 @@ targetEntityType: file
 bundle: document
 mode: thumbnail
 content:
+  field_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
   field_title:
     type: file_link
     weight: 1

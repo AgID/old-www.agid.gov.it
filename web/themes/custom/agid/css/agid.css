@@ -2,6 +2,18 @@ main {
   position: relative;
 }
 
+.field.field--name-field-date {
+  color: #0059b3;
+}
+
+.field.field--name-field-date .field__label {
+  font-weight: bold;
+}
+
+.field.field--name-field-date .field__label:after {
+  content: ': ';
+}
+
 .claim {
   background-color: rgba(127, 178, 229, 0.1);
   color: #004080;

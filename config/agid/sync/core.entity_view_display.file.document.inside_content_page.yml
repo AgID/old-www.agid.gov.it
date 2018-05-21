@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.file.inside_content_page
     - field.field.file.document.field_arguments
+    - field.field.file.document.field_date
     - field.field.file.document.field_description
     - field.field.file.document.field_file_category
     - field.field.file.document.field_original_file_source
@@ -12,12 +13,22 @@ dependencies:
     - field.field.file.document.field_type
     - file_entity.type.document
   module:
+    - datetime
     - file
 id: file.document.inside_content_page
 targetEntityType: file
 bundle: document
 mode: inside_content_page
 content:
+  field_date:
+    type: datetime_default
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: agid_homepage
+    third_party_settings: {  }
   field_title:
     weight: 0
     label: hidden
