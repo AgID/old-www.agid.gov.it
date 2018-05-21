@@ -36,7 +36,6 @@
  * @see template_preprocess_field()
  */
 #}
-
 {%
   set classes = [
   'field',
@@ -74,7 +73,6 @@
       {% for item in items %}
         <div{{ item.attributes.addClass('field__item') }}>
           {{ item.content }}
-          <p> <small><b>Data:</b> {{ item.content['#file'].getChangedTime() | date("d/m/Y") }}</small> </p>
           <br>
         </div>
       {% endfor %}
