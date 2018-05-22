@@ -32,7 +32,7 @@ mobile_popup_info:
 mobile_breakpoint: 768
 popup_link: /it/privacy-policy
 popup_link_new_window: true
-popup_position: false
+popup_position: true
 fixed_top_position: true
 popup_text_hex: ffffff
 popup_width: 100%
