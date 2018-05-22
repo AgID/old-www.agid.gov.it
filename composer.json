@@ -119,7 +119,7 @@
     "drupal/adminimal_theme": "1.3.0",
     "drupal/twig_field_value": "1.1.0",
     "drupal/migrate_google_sheets": "1.x-dev",
-    "drupal/eu_cookie_compliance": "1.0-beta7",
+    "drupal/eu_cookie_compliance": "^1.0",
     "drupal/pathauto": "^1.0",
     "drupal/token": "~1",
     "drupal/ctools": "3.*",

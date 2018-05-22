@@ -9,5 +9,6 @@ label: 'Utente autenticato'
 weight: -9
 is_admin: false
 permissions:
+  - 'display eu cookie compliance popup'
   - 'search content'
   - 'view empty pages'
