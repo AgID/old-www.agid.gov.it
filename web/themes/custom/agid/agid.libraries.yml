@@ -5,6 +5,7 @@ global:
       css/agid.css: {}
   js:
     js/agid.js: {}
+    js/agid_analytics.js: {}
   dependencies:
     - core/modernizr
 agid_share:

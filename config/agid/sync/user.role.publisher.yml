@@ -26,6 +26,7 @@ permissions:
   - 'delete own faq content'
   - 'delete own news content'
   - 'delete own press content'
+  - 'display eu cookie compliance popup'
   - 'edit any page content'
   - 'edit own acc_subj content'
   - 'edit own document files'
