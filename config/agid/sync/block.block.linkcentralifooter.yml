@@ -5,9 +5,14 @@ dependencies:
   config:
     - system.menu.link-centrali-footer
   module:
+    - block_class
+    - language
     - menu_block
   theme:
     - agid
+third_party_settings:
+  block_class:
+    classes: ''
 id: linkcentralifooter
 theme: agid
 region: footer_middle
@@ -20,10 +25,17 @@ settings:
   provider: menu_block
   label_display: '0'
   follow: 0
-  follow_parent: 0
+  follow_parent: '0'
   level: 1
   depth: 0
   expand: 0
   parent: 'link-centrali-footer:'
   suggestion: link_centrali_footer
-visibility: {  }
+visibility:
+  language:
+    id: language
+    langcodes:
+      it: it
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'

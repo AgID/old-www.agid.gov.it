@@ -23,7 +23,7 @@ settings:
   provider: agid_footer
   label_display: '0'
   indirizzo:
-    - 'Viale Liszt 21 - 00144 Roma'
+    - 'Via Liszt 21 - 00144 Roma'
     - 'Telefono: +39 06852641'
     - ''
     - ''

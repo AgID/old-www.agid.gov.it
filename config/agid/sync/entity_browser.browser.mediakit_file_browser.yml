@@ -34,7 +34,7 @@ widgets:
     settings:
       upload_location: 'public://repository_files'
       dropzone_description: 'Drop files here to upload them'
-      max_filesize: 2M
+      max_filesize: 20M
       extensions: 'zip rar tar gz gzip'
       clientside_resize: false
       resize_width: 0

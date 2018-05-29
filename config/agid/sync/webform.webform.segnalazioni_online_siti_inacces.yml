@@ -1,0 +1,209 @@
+uuid: 273c8d05-3922-4c26-b2bd-b107d6e2eab2
+langcode: it
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+id: segnalazioni_online_siti_inacces
+title: 'Segnalazioni online siti inaccessibili'
+description: ''
+category: ''
+elements: "dati_di_chi_effettua_la_segnalazione:\n  '#type': fieldset\n  '#title': 'Dati di chi effettua la segnalazione'\nnome:\n  '#type': webform_name\n  '#title': Nome\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\n  '#title__title': Nome\n  '#title__type': textfield\n  '#title__required': true\n  '#first__access': false\n  '#middle__access': false\n  '#last__access': false\n  '#suffix__access': false\n  '#degree__access': false\ncognome:\n  '#type': webform_name\n  '#title': Cognome\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\n  '#title__title': Cognome\n  '#title__type': textfield\n  '#title__required': true\n  '#first__access': false\n  '#middle__access': false\n  '#last__access': false\n  '#suffix__access': false\n  '#degree__access': false\nindirizzo:\n  '#type': webform_address\n  '#title': 'Indirizzo '\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\n  '#address__placeholder': via/piazza\n  '#address__required': true\n  '#address_2__access': false\n  '#city__title': Città\n  '#city__required': true\n  '#state_province__access': false\n  '#postal_code__title': CAP\n  '#postal_code__required': true\n  '#country__title': Provincia\n  '#country__type': textfield\n  '#country__required': true\ne_mail:\n  '#type': email\n  '#title': E-mail\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\ntelefono:\n  '#type': tel\n  '#title': Telefono\n  '#autocomplete': 'off'\ntipo_di_documento:\n  '#type': radios\n  '#title': 'Tipo di documento'\n  '#options':\n    'Carta di identità': 'Carta di identità'\n    Patente: Patente\n    Passaporto: Passaporto\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\nscadenza_documento:\n  '#type': date\n  '#title': 'Scadenza documento'\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\ndocumento_di_riconoscimento:\n  '#type': webform_document_file\n  '#title': 'Documento di riconoscimento'\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\n  '#max_filesize': '4'\n  '#file_extensions': 'gif jpg png pdf zip'\ndescrizione_del_problema_di_accessibilita:\n  '#type': fieldset\n  '#title': 'Descrizione del problema di accessibilità'\npagina_web_segnalata:\n  '#type': textfield\n  '#title': 'Pagina web segnalata'\n  '#input_mask': 'http://'\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\ndescrivere_sinteticamente_e_con_chiarezza_i_servizi_web_non_acce:\n  '#type': textfield\n  '#title': 'Descrivere sinteticamente e con chiarezza i servizi web non accessibili'\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\ndescrivere_la_propria_dotazione:\n  '#type': textfield\n  '#title': 'Descrivere la propria dotazione'\n  '#description': 'Indicare il sistema operativo, browser, strumenti compensativi, tecnologie assistive'\n  '#required': true\n  '#required_error': 'Queste informazioni sono obbligatorie.'\ntermini_e_condizioni:\n  '#type': radios\n  '#title': 'Termini e condizioni'\n  '#description': 'Qui la nostra <a href=\"http://it/privacy-policy\">privacy policy</a>.'\n  '#options':\n    'Acconsento al trattamento dei dati personali': 'Acconsento al trattamento dei dati personali'\n  '#required': true\n  '#required_error': 'E'' obbligatorio acconsentire al trattamento dei dati personali per inviare la segnalazione,'\ncaptcha:\n  '#type': captcha\nactions:\n  '#type': webform_actions\n  '#title': INVIA\n  '#submit__label': INVIA\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /segnalazione_siti_inaccessibili
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  e_mail:
+    id: email
+    label: E-mail
+    handler_id: e_mail
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:e_mail:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: 'AgID - Notifica invio modulo siti inaccessibili'
+      body: "Gentile utente,<br />\n<br />\nla sua segnalazione &egrave; stata ricevuta correttamente<br />\nI valori inseriti sono i seguenti<br />\n<br />\n<br />\nRedazione AgID"
+      excluded_elements:
+        documento_di_riconoscimento: documento_di_riconoscimento
+        termini_e_condizioni: termini_e_condizioni
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+  e_mail_interne:
+    id: email
+    label: E-mail
+    handler_id: e_mail_interne
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: 'luigi.avena@agid.gov.it, bonofiglio@agid.gov.it, celeghin@agid.gov.it, fabrizio.roberto.scano@agid.gov.it, domenico.natale@agid.gov.it'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: 'AgID - Notifica invio modulo siti inaccessibili'
+      body: default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
