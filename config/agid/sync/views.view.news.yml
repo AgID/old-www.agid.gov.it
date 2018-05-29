@@ -310,6 +310,40 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  feed_1:
+    display_plugin: feed
+    id: feed_1
+    display_title: Feed
+    position: 2
+    display_options:
+      display_extenders: {  }
+      row:
+        type: node_rss
+        options: {  }
+      title: 'Notizie AGID'
+      defaults:
+        title: false
+        sitename_title: false
+      sitename_title: false
+      path: notizie/rss.xml
+      displays:
+        default: default
+        page_1: page_1
+      pager:
+        type: some
+        options:
+          items_per_page: 50
+          offset: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1

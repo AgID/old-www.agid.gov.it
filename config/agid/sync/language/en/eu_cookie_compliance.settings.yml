@@ -1,0 +1,4 @@
+popup_agree_button_message: 'I agree'
+popup_disagree_button_message: 'More info'
+popup_info:
+  value: "<h2>We use cookies on this site to enhance your user experience</h2>\r\n\r\n<p>By clicking any link on this page you are giving your consent for us to set cookies</p>\r\n"

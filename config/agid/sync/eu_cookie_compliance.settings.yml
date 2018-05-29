@@ -2,29 +2,29 @@ cookie_lifetime: 100
 domain: ''
 domains_option: 1
 domains_list: ''
-eu_only: false
-eu_only_js: false
+eu_only: null
+eu_only_js: null
 exclude_paths: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
 exclude_admin_theme: false
 langcode: it
 popup_agreed:
   value: "<h2>Thank you for accepting cookies</h2>\r\n\r\n<p>You can now hide this message or find out more about cookies.</p>\r\n"
   format: filtered_text
-popup_agree_button_message: 'OK, I agree'
+popup_agree_button_message: Acconsento
 popup_agreed_enabled: false
 popup_bg_hex: 0779bf
 popup_clicking_confirmation: true
 popup_scrolling_confirmation: false
 popup_delay: 1000
 show_disagree_button: true
-popup_disagree_button_message: 'Give me more info'
+popup_disagree_button_message: 'Maggiori informazioni'
 popup_enabled: true
 popup_find_more_button_message: 'More info'
 popup_height: null
 popup_hide_agreed: false
 popup_hide_button_message: Hide
 popup_info:
-  value: "<h2>We use cookies on this site to enhance your user experience</h2>\r\n\r\n<p>By clicking any link on this page you are giving your consent for us to set cookies.</p>\r\n"
+  value: "<h2>Usiamo i cookie&nbsp;per migliorare la tua esperienza di fruizione</h2>\r\n\r\n<p>Cliccando su qualsiasi link in questa pagina fornisci il tuo consenso all'uso dei cookie</p>\r\n"
   format: filtered_text
 mobile_popup_info:
   value: ''

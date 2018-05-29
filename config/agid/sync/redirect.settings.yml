@@ -1,0 +1,7 @@
+auto_redirect: true
+passthrough_querystring: true
+warning: false
+default_status_code: 300
+route_normalizer_enabled: false
+ignore_admin_path: false
+access_check: false
