@@ -107,3 +107,16 @@ $settings['rebuild_access'] = TRUE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = TRUE;
+
+$settings['hash_salt'] = 'arasiodjkokasodkok';
+
+$databases['default']['default'] = array(
+  'database'  => 'drupal',
+  'username'  => 'drupal',
+  'password'  => 'drupal',
+  'host'      => 'mariadb',
+  'port'      => '3306',
+  'prefix'    => '',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);

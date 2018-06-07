@@ -103,6 +103,7 @@ module:
   user: 0
   views_ui: 0
   webform: 0
+  webform_multistep: 0
   webform_ui: 0
   workflows: 0
   xmlsitemap_custom: 0
