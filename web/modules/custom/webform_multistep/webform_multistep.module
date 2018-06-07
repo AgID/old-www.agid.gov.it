@@ -51,17 +51,6 @@
   }
 
   /**
-   * Implements hook_theme().
-   */
-  function webform_multistep_theme() {
-    return [
-      'webform_multistep' => [
-        'render element' => 'children',
-      ],
-    ];
-  }
-
-  /**
    * Prepends submit function to execute before the standards form's submit.
    * This function will create a pdf and then attachs it to the attachment form field.
    *
