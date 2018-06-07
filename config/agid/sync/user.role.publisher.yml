@@ -46,6 +46,7 @@ permissions:
   - 'download own image files'
   - 'download own media_kit files'
   - 'dropzone upload files'
+  - 'edit any acc_subj content'
   - 'edit any document files'
   - 'edit any image files'
   - 'edit any media_kit files'

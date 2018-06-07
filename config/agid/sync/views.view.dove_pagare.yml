@@ -759,7 +759,7 @@ display:
           error_message: true
           plugin_id: taxonomy_index_tid
       sorts: {  }
-      title: 'Dove Pagare'
+      title: 'Dove pagare'
       header:
         area:
           id: area
@@ -771,7 +771,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<p>pagoPA è un sistema unico per i pagamenti elettronici verso la pubblica amministrazione. </p>\n\n<p>In questa pagina puoi consultare <strong> l’elenco aggiornato di tutti i Prestatori di Servizi di Pagamento (PSP) </strong>presso i quali puoi pagare con pagoPA. <br/>\nPer ciascun PSP puoi verificare i <strong>canali di pagamento disponibili</strong> (sportello fisico; home banking; app mobile; phone banking, ATM) sia per i correntisti che per i non correntisti. </p>\n\n<p>Per saperne di più: <a href=\"http://www.agid.gov.it/agenda-digitale/pubblica-amministrazione/pagamenti-elettronici\">Cos’è e come funziona pagoPA</a></p>\n<h2>Elenco dei PSP</h2>\n<p>E’ possibile scaricare l’elenco dei PSP:</p>\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-psp.csv\">Elenco dei canali degli operatori presso cui è possibile presentare un avviso di pagamento (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-psp.xlsx\">Elenco dei canali degli operatori presso cui è possibile presentare un avviso di pagamento (XSLX).</a></li>\n</ul>"
+            value: "<p>pagoPA è un sistema unico per i pagamenti elettronici verso la pubblica amministrazione. </p>\n\n<p>In questa pagina puoi consultare <strong> l’elenco aggiornato di tutti i Prestatori di Servizi di Pagamento (PSP) </strong>presso i quali puoi pagare con pagoPA. <br/>\nPer ciascun PSP puoi verificare i <strong>canali di pagamento disponibili</strong> (sportello fisico, home banking, app mobile, phone banking, ATM) sia per i correntisti che per i non correntisti. </p>\n\n<p>Per saperne di più: <a href=\"http://www.agid.gov.it/agenda-digitale/pubblica-amministrazione/pagamenti-elettronici\">Cos’è e come funziona pagoPA</a></p>\n<h2>Elenco dei PSP</h2>\n<p>È possibile scaricare l’elenco dei PSP:</p>\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-psp.csv\">Elenco dei canali degli operatori presso cui è possibile presentare un avviso di pagamento (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-psp.xlsx\">Elenco dei canali degli operatori presso cui è possibile presentare un avviso di pagamento (XSLX).</a></li>\n</ul>"
             format: filtered_text
           plugin_id: text
       footer: {  }

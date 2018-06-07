@@ -1,0 +1,14 @@
+uuid: 40449290-d3c2-4457-8282-06c48a8ae195
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.accreditante
+  module:
+    - user
+id: user_add_role_action.accreditante
+label: 'Add the Accreditante role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: accreditante

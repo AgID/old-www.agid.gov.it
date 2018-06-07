@@ -1,0 +1,14 @@
+uuid: 3c9c0201-5c06-4852-b60d-79bbe60fb89f
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.accreditante
+  module:
+    - user
+id: user_remove_role_action.accreditante
+label: 'Remove the Accreditante role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: accreditante
