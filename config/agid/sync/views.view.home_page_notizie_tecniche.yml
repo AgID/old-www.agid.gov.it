@@ -3,11 +3,13 @@ langcode: it
 status: true
 dependencies:
   config:
+    - field.storage.node.field_news_date
     - node.type.news
     - taxonomy.vocabulary.news_type
   content:
     - 'taxonomy_term:news_type:4f5df977-1c77-4c1a-af2b-f6c2b034a282'
   module:
+    - datetime
     - node
     - taxonomy
     - user
@@ -66,10 +68,10 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        changed:
-          id: changed
-          table: node_field_revision
-          field: changed
+        field_news_date:
+          id: field_news_date
+          table: node__field_news_date
+          field: field_news_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -115,11 +117,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: timestamp
+          type: datetime_default
           settings:
-            date_format: agid_homepage
-            custom_date_format: ''
-            timezone: ''
+            timezone_override: ''
+            format_type: agid_homepage
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -130,8 +131,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: changed
           plugin_id: field
         title:
           id: title
@@ -302,10 +301,10 @@ display:
           entity_field: langcode
           plugin_id: language
       sorts:
-        changed:
-          id: changed
-          table: node_field_revision
-          field: changed
+        field_news_date_value:
+          id: field_news_date_value
+          table: node__field_news_date
+          field: field_news_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -314,9 +313,7 @@ display:
           expose:
             label: ''
           granularity: second
-          entity_type: node
-          entity_field: changed
-          plugin_id: date
+          plugin_id: datetime
       title: 'Comunicazioni tecniche'
       header: {  }
       footer: {  }
@@ -333,7 +330,8 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_news_date'
   block_1:
     display_plugin: block
     id: block_1
@@ -351,7 +349,8 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_news_date'
   block_2:
     display_plugin: block
     id: block_2
@@ -372,4 +371,5 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_news_date'

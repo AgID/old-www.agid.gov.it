@@ -1,0 +1,17 @@
+uuid: 0a335c29-a9ba-4ff9-a604-925701ef1f79
+langcode: it
+status: true
+dependencies: {  }
+id: accreditante
+label: Accreditante
+weight: -5
+is_admin: null
+permissions:
+  - 'create acc_subj content'
+  - 'delete acc_subj revisions'
+  - 'delete any acc_subj content'
+  - 'delete own acc_subj content'
+  - 'edit any acc_subj content'
+  - 'edit own acc_subj content'
+  - 'revert acc_subj revisions'
+  - 'view acc_subj revisions'
