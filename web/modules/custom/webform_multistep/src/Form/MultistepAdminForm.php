@@ -93,16 +93,6 @@
         '#default_value' => $config->get('pdf_footer')['value'],
       ];
 
-      /**
-       *         'token_tree' => [
-      '#theme' => 'token_tree_link',
-      '#token_types' => [ 'webform_submission' ],
-      '#show_restricted' => TRUE,
-      '#global_types' => FALSE,
-      '#weight' => 90,
-      ],
-       */
-
       return parent::buildForm($form, $form_state);
     }
 
