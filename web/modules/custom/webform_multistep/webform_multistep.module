@@ -53,7 +53,9 @@
     }
     // Checks if current form is $webform_id
     if ($alter === true && strpos($form_id, '_add_form') !== false) {
-      // Prepends another form submit handler
+      // Hide pdf_contents from form
+      $form['elements']['pdf_contents']['#access'] = FALSE;
+      // Prepends other form submit handlers
       array_unshift($form['actions']['submit']['#submit'], '_webform_multistep_create_pdf_attachment');
       // Hide file attachement field. It will automatically computed at run-time.
       $form['elements']['attachment']['#access'] = false;
@@ -73,10 +75,10 @@
    */
   function _webform_multistep_create_pdf_attachment(array &$form, FormStateInterface $form_state) {
     // Get and render summary page. It will be pdf's content.
-    $summary_html = \Drupal::service('renderer')->render($form['elements']['step_summary']);
+    $pdf_content = $form['elements']['pdf_contents']['#text'];
     $pdf = new Pdf();
     // Create the PDF file
-    $pdf->setContent($summary_html->__toString());
+    $pdf->setContent($pdf_content);
     $request_id = $form['elements']['request_id']['#default_value'];
     // Then set $request_id
     $form_state->setValue('request_id', $request_id);
@@ -88,3 +90,4 @@
     // Set file attachment into form_state values
     $form_state->setValue('attachment', $fid);
   }
+

@@ -1,0 +1,318 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single page.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - messages: Status and error messages. Should be displayed prominently.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - cookiebar: Cookie bar
+ * - header_top: Header top
+ * - header_search: Header search
+ * - offcanvas: Offcanvas
+ * - breadcrumb: Breadcrum
+ * - help: Help
+ * - hero: Hero
+ * - content: Content
+ * - sidebar_right: Sidebar Right
+ * - postscript_first: Postscript First
+ * - postscript_second: Postscript Second
+ * - postscript_third: Postscript Third
+ * - postscript_fourth: Postscript Fourth
+ * - leads : Leads
+ * - pre_footer : Pre Footer
+ * - twitter_area: Twitter Area
+ * - footer_top : Footer top
+ * - footer_middle : Footer middle
+ * - footer_bottom : Footer bottom
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+{# Skiplinks #}
+<ul class="Skiplinks js-fr-bypasslinks u-hiddenPrint">
+  <li>
+    <a href="#main">{{ 'Go to main content'|t }}</a>
+  </li>
+  <li>
+    <a aria-controls="OffcanvasMenu" aria-label="{{ 'Go to site navigation'|t }}"
+       class="js-fr-offcanvas-open" href="#OffcanvasMenu"
+       title="{{ 'Use this link to go to the main site navigation'|t }}">{{ 'Go to site navigation'|t }}</a>
+  </li>
+</ul>
+
+{# Layout container #}
+<div class="layout-container">
+
+  <header class="Header u-hiddenPrint">
+
+    {% if page.header_top or (afferent_administration_name and afferent_administration_url) %}
+      <div class="Header-banner">
+        <div class="u-layoutCenter u-layout-wide u-layout-r-withGutter">
+          <div class="Header-owner">
+            {% if afferent_administration_url and afferent_administration_name %}
+              <a href="{{ afferent_administration_url }}" target="_blank">
+                <span>{{ afferent_administration_name|t }}</span>
+              </a>
+            {% endif %}
+            {{ page.header_top }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="Header-navbar">
+      <div class="u-layout-wide Grid Grid--alignMiddle u-layoutCenter u-layout-r-withGutter">
+
+        {# Site branding (logo and name) #}
+        {% if page.header_branding %}
+          {{ page.header_branding }}
+        {% endif %}
+
+        {# Search bar trigger for mobile users #}
+        <div class="Header-searchTrigger Grid-cell">
+          <button aria-controls="header-search" aria-hidden="false" aria-label="{{ 'Enable the search form'|t }}"
+                  class="js-Header-search-trigger Icon Icon-search Icon--rotated" title="{{ 'Enable the search form'|t }}">
+          </button>
+          <button aria-controls="header-search" aria-hidden="true" aria-label="{{ 'Disable the search form'|t }}"
+                  class="js-Header-search-trigger Icon Icon-close u-hidden" title="{{ 'Disable the search form'|t }}">
+          </button>
+        </div>
+
+        {# Search and socials #}
+        {% if page.header_search or page.header %}
+          <div class="Header-utils">
+            {% if page.header %}
+              {{ page.header }}
+            {% endif %}
+            {% if page.header_search %}
+              <div id="header-search" class="Header-search">
+                {{ page.header_search }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+
+        {# Hamburger toggle #}
+        <div class="Header-toggle Grid-cell">
+          <a class="Hamburger-toggleContainer js-fr-offcanvas-open u-nojsDisplayInlineBlock u-lg-hidden u-md-hidden"
+             aria-controls="OffcanvasMenu" aria-label="{{ 'Accedi al menu'|t }}"
+             href="#OffcanvasMenu" title="{{ 'Accedi al menu'|t }}">
+            <span class="Hamburger-toggle" role="presentation"></span>
+            <span class="Header-toggleText" role="presentation">Menu</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="Megamenu-wrapper u-textCenter u-hidden u-sm-hidden u-md-block u-lg-block">
+      <div class="u-layout-wide u-layoutCenter">
+        <nav class="Megamenu Megamenu--default js-megamenu" data-rel=".Offcanvas--right .Treeview" data-placement="bottom"></nav>
+      </div>
+    </div>
+
+    {% if page.header_bottom %}
+      {{ page.header_bottom }}
+    {% endif %}
+
+  </header>
+
+  {% if page.offcanvas %}
+    {{ page.offcanvas }}
+  {% endif %}
+
+  {% if page.claim %}
+    {{ page.claim }}
+  {% endif %}
+
+  {# Main content #}
+  <main id="main">
+
+    <div class="main-overlay"></div>
+
+    {% block page_body %}
+
+    <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+      <div class="Grid Grid--withGutter">
+        {% if page.sidebar_left or force_left_sidebar %}
+          <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
+
+          </div>
+          <div class="Grid-cell u-sizeFull u-md-size6of12 u-lg-size6of12">
+          {% else %}
+            <div class="Grid-cell u-sizeFull u-layoutCenter u-md-size6of12 u-lg-size6of12">
+          {% endif %}
+              {# Breadcrumb #}
+              {% if page.breadcrumb %}
+                {{ page.breadcrumb }}
+              {% endif %}
+
+            </div>
+        </div>
+      </div>
+
+      {# Help #}
+      {% if page.help|render|striptags|trim %}
+        {{ page.help }}
+      {% endif %}
+
+      {# Hero #}
+      {% if page.hero %}
+        {{ page.hero }}
+      {% endif %}
+
+      {# Page content region #}
+      <div class="u-padding-r-bottom">
+        <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+
+          {# Page with sidebar right #}
+          {% if page.sidebar_right %}
+            <div class="Grid Grid--withGutter">
+              {# Content #}
+              <div class="Grid-cell u-sizeFull u-md-size8of12 u-lg-size8of12">
+                {{ page.content }}
+              </div>
+              {# Sidebar right #}
+              <div class="Grid-cell u-sizeFull u-md-size4of12 u-lg-size4of12">
+                {{ page.sidebar_right }}
+              </div>
+            </div>
+
+            {# Page with sidebar left #}
+          {% elseif page.sidebar_left or force_left_sidebar %}
+            <div class="Grid Grid--withGutter">
+              {# Sidebar left #}
+              <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12">
+                {{ page.sidebar_left }}
+              </div>
+              {# Content #}
+              <div class="Grid-cell u-sizeFull u-md-size6of12 u-lg-size6of12">
+                {{ page.content }}
+              </div>
+            </div>
+
+          {% else %}
+
+            {# Page without sidebar right #}
+          <div class="Grid Grid--withGutter">
+            {# Content #}
+            <div class="Grid-cell u-layoutCenter u-sizeFull u-md-size6of12 u-lg-size6of12">
+              {{ page.content }}
+            </div>
+          </div>
+
+          {% endif %}
+
+        </div>
+      </div>
+
+      {# Postscript first #}
+      {% if page.postscript_first %}
+        {{ page.postscript_first }}
+      {% endif %}
+
+      {# Postscript second #}
+      {% if page.postscript_second %}
+        {{ page.postscript_second }}
+      {% endif %}
+
+      {# Postscript third #}
+      {% if page.postscript_third %}
+        {{ page.postscript_third }}
+      {% endif %}
+
+      {# Postscript fourth #}
+      {% if page.postscript_fourth %}
+        {{ page.postscript_fourth }}
+      {% endif %}
+
+      {# Leads region #}
+      {% if page.leads %}
+        {{ page.leads }}
+      {% endif %}
+
+      {# Pre footer #}
+      {% if page.pre_footer %}
+        {{ page.pre_footer }}
+      {% endif %}
+
+      {% endblock %}
+
+      {# Twitter Area #}
+      {% if page.twitter_area %}
+        <div class="u-hiddenPrint u-margin-bottom-xxl">
+          <div class="u-layout-wide u-layoutCenter">
+            <div class="Twitter-Area">
+              {{ page.twitter_area }}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {# Footer #}
+      <div class="u-background-95 u-hiddenPrint">
+        <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
+          <div class="Footer">
+
+            {# Footer header #}
+            <div class="Grid Grid--withGutter">
+              <div class="Header-agid Grid-cell u-sizeFull u-sm-size1of2 u-md-size1of2 u-lg-size1of2" aria-hidden="true">
+                <a href="{{ path('<front>') }}" class="u-text-r-m" title="{{ 'Home'|t }}" rel="home">
+                  <img class="Logo-img" src="{{ site_logo }}" alt="{{ site_name }}"/>
+                  <span class="separator"></span>
+                  <span class="Site-name">{{ site_name }}</span>
+                </a>
+              </div>
+              {# Footer top_right #}
+              {% if page.footer_top_right %}
+                {{ page.footer_top_right }}
+              {% endif %}
+            </div>
+
+            {# Footer top #}
+            {% if page.footer_top %}
+              {{ page.footer_top }}
+            {% endif %}
+            {# Footer middle #}
+            {% if page.footer_middle %}
+              {{ page.footer_middle }}
+            {% endif %}
+
+            {# Footer bottom, links #}
+            {% if page.footer_bottom %}
+              {{ page.footer_bottom }}
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+
+      {# Scroll to top #}
+      <a title="{{ scrolltop_text }}" class="ScrollTop js-scrollTop js-scrollTo" style="display: none; cursor: pointer">
+        <i class="ScrollTop-icon Icon-collapse" aria-hidden="true"></i>
+        <span class="u-hiddenVisually">{{ scrolltop_text }}</span>
+      </a>
+  </main>
+</div>

@@ -1,0 +1,16 @@
+pdf_header:
+  value: "<p>Documento generato durante la compilazione del form&nbsp;</p>\r\n<div style=\"background: red; font-size: 2em;\">Test</div>"
+  format: full_html
+pdf_footer:
+  value: "<p>Test footer</p>\r\n"
+  format: full_html
+webform_reference:
+  -
+    target_id: multistep_form
+pdf_filename: '%-agid-webform.pdf'
+pdf_filepath: 'private://agid_webforms'
+mail_subject: 'Oggetto della mail'
+mail_body:
+  value: "<p>Body della mail con possibilità di aggiungere tutti i valori della webform come nell'esempio che segue:</p>\r\n\r\n<p>[webform_submission:values:profile]</p>\r\n\r\n<p>[webform_submission:values:address]</p>\r\n"
+  format: filtered_text
+pdf_content: null

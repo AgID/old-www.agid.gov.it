@@ -1,4 +1,4 @@
-.webform-submission-contact-form,
+.webform-submission-form, .webform-submission-contact-form,
 .views-exposed-form {
   border: 1px solid $border-default-color;
   padding: 1rem;
@@ -9,7 +9,7 @@
     color: $dark-blue;
   }
 }
-
+.webform-submission-form,
 .webform-submission-contact-form {
   label {
     margin: 1rem 0;
@@ -94,4 +94,13 @@
 .webform-button--submit[disabled] {
   background-color: rgba(176, 176, 176, 0.5) !important;
   opacity: 1;
+}
+
+.webform-submission-form {
+  #edit-step-3 {
+    margin-bottom: 1.25em;
+  }
+  #edit-actions {
+    margin-top: 1em;
+  }
 }

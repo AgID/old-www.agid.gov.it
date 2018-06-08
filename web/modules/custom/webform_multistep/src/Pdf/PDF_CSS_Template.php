@@ -14,6 +14,7 @@ table {
 }
 .pdf-content {
   margin: 100px 1em 50px 1em;
+  page-break-after: always;
 }
 .pdf-header {
   position: fixed;
