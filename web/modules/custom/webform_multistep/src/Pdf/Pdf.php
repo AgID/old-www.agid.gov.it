@@ -37,7 +37,6 @@
     }
 
     private function wrapHTML() {
-
       $loader = new \Twig\Loader\FilesystemLoader($this->module_path . '/src/Pdf');
       $twig = new \Twig\Environment($loader);
       $template = $twig->load('PDF_Template.twig');
@@ -80,9 +79,6 @@
      * Render PDF element
      */
     public function render() {
-      // File name
-      $filename = $this->module_config->get('pdf_filename');
-
       // Embeds the code in the correct html structure and then merges it into a single string
       $final_html = $this->wrapHTML();
       // Set pdf html content
@@ -129,6 +125,20 @@
         \Drupal\Core\Messenger\MessengerInterface::addMessage($e->getMessage());
         return $e;
       }
+    }
+
+    /**
+     * Test function to try pdf output without compile entire webform.
+     * @param bool $table
+     */
+    public function test($table = false) {
+      if ($table)
+        $content = "<table><tr><th>Company</th><th>Contact</th><th>Country</th></tr><tr><td>Alfreds Futterkiste</td><td>Maria Anders</td><td>Germany</td></tr><tr><td>Centro comercial Moctezuma</td><td>Francisco Chang</td><td>Mexico</td></tr><tr><td>Ernst Handel</td><td>Roland Mendel</td><td>Austria</td></tr><tr><td>Island Trading</td><td>Helen Bennett</td><td>UK</td></tr><tr><td>Laughing Bacchus Winecellars</td><td>Yoshi Tannamuri</td><td>Canada</td></tr><tr><td>Magazzini Alimentari Riuniti</td><td>Giovanni Rovelli</td><td>Italy</td></tr></table>";
+      else
+        $content = 'Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Proin faucibus arcu quis ante. Sed fringilla mauris sit amet nibh. Ut a nisl id ante tempus hendrerit. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.';
+      $this->setContent($content);
+      $this->render();
+      $this->stream();
     }
 
   }

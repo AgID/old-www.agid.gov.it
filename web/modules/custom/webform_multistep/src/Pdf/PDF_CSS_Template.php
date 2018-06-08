@@ -13,7 +13,7 @@ table {
   max-width: 100%;
 }
 .pdf-content {
-  margin: 3em 1em;
+  margin: 100px 1em 50px 1em;
 }
 .pdf-header {
   position: fixed;
@@ -23,7 +23,7 @@ table {
   left: 0;
   width: 100%;
   color: white;
-  min-height: 150px;
+  height: 50px;
   text-align: center;
 }
 
@@ -35,10 +35,27 @@ table {
 
 .pdf-footer {
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   width: 100%;
+  height: 75px;
   background-color: #0059b3;
-  color: white;
   text-align: center;
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

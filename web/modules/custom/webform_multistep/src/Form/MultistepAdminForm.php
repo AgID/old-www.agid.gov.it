@@ -32,14 +32,23 @@
       $config = $this->config('webform_multistep.adminsettings');
 
       $webform_ref = $config->get('webform_reference');
-      if (isset($webform_ref))
+      if (isset($webform_ref) && !is_array($webform_ref))
         $webform_ref = \Drupal::entityTypeManager()->getStorage('webform')->load($webform_ref);
-
+      else {
+        if (is_array($webform_ref)) {
+          $temp = [];
+          foreach ($webform_ref as $wf_id) {
+            $temp[] = \Drupal::entityTypeManager()->getStorage('webform')->load($wf_id['target_id']);
+          }
+          $webform_ref = $temp;
+        }
+      }
       // Entity Autocomplete Reference to Webform entities
       $form['webform_reference'] = array(
         '#type' => 'entity_autocomplete',
         '#title' => $this->t('Webform'),
         '#target_type' => 'webform',
+        '#tags' => TRUE,
         '#default_value' => $webform_ref,
       );
 
