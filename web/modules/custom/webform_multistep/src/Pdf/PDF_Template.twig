@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <link href="{{ css_template }}" rel="stylesheet" />
+    <title> {{ title }} </title>
+  </head>
+  <body>
+    <div class="pdf-header">
+      {{ header|raw }}
+    </div>
+    <div class="pdf-content">
+      {{ content|raw }}
+      {{ content|raw }}
+    </div>
+    <div class="pdf-footer">
+      {{ footer|raw }}
+    </div>
+  </body>
+</html>

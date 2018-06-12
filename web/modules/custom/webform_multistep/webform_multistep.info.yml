@@ -1,0 +1,7 @@
+name: 'webform_multistep'
+type: module
+description: 'Handle a specific webform like as mult-step form.'
+core: 8.x
+package: 'Wellnet'
+dependencies:
+  - webform

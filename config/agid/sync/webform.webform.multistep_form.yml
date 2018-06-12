@@ -1,0 +1,175 @@
+uuid: c8b919d0-1d0e-4b70-beb5-74ca07d54151
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+id: multistep_form
+title: Form
+description: ''
+category: ''
+elements: "pdf_contents:\n  '#type': processed_text\n  '#states':\n    invisible:\n      -\n        ':input[name=\"required_checkbox\"]':\n          empty: true\n      - xor\n      -\n        ':input[name=\"required_checkbox\"]':\n          filled: true\n  '#text': \"<table>\\n\\t<tbody>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Checkbox #1</td>\\n\\t\\t\\t<td>[webform_submission:values:a_checkbox]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Checkbox #2</td>\\n\\t\\t\\t<td>[webform_submission:values:a_checkbox_2]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Address</td>\\n\\t\\t\\t<td>[webform_submission:values:address]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Email</td>\\n\\t\\t\\t<td>[webform_submission:values:email]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Profile</td>\\n\\t\\t\\t<td>[webform_submission:values:profile]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Required Checkbox</td>\\n\\t\\t\\t<td>[webform_submission:values:required_checkbox]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Another Required</td>\\n\\t\\t\\t<td>[webform_submission:values:another_required]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Request ID</td>\\n\\t\\t\\t<td>\\n\\t\\t\\t<table>\\n\\t\\t\\t\\t<tbody>\\n\\t\\t\\t\\t\\t<tr>\\n\\t\\t\\t\\t\\t\\t<td>[webform_submission:values:request_id]</td>\\n\\t\\t\\t\\t\\t</tr>\\n\\t\\t\\t\\t</tbody>\\n\\t\\t\\t</table>\\n\\t\\t\\t</td>\\n\\t\\t</tr>\\n\\t</tbody>\\n</table>\\n\"\n  '#format': filtered_text\nattachment:\n  '#type': webform_document_file\n  '#title': Attachment\nrequest_id:\n  '#type': hidden\n  '#title': request_id\nstep_1:\n  '#type': webform_wizard_page\n  '#title': '#1'\n  step_1_instructions:\n    '#type': processed_text\n    '#text': \"<p>Etiam ultricies nisi vel augue. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Maecenas vestibulum mollis diam. Vestibulum dapibus nunc ac augue. Nam at tortor in tellus interdum sagittis.</p>\\n\\n<p>In hac habitasse platea dictumst. Phasellus a est. Sed libero. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Etiam imperdiet imperdiet orci.</p>\\n\"\n    '#format': filtered_text\n  a_checkbox:\n    '#type': checkbox\n    '#title': 'Checkbox #1'\n    '#format': custom\n    '#format_html': ' '\n    '#format_text': 'Checkbox 1'' value: {{ value }}'\n  a_checkbox_2:\n    '#type': checkbox\n    '#title': 'Checkbox #2'\nstep_2:\n  '#type': webform_wizard_page\n  '#title': '#2'\n  address:\n    '#type': webform_address\n    '#title': Address\n  email:\n    '#type': email\n    '#title': Email\n    '#description': 'Don&#39;t use your PEC address.'\nstep_3:\n  '#type': webform_wizard_page\n  '#title': '#3'\n  profile:\n    '#type': select\n    '#title': Profile\n    '#options':\n      'Customized Value #1': 'Customized Value #1'\n      'Customized Value #2': 'Customized Value #2'\n      'Customized Value #3': 'Customized Value #3'\n      'Customized Value #4': 'Customized Value #4'\n      'Customized Value #5': 'Customized Value #5'\n      'Customized Value #8': 'Customized Value #8'\n    '#other__title': 'Other Customized'\n  processed_text:\n    '#type': processed_text\n    '#states':\n      visible:\n        ':input[name=\"profile\"]':\n          value: 'Customized Value #1'\n    '#text': \"<p><strong>Donec posuere vulputate arcu. Praesent turpis. Sed lectus. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus.</strong></p>\\n\"\n    '#format': filtered_text\n_5_check_required:\n  '#type': webform_wizard_page\n  '#title': '#5 Check Required'\n  required_checkbox:\n    '#type': checkbox\n    '#title': 'Required Checkbox'\n    '#required': true\n    '#required_error': 'It''s required'\n  another_required:\n    '#type': checkbox\n    '#title': 'Another Required'\n    '#required': true\n    '#required_error': 'It''s required'\nstep_summary:\n  '#type': webform_wizard_page\n  '#title': Summary\n  summary:\n    '#type': processed_text\n    '#display_on': both\n    '#text': \"<table>\\n\\t<tbody>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Checkbox #1</td>\\n\\t\\t\\t<td>[webform_submission:values:a_checkbox]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Checkbox #2</td>\\n\\t\\t\\t<td>[webform_submission:values:a_checkbox_2]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Address</td>\\n\\t\\t\\t<td>[webform_submission:values:address]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Email</td>\\n\\t\\t\\t<td>[webform_submission:values:email]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Profile</td>\\n\\t\\t\\t<td>[webform_submission:values:profile]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Required Checkbox</td>\\n\\t\\t\\t<td>[webform_submission:values:required_checkbox]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Another Required</td>\\n\\t\\t\\t<td>[webform_submission:values:another_required]</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>Request ID</td>\\n\\t\\t\\t<td>\\n\\t\\t\\t<table>\\n\\t\\t\\t\\t<tbody>\\n\\t\\t\\t\\t\\t<tr>\\n\\t\\t\\t\\t\\t\\t<td>[webform_submission:values:request_id]</td>\\n\\t\\t\\t\\t\\t</tr>\\n\\t\\t\\t\\t</tbody>\\n\\t\\t\\t</table>\\n\\t\\t\\t</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>&nbsp;</td>\\n\\t\\t\\t<td>&nbsp;</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td>&nbsp;</td>\\n\\t\\t\\t<td>&nbsp;</td>\\n\\t\\t</tr>\\n\\t</tbody>\\n</table>\\n\"\n    '#format': filtered_text\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#wizard_prev__label': Prev\n  '#wizard_next__label': Next\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: Test
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: default
+      body: default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      html: true
+      attachments: true
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
