@@ -30,6 +30,8 @@
    * Implements hook_form_alter().
    */
   function webform_multistep_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    $form['#attached']['library'][] = 'webform_multistep/fix';
+
     $alter = false;
     // Config service for module's admin settings
     $config = \Drupal::configFactory()->get('webform_multistep.adminsettings');
