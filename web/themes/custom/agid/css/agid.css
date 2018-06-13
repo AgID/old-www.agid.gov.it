@@ -933,12 +933,37 @@ li {
   opacity: 1;
 }
 
+.webform-submission-form {
+  /**
+ * Disable some customizations
+ */
+}
+
 .webform-submission-form #edit-step-3 {
   margin-bottom: 1.25em;
 }
 
 .webform-submission-form #edit-actions {
   margin-top: 1em;
+}
+
+.webform-submission-form .Form-field--choose .Form-input:not([type="checkbox"]) {
+  height: auto;
+  opacity: 1;
+  position: relative;
+  z-index: auto;
+}
+
+.webform-submission-form .progress-text {
+  padding: 10px 5px;
+}
+
+.webform-submission-form .progress-text .progress-title {
+  font-size: 0.85em;
+}
+
+.webform-submission-form h3 a {
+  font-size: inherit;
 }
 
 article ul li.share-everywhere {

@@ -103,4 +103,28 @@
   #edit-actions {
     margin-top: 1em;
   }
+  /**
+ * Disable some customizations
+ */
+  .Form-field--choose {
+    .Form-input:not([type="checkbox"]) {
+      height: auto;
+      opacity: 1;
+      position: relative;
+      z-index: auto;
+    }
+  }
+
+  .progress-text {
+    padding: 10px 5px;
+    .progress-title {
+      font-size: 0.85em;
+    }
+  }
+
+  h3 {
+    a {
+      font-size: inherit;
+    }
+  }
 }
