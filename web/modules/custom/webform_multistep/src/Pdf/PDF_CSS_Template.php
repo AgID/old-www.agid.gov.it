@@ -4,6 +4,9 @@
 html, body {
   margin: 0;
 }
+body {
+  margin: 100px 1em 50px 1em;
+}
 * {
 margin: 0;
 box-sizing: border-box;
@@ -12,10 +15,11 @@ box-sizing: border-box;
 table {
   max-width: 100%;
 }
-.pdf-content {
-  margin: 100px 1em 50px 1em;
-  page-break-after: always;
-}
+
+.pdf-content {}
+
+p + p + p { page-break-after: always; }
+
 .pdf-header {
   position: fixed;
   background-color: #0059b3;

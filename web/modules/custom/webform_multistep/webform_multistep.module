@@ -11,22 +11,6 @@
   use Drupal\Core\Form\FormStateInterface;
 
   /**
-   * Implements hook_help().
-   */
-  function webform_multistep_help($route_name, RouteMatchInterface $route_match) {
-    switch ($route_name) {
-      // Main module help for the webform_multistep module.
-      case 'help.page.webform_multistep':
-        $output = '';
-        $output .= '<h3>' . t('About') . '</h3>';
-        $output .= '<p>' . t('Handle a specific webform like as mult-step form.') . '</p>';
-        return $output;
-
-      default:
-    }
-  }
-
-  /**
    * Implements hook_form_alter().
    */
   function webform_multistep_form_alter(&$form, FormStateInterface $form_state, $form_id) {

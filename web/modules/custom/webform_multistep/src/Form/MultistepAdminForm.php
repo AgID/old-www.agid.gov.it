@@ -8,6 +8,7 @@
 
   use Drupal\Core\Form\ConfigFormBase;
   use Drupal\Core\Form\FormStateInterface;
+  use Drupal\webform_multistep\Pdf\Pdf;
 
   class MultistepAdminForm extends ConfigFormBase {
 
@@ -64,6 +65,7 @@
       $form['pdf_options'] = [
         '#type' => 'details',
         '#title' => $this->t('PDF Settings'),
+        '#description' => $this->t('Remember: to break a page, forcing it to go at next one, it\'s needed uses three 	&lt;p&gt; tag sequentially like as follow: &lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;.'),
       ];
       $form['pdf_options']['pdf_filename'] = [
         '#type' => 'textfield',
@@ -93,7 +95,20 @@
         '#default_value' => $config->get('pdf_footer')['value'],
       ];
 
+      $form['pdf_options']['pdf_test'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Download sample-PDF'),
+        '#submit' => [
+          [$this, 'testPDFDownload'],
+        ]
+      ];
+
       return parent::buildForm($form, $form_state);
+    }
+
+    public static function testPDFDownload(array &$form, FormStateInterface $form_state) {
+      $pdf = new Pdf();
+      $pdf->test(true);
     }
 
     /**
