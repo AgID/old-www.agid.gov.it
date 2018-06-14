@@ -890,6 +890,21 @@ li {
   margin-bottom: 1rem !important;
 }
 
+.webform-submission-contact-form .webform-button--submit {
+  background: rgba(0, 0, 0, 0.0001);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 600;
+  color: #0d00ff;
+  margin: 2rem 0;
+  border: 0;
+  padding: 1rem 4rem;
+}
+
 .form-item label.is-required small {
   display: none;
 }
@@ -911,21 +926,6 @@ li {
 /** Webform submit button **/
 .webform-actions {
   text-align: right;
-}
-
-.webform-button--submit {
-  background: rgba(0, 0, 0, 0.0001);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-transform: uppercase;
-  text-decoration: none !important;
-  font-size: 14px !important;
-  line-height: 21px !important;
-  font-weight: 600;
-  color: #0d00ff;
-  margin: 2rem 0;
-  border: 0;
-  padding: 1rem 4rem;
 }
 
 .webform-button--submit[disabled] {
@@ -952,18 +952,39 @@ li {
   opacity: 1;
   position: relative;
   z-index: auto;
-}
-
-.webform-submission-form .progress-text {
-  padding: 10px 5px;
-}
-
-.webform-submission-form .progress-text .progress-title {
-  font-size: 0.85em;
+  max-width: 100%;
 }
 
 .webform-submission-form h3 a {
   font-size: inherit;
+}
+
+.webform-submission-form .js-form-type-processed-text.Form-field {
+  line-height: initial;
+}
+
+.webform-submission-form .js-form-type-processed-text.Form-field ul, .webform-submission-form .js-form-type-processed-text.Form-field ol {
+  padding: 0.75em;
+}
+
+.webform-submission-form .js-form-type-processed-text.Form-field ul li, .webform-submission-form .js-form-type-processed-text.Form-field ol li {
+  list-style-type: initial;
+}
+
+.webform-submission-form .js-form-type-processed-text.Form-field ul li > ul li, .webform-submission-form .js-form-type-processed-text.Form-field ul li ol li, .webform-submission-form .js-form-type-processed-text.Form-field ol li > ul li, .webform-submission-form .js-form-type-processed-text.Form-field ol li ol li {
+  list-style-type: square;
+}
+
+.webform-submission-form fieldset:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+.progress-text {
+  padding: 10px 5px;
+}
+
+.progress-text .progress-title {
+  font-size: 0.85em;
 }
 
 article ul li.share-everywhere {

@@ -1,58 +1,37 @@
 <?php
   header("Content-type: text/css; charset: UTF-8");
 ?>
-html, body {
+html {
   margin: 0;
 }
-body {
-  margin: 100px 1em 50px 1em;
-}
-* {
-margin: 0;
-box-sizing: border-box;
+
+@page {
+  margin: 100px 2em 100px 2em;
 }
 
-table {
-  max-width: 100%;
-}
-
-.pdf-content {}
-
-p + p + p { page-break-after: always; }
-
-.pdf-header {
+footer, header {
   position: fixed;
+  border: 2px dotted red;
   background-color: #0059b3;
   padding: 0.5em;
-  top: 0;
   left: 0;
+  margin-left: -2em;
+  margin-right: -2em;
   width: 100%;
   color: white;
   height: 50px;
-  text-align: center;
 }
 
-.pdf-header__logo {
-  max-width: 150px;
-  float: left;
-  display: inline-block;
-}
+header { top: -100px; }
+footer { bottom: -100px; }
 
-.pdf-footer {
-  position: fixed;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  height: 75px;
-  background-color: #0059b3;
-  text-align: center;
-  color: white;
-}
+p + p + p { page-break-after: before; }
 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  max-width: 100%;
 }
 
 td, th {

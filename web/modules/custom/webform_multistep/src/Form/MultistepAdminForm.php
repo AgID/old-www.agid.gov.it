@@ -65,7 +65,6 @@
       $form['pdf_options'] = [
         '#type' => 'details',
         '#title' => $this->t('PDF Settings'),
-        '#description' => $this->t('Remember: to break a page, forcing it to go at next one, it\'s needed uses three 	&lt;p&gt; tag sequentially like as follow: &lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;.'),
       ];
       $form['pdf_options']['pdf_filename'] = [
         '#type' => 'textfield',
@@ -108,7 +107,7 @@
 
     public static function testPDFDownload(array &$form, FormStateInterface $form_state) {
       $pdf = new Pdf();
-      $pdf->test(true);
+      $pdf->test(false);
     }
 
     /**
