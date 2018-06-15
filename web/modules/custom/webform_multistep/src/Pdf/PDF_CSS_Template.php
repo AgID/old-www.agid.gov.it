@@ -11,7 +11,6 @@ html {
 
 footer, header {
   position: fixed;
-  border: 2px dotted red;
   background-color: #0059b3;
   padding: 0.5em;
   left: 0;
@@ -25,7 +24,7 @@ footer, header {
 header { top: -100px; }
 footer { bottom: -100px; }
 
-p + p + p { page-break-after: before; }
+p + p + p { page-break-after: always; }
 
 table {
   font-family: arial, sans-serif;

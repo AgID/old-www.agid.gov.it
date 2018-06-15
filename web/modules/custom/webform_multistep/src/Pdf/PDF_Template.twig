@@ -4,14 +4,17 @@
     <title> {{ title }} </title>
   </head>
   <body>
-    <header>
-      {{ header|raw }}
-    </header>
+    <!-- Attention: leave <footer> above <header>, otherwise it will not shown on first page. -->
+    <footer> {{ footer|raw }} </footer>
+    <!-- ##### -->
+
+    <!-- Header -->
+    <header> {{ header|raw }} </header>
+
+    <!-- Main -->
     <main class="pdf-content">
       {{ content|raw }}
     </main>
-    <footer>
-      {{ footer|raw }}
-    </footer>
+
   </body>
 </html>
