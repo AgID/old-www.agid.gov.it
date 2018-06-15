@@ -11,18 +11,14 @@ html {
 
 footer, header {
   position: fixed;
-  background-color: #0059b3;
-  padding: 0.5em;
   left: 0;
   margin-left: -2em;
   margin-right: -2em;
   width: 100%;
-  color: white;
-  height: 50px;
 }
 
-header { top: -100px; }
-footer { bottom: -100px; }
+header { top: -2.5em; }
+footer { bottom: -2.5em; }
 
 p + p + p { page-break-after: always; }
 
