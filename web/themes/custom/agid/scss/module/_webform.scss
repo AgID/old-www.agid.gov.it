@@ -11,10 +11,6 @@
 }
 .webform-submission-form,
 .webform-submission-contact-form {
-  label {
-    margin: 1rem 0;
-  }
-
   textarea {
     resize: none;
   }
@@ -88,6 +84,35 @@
   }
 }
 
+.webform-confirmation.webform-confirmation-multistep {
+  line-height: initial;
+
+  a {
+    font-size: inherit;
+  }
+
+  p {
+    border: none;
+    padding: 0;
+  }
+
+  ul, ol {
+    padding: 0.75em;
+
+    li > ul > li {
+        list-style-type: square;
+    }
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+  
+  ul li {
+    list-style-type: initial;
+  }
+}
+
 /** Webform submit button **/
 .webform-actions {
   text-align: right;
@@ -99,9 +124,12 @@
 }
 
 .webform-submission-form {
-  #edit-step-3 {
-    margin-bottom: 1.25em;
+  margin-bottom: 4rem;
+
+  .error {
+    border: 2px solid darkred;
   }
+
   #edit-actions {
     margin-top: 1em;
   }
@@ -109,12 +137,30 @@
  * Disable some customizations
  */
   .Form-field--choose {
-    .Form-input:not([type="checkbox"]) {
+    .Form-input:not([type="checkbox"]):not([type="radio"]) {
       height: auto;
       opacity: 1;
       position: relative;
       z-index: auto;
       max-width: 100%;
+    }
+
+    .Form-label {
+      margin-bottom: 0.5rem;
+    }
+
+    .Form-label--block {
+      text-indent: -2.3em;
+      padding-left: 3em;
+      margin: 0;
+
+      & > * {
+        text-indent: 0;
+      }
+    }
+
+    .Form-fieldIcon {
+      margin: 0;
     }
   }
 
@@ -123,6 +169,8 @@
       font-size: inherit;
     }
   }
+
+  .Form-field .description,
   .js-form-type-processed-text.Form-field {
     line-height: initial;
     ul, ol {
@@ -138,8 +186,8 @@
     }
   }
 
-  fieldset:not(:last-child) {
-    margin-bottom: 1.5em;
+  .Form-field {
+    margin-top: 1.5em;
   }
 }
 

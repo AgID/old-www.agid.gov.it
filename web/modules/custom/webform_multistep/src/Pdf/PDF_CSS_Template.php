@@ -6,7 +6,7 @@ html {
 }
 
 @page {
-  margin: 100px 2em 100px 2em;
+  margin: 120px 80px 80px 80px;
 }
 
 footer, header {
@@ -17,10 +17,12 @@ footer, header {
   width: 100%;
 }
 
-header { top: -2.5em; }
-footer { bottom: -2.5em; }
+header { top: -120px; }
+footer { bottom: -80px; }
 
-p + p + p { page-break-after: always; }
+header img { width: 100%; }
+
+p.pagebreak { page-break-after: always; }
 
 table {
   font-family: arial, sans-serif;
@@ -38,3 +40,5 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+ul li h2 { margin: 0; }

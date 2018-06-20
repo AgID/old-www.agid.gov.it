@@ -25,7 +25,7 @@
     if (!is_array($wfr_id)) {
       $webform_id = "webform_submission_${wfr_id}_";
       if (strpos($form_id, $webform_id) !== false)
-        $alert = true;
+        $alter = true;
     }
     else {
       $webform_id = array_map(function ($a) {
@@ -46,8 +46,8 @@
       // Hide file attachement field. It will automatically computed at run-time.
       $form['elements']['attachment']['#access'] = false;
       // Create the unique id for id_request form value
-      if ($form_state->getValue('request_id') == null) {
-        $form['elements']['request_id']['#default_value'] = strtoupper(substr(str_shuffle(md5(uniqid(rand(), true))), 0, 4));
+      if ($form_state->getValue('random_id') == null) {
+        $form['elements']['random_id']['#default_value'] = strtoupper(substr(str_shuffle(md5(uniqid(rand(), true))), 0, 8));
       }
     }
   }
@@ -65,10 +65,10 @@
     $pdf = new Pdf();
     // Create the PDF file
     $pdf->setContent($pdf_content);
-    $request_id = $form['elements']['request_id']['#default_value'];
-    // Then set $request_id
-    $form_state->setValue('request_id', $request_id);
-    $pdf->render()->save($request_id);
+    $random_id = $form['elements']['random_id']['#default_value'];
+    // Then set $random_id
+    $form_state->setValue('random_id', $random_id);
+    $pdf->render()->save($random_id);
     // Get created file
     $file = $pdf->getDrupalFile();
     // Get file id (fid)

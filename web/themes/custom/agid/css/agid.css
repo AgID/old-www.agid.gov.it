@@ -839,11 +839,6 @@ li {
   color: #00264d;
 }
 
-.webform-submission-form label,
-.webform-submission-contact-form label {
-  margin: 1rem 0;
-}
-
 .webform-submission-form textarea,
 .webform-submission-contact-form textarea {
   resize: none;
@@ -923,6 +918,35 @@ li {
   padding-left: 1rem;
 }
 
+.webform-confirmation.webform-confirmation-multistep {
+  line-height: initial;
+}
+
+.webform-confirmation.webform-confirmation-multistep a {
+  font-size: inherit;
+}
+
+.webform-confirmation.webform-confirmation-multistep p {
+  border: none;
+  padding: 0;
+}
+
+.webform-confirmation.webform-confirmation-multistep ul, .webform-confirmation.webform-confirmation-multistep ol {
+  padding: 0.75em;
+}
+
+.webform-confirmation.webform-confirmation-multistep ul li > ul > li, .webform-confirmation.webform-confirmation-multistep ol li > ul > li {
+  list-style-type: square;
+}
+
+.webform-confirmation.webform-confirmation-multistep ol li {
+  list-style-type: decimal;
+}
+
+.webform-confirmation.webform-confirmation-multistep ul li {
+  list-style-type: initial;
+}
+
 /** Webform submit button **/
 .webform-actions {
   text-align: right;
@@ -934,20 +958,21 @@ li {
 }
 
 .webform-submission-form {
+  margin-bottom: 4rem;
   /**
  * Disable some customizations
  */
 }
 
-.webform-submission-form #edit-step-3 {
-  margin-bottom: 1.25em;
+.webform-submission-form .error {
+  border: 2px solid darkred;
 }
 
 .webform-submission-form #edit-actions {
   margin-top: 1em;
 }
 
-.webform-submission-form .Form-field--choose .Form-input:not([type="checkbox"]) {
+.webform-submission-form .Form-field--choose .Form-input:not([type="checkbox"]):not([type="radio"]) {
   height: auto;
   opacity: 1;
   position: relative;
@@ -955,28 +980,55 @@ li {
   max-width: 100%;
 }
 
+.webform-submission-form .Form-field--choose .Form-label {
+  margin-bottom: 0.5rem;
+}
+
+.webform-submission-form .Form-field--choose .Form-label--block {
+  text-indent: -2.3em;
+  padding-left: 3em;
+  margin: 0;
+}
+
+.webform-submission-form .Form-field--choose .Form-label--block > * {
+  text-indent: 0;
+}
+
+.webform-submission-form .Form-field--choose .Form-fieldIcon {
+  margin: 0;
+}
+
 .webform-submission-form h3 a {
   font-size: inherit;
 }
 
+.webform-submission-form .Form-field .description,
 .webform-submission-form .js-form-type-processed-text.Form-field {
   line-height: initial;
 }
 
-.webform-submission-form .js-form-type-processed-text.Form-field ul, .webform-submission-form .js-form-type-processed-text.Form-field ol {
+.webform-submission-form .Form-field .description ul, .webform-submission-form .Form-field .description ol,
+.webform-submission-form .js-form-type-processed-text.Form-field ul,
+.webform-submission-form .js-form-type-processed-text.Form-field ol {
   padding: 0.75em;
 }
 
-.webform-submission-form .js-form-type-processed-text.Form-field ul li, .webform-submission-form .js-form-type-processed-text.Form-field ol li {
+.webform-submission-form .Form-field .description ul li, .webform-submission-form .Form-field .description ol li,
+.webform-submission-form .js-form-type-processed-text.Form-field ul li,
+.webform-submission-form .js-form-type-processed-text.Form-field ol li {
   list-style-type: initial;
 }
 
-.webform-submission-form .js-form-type-processed-text.Form-field ul li > ul li, .webform-submission-form .js-form-type-processed-text.Form-field ul li ol li, .webform-submission-form .js-form-type-processed-text.Form-field ol li > ul li, .webform-submission-form .js-form-type-processed-text.Form-field ol li ol li {
+.webform-submission-form .Form-field .description ul li > ul li, .webform-submission-form .Form-field .description ul li ol li, .webform-submission-form .Form-field .description ol li > ul li, .webform-submission-form .Form-field .description ol li ol li,
+.webform-submission-form .js-form-type-processed-text.Form-field ul li > ul li,
+.webform-submission-form .js-form-type-processed-text.Form-field ul li ol li,
+.webform-submission-form .js-form-type-processed-text.Form-field ol li > ul li,
+.webform-submission-form .js-form-type-processed-text.Form-field ol li ol li {
   list-style-type: square;
 }
 
-.webform-submission-form fieldset:not(:last-child) {
-  margin-bottom: 1.5em;
+.webform-submission-form .Form-field {
+  margin-top: 1.5em;
 }
 
 .progress-text {
