@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Contains webform_multistep.module.
+ */
+
+  use Drupal\Core\Routing\RouteMatch;
+  use Drupal\Core\Routing\RouteMatchInterface;
+  use Drupal\webform_multistep\Pdf\Pdf;
+  use Drupal\Core\Form\FormStateInterface;
+
+  /**
+   * Implements hook_form_alter().
+   */
+  function webform_multistep_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    $form['#attached']['library'][] = 'webform_multistep/fix';
+
+    $alter = false;
+    // Config service for module's admin settings
+    $config = \Drupal::configFactory()->get('webform_multistep.adminsettings');
+    // Get webform's reference id from module's admin settings
+    $wfr_id = $config->get('webform_reference');
+    // Checks if it has been set in the configurations
+    if (!is_array($wfr_id)) {
+      $webform_id = "webform_submission_${wfr_id}_";
+      if (strpos($form_id, $webform_id) !== false)
+        $alter = true;
+    }
+    else {
+      $webform_id = array_map(function ($a) {
+        return "webform_submission_" . $a['target_id'] . "_";
+      }, $wfr_id);
+      // Check if current altering form is one of webform_reference settings value
+      foreach ($webform_id as $wfi) {
+        if (strpos($form_id, $wfi) !== false)
+          $alter = true;
+      }
+    }
+    // Checks if current form is $webform_id
+    if ($alter === true && strpos($form_id, '_add_form') !== false) {
+      // Hide pdf_contents from form
+      $form['elements']['pdf_contents']['#access'] = FALSE;
+      // Prepends other form submit handlers
+      array_unshift($form['actions']['submit']['#submit'], '_webform_multistep_create_pdf_attachment');
+      // Hide file attachement field. It will automatically computed at run-time.
+      $form['elements']['attachment']['#access'] = false;
+      // Create the unique id for id_request form value
+      if ($form_state->getValue('random_id') == null) {
+        $form['elements']['random_id']['#default_value'] = strtoupper(substr(str_shuffle(md5(uniqid(rand(), true))), 0, 8));
+      }
+    }
+  }
+
+  /**
+   * Prepends submit function to execute before the standards form's submit.
+   * This function will create a pdf and then attachs it to the attachment form field.
+   *
+   * @param array $form
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   */
+  function _webform_multistep_create_pdf_attachment(array &$form, FormStateInterface $form_state) {
+    // Get and render summary page. It will be pdf's content.
+    $pdf_content = $form['elements']['pdf_contents']['#text'];
+    $pdf = new Pdf();
+    // Create the PDF file
+    $pdf->setContent($pdf_content);
+    $random_id = $form['elements']['random_id']['#default_value'];
+    // Then set $random_id
+    $form_state->setValue('random_id', $random_id);
+    $pdf->render()->save($random_id);
+    // Get created file
+    $file = $pdf->getDrupalFile();
+    // Get file id (fid)
+    $fid = $file->id();
+    // Set file attachment into form_state values
+    $form_state->setValue('attachment', $fid);
+  }
+

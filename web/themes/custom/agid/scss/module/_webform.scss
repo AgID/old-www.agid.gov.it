@@ -1,4 +1,4 @@
-.webform-submission-contact-form,
+.webform-submission-form, .webform-submission-contact-form,
 .views-exposed-form {
   border: 1px solid $border-default-color;
   padding: 1rem;
@@ -9,12 +9,8 @@
     color: $dark-blue;
   }
 }
-
+.webform-submission-form,
 .webform-submission-contact-form {
-  label {
-    margin: 1rem 0;
-  }
-
   textarea {
     resize: none;
   }
@@ -54,6 +50,23 @@
   }
 }
 
+.webform-submission-contact-form {
+  .webform-button--submit {
+    background: rgba(0, 0, 0, 0.0001);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    line-height: 21px !important;
+    font-weight: 600;
+    color: #0d00ff;
+    margin: 2rem 0;
+    border: 0;
+    padding: 1rem 4rem;
+  }
+}
+
 .form-item label.is-required small {
   display: none;
 }
@@ -71,27 +84,116 @@
   }
 }
 
+.webform-confirmation.webform-confirmation-multistep {
+  line-height: initial;
+
+  a {
+    font-size: inherit;
+  }
+
+  p {
+    border: none;
+    padding: 0;
+  }
+
+  ul, ol {
+    padding: 0.75em;
+
+    li > ul > li {
+        list-style-type: square;
+    }
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+  
+  ul li {
+    list-style-type: initial;
+  }
+}
+
 /** Webform submit button **/
 .webform-actions {
   text-align: right;
 }
 
-.webform-button--submit {
-  background: rgba(0, 0, 0, 0.0001);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-transform: uppercase;
-  text-decoration: none !important;
-  font-size: 14px !important;
-  line-height: 21px !important;
-  font-weight: 600;
-  color: #0d00ff;
-  margin: 2rem 0;
-  border: 0;
-  padding: 1rem 4rem;
-}
-
 .webform-button--submit[disabled] {
   background-color: rgba(176, 176, 176, 0.5) !important;
   opacity: 1;
+}
+
+.webform-submission-form {
+  margin-bottom: 4rem;
+
+  .error {
+    border: 2px solid darkred;
+  }
+
+  #edit-actions {
+    margin-top: 1em;
+  }
+  /**
+ * Disable some customizations
+ */
+  .Form-field--choose {
+    .Form-input:not([type="checkbox"]):not([type="radio"]) {
+      height: auto;
+      opacity: 1;
+      position: relative;
+      z-index: auto;
+      max-width: 100%;
+    }
+
+    .Form-label {
+      margin-bottom: 0.5rem;
+    }
+
+    .Form-label--block {
+      text-indent: -2.3em;
+      padding-left: 3em;
+      margin: 0;
+
+      & > * {
+        text-indent: 0;
+      }
+    }
+
+    .Form-fieldIcon {
+      margin: 0;
+    }
+  }
+
+  h3 {
+    a {
+      font-size: inherit;
+    }
+  }
+
+  .Form-field .description,
+  .js-form-type-processed-text.Form-field {
+    line-height: initial;
+    ul, ol {
+      li {
+        list-style-type: initial;
+        & > ul, ol {
+          li {
+            list-style-type: square;
+          }
+        }
+      }
+      padding: 0.75em;
+    }
+  }
+
+  .Form-field {
+    margin-top: 1.5em;
+  }
+}
+
+.progress-text {
+  padding: 10px 5px;
+  .progress-title {
+    font-size: 0.85em;
+  }
 }

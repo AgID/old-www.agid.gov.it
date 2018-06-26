@@ -826,7 +826,7 @@ li {
   margin-bottom: 1rem;
 }
 
-.webform-submission-contact-form,
+.webform-submission-form, .webform-submission-contact-form,
 .views-exposed-form {
   border: 1px solid #d0e2f5;
   padding: 1rem;
@@ -834,36 +834,39 @@ li {
   margin-top: 4rem !important;
 }
 
-.webform-submission-contact-form label,
+.webform-submission-form label, .webform-submission-contact-form label,
 .views-exposed-form label {
   color: #00264d;
 }
 
-.webform-submission-contact-form label {
-  margin: 1rem 0;
-}
-
+.webform-submission-form textarea,
 .webform-submission-contact-form textarea {
   resize: none;
 }
 
+.webform-submission-form .js-form-type-webform-markup,
 .webform-submission-contact-form .js-form-type-webform-markup {
   border-bottom: 1px solid rgba(0, 89, 179, 0.3);
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 }
 
+.webform-submission-form input,
+.webform-submission-form textarea,
+.webform-submission-form select,
 .webform-submission-contact-form input,
 .webform-submission-contact-form textarea,
 .webform-submission-contact-form select {
   border: 1px solid #d0e2f5;
 }
 
+.webform-submission-form textarea[disabled],
 .webform-submission-contact-form textarea[disabled] {
   background-color: rgba(176, 176, 176, 0.5);
   margin-top: 2rem;
 }
 
+.webform-submission-form .Alert--error,
 .webform-submission-contact-form .Alert--error {
   font-size: 1.6rem !important;
   background-color: rgba(241, 47, 47, 0.1);
@@ -874,11 +877,27 @@ li {
   background-size: 3rem;
 }
 
+.webform-submission-form .Alert--error p,
 .webform-submission-contact-form .Alert--error p {
   padding: 0;
   margin: 0;
   min-height: auto;
   margin-bottom: 1rem !important;
+}
+
+.webform-submission-contact-form .webform-button--submit {
+  background: rgba(0, 0, 0, 0.0001);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  font-weight: 600;
+  color: #0d00ff;
+  margin: 2rem 0;
+  border: 0;
+  padding: 1rem 4rem;
 }
 
 .form-item label.is-required small {
@@ -899,29 +918,125 @@ li {
   padding-left: 1rem;
 }
 
+.webform-confirmation.webform-confirmation-multistep {
+  line-height: initial;
+}
+
+.webform-confirmation.webform-confirmation-multistep a {
+  font-size: inherit;
+}
+
+.webform-confirmation.webform-confirmation-multistep p {
+  border: none;
+  padding: 0;
+}
+
+.webform-confirmation.webform-confirmation-multistep ul, .webform-confirmation.webform-confirmation-multistep ol {
+  padding: 0.75em;
+}
+
+.webform-confirmation.webform-confirmation-multistep ul li > ul > li, .webform-confirmation.webform-confirmation-multistep ol li > ul > li {
+  list-style-type: square;
+}
+
+.webform-confirmation.webform-confirmation-multistep ol li {
+  list-style-type: decimal;
+}
+
+.webform-confirmation.webform-confirmation-multistep ul li {
+  list-style-type: initial;
+}
+
 /** Webform submit button **/
 .webform-actions {
   text-align: right;
 }
 
-.webform-button--submit {
-  background: rgba(0, 0, 0, 0.0001);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  text-transform: uppercase;
-  text-decoration: none !important;
-  font-size: 14px !important;
-  line-height: 21px !important;
-  font-weight: 600;
-  color: #0d00ff;
-  margin: 2rem 0;
-  border: 0;
-  padding: 1rem 4rem;
-}
-
 .webform-button--submit[disabled] {
   background-color: rgba(176, 176, 176, 0.5) !important;
   opacity: 1;
+}
+
+.webform-submission-form {
+  margin-bottom: 4rem;
+  /**
+ * Disable some customizations
+ */
+}
+
+.webform-submission-form .error {
+  border: 2px solid darkred;
+}
+
+.webform-submission-form #edit-actions {
+  margin-top: 1em;
+}
+
+.webform-submission-form .Form-field--choose .Form-input:not([type="checkbox"]):not([type="radio"]) {
+  height: auto;
+  opacity: 1;
+  position: relative;
+  z-index: auto;
+  max-width: 100%;
+}
+
+.webform-submission-form .Form-field--choose .Form-label {
+  margin-bottom: 0.5rem;
+}
+
+.webform-submission-form .Form-field--choose .Form-label--block {
+  text-indent: -2.3em;
+  padding-left: 3em;
+  margin: 0;
+}
+
+.webform-submission-form .Form-field--choose .Form-label--block > * {
+  text-indent: 0;
+}
+
+.webform-submission-form .Form-field--choose .Form-fieldIcon {
+  margin: 0;
+}
+
+.webform-submission-form h3 a {
+  font-size: inherit;
+}
+
+.webform-submission-form .Form-field .description,
+.webform-submission-form .js-form-type-processed-text.Form-field {
+  line-height: initial;
+}
+
+.webform-submission-form .Form-field .description ul, .webform-submission-form .Form-field .description ol,
+.webform-submission-form .js-form-type-processed-text.Form-field ul,
+.webform-submission-form .js-form-type-processed-text.Form-field ol {
+  padding: 0.75em;
+}
+
+.webform-submission-form .Form-field .description ul li, .webform-submission-form .Form-field .description ol li,
+.webform-submission-form .js-form-type-processed-text.Form-field ul li,
+.webform-submission-form .js-form-type-processed-text.Form-field ol li {
+  list-style-type: initial;
+}
+
+.webform-submission-form .Form-field .description ul li > ul li, .webform-submission-form .Form-field .description ul li ol li, .webform-submission-form .Form-field .description ol li > ul li, .webform-submission-form .Form-field .description ol li ol li,
+.webform-submission-form .js-form-type-processed-text.Form-field ul li > ul li,
+.webform-submission-form .js-form-type-processed-text.Form-field ul li ol li,
+.webform-submission-form .js-form-type-processed-text.Form-field ol li > ul li,
+.webform-submission-form .js-form-type-processed-text.Form-field ol li ol li {
+  list-style-type: square;
+}
+
+.webform-submission-form .Form-field {
+  margin-top: 1.5em;
+}
+
+.progress-text {
+  padding: 10px 5px;
+}
+
+.progress-text .progress-title {
+  font-size: 0.85em;
 }
 
 article ul li.share-everywhere {

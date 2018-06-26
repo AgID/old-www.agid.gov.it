@@ -1,0 +1,5 @@
+webform_multistep.admin:
+  title: 'Webform Multistep Settings'
+  parent: system.admin_config_development
+  route_name: webform_multistep.admin_settings_form
+  weight: 100
