@@ -735,7 +735,20 @@ display:
           entity_field: changed
           plugin_id: date
       title: 'Linee guida'
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: '<a href="https://www.agid.gov.it/sites/default/files/repository_files/regolamento-adozione-linee-guida-attuazione-cad.pdf">Regolamento per l’adozione di Linee Guida (PDF)</a> per l’attuazione del Codice dell’Amministrazione Digitale'
+            format: filtered_text
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships:
