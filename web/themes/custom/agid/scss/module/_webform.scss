@@ -131,7 +131,12 @@
   }
 
   #edit-actions {
-    margin-top: 1em;
+    margin-top: 3em;
+    margin-bottom: 1em;
+
+    .webform-button--previous {
+      float: left;
+    }
   }
   /**
  * Disable some customizations

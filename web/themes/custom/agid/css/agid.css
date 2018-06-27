@@ -969,7 +969,12 @@ li {
 }
 
 .webform-submission-form #edit-actions {
-  margin-top: 1em;
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+.webform-submission-form #edit-actions .webform-button--previous {
+  float: left;
 }
 
 .webform-submission-form .Form-field--choose .Form-input:not([type="checkbox"]):not([type="radio"]) {
