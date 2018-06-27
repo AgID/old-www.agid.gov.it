@@ -150,6 +150,13 @@
       max-width: 100%;
     }
 
+    .Form-input[type="checkbox"],
+    .Form-input[type="radio"] {
+      height: auto;
+      margin-top: 0.5em;
+      margin-left: 0.5em;
+    }
+
     .Form-label {
       margin-bottom: 0.5rem;
     }

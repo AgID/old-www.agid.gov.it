@@ -985,6 +985,13 @@ li {
   max-width: 100%;
 }
 
+.webform-submission-form .Form-field--choose .Form-input[type="checkbox"],
+.webform-submission-form .Form-field--choose .Form-input[type="radio"] {
+  height: auto;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+}
+
 .webform-submission-form .Form-field--choose .Form-label {
   margin-bottom: 0.5rem;
 }
