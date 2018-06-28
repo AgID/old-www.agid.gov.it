@@ -1,0 +1,21 @@
+views.area.agid_search_spellcheck:
+  type: views_area
+  label: 'SpellCheck Solr'
+  mapping:
+    title:
+      type: string
+      label: 'The title to announce the suggestions'
+    hide_on_result:
+      type: boolean
+      label: 'Hide when the view has results'
+    redirect:
+      type: boolean
+      label: 'Active redirect when results is empty and found a suggestion/spellcheck valid'
+
+views.area.agid_search_related_topics_solr:
+  type: views_area
+  label: 'Related Topics'
+  mapping:
+    search_api_field:
+      type: string
+      label: 'Search Api field for build the reference topics'

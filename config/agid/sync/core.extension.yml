@@ -88,7 +88,8 @@ module:
   rh_node: 0
   rh_taxonomy: 0
   rules: 0
-  search: 0
+  search_api: 0
+  search_api_solr: 0
   seckit: 0
   share_everywhere: 0
   sitemap: 0
@@ -116,6 +117,7 @@ module:
   xmlsitemap: 1
   views: 10
   paragraphs: 11
+  agid_search: 150
   empty_page: 1000
   sparkminimal: 1000
 theme:

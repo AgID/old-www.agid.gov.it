@@ -167,7 +167,10 @@
     "drupal/share_everywhere": "^1.1",
     "drupal/better_exposed_filters": "^3.0@alpha",
     "dompdf/dompdf": "^0.8.2",
-    "drupal/mimemail": "^1.0@alpha"
+    "drupal/mimemail": "^1.0@alpha",
+    "drupal/search_api": "1.8",
+    "drupal/search_api_solr": "2.0",
+    "drupal/search_api_attachments": "1.0-beta3"
   },
   "require-dev": {
     "phing/phing": "2.12.*",
