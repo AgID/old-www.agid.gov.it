@@ -141,7 +141,7 @@ class RelatedTopics extends AreaPluginBase {
     // Get results for field.
     $results_data = isset($facet_results[$field]) ? $facet_results[$field] : [];
 
-    // TODO: load the data from the facets and retrieve the terms of taxonomy referenced to them.
+    // Load the data from the facets and retrieve the terms of taxonomy referenced to them.
 
     $tids = [];
     foreach ($results_data as $result_data) {
@@ -152,14 +152,39 @@ class RelatedTopics extends AreaPluginBase {
       }
     }
 
-    // TODO: retrieve term referenced with this terms.
-
-    $links = [];
+    // Retrieve term referenced with this terms.
+    $related_topics_id = [];
+    /** @var \Drupal\taxonomy\TermInterface[] $terms */
     $terms = $this->termStorage->loadMultiple($tids);
     foreach ($terms as $term) {
-      $links[] = [
-        'title' => $term->label(),
-        'url' => $term->toUrl(),
+
+      if (!$term->hasField('field_related_topics')) {
+        continue;
+      }
+
+      /** @var \Drupal\taxonomy\TermInterface[] $related_topics */
+      $related_topics_per_term = $term->get('field_related_topics')
+        ->referencedEntities();
+
+      foreach ($related_topics_per_term as $related_topic) {
+
+        // Save the terms in array with count occurrences.
+        $related_topics_id[$related_topic->id()] = isset($related_topics_id[$related_topic->id()]) ? ++$related_topics_id[$related_topic->id()] : 1;
+      }
+    }
+
+    // Sort array of related topics for count occurrences.
+    arsort($related_topics_id);
+
+    // Load terms.
+    $related_topics = $this->termStorage->loadMultiple(array_keys($related_topics_id));
+
+    // Create an array with links to related topics.
+    $links = [];
+    foreach ($related_topics as $related_topic) {
+      $links[$related_topic->id()] = [
+        'title' => $related_topic->label(),
+        'url' => $related_topic->toUrl(),
       ];
     }
 

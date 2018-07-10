@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc316cff62872c9adc74c5e96007b04b",
+    "content-hash": "4664cecee76908bd92b64cd0693ac171",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6091,17 +6091,17 @@
         },
         {
             "name": "drupal/search_api_attachments",
-            "version": "1.0.0-beta3",
+            "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_attachments",
-                "reference": "8.x-1.0-beta3"
+                "reference": "8.x-1.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-8.x-1.0-beta3.zip",
-                "reference": "8.x-1.0-beta3",
-                "shasum": "852405b74991a349574d0c0334ebe4edf84b627e"
+                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-8.x-1.0-beta5.zip",
+                "reference": "8.x-1.0-beta5",
+                "shasum": "bd116adb6ac045fac0b92c3f2755f49cf2efa2a9"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -6113,8 +6113,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta3",
-                    "datestamp": "1499524442",
+                    "version": "8.x-1.0-beta5",
+                    "datestamp": "1530893021",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."

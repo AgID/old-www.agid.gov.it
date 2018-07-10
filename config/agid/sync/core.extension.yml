@@ -89,6 +89,7 @@ module:
   rh_taxonomy: 0
   rules: 0
   search_api: 0
+  search_api_attachments: 0
   search_api_solr: 0
   seckit: 0
   share_everywhere: 0

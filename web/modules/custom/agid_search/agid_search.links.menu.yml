@@ -1,0 +1,5 @@
+agid_search.force_indexing_form:
+  title: Force indexing of entities
+  route_name: agid_search.force_indexing_form
+  weight: 99
+  parent: system.admin_config_search

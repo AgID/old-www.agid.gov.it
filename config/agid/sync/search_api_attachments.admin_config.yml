@@ -1,0 +1,16 @@
+extraction_method: solr_extractor
+preserve_cache: true
+solr_extractor_configuration:
+  solr_server: solr_server
+pdftotext_extractor_configuration: {  }
+tika_extractor_configuration:
+  java_path: java
+  tika_path: ''
+python_pdf2txt_extractor_configuration:
+  python_path: python
+  python_pdf2txt_script: /usr/bin/pdf2txt
+docconv_extractor_configuration:
+  docconv_path: /usr/bin/docconv
+_core:
+  default_config_hash: 80917I70tb3rqaPHgnCQpG7WUI__UgNY4Clb2yqttCs
+langcode: it

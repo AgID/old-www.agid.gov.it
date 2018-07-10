@@ -8,7 +8,8 @@ use Drupal\views\Form\ViewsExposedForm;
 /**
  * Class ViewsExposedFilterForm.
  *
- * This class is used only update the form.
+ * This class removes the selected form elements and replaces them with
+ * hidden form elements in order to keep any other forms inputs.
  *
  * @package Drupal\agid_search\Form
  */
@@ -21,14 +22,37 @@ class ViewsExposedFilterForm extends ViewsExposedForm {
     $form = parent::buildForm($form, $form_state);
     $exposed_filters_disable = $form_state->get('exposed_filters_disable');
 
+    /** @var \Drupal\views\ViewExecutable $view */
+    $view = $form_state->get('view');
+    $exposed_input = $view->getExposedInput();
+
     // Reactive filter selected.
     foreach ($exposed_filters_disable as $filter_id) {
       if (isset($form[$filter_id])) {
-        // TODO: not work:
-        // We can not remove the filter but only hide it,
-        // otherwise in the request to send it will not use any filters
-        // used by other forms on the page.
-         hide($form[$filter_id]);
+
+        // Store old element and remove it.
+        $old_element = $form[$filter_id];
+        unset($form[$filter_id]);
+
+        // Create a new element form (hidden).
+        // It is necessary to recreate the element for the form GET.
+        if (!$old_element['#multiple']) {
+          $form[$filter_id] = [
+            '#type' => 'hidden',
+            '#value' => $exposed_input[$filter_id],
+          ];
+        }
+        else {
+          // In the case of multiple elements how checkboxes.
+          foreach ($exposed_input[$filter_id] as $name => $input) {
+            $form[$filter_id][$name] = [
+              '#type' => 'hidden',
+              '#value' => $input,
+              '#name' => "{$filter_id}[{$name}]",
+            ];
+          }
+        }
+
       }
     }
 

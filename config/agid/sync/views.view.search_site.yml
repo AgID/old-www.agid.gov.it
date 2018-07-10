@@ -3,7 +3,6 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.node.field_news_type
     - search_api.index.global_index
   module:
     - agid_search
@@ -37,7 +36,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Cerca
+          submit_button: Applica
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Ordina per'
@@ -75,10 +74,10 @@ display:
           separator: ''
           hide_empty: false
       fields:
-        field_news_type:
-          id: field_news_type
+        type_1:
+          id: type_1
           table: search_api_datasource_global_index_entity_node
-          field: field_news_type
+          field: type
           relationship: none
           group_type: group
           admin_label: ''
@@ -145,34 +144,7 @@ display:
             multi_type: separator
             multi_separator: ', '
             display_methods:
-              acc_subj_type:
-                display_method: label
-              agid_offices:
-                display_method: label
-                view_mode: default
-              arguments:
-                display_method: label
-              cad:
-                display_method: label
-                view_mode: default
-              contact_form_arguments:
-                display_method: label
-              file_category:
-                display_method: label
-              file_type:
-                display_method: label
-              news_type:
-                display_method: label
-              original_file_source:
-                display_method: label
-                view_mode: default
-              pagopa_type:
-                display_method: label
-              press_release_type:
-                display_method: label
-              profiles:
-                display_method: label
-              roles:
+              node_type:
                 display_method: label
           entity_type: node
           plugin_id: search_api_field
@@ -252,13 +224,10 @@ display:
             multi_separator: ', '
           entity_type: node
           plugin_id: search_api_field
-        title:
-          table: search_api_index_global_index
+        title_1:
+          id: title_1
+          table: search_api_datasource_global_index_entity_node
           field: title
-          id: title
-          entity_type: null
-          entity_field: null
-          plugin_id: search_api_field
           relationship: none
           group_type: group
           admin_label: ''
@@ -295,7 +264,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -305,7 +274,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: string
-          settings: {  }
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -323,6 +293,8 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
+          entity_type: node
+          plugin_id: search_api_field
         search_api_excerpt:
           id: search_api_excerpt
           table: search_api_index_global_index
@@ -459,10 +431,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_language
-        type:
-          id: type
+        content_type:
+          id: content_type
           table: search_api_index_global_index
-          field: type
+          field: content_type
           relationship: none
           group_type: group
           admin_label: ''
@@ -471,12 +443,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: type_op
+            operator_id: content_type_op
             label: 'Tipo di contenuto'
             description: ''
             use_operator: false
-            operator: type_op
-            identifier: type
+            operator: content_type_op
+            identifier: content_type
             required: false
             remember: false
             multiple: true
@@ -515,7 +487,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: 'Cerca nel sito'
+      title: Ricerca
       header:
         agid_search_expose_filter_form:
           id: agid_search_expose_filter_form
@@ -526,7 +498,7 @@ display:
           admin_label: ''
           empty: false
           exposed_filters_disable:
-            type: type
+            content_type: content_type
             search_api_fulltext: 0
             items_per_page: 0
           plugin_id: agid_search_expose_filter_form
@@ -586,8 +558,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags:
-        - 'config:field.storage.node.field_news_type'
+      tags: {  }
   page:
     display_plugin: page
     id: page
@@ -604,5 +575,4 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags:
-        - 'config:field.storage.node.field_news_type'
+      tags: {  }

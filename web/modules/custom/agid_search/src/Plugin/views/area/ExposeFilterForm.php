@@ -120,6 +120,7 @@ class ExposeFilterForm extends AreaPluginBase {
         'rerender' => TRUE,
         // Custom data.
         'exposed_filters_disable' => array_filter($this->options['exposed_filters_disable']),
+        'views_area' => $this->pluginId,
       ])
       ->setMethod('get')
       ->setAlwaysProcess()

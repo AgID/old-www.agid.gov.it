@@ -81,37 +81,48 @@ function agid_search_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\For
     && $form['#id'] == 'views-exposed-form-search-site-page'
     && $view->getQuery() instanceof \Drupal\search_api\Plugin\views\query\SearchApiQuery) {
 
-    // Update description of SearchApiFulltext filters.
-    $current_request_query = \Drupal::requestStack()
-      ->getCurrentRequest()->query;
+    // Only in plugin views ExposeFilterForm area.
+    if ($form_state->get('views_area')) {
 
-    foreach ($view->filter as $key => $filter) {
-      if ($filter instanceof \Drupal\search_api\Plugin\views\filter\SearchApiFulltext) {
-        // The filter could be different then the key.
-        if (!empty($filter->options['expose']['identifier'])) {
-          $key = $filter->options['expose']['identifier'];
+      // Update description of SearchApiFulltext filters.
+      $current_request_query = \Drupal::requestStack()
+        ->getCurrentRequest()->query;
+
+      foreach ($view->filter as $key => $filter) {
+        if ($filter instanceof \Drupal\search_api\Plugin\views\filter\SearchApiFulltext) {
+          // The filter could be different then the key.
+          if (!empty($filter->options['expose']['identifier'])) {
+            $key = $filter->options['expose']['identifier'];
+          }
+
+          if (!isset($form[$key]) || !$current_request_query->get($key, FALSE)
+            || !$current_request_query->get('prev_' . $key, FALSE)) {
+            // Not found filter for query key.
+            continue;
+          }
+
+          // Build message to place after field filter.
+          $message = t(
+            "Not found result for <b>%prev_keyword</b>. The results related to <b>%keyword</b>",
+            [
+              '%prev_keyword' => $current_request_query->get('prev_' . $key, FALSE),
+              '%keyword' => $current_request_query->get($key),
+            ]
+          );
+
+          // Add text after fulltext field.
+          $uggestion = [
+            $key . "_suggestion" => [
+              '#markup' => '<p class="agid_search_spellcheck_solr-suggestion">' . (string) $message . '</p>',
+              '#weight' => isset($form[$key]['#weight']) ? $form[$key]['#weight'] : 0,
+            ],
+          ];
+
+          _array_insert_after($form, $key, $uggestion);
+
+          // TODO: Update the value of fulltext field with prev research keyword.
+          $form[$key]['#default_value'] = $current_request_query->get('prev_' . $key, FALSE);
         }
-
-        if (!isset($form[$key]) || !$current_request_query->get($key, FALSE)
-          || !$current_request_query->get('prev_' . $key, FALSE)) {
-          // Not found filter for query key.
-          continue;
-        }
-
-        // Build message to place after field filter.
-        $message = t(
-          "Not found result for <b>%prev_keyword</b>. The results related to <b>%keyword</b>",
-          [
-            '%prev_keyword' => $current_request_query->get('prev_' . $key, FALSE),
-            '%keyword' => $current_request_query->get($key),
-          ]
-        );
-
-        // Add text after fulltext field.
-        $form[$key]['#suffix'] = '<p class="agid_search_spellcheck_solr-suggestion">' . (string) $message . '</p>';
-
-        // TODO: Update the value of fulltext field with prev research keyword.
-        $form[$key]['#default_value'] = $current_request_query->get('prev_' . $key, FALSE);
       }
     }
 
@@ -127,4 +138,19 @@ function agid_search_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\For
     $form['#attached']['library'][] = 'agid_search/search_site';
   }
 
+}
+
+/**
+ * Insert a value or key/value pair after a specific key in an array.
+ * If key doesn't exist, value is appended to the end of the array.
+ *
+ * @param array $array
+ * @param string $key
+ * @param array $new
+ */
+function _array_insert_after(array &$array, $key, array $new) {
+  $keys = array_keys($array);
+  $index = array_search($key, $keys);
+  $pos = FALSE === $index ? count($array) : $index + 1;
+  $array = array_merge(array_slice($array, 0, $pos), $new, array_slice($array, $pos));
 }
