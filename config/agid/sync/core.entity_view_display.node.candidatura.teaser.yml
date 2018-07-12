@@ -1,0 +1,22 @@
+uuid: 8566bca8-8b35-4cbc-9bca-87f903cd1b0c
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.candidatura
+  module:
+    - user
+id: node.candidatura.teaser
+targetEntityType: node
+bundle: candidatura
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

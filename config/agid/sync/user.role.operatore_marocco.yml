@@ -1,0 +1,9 @@
+uuid: bfc8b73b-097d-45d7-ae2f-668e796897c0
+langcode: it
+status: true
+dependencies: {  }
+id: operatore_marocco
+label: operatore_marocco
+weight: -4
+is_admin: null
+permissions: {  }

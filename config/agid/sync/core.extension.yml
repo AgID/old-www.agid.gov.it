@@ -22,6 +22,7 @@ module:
   block_titlelink: 0
   breakpoint: 0
   broken_link: 0
+  candidatura_mentor: 0
   captcha: 0
   chosen: 0
   chosen_lib: 0

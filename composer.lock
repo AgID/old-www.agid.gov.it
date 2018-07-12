@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "757c036f102301248033c36ca9da2c8a",
+    "content-hash": "85e73ea94e0ab2652f3e3cee8abfd31d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -4032,7 +4032,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0",
-                    "datestamp": "1522572784",
+                    "datestamp": "1531328711",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

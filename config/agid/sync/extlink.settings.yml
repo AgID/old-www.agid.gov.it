@@ -11,3 +11,4 @@ extlink_css_exclude: "header, .Footer\r\n"
 extlink_css_explicit: "main\r\n"
 extlink_label: '(link is external)'
 extlink_mailto_label: '(link sends email)'
+langcode: it

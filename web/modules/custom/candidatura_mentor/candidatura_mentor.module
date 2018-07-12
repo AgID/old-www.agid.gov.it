@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * @file
+ * Main hooks for Candidatura Mentor module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Database\Database;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\user\Entity\User;
+use Drupal\Core\Access\AccessResult;
+
+function candidatura_mentor_entity_presave(EntityInterface $entity) {
+  if($entity->isNew() && $entity->bundle() == 'candidatura') {
+    $id = candidatura_mentor_get_next_id_number();
+    $entity->set('field_identificativo', 'CAND-'.$id);
+  }
+}
+
+function candidatura_mentor_get_next_id_number(){
+  $database = \Drupal::database();
+  $countCandidatura = $database->select('node__field_identificativo', 'n')
+    ->condition('n.bundle', 'candidatura', '=')
+    ->countQuery()
+    ->execute()
+    ->fetchField();
+  return $countCandidatura+1;
+}
+
+function candidatura_mentor_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $uid = \Drupal::currentUser()->id();
+  $user = \Drupal\user\Entity\User::load($uid);
+  $roles = $user->getRoles();
+
+  if ($form_id == 'node_candidatura_form'){
+    $form['field_identificativo']['#disabled'] = TRUE;
+    $form['field_identificativo']['#type'] = 'hidden';
+    $form['field_nome']['widget'][0]['value']['#default_value'] = $user->field_nome->value;
+    $form['field_cognome']['widget'][0]['value']['#default_value'] = $user->field_cognome->value;
+    $form['field_nazionalita']['widget'][0]['value']['#default_value'] = ucfirst($user->field_nazionalita_di_residenza->value);
+    $form['field_indirizzo']['widget'][0]['value']['#default_value'] = $user->field_indirizzo->value;
+    $form['field_citta']['widget'][0]['value']['#default_value'] = $user->field_citta->value;
+    $form['field_regione']['widget'][0]['value']['#default_value'] = $user->field_regione->value;
+    $form['field_email']['widget'][0]['value']['#default_value'] = $user->mail->value;
+  }
+
+  if ($form_id == 'node_candidatura_form' || $form_id == 'node_candidatura_edit_form'){
+    $form['field_identificativo']['#disabled'] = TRUE;
+    $form['field_nome']['#disabled'] = TRUE;
+    $form['field_cognome']['#disabled'] = TRUE;
+    $form['field_nazionalita']['#disabled'] = TRUE;
+    $form['field_indirizzo']['#disabled'] = TRUE;
+    $form['field_citta']['#disabled'] = TRUE;
+    $form['field_regione']['#disabled'] = TRUE;
+    $form['field_email']['#disabled'] = TRUE;
+  }
+
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function candidatura_mentor_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'candidatura'){
+
+    $currentState = $entity->get('moderation_state')->value;
+    if ($currentState == 'complete'){
+
+      $candidaturaArg = array();
+      $candidaturaArg['title'] = $entity->label();
+      $host = \Drupal::request()->getHost();
+      $candidaturaArg['url'] = $host . $entity->toUrl()->toString();
+
+      $nationality = $entity->get('field_nazionalita')->value;
+      switch ($nationality){
+        case 'Marocco':
+          $emailList = _candidatura_mentor_getEmailList('operatore_marocco');
+          break;
+
+        case 'Tunisia':
+          $emailList = _candidatura_mentor_getEmailList('operatore_tunisia');
+          break;
+
+      }
+
+      if (!empty($emailList)){
+        foreach ($emailList as $email) {
+          print $email;
+          _candidatura_mentor_sendEmail($email, 'complete_content', $candidaturaArg);
+        }
+      }
+
+    }
+
+  }
+}
+
+function candidatura_mentor_entity_update(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'candidatura'){
+    $originalState = $entity->original->get('moderation_state')->value;
+    $currentState = $entity->get('moderation_state')->value;
+    $candidaturaArg = array();
+    $candidaturaArg['title'] = $entity->label();
+    $host = \Drupal::request()->getHost();
+    $candidaturaArg['url'] = $host . $entity->toUrl()->toString();
+
+    if ($originalState == 'draft' && $currentState == 'complete'){
+      $nationality = $entity->get('field_nazionalita')->value;
+      switch ($nationality){
+        case 'Marocco':
+          $emailList = _candidatura_mentor_getEmailList('operatore_marocco');
+          break;
+
+        case 'Tunisia':
+          $emailList = _candidatura_mentor_getEmailList('operatore_tunisia');
+          break;
+
+      }
+
+      if (!empty($emailList)){
+        foreach ($emailList as $email) {
+          print $email;
+          _candidatura_mentor_sendEmail($email, 'complete_content', $candidaturaArg);
+        }
+      }
+
+    }elseif ($originalState == 'complete' && $currentState == 'published'){
+      $emailAuthor = $entity->getOwner()->get('mail')->value;
+      if(!empty($emailAuthor)){
+        _candidatura_mentor_sendEmail($emailAuthor, 'publish_content', $candidaturaArg);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function candidatura_mentor_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+  switch ($key) {
+    case 'publish_content':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('MENTOR - Candidatura pubblicata: @title', array('@title' => $params['node_title']), $options);
+      $message['body'][] = t('La tua candidatura &egrave; stata pubblicata sul nostro sito: @url', array('@url' => $params['url']), $options);
+      break;
+
+    case 'complete_content':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('MENTOR - Inserita nuova candidatura: @title', array('@title' => $params['node_title']), $options);
+      $message['body'][] = t('&Egrave; stata inserita una nuova candidatura: @url',  array('@url' => $params['url']), $options);
+      break;
+
+  }
+
+}
+
+function _candidatura_mentor_sendEmail($to, $key, $args){
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'candidatura_mentor';
+
+  $params['message'] = t('La tua candidatura &egrave; stata pubblicata sul nostro sito');
+  $params['node_title'] = $args['title'];
+  $params['url'] = $args['url'];
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = true;
+
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+}
+
+function _candidatura_mentor_getEmailList($role){
+  $userID = \Drupal::entityQuery('user')
+    ->condition('status', 1)
+    ->condition('roles', $role)
+    ->execute();
+  $users = User::loadMultiple($userID);
+  $usersEmail = array();
+  foreach ($users as &$user) {
+    if ($user->get('mail')->value){
+      array_push($usersEmail, $user->get('mail')->value);
+    }
+  }
+  return $usersEmail;
+}

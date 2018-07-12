@@ -3,6 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
+    - node.type.candidatura
     - node.type.page
   module:
     - content_moderation
@@ -96,4 +97,5 @@ type_settings:
       weight: 9
   entity_types:
     node:
+      - candidatura
       - page

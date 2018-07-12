@@ -1,0 +1,21 @@
+uuid: 8829bec6-a984-4f03-a7e4-cb4ed5dc6c0b
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.candidatura
+  module:
+    - user
+id: node.candidatura.default
+targetEntityType: node
+bundle: candidatura
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true
