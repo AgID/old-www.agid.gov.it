@@ -3,6 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
+    - node.type.candidatura
     - node.type.page
   module:
     - content_moderation
@@ -16,6 +17,11 @@ type_settings:
       default_revision: true
       label: Archiviato
       weight: 4
+    complete:
+      published: true
+      default_revision: false
+      label: Completo
+      weight: 5
     draft:
       label: Bozza
       published: false
@@ -32,6 +38,12 @@ type_settings:
       default_revision: true
       weight: 3
   transitions:
+    complete:
+      label: Completo
+      from:
+        - draft
+      to: complete
+      weight: 11
     draft_draft:
       label: 'Create New Draft'
       from:
@@ -96,4 +108,5 @@ type_settings:
       weight: 9
   entity_types:
     node:
+      - candidatura
       - page

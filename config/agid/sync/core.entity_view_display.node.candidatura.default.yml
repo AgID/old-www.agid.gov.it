@@ -1,0 +1,92 @@
+uuid: 8829bec6-a984-4f03-a7e4-cb4ed5dc6c0b
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.candidatura.field_citta
+    - field.field.node.candidatura.field_cognome
+    - field.field.node.candidatura.field_email
+    - field.field.node.candidatura.field_identificativo
+    - field.field.node.candidatura.field_indirizzo
+    - field.field.node.candidatura.field_nazionalita
+    - field.field.node.candidatura.field_nome
+    - field.field.node.candidatura.field_regione
+    - node.type.candidatura
+  module:
+    - user
+id: node.candidatura.default
+targetEntityType: node
+bundle: candidatura
+mode: default
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_citta:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cognome:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_email:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_identificativo:
+    weight: 108
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_indirizzo:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nazionalita:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nome:
+    weight: 101
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_regione:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,21 @@
+uuid: 3b329327-3b33-4e86-9bab-dd61cf6c7409
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_citta
+field_name: field_citta
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

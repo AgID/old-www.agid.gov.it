@@ -1,0 +1,20 @@
+uuid: 9a9190be-3b59-4443-9ed4-ce011fa16170
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_regione
+  module:
+    - user
+id: user.user.field_regione
+field_name: field_regione
+entity_type: user
+bundle: user
+label: Regione
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

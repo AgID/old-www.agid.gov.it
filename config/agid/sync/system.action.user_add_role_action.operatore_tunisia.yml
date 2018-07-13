@@ -1,0 +1,14 @@
+uuid: d636cc4d-a819-4bc2-978d-b11b8133bc14
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.operatore_tunisia
+  module:
+    - user
+id: user_add_role_action.operatore_tunisia
+label: 'Add the Operatore Tunisia role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: operatore_tunisia

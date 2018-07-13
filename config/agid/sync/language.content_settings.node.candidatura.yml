@@ -1,0 +1,11 @@
+uuid: 73dda8de-5976-4439-ae95-6e718412cb93
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.candidatura
+id: node.candidatura
+target_entity_type_id: node
+target_bundle: candidatura
+default_langcode: site_default
+language_alterable: false

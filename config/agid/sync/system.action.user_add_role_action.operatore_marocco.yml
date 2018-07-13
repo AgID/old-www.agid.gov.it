@@ -1,0 +1,14 @@
+uuid: 9b0bd4b7-a079-433b-af56-d9a6c1dffb54
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.operatore_marocco
+  module:
+    - user
+id: user_add_role_action.operatore_marocco
+label: 'Add the operatore_marocco role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: operatore_marocco

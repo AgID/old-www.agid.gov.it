@@ -1,0 +1,18 @@
+uuid: bfc8b73b-097d-45d7-ae2f-668e796897c0
+langcode: it
+status: true
+dependencies: {  }
+id: operatore_marocco
+label: 'Operatore Marocco'
+weight: -4
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create candidatura content'
+  - 'edit own candidatura content'
+  - 'use b8448396 transition complete'
+  - 'use b8448396 transition draft_draft'
+  - 'use b8448396 transition published_draft'
+  - 'view the administration theme'

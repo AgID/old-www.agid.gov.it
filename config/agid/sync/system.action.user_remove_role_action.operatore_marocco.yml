@@ -1,0 +1,14 @@
+uuid: 2e521cef-7dc4-4be9-8b94-cadb2005327b
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.operatore_marocco
+  module:
+    - user
+id: user_remove_role_action.operatore_marocco
+label: 'Remove the operatore_marocco role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: operatore_marocco

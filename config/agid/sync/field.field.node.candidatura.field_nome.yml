@@ -1,0 +1,19 @@
+uuid: 3d0c6c57-5e59-4809-95a2-586082a49f96
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nome
+    - node.type.candidatura
+id: node.candidatura.field_nome
+field_name: field_nome
+entity_type: node
+bundle: candidatura
+label: Nome
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

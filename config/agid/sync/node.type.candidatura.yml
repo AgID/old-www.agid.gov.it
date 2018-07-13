@@ -1,0 +1,18 @@
+uuid: 30284204-cf09-4319-bdbb-eb16f3f57cba
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Candidatura
+type: candidatura
+description: 'Candidatura mentor'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

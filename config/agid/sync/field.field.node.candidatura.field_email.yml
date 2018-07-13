@@ -1,0 +1,19 @@
+uuid: a2817a9f-4d5e-4faf-be0c-92c1f2f6806e
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.candidatura
+id: node.candidatura.field_email
+field_name: field_email
+entity_type: node
+bundle: candidatura
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

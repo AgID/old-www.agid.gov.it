@@ -1,0 +1,18 @@
+uuid: 9ea19233-c585-4262-8c1c-0b186b14256c
+langcode: it
+status: true
+dependencies: {  }
+id: operatore_tunisia
+label: 'Operatore Tunisia'
+weight: -3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create candidatura content'
+  - 'edit own candidatura content'
+  - 'use b8448396 transition complete'
+  - 'use b8448396 transition draft_draft'
+  - 'use b8448396 transition published_draft'
+  - 'view the administration theme'

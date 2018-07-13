@@ -1,0 +1,20 @@
+uuid: 36ffc2bf-3b6c-4591-99d9-f2a3f150b30b
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_nazionalita_di_residenza
+  module:
+    - user
+id: user.user.field_nazionalita_di_residenza
+field_name: field_nazionalita_di_residenza
+entity_type: user
+bundle: user
+label: 'Nazionalità di residenza'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

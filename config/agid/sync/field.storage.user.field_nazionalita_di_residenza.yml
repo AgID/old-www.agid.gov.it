@@ -1,0 +1,21 @@
+uuid: 516cbbc3-0cbb-47e0-91f3-456277097420
+langcode: it
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_nazionalita_di_residenza
+field_name: field_nazionalita_di_residenza
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

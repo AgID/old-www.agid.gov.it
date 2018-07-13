@@ -1,0 +1,20 @@
+uuid: 6611d1a3-9bcf-4d95-840a-af312a38faf2
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_indirizzo
+  module:
+    - user
+id: user.user.field_indirizzo
+field_name: field_indirizzo
+entity_type: user
+bundle: user
+label: Indirizzo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

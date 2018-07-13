@@ -1,0 +1,19 @@
+uuid: 7e86f048-b642-495e-9064-1282debcea9e
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_regione
+    - node.type.candidatura
+id: node.candidatura.field_regione
+field_name: field_regione
+entity_type: node
+bundle: candidatura
+label: Regione
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

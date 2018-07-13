@@ -1,0 +1,20 @@
+uuid: 8095211b-f0b2-408c-86b6-abf544f96cd9
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_citta
+  module:
+    - user
+id: user.user.field_citta
+field_name: field_citta
+entity_type: user
+bundle: user
+label: Città
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

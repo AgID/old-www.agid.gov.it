@@ -1,0 +1,14 @@
+uuid: 53e80f50-0af0-4d0a-a4a3-8a5e99538839
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.operatore_tunisia
+  module:
+    - user
+id: user_remove_role_action.operatore_tunisia
+label: 'Remove the Operatore Tunisia role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: operatore_tunisia
