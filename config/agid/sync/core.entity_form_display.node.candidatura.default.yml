@@ -3,6 +3,14 @@ langcode: it
 status: true
 dependencies:
   config:
+    - field.field.node.candidatura.field_citta
+    - field.field.node.candidatura.field_cognome
+    - field.field.node.candidatura.field_email
+    - field.field.node.candidatura.field_identificativo
+    - field.field.node.candidatura.field_indirizzo
+    - field.field.node.candidatura.field_nazionalita
+    - field.field.node.candidatura.field_nome
+    - field.field.node.candidatura.field_regione
     - node.type.candidatura
   module:
     - content_moderation
@@ -18,6 +26,70 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_citta:
+    weight: 125
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_cognome:
+    weight: 122
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_email:
+    weight: 127
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_identificativo:
+    weight: 128
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_indirizzo:
+    weight: 124
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_nazionalita:
+    weight: 123
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_nome:
+    weight: 121
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_regione:
+    weight: 126
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   langcode:
     type: language_select
     weight: 2
