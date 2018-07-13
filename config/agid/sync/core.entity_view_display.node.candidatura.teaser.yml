@@ -19,4 +19,12 @@ content:
     weight: 100
     region: content
 hidden:
+  field_citta: true
+  field_cognome: true
+  field_email: true
+  field_identificativo: true
+  field_indirizzo: true
+  field_nazionalita: true
+  field_nome: true
+  field_regione: true
   langcode: true

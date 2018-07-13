@@ -6,4 +6,13 @@ id: operatore_marocco
 label: operatore_marocco
 weight: -4
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create candidatura content'
+  - 'edit own candidatura content'
+  - 'use b8448396 transition complete'
+  - 'use b8448396 transition draft_draft'
+  - 'use b8448396 transition published_draft'
+  - 'view the administration theme'
