@@ -1,16 +1,16 @@
-uuid: eb869dd9-11e9-4421-8da4-feb722850539
+uuid: 36ffc2bf-3b6c-4591-99d9-f2a3f150b30b
 langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.user.field_nazionalita
+    - field.storage.user.field_nazionalita_di_residenza
   module:
     - user
-id: user.user.field_nazionalita
-field_name: field_nazionalita
+id: user.user.field_nazionalita_di_residenza
+field_name: field_nazionalita_di_residenza
 entity_type: user
 bundle: user
-label: Nazionalità
+label: 'Nazionalità di residenza'
 description: ''
 required: false
 translatable: false

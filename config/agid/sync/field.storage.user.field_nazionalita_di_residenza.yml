@@ -1,11 +1,11 @@
-uuid: 5db97478-0ad8-49a5-b92c-fb93b633e137
+uuid: 516cbbc3-0cbb-47e0-91f3-456277097420
 langcode: it
 status: true
 dependencies:
   module:
     - user
-id: user.field_nazionalita
-field_name: field_nazionalita
+id: user.field_nazionalita_di_residenza
+field_name: field_nazionalita_di_residenza
 entity_type: user
 type: string
 settings:

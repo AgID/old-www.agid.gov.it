@@ -7,7 +7,7 @@ dependencies:
     - field.field.user.user.field_cognome
     - field.field.user.user.field_email
     - field.field.user.user.field_indirizzo
-    - field.field.user.user.field_nazionalita
+    - field.field.user.user.field_nazionalita_di_residenza
     - field.field.user.user.field_nome
     - field.field.user.user.field_regione
   module:
@@ -53,8 +53,8 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_nazionalita:
-    weight: 33
+  field_nazionalita_di_residenza:
+    weight: 38
     settings:
       size: 60
       placeholder: ''

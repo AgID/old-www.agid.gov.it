@@ -58,7 +58,6 @@ function candidatura_mentor_form_alter(&$form, FormStateInterface $form_state, $
     $form['field_regione']['#disabled'] = TRUE;
     $form['field_email']['#disabled'] = TRUE;
   }
-
 }
 
 /**
