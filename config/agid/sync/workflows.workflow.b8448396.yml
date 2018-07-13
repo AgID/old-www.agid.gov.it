@@ -17,6 +17,11 @@ type_settings:
       default_revision: true
       label: Archiviato
       weight: 4
+    complete:
+      published: true
+      default_revision: false
+      label: Completo
+      weight: 5
     draft:
       label: Bozza
       published: false
@@ -33,6 +38,12 @@ type_settings:
       default_revision: true
       weight: 3
   transitions:
+    complete:
+      label: Completo
+      from:
+        - draft
+      to: complete
+      weight: 11
     draft_draft:
       label: 'Create New Draft'
       from:
