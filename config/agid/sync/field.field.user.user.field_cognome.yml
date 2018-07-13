@@ -1,0 +1,20 @@
+uuid: 845d4039-1096-42c3-b6cc-c0bc17130fff
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_cognome
+  module:
+    - user
+id: user.user.field_cognome
+field_name: field_cognome
+entity_type: user
+bundle: user
+label: Cognome
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
