@@ -19,7 +19,7 @@ elements: "markup:\n  '#type': webform_markup\n  '#markup': \"<h3>Scrivici</h3>\
 css: ''
 javascript: ''
 settings:
-  ajax: true
+  ajax: false
   ajax_scroll_top: form
   page: true
   page_submit_path: /contattaci
