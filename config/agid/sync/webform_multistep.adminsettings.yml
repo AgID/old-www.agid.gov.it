@@ -6,7 +6,7 @@ pdf_footer:
   format: full_html
 webform_reference:
   -
-    target_id: avviso03_2018
+    target_id: avviso_cloud_2018
 pdf_filename: '%-agid-webform.pdf'
 pdf_filepath: 'private://agid_webforms'
 mail_subject: 'Oggetto della mail'

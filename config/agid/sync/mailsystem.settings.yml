@@ -1,0 +1,6 @@
+defaults:
+  formatter: mime_mail
+  sender: SMTPMailSystem
+theme: current
+modules:
+  webform: {  }

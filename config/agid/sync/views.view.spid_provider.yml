@@ -111,7 +111,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Impresa Idp'
+          label: 'Impresa IdP'
           exclude: false
           alter:
             alter_text: false
