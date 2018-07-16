@@ -20,7 +20,7 @@ source:
   enclosure: '"'
   header_row_count: 1
   keys:
-    - denominazione
+    - cdf
   column_names:
     -
       denominazione: Denominazione
