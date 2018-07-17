@@ -26,10 +26,10 @@ settings:
   title: '@AgidGov'
   username: AgidGov
   tweets_to_show: '3'
-  consumer_key: vPzQm4GlixFaboAvbwerH13Aj
-  consumer_secret: ASzSuOZ82eFwbyDZFKqtKpFm8ZkoM3hYcwS9FzjWf6MGvMHAu5
-  access_token: 352997213-wFRj30agMYto9db9ZcLlVdpPBebh027sTcCcNQfl
-  access_token_secret: 2e1KmgRGhg0CnGKqpnEFVvD0Tv1KfY6uAwsJIis3eOYLM
+  consumer_key: v4SIFJZzepNBv5G7WrKJT0GPz
+  consumer_secret: TWtjb3peBo8XYOzrIu979uSiu3YGkOg58hyIqyJHTh0UlXpZGE
+  access_token: 2383600026-j12IPQFIZjohBNyATqWHaPP06ZHxNk99s4GX5F2
+  access_token_secret: iBmValTud5c2EZtGXdzX3IS4Ouenj344UiSvr8C7WMTCw
 visibility:
   request_path:
     id: request_path

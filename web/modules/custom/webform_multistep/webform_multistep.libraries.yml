@@ -1,0 +1,4 @@
+fix:
+  version: 1.x
+  js:
+    js/fix-modernizr.js: {}

@@ -1,6 +1,6 @@
-format: html
-name: ''
-mail: ''
+format: full_html
+name: 'Agenzia per l''Italia digitale'
+mail: no-reply@agid.gov.it
 linkonly: 0
 _core:
   default_config_hash: K-CsbDCpdo87etSfdahl1iomaod_-AfrRo-6I8RbTQA

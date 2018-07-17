@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "4664cecee76908bd92b64cd0693ac171",
@@ -6410,7 +6410,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/smtp",
-                "reference": "c9496a9d2b7d1eea35c3b3ef21b8cbe6482a9f44"
+                "reference": "10a6483bdafb1c586286b4873812092f94fe1c02"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -6421,8 +6421,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta3+1-dev",
-                    "datestamp": "1499279641",
+                    "version": "8.x-1.0-beta4+23-dev",
+                    "datestamp": "1527966180",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6465,7 +6465,7 @@
                 "source": "http://cgit.drupalcode.org/smtp",
                 "issues": "https://www.drupal.org/project/issues/smtp"
             },
-            "time": "2017-07-05T18:33:11+00:00"
+            "time": "2018-06-02T21:45:52+00:00"
         },
         {
             "name": "drupal/token",

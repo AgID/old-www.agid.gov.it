@@ -8,6 +8,7 @@
 
   use Drupal\Core\Form\ConfigFormBase;
   use Drupal\Core\Form\FormStateInterface;
+  use Drupal\webform_multistep\Pdf\Pdf;
 
   class MultistepAdminForm extends ConfigFormBase {
 
@@ -93,7 +94,20 @@
         '#default_value' => $config->get('pdf_footer')['value'],
       ];
 
+      $form['pdf_options']['pdf_test'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Download sample-PDF'),
+        '#submit' => [
+          [$this, 'testPDFDownload'],
+        ]
+      ];
+
       return parent::buildForm($form, $form_state);
+    }
+
+    public static function testPDFDownload(array &$form, FormStateInterface $form_state) {
+      $pdf = new Pdf();
+      $pdf->test(false);
     }
 
     /**
