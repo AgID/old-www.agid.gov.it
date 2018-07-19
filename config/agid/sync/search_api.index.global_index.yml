@@ -42,6 +42,7 @@ dependencies:
     - field.storage.file.field_title
     - field.storage.node.field_software_type
     - field.storage.node.field_software_number
+    - field.storage.node.field_repository_files
     - field.storage.file.field_file_category
     - search_api.server.solr_server
 third_party_settings:
@@ -54,10 +55,6 @@ name: 'Global Index'
 description: ''
 read_only: false
 field_settings:
-  saa_saa_file_entity:
-    label: 'Search api attachments: File entity'
-    property_path: saa_saa_file_entity
-    type: text
   content__title:
     label: Titolo
     datasource_id: 'entity:node'
@@ -369,6 +366,22 @@ field_settings:
         - field.storage.node.field_arguments
       module:
         - taxonomy
+  field_repository_files:
+    label: 'Documentazione correlata'
+    datasource_id: 'entity:node'
+    property_path: field_repository_files
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_repository_files
+  field_repository_file:
+    label: Comunicato
+    datasource_id: 'entity:node'
+    property_path: field_repository_file
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_repository_file
   file__field_title:
     label: Titolo
     datasource_id: 'entity:file'
@@ -415,7 +428,6 @@ processor_settings:
   html_filter:
     all_fields: true
     fields:
-      - saa_saa_file_entity
       - content__title
       - content__type
       - content__field_page_abstract
