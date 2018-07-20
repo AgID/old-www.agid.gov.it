@@ -1063,6 +1063,7 @@ article ul li.share-everywhere {
   display: block;
   float: left;
   width: 100%;
+  min-height: 53px;
 }
 
 .agid-share {
@@ -1080,42 +1081,69 @@ article ul li.share-everywhere {
 }
 
 .agid-share__trigger {
-  display: inline;
-  float: left;
+  display: table;
   max-width: 15em;
-  background-color: #eee;
+  float: left;
+  padding: 0.65em 0.5em 0.5em 0.5em;
+  box-shadow: 0 0 5px lightgrey;
+}
+
+.agid-share__trigger__icon {
+  display: table-cell;
+  float: left;
+}
+
+.agid-share__trigger__icon img {
+  padding: 0.25em;
+}
+
+.agid-share__trigger__icon--hover {
+  display: none;
+}
+
+.agid-share__trigger:hover {
+  cursor: pointer;
+}
+
+.agid-share__trigger:hover .agid-share__trigger__icon {
+  display: none;
+}
+
+.agid-share__trigger:hover .agid-share__trigger__icon--hover {
+  display: table-cell;
+}
+
+.agid-share__trigger:hover .agid-share__trigger__icon--hover.Icon-close img {
+  display: none;
+}
+
+.agid-share__trigger.active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.agid-share__trigger.active .agid-share__trigger__icon:not(.agid-share__trigger__icon--hover) {
+  display: none;
+}
+
+.agid-share__trigger.active .agid-share__trigger__icon--hover {
+  display: table-cell;
+}
+
+.agid-share__trigger.active .agid-share__trigger__icon--hover img {
+  display: none;
 }
 
 .agid-share__trigger__text {
-  margin-left: 2.5em;
+  display: table-cell;
+  vertical-align: middle;
+  margin-left: 1.95em;
   margin-right: 0.5em;
-  font-size: 2.8rem;
+  font-size: 1.5rem;
   padding: 0.11605em;
-  color: #5a6772;
-}
-
-.agid-share__trigger .Icon {
-  cursor: pointer;
-  height: 100%;
-  width: 2.8em;
-  display: block;
-  padding: 0.435em;
-  float: left !important;
-  position: relative;
-}
-
-.agid-share__trigger .Icon.Icon-close {
-  background-color: white !important;
-  color: #0066CC !important;
-}
-
-.agid-share__trigger .Icon:not(.Icon-close):after {
-  content: '';
-  position: absolute;
-  width: 500%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  color: #1986F2;
+  text-transform: uppercase;
 }
 
 .agid-share__links-container {
@@ -1124,6 +1152,10 @@ article ul li.share-everywhere {
   /**
      * List and links
      */
+}
+
+.agid-share__links-container span.ext {
+  display: none;
 }
 
 .agid-share__links-container.se-inactive {
@@ -1153,6 +1185,11 @@ article ul li.share-everywhere {
 .agid-share__links-container__link a {
   display: block;
   text-align: center;
+  text-decoration: none;
+}
+
+.agid-share__links-container__link a:hover {
+  text-decoration: none !important;
 }
 
 .agid-share__links-container__link a span::before {

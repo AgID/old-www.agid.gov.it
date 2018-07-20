@@ -10,6 +10,7 @@ article ul li.share-everywhere {
   display: block;
   float: left;
   width: 100%;
+  min-height: 53px;
 }
 
 .agid-share {
@@ -23,42 +24,74 @@ article ul li.share-everywhere {
     display: inline-block;
   }
   &__trigger {
-    display: inline;
-    float: left;
+    $t: &;
+    display: table;
     max-width: 15em;
-    background-color: #eee;
-    &__text {
-      margin-left: 2.5em;
-      margin-right: 0.5em;
-      font-size: 2.8rem;
-      padding: 0.11605em;
-      color: #5a6772;
+    float: left;
+    // background-color: #eee;
+    padding: 0.65em 0.5em 0.5em 0.5em;
+    box-shadow: 0 0 5px lightgrey;
+
+    &__icon {
+      display: table-cell;
+      float: left;
+      img {
+        padding: 0.25em;
+      }
+      &--hover {
+        display: none;
+      }
     }
-    .Icon {
+
+    &:hover {
       cursor: pointer;
-      height: 100%;
-      width: 2.8em;
-      display: block;
-      padding: 0.435em;
-      float: left !important;
-      position: relative;
-      &.Icon-close {
-        background-color: white !important;
-        color: #0066CC !important;
+      #{$t}__icon {
+        display: none;
       }
-      &:not(.Icon-close):after {
-        content: '';
-        position: absolute;
-        width: 500%;
-        height: 100%;
-        top: 0;
-        left: 0;
+      #{$t}__icon--hover {
+        display: table-cell;
+        &.Icon-close {
+          img {
+            display: none;
+          }
+        }
       }
+    }
+
+    &.active {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      #{$t}__icon:not(#{$t}__icon--hover) {
+        display: none;
+      }
+      #{$t}__icon--hover {
+        display: table-cell;
+        img {
+          display: none;
+        }
+      }
+    }
+
+    &__text {
+      display: table-cell;
+      vertical-align: middle;
+      margin-left: 1.95em;
+      margin-right: 0.5em;
+      font-size: 1.5rem;
+      padding: 0.11605em;
+      color: #1986F2;
+      text-transform: uppercase;
     }
   }
   &__links-container {
     display: inline-block;
     float: right;
+
+    span.ext {
+      display: none;
+    }
+
     &.se-inactive {
       display: none;
     }
@@ -88,6 +121,10 @@ article ul li.share-everywhere {
       a {
         display: block;
         text-align: center;
+        text-decoration: none;
+        &:hover {
+          text-decoration: none !important;
+        }
         span::before {
           color: white;
         }
