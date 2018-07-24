@@ -24,6 +24,7 @@ class ViewsExposedFilterForm extends ViewsExposedForm {
 
     /** @var \Drupal\views\ViewExecutable $view */
     $view = $form_state->get('view');
+    // @todo: to consider also the initial values of the elements of the form, eg items_for_page.
     $exposed_input = $view->getExposedInput();
 
     // Reactive filter selected.
@@ -39,7 +40,7 @@ class ViewsExposedFilterForm extends ViewsExposedForm {
         if (!$old_element['#multiple']) {
           $form[$filter_id] = [
             '#type' => 'hidden',
-            '#value' => $exposed_input[$filter_id],
+            '#value' => isset($exposed_input[$filter_id]) ? $exposed_input[$filter_id] : $old_element['#default_value'],
           ];
         }
         else {
