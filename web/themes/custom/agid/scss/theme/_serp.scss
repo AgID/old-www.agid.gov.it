@@ -1,0 +1,57 @@
+.search-site-header {
+  text-align: right;
+  padding-bottom: .625em;
+}
+
+.form-item-search-api-fulltext .Form-input {
+  border: 1px solid $border-search-text;
+  font-size: .889em;
+  padding: {
+    bottom: 1em;
+    top: 1em;
+  }
+}
+
+.Form--search-site {
+  text-align: left;
+
+  .Form-label[for="edit-search-api-fulltext"] {
+    color: $light-blue;
+    line-height: $h-line-height;
+    margin: .625em 0;
+    text-transform: uppercase;
+  }
+
+  #edit-items-per-page--wrapper {
+    margin: 1.5em 0 2.14em;
+
+    .Form-legend {
+      display: block;
+      float: left;
+      padding-top: 1em;
+      width: 35%;
+    }
+
+    .fieldset-wrapper {
+      float: right;
+      width: 65%;
+    }
+  }
+
+  .form-actions {
+    font-size: .875em;
+    margin: {
+      bottom: 2.14em;
+      top: -2.14em;
+    }
+
+    @include when-inside('.js') {
+      display: none;
+    }
+  }
+
+  .form-item-items-per-page {
+    border: 0;
+    width: auto;
+  }
+}

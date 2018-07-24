@@ -1851,6 +1851,60 @@ ol.search-results li {
   border: 1px solid #d0e2f5 !important;
 }
 
+.search-site-header {
+  text-align: right;
+  padding-bottom: .625em;
+}
+
+.form-item-search-api-fulltext .Form-input {
+  border: 1px solid #717A83;
+  font-size: .889em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.Form--search-site {
+  text-align: left;
+}
+
+.Form--search-site .Form-label[for="edit-search-api-fulltext"] {
+  color: #0059b3;
+  line-height: 1.5;
+  margin: .625em 0;
+  text-transform: uppercase;
+}
+
+.Form--search-site #edit-items-per-page--wrapper {
+  margin: 1.5em 0 2.14em;
+}
+
+.Form--search-site #edit-items-per-page--wrapper .Form-legend {
+  display: block;
+  float: left;
+  padding-top: 1em;
+  width: 35%;
+}
+
+.Form--search-site #edit-items-per-page--wrapper .fieldset-wrapper {
+  float: right;
+  width: 65%;
+}
+
+.Form--search-site .form-actions {
+  font-size: .875em;
+  margin-bottom: 2.14em;
+  margin-top: -2.14em;
+}
+
+.js .Form--search-site .form-actions {
+  display: none;
+}
+
+.Form--search-site .form-item-items-per-page {
+  border: 0;
+  width: auto;
+}
+
 .view-table-pagopa table {
   table-layout: fixed;
 }
