@@ -170,7 +170,7 @@
     "drupal/mimemail": "^1.0@alpha",
     "drupal/search_api": "1.8",
     "drupal/search_api_solr": "2.0",
-    "drupal/search_api_attachments": "1.0-beta5"
+    "drupal/search_api_attachments": "1.0-beta7"
   },
   "require-dev": {
     "phing/phing": "2.12.*",

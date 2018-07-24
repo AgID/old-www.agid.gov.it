@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4664cecee76908bd92b64cd0693ac171",
+    "content-hash": "e68aae9cc070b04eee491daa8c5c5262",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6123,17 +6123,17 @@
         },
         {
             "name": "drupal/search_api_attachments",
-            "version": "1.0.0-beta5",
+            "version": "1.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_attachments",
-                "reference": "8.x-1.0-beta5"
+                "reference": "8.x-1.0-beta7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-8.x-1.0-beta5.zip",
-                "reference": "8.x-1.0-beta5",
-                "shasum": "bd116adb6ac045fac0b92c3f2755f49cf2efa2a9"
+                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-8.x-1.0-beta7.zip",
+                "reference": "8.x-1.0-beta7",
+                "shasum": "88a1143d45a776b47b058c1f0b62829cb3b871bf"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -6145,8 +6145,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta5",
-                    "datestamp": "1531472321",
+                    "version": "8.x-1.0-beta7",
+                    "datestamp": "1531501121",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -10937,7 +10937,8 @@
             "homepage": "https://www.drupal.org/project/migrate_devel",
             "support": {
                 "source": "http://cgit.drupalcode.org/migrate_devel"
-            }
+            },
+            "time": "2017-06-25T23:46:13+00:00"
         },
         {
             "name": "drupal/phing-drush-task",

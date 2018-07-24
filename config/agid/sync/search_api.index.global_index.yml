@@ -55,6 +55,18 @@ name: 'Global Index'
 description: ''
 read_only: false
 field_settings:
+  saa_saa_file_entity:
+    label: 'Search api attachments: File entity'
+    property_path: saa_saa_file_entity
+    type: text
+  saa_field_repository_files:
+    label: 'Search api attachments: Documentazione correlata'
+    property_path: saa_field_repository_files
+    type: text
+  saa_field_repository_file:
+    label: 'Search api attachments: Comunicato'
+    property_path: saa_field_repository_file
+    type: text
   content__title:
     label: Titolo
     datasource_id: 'entity:node'
@@ -428,6 +440,9 @@ processor_settings:
   html_filter:
     all_fields: true
     fields:
+      - saa_saa_file_entity
+      - saa_field_repository_files
+      - saa_field_repository_file
       - content__title
       - content__type
       - content__field_page_abstract
@@ -489,6 +504,7 @@ processor_settings:
   file_attachments:
     excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
     number_indexed: 0
+    number_first_bytes: '0'
     max_filesize: '5 MB'
     excluded_private: 1
     excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
