@@ -39,7 +39,7 @@ class IndexEntities {
       ->getStorage($entity_type);
     $entities = $entity_storage->loadMultiple($ids_to_process);
 
-    if(empty($entities)){
+    if (empty($entities)) {
       $context['sandbox']['max'] = 0;
     }
 
@@ -109,13 +109,11 @@ class IndexEntities {
   public static function index(EntityInterface $entity, $index_directly = FALSE) {
     // Check if the entity is a content entity.
     if (!($entity instanceof ContentEntityInterface) || $entity->search_api_skip_tracking) {
-      // TODO: Print message.
       return FALSE;
     }
 
     $indexes = ContentEntity::getIndexesForEntity($entity);
     if (!$indexes) {
-      // TODO: Print message.
       return FALSE;
     }
 
@@ -136,7 +134,6 @@ class IndexEntities {
         $index->trackItemsInserted($datasource_id, $filtered_item_ids);
       }
       catch (\Exception $exception) {
-        // TODO: log.
         return FALSE;
       }
     }

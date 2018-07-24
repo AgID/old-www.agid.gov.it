@@ -154,3 +154,88 @@ function _array_insert_after(array &$array, $key, array $new) {
   $pos = FALSE === $index ? count($array) : $index + 1;
   $array = array_merge(array_slice($array, 0, $pos), $new, array_slice($array, $pos));
 }
+
+/**
+ * This function sets the relationships between terms of the vocabulary arguments.
+ *
+ * Used only test.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ */
+function _agid_search_date_test_for_related_topics() {
+  $data = [
+    272 => [321, 352, 299, 352],
+    315 => [273, 312, 352,],
+    306 => [344, 276,],
+    339 => [301,],
+    277 => [306,],
+    276 => [306, 373, 344,],
+    309 => [276, 363, 352,],
+    299 => [301, 272, 305,],
+    305 => [299,],
+    285 => [286, 284, 313, 352],
+    265 => [279, 352,],
+    344 => [306,],
+    298 => [444, 273,],
+    312 => [315,],
+    288 => [419, 285, 286,],
+    376 => [363, 352, 321,],
+    363 => [376, 352,],
+    279 => [352, 265,],
+    286 => [376, 285, 284,],
+    450 => [301, 302, 326,],
+    323 => [352,],
+    356 => [281,],
+    353 => [301, 355, 326,],
+    342 => [419, 444,],
+    313 => [302, 301,],
+    355 => [353,],
+    268 => [285, 276,],
+    301 => [353, 326, 299, 313],
+    389 => [344,],
+    444 => [373, 298, 267, 342],
+    352 => [321, 272, 376,],
+    281 => [356,],
+    273 => [312, 315, 298,],
+    289 => [301, 326, 352],
+    302 => [313, 301,],
+    373 => [444, 273, 344,],
+    284 => [285, 286,],
+    419 => [288, 342, 352,],
+    384 => [352, 373, 324,],
+    267 => [444, 456, 352,],
+    326 => [289, 301,],
+    321 => [272, 352, 376,],
+    333 => [273, 352,],
+  ];
+
+  /** @var \Drupal\taxonomy\TermStorageInterface $term_storage */
+  $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+  foreach ($data as $tid_base => $tids_related) {
+    /** @var \Drupal\taxonomy\TermInterface $term */
+    $term = $term_storage->load($tid_base);
+
+    if (empty($term)) {
+      continue;
+    }
+
+    $target_ids = [];
+    foreach ($tids_related as $tid_related) {
+      $target_ids[] = $tid_related;
+    }
+    $term->set('field_related_topics', $target_ids);
+
+    try {
+      $term->save();
+    }
+    catch (\Exception $exception) {
+      Drupal::messenger()
+        ->addError(t('Unexpected error during save term %term_id: %error.', [
+          '%term_id' => $term->id(),
+          '%error' => $exception->getMessage(),
+        ]));
+    }
+  }
+
+}

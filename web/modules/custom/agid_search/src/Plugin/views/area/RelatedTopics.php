@@ -131,9 +131,9 @@ class RelatedTopics extends AreaPluginBase {
     }
 
     // Retrieve the 'search_api_facets'.
-    $facet_results = $results->getExtraData('search_api_facets');
+    $facet_results = $results->getExtraData('search_api_facets', FALSE);
 
-    if ($facet_results === []) {
+    if (empty($facet_results)) {
       // If no data is found in the 'search_api_facets' extra data.
       return [];
     }

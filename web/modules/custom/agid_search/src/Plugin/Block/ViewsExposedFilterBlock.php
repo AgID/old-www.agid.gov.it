@@ -230,5 +230,4 @@ class ViewsExposedFilterBlock extends BlockBase implements ContainerFactoryPlugi
     return NULL;
   }
 
-
 }

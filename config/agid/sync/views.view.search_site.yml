@@ -840,7 +840,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          search_api_field: field_arguments
+          search_api_field: content__field_arguments
           search_api_field_id: field_arguments
           plugin_id: agid_search_related_topics_solr
       empty:
