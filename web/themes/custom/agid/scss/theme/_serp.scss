@@ -1,6 +1,14 @@
 .search-site-header {
   padding-bottom: .625em;
 
+  .agid_search_spellcheck_solr-suggestion {
+    .placeholder {
+      font-style: normal;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+
   .form-actions {
     margin: {
       bottom: 2.14em;
@@ -28,12 +36,16 @@
   font-weight: 600;
 }
 
-.form-item-search-api-fulltext .Form-input {
-  border: 1px solid $border-search-text;
-  font-size: .889em;
-  padding: {
-    bottom: 1em;
-    top: 1em;
+.form-item-search-api-fulltext {
+  margin-bottom: 4rem;
+
+  .Form-input {
+    border: 1px solid $border-search-text;
+    font-size: .889em;
+    padding: {
+      bottom: 1em;
+      top: 1em;
+    }
   }
 }
 
@@ -46,7 +58,7 @@
   }
 
   #edit-items-per-page--wrapper {
-    margin: 1.5em 0 2.14em;
+    margin: .5rem 0 2.14em;
 
     .Form-legend {
       display: block;

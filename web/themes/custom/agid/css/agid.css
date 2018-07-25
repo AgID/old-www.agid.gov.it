@@ -1855,6 +1855,12 @@ ol.search-results li {
   padding-bottom: .625em;
 }
 
+.search-site-header .agid_search_spellcheck_solr-suggestion .placeholder {
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .search-site-header .form-actions {
   margin-bottom: 2.14em;
   margin-top: -2.14em;
@@ -1879,6 +1885,10 @@ ol.search-results li {
   font-weight: 600;
 }
 
+.form-item-search-api-fulltext {
+  margin-bottom: 4rem;
+}
+
 .form-item-search-api-fulltext .Form-input {
   border: 1px solid #717A83;
   font-size: .889em;
@@ -1894,7 +1904,7 @@ ol.search-results li {
 }
 
 .Form--search-site #edit-items-per-page--wrapper {
-  margin: 1.5em 0 2.14em;
+  margin: .5rem 0 2.14em;
 }
 
 .Form--search-site #edit-items-per-page--wrapper .Form-legend {
