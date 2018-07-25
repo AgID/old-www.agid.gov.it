@@ -235,6 +235,10 @@
         $editItemsPerPage.find('input[type=radio]').on('change', function() {
           $searchSiteForm.trigger('submit')
         })
+
+        $('.search-api-fulltext__btn').on('click', function() {
+          $searchSiteForm.trigger('submit')
+        })
       }
     }
   }

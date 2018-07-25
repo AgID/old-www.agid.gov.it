@@ -1865,6 +1865,13 @@ ol.search-results li {
   display: none;
 }
 
+.search-api-fulltext__btn {
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
 .search-site-summary {
   text-align: right;
 }
