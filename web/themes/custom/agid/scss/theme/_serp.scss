@@ -117,3 +117,16 @@
   border-bottom: 1px solid $border-default-color;
   padding: .8rem 0;
 }
+
+.search-site-footer {
+  margin-top: 2.5em;
+
+  ul {
+    margin: 1em 0 0;
+  }
+
+  a {
+    color: $dark-blue-main;
+    font-weight: 600;
+  }
+}

@@ -1963,6 +1963,19 @@ ol.search-results li {
   padding: .8rem 0;
 }
 
+.search-site-footer {
+  margin-top: 2.5em;
+}
+
+.search-site-footer ul {
+  margin: 1em 0 0;
+}
+
+.search-site-footer a {
+  color: #00264c;
+  font-weight: 600;
+}
+
 .view-table-pagopa table {
   table-layout: fixed;
 }
