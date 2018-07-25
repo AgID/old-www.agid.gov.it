@@ -29,7 +29,7 @@
  * @see template_preprocess_views_view_fields()
  */
 #}
-{%- if fields['title_1'].content -%}
+{%- if fields['title_1'].content is not empty -%}
   {# content datasource #}
   {% set field_type = fields['type_1'] %}
   {% set field_created = fields['created'] %}
@@ -42,13 +42,13 @@
 {%- endif -%}
 
 <div class="clearfix">
-  {%- if field_type -%}
+  {%- if field_type is not empty -%}
     <{{ field_type.wrapper_element }}{{ field_type.wrapper_attributes.addClass('search-site-list-row__field-type') }}>
       {{ field_type.content }}
     </{{ field_type.wrapper_element }}>
   {%- endif -%}
 
-  {%- if field_created -%}
+  {%- if field_created is not empty -%}
     <{{ field_created.wrapper_element }}{{ field_created.wrapper_attributes.addClass('search-site-list-row__field-created') }}>
       <{{ field_created.label_element }}{{ field_created.label_attributes }}>
         {{ field_created.label }}{{ field_created.label_suffix }}
@@ -60,7 +60,7 @@
   {%- endif -%}
 </div>
 
-{%- if field_title -%}
+{%- if field_title is not empty -%}
   <{{ field_title.wrapper_element }}{{ field_title.wrapper_attributes.addClass('search-site-list-row__field-title') }}>
     {{ field_title.content }}
   </{{ field_title.wrapper_element }}>
