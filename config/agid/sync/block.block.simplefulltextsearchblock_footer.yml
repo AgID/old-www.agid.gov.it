@@ -7,9 +7,6 @@ dependencies:
     - block_class
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: simplefulltextsearchblock_footer
 theme: agid
 region: footer_top_right

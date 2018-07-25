@@ -10,7 +10,7 @@ dependencies:
     - agid
 third_party_settings:
   block_class:
-    classes: ''
+    classes: sidebar-exposed-form
 id: views_exposed_filter_in_block
 theme: agid
 region: sidebar_left
@@ -26,7 +26,7 @@ settings:
   exposed_filters_disable:
     search_api_fulltext: search_api_fulltext
     items_per_page: items_per_page
-    type: 0
+    content_type: 0
 visibility:
   request_path:
     id: request_path

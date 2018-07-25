@@ -40,7 +40,7 @@ display:
         type: basic
         options:
           submit_button: Applica
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Ordina per'
           expose_sort_order: false
@@ -829,7 +829,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: 'Numero dei risultati: @total'
+          content: '<p class="search-site-summary">Numero dei risultati: <span class="search-site-summary__total">@total</span></p>'
           plugin_id: result
       footer:
         agid_search_related_topics_solr:

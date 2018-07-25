@@ -1,0 +1,195 @@
+.sidebar-exposed-form {
+  background-color: transparent;
+  margin-top: 0 !important;
+  padding: 0;
+
+  .form-submit {
+    margin: 3rem 1rem;
+  }
+
+  .Form-legend {
+    display: none;
+  }
+
+  .Form-label--block {
+    border-width: 0;
+    cursor: pointer;
+    line-height: 1.333;
+    min-height: 0;
+    padding: 1.75rem 1rem 1.75rem 46px !important;
+    position: relative;
+    text-transform: capitalize;
+
+    .Form-fieldIcon {
+      left: 5px;
+      position: absolute;
+      top: 1.2rem;
+    }
+  }
+
+  // Hyde the real reset button, we add a fake button, working with JS
+  #edit-reset {
+    @include when-inside('.js') {
+      display: none;
+    }
+  }
+}
+
+.sidebar-exposed-form__title {
+  background-color: $light-blue;
+  color: #FFF;
+  display: block;
+  font-size: $p-font-size !important;
+  line-height: 2.778;
+  padding: 0 1em;
+}
+
+.guide-lines-form {
+  .Form {
+    padding-top: 2.778em;
+    position: relative;
+  }
+
+  .Form-legend {
+    @extend .sidebar-exposed-form__title;
+
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.sidebar-exposed-form__reset {
+  color: $dark-blue;
+  cursor: pointer;
+  display: none;
+  font-size: $p-font-size;
+  line-height: 1.333;
+  margin: 4rem 0;
+  padding: {
+    left: 46px;
+    right: 1rem;
+  }
+  position: relative;
+  text-align: left;
+  text-transform: none;
+  width: 100%;
+
+  @include when-inside('.js') {
+    display: block;
+  }
+
+  .Icon {
+    left: 14px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+.sidebar-exposed-form-toggler {
+  background-color: $light-blue;
+  color: #FFF;
+  cursor: pointer;
+  display: none;
+  line-height: 50px;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+  position: relative;
+  width: 100%;
+
+  .Icon {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &.is-open .Icon::before {
+    content: '\25b2';
+  }
+}
+
+@media screen and (max-width: 991px) {
+  // Style exposed filters on mobile
+  .sidebar-exposed-form-wrapper {
+    @include when-inside('.js') {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      top: -3rem;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8cOfOTAAIbwMzvgT++gAAAABJRU5ErkJggg==);
+    }
+
+    @include when-inside('.is-open-sidebar-exposed-form') {
+      display: block;
+    }
+  }
+
+  .sidebar-exposed-form {
+    @include when-inside('.js') {
+      position: absolute;
+      z-index: 11;
+      top: 0;
+      right: 0;
+      left: auto;
+      max-width: 300px;
+      background: #FFF;
+      border-width: 0;
+
+      .Form {
+        padding-top: 1.5rem !important;
+      }
+
+      .Form-legend {
+        display: none;
+      }
+
+      .Form-label--block {
+        background: linear-gradient($border-default-color, $border-default-color) no-repeat center top / calc(100% - 2.5rem) 1px;
+      }
+    }
+  }
+
+  .sidebar-exposed-form-toggler {
+    @include when-inside('.js') {
+      display: block;
+    }
+  }
+
+  // Set styles when the filters are open
+  // Color the HTML element to simulate an overlay layer
+  .is-open-sidebar-exposed-form {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8cOfOTAAIbwMzvgT++gAAAABJRU5ErkJggg==);
+
+    main {
+      background-color: #FFF;
+    }
+
+    // Manage footer overlay
+    .u-background-95 {
+      position: relative;
+    }
+
+    .u-background-95::before {
+      background-color: #E0DCDC;
+      bottom: 0;
+      content: ' ';
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: 0.6;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 9;
+    }
+  }
+}

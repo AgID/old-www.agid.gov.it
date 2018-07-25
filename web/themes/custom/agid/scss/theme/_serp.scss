@@ -1,6 +1,17 @@
 .search-site-header {
   border-bottom: 1px solid $border-default-color;
   padding-bottom: .625em;
+
+  .form-actions {
+    margin: {
+      bottom: 2.14em;
+      top: -2.14em;
+    }
+
+    @include when-inside('.js') {
+      display: none;
+    }
+  }
 }
 
 .search-site-summary {
@@ -41,18 +52,6 @@
     .fieldset-wrapper {
       float: right;
       width: 65%;
-    }
-  }
-
-  .form-actions {
-    font-size: .875em;
-    margin: {
-      bottom: 2.14em;
-      top: -2.14em;
-    }
-
-    @include when-inside('.js') {
-      display: none;
     }
   }
 

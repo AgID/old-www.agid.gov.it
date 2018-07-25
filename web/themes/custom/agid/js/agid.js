@@ -194,24 +194,30 @@
     }
   };
 
-  // Javascript specific for the Guide Lines page.
-  Drupal.behaviors.guideLines = {
-    attach: function (context, settings) {
-      // If we are in the guide-lines page we have the exposed filters.
-      if ($('#guideLinesFiltersMobileToggler').length) {
+  // Javascript specific for the exposed form inside sidebar.
+  Drupal.behaviors.sidebarExposedForm = {
+    attach: function () {
+      var $exposedForm = $('.sidebar-exposed-form')
 
-        // Manage click on the filters toggler.
-        $('#guideLinesFiltersMobileToggler').click(function () {
-          $(this).toggleClass('is-open');
-          $('html').toggleClass('is-open-agid-guide-lines-filters');
+      if ($exposedForm.length) {
+        var $html = $('html')
+        var $exposedFilterBtn = $('#sidebarExposedFormMobileToggler')
+
+        // Handle click on the filters toggler.
+        $exposedFilterBtn.click(function() {
+          $exposedFilterBtn.toggleClass('is-open');
+          $html.toggleClass('is-open-sidebar-exposed-form');
         })
 
+        var $resetBtn = $('#sidebarExposedFormReset')
+
         // Manage behavior and click on the fake reset button.
-        if(window.location.search) {
-          $('#guideLinesFormReset').find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
+        if (window.location.search) {
+          $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
         }
-        $('#guideLinesFormReset').click(function () {
-          $('#views-exposed-form-linee-guida-guide-lines').find('[id*="edit-reset"]').trigger('click');
+
+        $resetBtn.click(function() {
+          $exposedForm.find('[id*="edit-reset"]').trigger('click');
         })
 
         // Enable the megamenu voice.

@@ -7,9 +7,6 @@ dependencies:
     - block_class
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: simplefulltextsearchblock
 theme: agid
 region: header_search
