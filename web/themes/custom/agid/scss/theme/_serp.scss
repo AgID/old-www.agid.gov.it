@@ -1,5 +1,4 @@
 .search-site-header {
-  border-bottom: 1px solid $border-default-color;
   padding-bottom: .625em;
 
   .form-actions {
@@ -70,6 +69,10 @@
 
 .search-site-list-row {
   padding: 1.667em .333em 1.667em 1.333em;
+
+  &:first-of-type {
+    border-top: 1px solid $border-default-color;
+  }
 }
 
 .search-site-list-row__field-type,
