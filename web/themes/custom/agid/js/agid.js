@@ -231,7 +231,7 @@
       var $searchSiteForm = $editItemsPerPage.closest('form')
 
       if ($searchSiteForm.length && $editItemsPerPage.length) {
-        // auto submit on items per page selection
+        // Auto submit on items per page selection.
         $editItemsPerPage.find('input[type=radio]').on('change', function() {
           $searchSiteForm.trigger('submit')
         })
