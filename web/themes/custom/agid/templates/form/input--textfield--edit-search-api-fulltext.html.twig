@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+<div class="u-posRelative">
+  <input{{ attributes.addClass('Form-input') }} />
+  <button type="button" class="Icon Icon-search Icon--rotated search-api-fulltext__btn u-color-grey-50 u-textWeight-700">
+    <span class="u-hiddenVisually">{{ 'Start the search'|t }}</span>
+  </button>
+</div>
+{{ children }}

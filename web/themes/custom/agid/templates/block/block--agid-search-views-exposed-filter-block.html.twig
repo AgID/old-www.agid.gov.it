@@ -25,11 +25,16 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes }}>
+<div{{ attributes.addClass('sidebar-exposed-form') }}>
   {{ title_prefix }}
-  <h2{{ title_attributes }}>{{ label }}</h2>
+  <h2{{ title_attributes.addClass('sidebar-exposed-form__title') }}>{{ label }}</h2>
   {{ title_suffix }}
-  <input type="radio" name="gender" value="male">{{ 'All content type'|t }}<br>
+
+  {# A fake button you can click with JS enabled to reset all filters #}
+  <button type="button" id="sidebarExposedFormReset" class="sidebar-exposed-form__reset">
+    <span class="Icon Icon-radio-button-checked" role="presentation"></span> {{ 'Tutti gli argomenti'|t }}
+  </button>
+
   {% block content %}
     {{ content }}
   {% endblock %}
