@@ -68,6 +68,8 @@ module:
   menu_block: 0
   menu_ui: 0
   metatag: 0
+  metatag_facebook: 0
+  metatag_open_graph: 0
   migrate: 0
   migrate_devel: 0
   migrate_drupal: 0
