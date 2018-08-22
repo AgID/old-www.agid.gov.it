@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.news.field_arguments
     - field.field.node.news.field_iconfont
     - field.field.node.news.field_image
-    - field.field.node.news.field_metatag
     - field.field.node.news.field_news_abstract
     - field.field.node.news.field_news_date
     - field.field.node.news.field_news_link
@@ -27,7 +26,6 @@ dependencies:
     - field_group
     - image
     - link
-    - metatag
     - path
     - text
 third_party_settings:
@@ -166,12 +164,6 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
-    region: content
-  field_metatag:
-    weight: 122
-    settings: {  }
-    third_party_settings: {  }
-    type: metatag_firehose
     region: content
   field_news_abstract:
     weight: 3
