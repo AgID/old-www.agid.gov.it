@@ -5,6 +5,8 @@ services:
     image: wodby/mariadb:$MARIADB_TAG
     container_name: "${PROJECT_NAME}_mariadb"
     stop_grace_period: 30s
+    env_file:
+      - docker-conf/mariadb.env
     environment:
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
       MYSQL_DATABASE: $DB_NAME
@@ -17,6 +19,8 @@ services:
   php:
     image: wodby/drupal-php:$PHP_TAG
     container_name: "${PROJECT_NAME}_php"
+    env_file:
+      - docker-conf/phpfpm.env
     environment:
       PHP_FPM_USER: 'wodby'
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
@@ -48,6 +52,8 @@ services:
     container_name: "${PROJECT_NAME}_nginx"
     depends_on:
       - php
+    env_file:
+      - docker-conf/nginx.env
     environment:
       NGINX_USER: 'wodby'
 #      NGINX_PAGESPEED: "on"
@@ -122,9 +128,11 @@ services:
 #      - 'traefik.port=6081'
 #      - 'traefik.frontend.rule=Host:varnish.${PROJECT_BASE_URL}'
 
-#  redis:
-#    container_name: "${PROJECT_NAME}_redis"
-#    image: wodby/redis:$REDIS_TAG
+  redis:
+    container_name: "${PROJECT_NAME}_redis"
+    image: wodby/redis:$REDIS_TAG
+    env_file:
+      - docker-conf/redis.env
 
 #  adminer:
 #    container_name: "${PROJECT_NAME}_adminer"
