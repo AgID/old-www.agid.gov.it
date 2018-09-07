@@ -28,7 +28,7 @@ settings:
     - ''
     - ''
   url_link: /contattaci
-  url_scrivici: 'https://www.agid.gov.it/it/contattaci'
+  url_scrivici: /contattaci
   codice_fiscale: '97735020584'
   pec: protocollo@pec.agid.gov.it
   url_gmaps: 'https://www.google.it/maps/place/Via+Liszt,+21,+00144+Roma+RM/@41.8336525,12.4653778,17z/data=!3m1!4b1!4m5!3m4!1s0x13258ae3d27bf449:0x5aa2ce4a30bafdda!8m2!3d41.8336485!4d12.4675665'
