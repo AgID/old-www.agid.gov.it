@@ -123,7 +123,6 @@
     "drupal/pathauto": "^1.0",
     "drupal/token": "~1",
     "drupal/ctools": "3.*",
-    "drupal/metatag": "^1.5",
     "drupal/xmlsitemap": "1.0.0-alpha2",
     "drupal/admin_toolbar": "1.*",
     "drupal/adminimal_admin_toolbar": "1.*",
@@ -167,7 +166,8 @@
     "drupal/share_everywhere": "^1.1",
     "drupal/better_exposed_filters": "^3.0@alpha",
     "dompdf/dompdf": "^0.8.2",
-    "drupal/mimemail": "^1.0@alpha"
+    "drupal/mimemail": "^1.0@alpha",
+    "drupal/metatag": "^1.6"
   },
   "require-dev": {
     "phing/phing": "2.12.*",
