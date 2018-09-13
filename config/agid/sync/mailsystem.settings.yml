@@ -1,5 +1,6 @@
 defaults:
-  formatter: SMTPMailSystem
+  formatter: mime_mail
   sender: SMTPMailSystem
 theme: current
-langcode: it
+modules:
+  webform: {  }

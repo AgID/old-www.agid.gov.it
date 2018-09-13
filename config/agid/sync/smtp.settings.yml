@@ -6,7 +6,7 @@ smtp_protocol: ssl
 smtp_username: test@dev.com
 smtp_password: testpass
 smtp_from: no-reply@agid.gov.it
-smtp_fromname: AgID
+smtp_fromname: AGID
 smtp_client_hostname: ''
 smtp_client_helo: ''
 smtp_allowhtml: '1'
