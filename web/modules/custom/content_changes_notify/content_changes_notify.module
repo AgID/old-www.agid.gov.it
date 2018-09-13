@@ -33,3 +33,39 @@ function content_changes_notify_theme() {
     ],
   ];
 }
+
+/**
+ * Implements hook_entity_presave().
+ */
+function content_changes_notify_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $config = \Drupal::config('content_changes_notify.settings');
+  $enabledTypes = $config->get('types');
+  $enabledMails = $config->get('emails') !== null ? explode(PHP_EOL, $config->get('emails')) : [];
+
+  if (in_array($entity->bundle(), $enabledTypes, TRUE))  {
+    $mailManager = \Drupal::service('plugin.manager.mail');
+
+    foreach ($enabledMails as $mail) {
+      // Get parsed mail text
+      $messageValue = $config->get('message');
+      if (!empty($messageValue)) {
+        $tokenService = \Drupal::token();
+        $message = $tokenService->replace($messageValue['value'], ['node' => $entity]);
+        $mailManager->mail('content_changes_notify',   'notify', $mail, 'it', [ 'message' => $message, ], NULL, true);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function content_changes_notify_mail($key, &$message, $params) {
+ switch ($key) {
+   case 'notify':
+     $message['from'] = \Drupal::config('system.site')->get('mail');
+     $message['subject'] = 'content_changes_notify';
+     $message['body'][] = $params['message'];
+     break;
+ }
+}
