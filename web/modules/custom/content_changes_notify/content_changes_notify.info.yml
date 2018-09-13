@@ -1,5 +1,5 @@
 name: 'content_changes_notify'
 type: module
-description: 'Implements the possibiliy to choose on which content's changes which one (configurable)  users will be notified through mail'
+description: "Implements the possibiliy to choose on which content's changes which one (configurable)  users will be notified through mail"
 core: 8.x
 package: 'Custom'

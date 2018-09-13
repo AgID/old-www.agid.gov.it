@@ -5,16 +5,6 @@
  * Contains content_changes_notify.module.
  */
 
-
-/**
- * TODO: eliminare a fine lavorazione, prima del push.
- * ISSUE Desc:
- * ciao @ninomarrazzo
- * il task consiste nell'invio di un'email a un set (configurabile) di indirizzi predefiniti nel momento in cui viene modificato un certo tipo di contenuto (configurabile).
- * di default è "page". il messaggio conterrà l'indirizzo e il titolo del contenuto + lo stato del workflow (es. bozza, in pubblicazione, etc.)
- * @danielaiozzo è corretto ? o le email devono essere inviate solo per alcuni cambi nel workflow ? e/o solo quando la modifica avviene da utenti di un particolare ruolo ?
- */
-
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
