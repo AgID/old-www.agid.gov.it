@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.person.field_first_name
     - field.field.node.person.field_last_name
     - field.field.node.person.field_pec
+    - field.field.node.person.field_person_descr
     - field.field.node.person.field_phone_number
     - field.field.node.person.field_photo
     - field.field.node.person.field_position
@@ -17,6 +18,7 @@ dependencies:
     - image
     - link
     - telephone
+    - text
     - user
 id: node.person.default
 targetEntityType: node
@@ -41,6 +43,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
+    region: content
+  field_person_descr:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_phone_number:
     weight: 4

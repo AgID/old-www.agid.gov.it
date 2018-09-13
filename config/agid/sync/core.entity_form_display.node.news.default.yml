@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.news.field_arguments
     - field.field.node.news.field_iconfont
     - field.field.node.news.field_image
+    - field.field.node.news.field_metatag
     - field.field.node.news.field_news_abstract
     - field.field.node.news.field_news_date
     - field.field.node.news.field_news_link
@@ -20,11 +21,13 @@ dependencies:
     - image.style.thumbnail
     - node.type.news
   module:
+    - content_moderation
     - datetime
     - entity_browser
     - field_group
     - image
     - link
+    - metatag
     - path
     - text
 third_party_settings:
@@ -164,6 +167,12 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_metatag:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
   field_news_abstract:
     weight: 3
     settings:
@@ -242,6 +251,12 @@ content:
     settings:
       include_locked: true
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 18
@@ -289,4 +304,7 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
 hidden: {  }

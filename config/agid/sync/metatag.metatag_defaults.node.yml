@@ -1,9 +1,12 @@
-uuid: a5a369e5-eb47-40bb-883e-ac40fa89f6a2
+uuid: afd5341c-7dea-42b0-b9fe-585e993d6387
 langcode: it
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
 id: node
 label: Content
 tags:
+  title: '[node:title] | [site:name]'
   description: '[node:summary]'
-  title: '[node:title]|[site:name]'
+  canonical_url: '[node:url]'
