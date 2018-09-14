@@ -1,0 +1,15 @@
+types:
+  page: page
+  pagopa: pagopa
+  acc_subj: 0
+  event: 0
+  faq: 0
+  news: 0
+  person: 0
+  press: 0
+  software: 0
+emails: "write@here.mail\r\nanother@mail.it\r\neach@per.line"
+title: 'Content changed ([node:nid])'
+message:
+  value: "<p>Node [node:nid].</p>\r\n\r\n<p>Modify: [node:url].</p>\r\n\r\n<p>Title: [node:title]</p>\r\n"
+  format: full_html

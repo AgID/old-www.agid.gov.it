@@ -20,8 +20,7 @@ class SettingsForm extends ConfigFormBase {
     $conf = $this->config('content_changes_notify.settings');
     $form['fieldset_types'] = [
       '#type' => 'details',
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
+      '#open' => TRUE,
       '#title' => t('Content types'),
     ];
     $form['fieldset_types']['types'] = [
