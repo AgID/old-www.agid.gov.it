@@ -10,6 +10,22 @@ use Drupal\Core\Breadcrumb\Breadcrumb;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Menu\MenuLinkInterface;
 use Drupal\menu_link_content\Plugin\Menu\MenuLinkContent;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_user_login().
+ */
+function agid_base_user_login(AccountInterface $account) {
+  $roles = $account->getRoles();
+  // user.reset.login == reset
+  // user.login == login
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name != 'user.reset.login' && in_array('author', $roles)) {
+    $destination = Url::fromUserInput('/admin/content/my-contents')->toString();
+    \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', $destination);
+  }
+}
 
 /**
  * Implements hook_theme().
