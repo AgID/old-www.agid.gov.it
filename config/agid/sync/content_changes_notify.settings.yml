@@ -1,0 +1,16 @@
+types:
+  news: news
+  page: page
+  person: person
+  acc_subj: 0
+  candidatura: 0
+  event: 0
+  faq: 0
+  pagopa: 0
+  press: 0
+  software: 0
+emails: "ni.marrazzo@gmail.com\r\nreinchek@gmail.com\r\nnino.marrazzo@wellnet.it"
+message:
+  value: "<p>È stato modificato il nodo con id [node:nid] di tipologia [node:content-type]. Vai al nodo [node:url]</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+  format: full_html
+title: 'Content changed ([node:nid])'

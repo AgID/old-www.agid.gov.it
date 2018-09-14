@@ -42,6 +42,7 @@ class SettingsForm extends ConfigFormBase {
       '#title' => t('Mail title'),
       '#default_value' => !empty($conf->get('title')) ? $conf->get('title') : t('Content changed') . ' ([node:nid])',
       '#required' => TRUE,
+      '#description' => t('Mail\'s title. Supports token like as for mail\'s message'),
     ];
 
     $form['message'] = [
