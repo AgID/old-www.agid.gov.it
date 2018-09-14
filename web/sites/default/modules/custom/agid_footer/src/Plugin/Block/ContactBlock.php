@@ -75,14 +75,6 @@ class ContactBlock extends BlockBase {
       '#size' => 64,
       '#default_value' => isset($this->configuration['pec']) ? $this->configuration['pec'] : '',
     ];
-    $form['url_scrivici'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('URL link scrivici'),
-      '#description' => $this->t('URL a cui deve puntare il link \'Scrivici\' alla fine del blocco. Se lasciato vuoto il link non viene mostrato.'),
-      '#maxlength' => 64,
-      '#size' => 64,
-      '#default_value' => isset($this->configuration['url_scrivici']) ? $this->configuration['url_scrivici'] : '',
-    ];
     $form['url_gmaps'] = [
       '#type' => 'textfield',
       '#title' => $this->t('URL Google Maps'),
@@ -107,7 +99,6 @@ class ContactBlock extends BlockBase {
     $this->configuration['indirizzo'][] = $form_state->getValue('indirizzo_riga_4');
     $this->configuration['codice_fiscale'] = $form_state->getValue('codice_fiscale');
     $this->configuration['pec'] = $form_state->getValue('pec');
-    $this->configuration['url_scrivici'] = $form_state->getValue('url_scrivici');
     $this->configuration['url_gmaps'] = $form_state->getValue('url_gmaps');
   }
 
@@ -141,10 +132,6 @@ class ContactBlock extends BlockBase {
 
     if (isset($this->configuration['pec'])) {
       $template .= '<p><strong>PEC: </strong><a href="mailto:' . $this->configuration['pec'] . '">' . $this->configuration['pec'] . '</a></p>';
-    }
-
-    if (isset($this->configuration['url_scrivici'])) {
-      $template .= '<a class="Footer-bigLink Footer-contact" href="' . $this->configuration['url_scrivici'] . '">Scrivici</a>';
     }
 
     $build['contact_block']  = [
