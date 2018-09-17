@@ -77,8 +77,8 @@ class ContactBlock extends BlockBase {
     ];
     $form['press'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Mail stampa'),
-      '#description' => $this->t('Indirizzo di posta elettronica di Stampa'),
+      '#title' => $this->t('Contatti stampa'),
+      '#description' => $this->t('Indirizzo di posta elettronica della stampa'),
       '#maxlength' => 64,
       '#size' => 64,
       '#default_value' => isset($this->configuration['press']) ? $this->configuration['press'] : '',
@@ -153,7 +153,7 @@ class ContactBlock extends BlockBase {
     }
 
     if (isset($this->configuration['press'])) {
-      $template .= '<p><a href="mailto:' . $this->configuration['press'] . '">' . $this->configuration['press'] . '</a></p>';
+      $template .= '<p><strong>Contatti stampa:</strong> <a href="mailto:' . $this->configuration['press'] . '">' . $this->configuration['press'] . '</a></p>';
     }
 
     if (isset($this->configuration['url_scrivici'])) {
