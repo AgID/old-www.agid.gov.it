@@ -40,6 +40,15 @@
   }
 }
 
+.homepage-news {
+  .Prose,
+  .Prose > ol > li,
+  .Prose > p,
+  .Prose > ul > li {
+    color: $light-blue;
+  }
+}
+
 
 @include breakpoint(large, down) {
   .homepage-news div.views-row {
