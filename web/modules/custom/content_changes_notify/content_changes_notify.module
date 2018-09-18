@@ -29,7 +29,7 @@ function content_changes_notify_help($route_name, RouteMatchInterface $route_mat
 function content_changes_notify_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $config = \Drupal::config('content_changes_notify.settings');
   $enabledTypes = $config->get('types');
-  $enabledMails = $config->get('emails') !== null ? explode(PHP_EOL, $config->get('emails')) : [];
+  $enabledMails = $config->get('reviser_emails') !== null ? explode(PHP_EOL, $config->get('reviser_emails')) : [];
 
   if (in_array($entity->bundle(), $enabledTypes + ['page'], TRUE))  {
     $mailManager = \Drupal::service('plugin.manager.mail');
@@ -40,23 +40,37 @@ function content_changes_notify_entity_presave(Drupal\Core\Entity\EntityInterfac
     } else {
       $fromState = $toState = $entity->get('moderation_state')->value;
     }
-
-    // Check if new state is needs_review
-    if ($toState === 'needs_review' && $toState !== $fromState) {
-      // Add alse node author's mail to enabled mails list.
-      $enabledMails[] = $entity->original->getOwner()->getEmail();
+    
+    kint($fromState . ' --> ' . $toState);
+    //die();
+    // Check if new state is different from published
+    if ($toState !== 'published' && $toState !== $fromState) {
+      // Get parsed mail text and title
+      $titleValue = $config->get('reviser_title');
+      $messageValue = $config->get('reviser_message');
+      // Replace value with right tokens
+      $tokenService = \Drupal::token();
+      $title = $tokenService->replace($titleValue, ['node' => $entity]);
+      $message = $tokenService->replace($messageValue['value'], ['node' => $entity]);
 
       foreach ($enabledMails as $mail) {
-        // Get parsed mail text and title
-        $titleValue = $config->get('title');
-        $messageValue = $config->get('message');
         if (!empty($messageValue)) {
-          $tokenService = \Drupal::token();
-          $title = $tokenService->replace($titleValue, ['node' => $entity]);
-          $message = $tokenService->replace($messageValue['value'], ['node' => $entity]);
           $mailManager->mail('content_changes_notify', 'notify', $mail, 'it', ['title' => $title, 'message' => $message,], NULL, true);
         }
       }
+    } elseif ($toState === 'published' && $toState !== $fromState) {
+      // Get parsed mail text and title
+      $titleValue = $config->get('author_title');
+      $messageValue = $config->get('author_message');
+      // Replace value with right tokens
+      $tokenService = \Drupal::token();
+      $title = $tokenService->replace($titleValue, ['node' => $entity]);
+      $message = $tokenService->replace($messageValue['value'], ['node' => $entity]);
+
+      // Node author's mail to enabled mails list.
+      $authorMail = $entity->original->getOwner()->getEmail();
+
+      $mailManager->mail('content_changes_notify', 'notify', $authorMail, 'it', ['title' => $title, 'message' => $message,], NULL, true);
     }
   }
 }
