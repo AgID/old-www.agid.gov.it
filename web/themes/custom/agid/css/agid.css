@@ -1717,12 +1717,12 @@ a.Footer-bigLink:hover {
   margin-top: 1em;
 }
 
-.homepage-news .Prose,
+/*.homepage-news .Prose,
 .homepage-news .Prose > ol > li,
 .homepage-news .Prose > p,
 .homepage-news .Prose > ul > li {
   color: #0059b3;
-}
+}*/
 
 @media (max-width: 991px) {
   .homepage-news div.views-row {
