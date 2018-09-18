@@ -84,7 +84,6 @@
         var div = jQuery(elem).find('div').first();
         var li = jQuery('<li/>');
         li.append(link_copy);
-        console.log(link_copy);
         var ul = jQuery('<ul/>', {class: 'Megamenu-subnavGroup Megamenu-pageLink'});
         ul.append(li);
         div.append(ul);
