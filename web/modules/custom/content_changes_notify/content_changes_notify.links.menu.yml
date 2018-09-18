@@ -1,0 +1,6 @@
+content_changes_notify.settings:
+  title: 'Content Changes Notify'
+  parent: system.admin_config_development
+  description: ''
+  route_name: content_changes_notify.settings
+  weight: -15
