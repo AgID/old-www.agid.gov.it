@@ -1,5 +1,5 @@
 content_changes_notify.settings:
-  path: '/admin/config/ccn/settings'
+  path: '/admin/config/development/ccn/settings'
   defaults:
     _form: '\Drupal\content_changes_notify\Form\SettingsForm'
     _title: 'Content Changes Notify settings'
