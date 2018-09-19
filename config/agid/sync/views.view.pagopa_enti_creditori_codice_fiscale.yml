@@ -8,8 +8,12 @@ dependencies:
     - field.storage.node.field_active_mod3
     - field.storage.node.field_partner_mediator
     - node.type.pagopa
+    - taxonomy.vocabulary.pagopa_type
+  content:
+    - 'taxonomy_term:pagopa_type:d8afee0d-2f0c-4ff6-9d04-15bf221b3bcd'
   module:
     - node
+    - taxonomy
     - text
     - user
 id: pagopa_enti_creditori_codice_fiscale
@@ -38,7 +42,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -59,7 +63,11 @@ display:
       style:
         type: table
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: field_fiscal_code
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           override: true
@@ -72,6 +80,7 @@ display:
             field_active: field_active
             field_active_mod12: field_active_mod12
             field_active_mod3: field_active_mod3
+            field_fiscal_code: field_fiscal_code
           info:
             field_partner_mediator:
               sortable: false
@@ -95,6 +104,13 @@ display:
               empty_column: false
               responsive: ''
             field_active_mod3:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_fiscal_code:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -384,6 +400,50 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_pagopa_type_target_id:
+          id: field_pagopa_type_target_id
+          table: node__field_pagopa_type
+          field: field_pagopa_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            - 231
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: pagopa_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts: {  }
       title: '[PagoPA - Enti Creditori] Codice fiscale'
       header: {  }
@@ -430,12 +490,14 @@ display:
           break_phrase: false
           plugin_id: string
       display_extenders: {  }
+      group_by: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -457,6 +519,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
