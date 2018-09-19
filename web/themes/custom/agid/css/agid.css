@@ -1084,7 +1084,7 @@ article ul li.share-everywhere {
   display: table;
   max-width: 15em;
   float: left;
-  padding: 0.65em 0.5em 0.5em 0.5em;
+  padding: 0.45em 0.45em 0.35em 0.45em;
   box-shadow: 0 0 5px lightgrey;
 }
 
@@ -1716,6 +1716,13 @@ a.Footer-bigLink:hover {
 .homepage-lastupdates .views-row:not(:first-child) .views-field-changed {
   margin-top: 1em;
 }
+
+/*.homepage-news .Prose,
+.homepage-news .Prose > ol > li,
+.homepage-news .Prose > p,
+.homepage-news .Prose > ul > li {
+  color: #0059b3;
+}*/
 
 @media (max-width: 991px) {
   .homepage-news div.views-row {

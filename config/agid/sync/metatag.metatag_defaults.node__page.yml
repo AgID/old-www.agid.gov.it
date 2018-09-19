@@ -1,0 +1,9 @@
+uuid: 7befbe1a-43ac-45bf-84cc-389a3a21240f
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Pagina'
+tags:
+  title: '[node:title]|[site:name]'
+  description: '[node:field_page_abstract]'
