@@ -77,7 +77,7 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: inline
+  confirmation_type: page
   confirmation_title: ''
   confirmation_message: "<h4>Scrivici</h4>\r\n\r\n<p>Il tuo messaggio &egrave; stato inviato. Grazie!</p>"
   confirmation_url: '<front>'
