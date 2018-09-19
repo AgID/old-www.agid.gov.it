@@ -30,7 +30,7 @@
     <meta name="theme-color" content="#0066cc">
     <meta name="google-site-verification" content="iW7WdbA57KfbeoK_JnBaDT9oRz44ySgVaLaI_xi02Co" />
   </head>
-  <body {{ attributes }}>
+  <body {{ attributes.addClass(not root_path ? 'is-front-page' : 'not-front-page') }}>
 
     {{ page_top }}
     {{ page }}

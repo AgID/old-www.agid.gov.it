@@ -40,12 +40,15 @@
   }
 }
 
-.homepage-news {
-  .Prose,
-  .Prose > ol > li,
-  .Prose > p,
-  .Prose > ul > li {
-    color: $light-blue;
+
+.Node {
+  &--news {
+    body.not-front-page & {
+      .Prose.Abstract,
+      .Prose.Abstract * {
+        color: $light-blue;
+      }
+    }
   }
 }
 
