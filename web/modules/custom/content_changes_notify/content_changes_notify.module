@@ -40,9 +40,7 @@ function content_changes_notify_entity_presave(Drupal\Core\Entity\EntityInterfac
     } else {
       $fromState = $toState = $entity->get('moderation_state')->value;
     }
-    
-    kint($fromState . ' --> ' . $toState);
-    //die();
+
     // Check if new state is different from published
     if ($toState !== 'published' && $toState !== $fromState) {
       // Get parsed mail text and title
