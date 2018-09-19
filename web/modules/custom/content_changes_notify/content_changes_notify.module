@@ -28,7 +28,7 @@ function content_changes_notify_help($route_name, RouteMatchInterface $route_mat
  */
 function content_changes_notify_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
   $config = \Drupal::config('content_changes_notify.settings');
-  $enabledTypes = $config->get('types');
+  $enabledTypes = is_array($config->get('types')) ? $config->get('types') : [];
   $enabledMails = $config->get('reviser_emails') !== null ? explode(PHP_EOL, $config->get('reviser_emails')) : [];
 
   if (in_array($entity->bundle(), $enabledTypes + ['page'], TRUE))  {
