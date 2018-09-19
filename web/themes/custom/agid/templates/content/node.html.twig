@@ -70,8 +70,7 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.removeAttribute('role') }}>
-
+<article{{ attributes.removeAttribute('role').addClass('Node--'~node.getType()) }}>
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
