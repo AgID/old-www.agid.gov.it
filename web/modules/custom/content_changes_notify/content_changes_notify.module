@@ -35,8 +35,20 @@ function content_changes_notify_entity_presave(Drupal\Core\Entity\EntityInterfac
     $mailManager = \Drupal::service('plugin.manager.mail');
     // Get original state and the new one.
     if (isset($entity->original)) {
-      $fromState = $entity->original->get('moderation_state')->value;
       $toState = $entity->get('moderation_state')->value;
+      if ($entity->isDefaultRevision() == TRUE) {
+        $revision_ids = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($entity);
+        $last_revision_id = end($revision_ids);
+        
+        if ($entity->getRevisionId() != $last_revision_id) {
+          // Load the revision.
+          $last_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($last_revision_id);
+          // Get the revisions moderation state.
+          $fromState = $last_revision->get('moderation_state')->getString();
+        } else {
+          $fromState = $entity->original->get('moderation_state')->value;
+        }
+      }
     } else {
       $fromState = $toState = $entity->get('moderation_state')->value;
     }
