@@ -1135,7 +1135,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<p>Ultimo aggiornamento: 24/05/2017</p>\n\n<p>Elenco in formato PDF/P7M:<br/>\n<a href=\"http://www.agid.gov.it/sites/default/files/pec_pdf/elenco_pubblico_20170524.pdf\">Elenco pubblico gestori PEC</a>\n</p>"
+            value: "<p>Ultimo aggiornamento: 24/05/2017</p>\n\n"
             format: filtered_text
           plugin_id: text
       defaults:

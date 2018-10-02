@@ -166,7 +166,7 @@ handlers:
       from_options: {  }
       from_name: default
       subject: 'Il tuo messaggio ad AGID è stato inoltrato'
-      body: "Il seguente messaggio &egrave; stato inoltrato ad AGID:<br />\n<br />\nArgomento:&nbsp;[webform_submission:values:ufficio]<br />\n<br />\nMessaggio: [webform_submission:values:message]"
+      body: "Il seguente messaggio &egrave; stato inoltrato attraverso il sito AGID:<br />\n<br />\nNome:&nbsp;[webform_submission:values:name]<br />\n<br />\nEmail:&nbsp;[webform_submission:values:email]<br />\n<br />\nArgomento:&nbsp;[webform_submission:values:ufficio:value]<br />\n<br />\nMessaggio: [webform_submission:values:message]"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -197,8 +197,8 @@ handlers:
       from_mail: '[webform_submission:values:email]'
       from_options: {  }
       from_name: '[webform_submission:values:name]'
-      subject: 'Dal sito AGID: [webform_submission:values:ufficio]'
-      body: "Il seguente messaggio &egrave; stato inviato dal sito AGID:<br />\n<br />\nArgomento:&nbsp;[webform_submission:values:ufficio]<br />\n<br />\nMessaggio: [webform_submission:values:message]"
+      subject: 'Dal sito AGID: [webform_submission:values:ufficio:value]'
+      body: "Il seguente messaggio &egrave; stato inoltrato attraverso il sito AGID:<br />\n<br />\nNome:&nbsp;[webform_submission:values:name]<br />\n<br />\nEmail:&nbsp;[webform_submission:values:email]<br />\n<br />\nArgomento:&nbsp;[webform_submission:values:ufficio:value]<br />\n<br />\nMessaggio: [webform_submission:values:message]"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true

@@ -1,0 +1,7 @@
+agid_search.force_indexing_form:
+  path: '/admin/config/agid/search-api-force-indexing'
+  defaults:
+    _form: '\Drupal\agid_search\Form\ForceIndexingForm'
+    _title: 'Force indexing of entities'
+  requirements:
+    _permission: 'access administration pages'

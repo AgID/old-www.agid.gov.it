@@ -12,7 +12,7 @@ dependencies:
     - agid
 third_party_settings:
   block_class:
-    classes: guide-lines-form
+    classes: 'sidebar-exposed-form guide-lines-form'
 id: exposedform_guide_lines
 theme: agid
 region: sidebar_left

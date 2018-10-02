@@ -1084,7 +1084,7 @@ article ul li.share-everywhere {
   display: table;
   max-width: 15em;
   float: left;
-  padding: 0.65em 0.5em 0.5em 0.5em;
+  padding: 0.45em 0.45em 0.35em 0.45em;
   box-shadow: 0 0 5px lightgrey;
 }
 
@@ -1888,6 +1888,151 @@ ol.search-results li {
   border: 1px solid #d0e2f5 !important;
 }
 
+.search-site-header {
+  padding-bottom: .625em;
+}
+
+.search-site-header .agid_search_spellcheck_solr-suggestion .placeholder {
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.search-site-header .form-actions {
+  margin-bottom: 2.14em;
+  margin-top: -2.14em;
+}
+
+.js .search-site-header .form-actions {
+  display: none;
+}
+
+.search-api-fulltext__btn {
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+.search-site-summary {
+  text-align: right;
+}
+
+.search-site-summary__total {
+  font-weight: 600;
+}
+
+.form-item-search-api-fulltext {
+  margin-bottom: 4rem;
+}
+
+.form-item-search-api-fulltext .Form-input {
+  border: 1px solid #717A83;
+  font-size: .889em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.Form--search-site .Form-label[for="edit-search-api-fulltext"] {
+  color: #0059b3;
+  line-height: 1.5;
+  margin: .625em 0;
+  text-transform: uppercase;
+}
+
+.Form--search-site #edit-items-per-page--wrapper {
+  margin: .5rem 0 2.14em;
+}
+
+.Form--search-site #edit-items-per-page--wrapper .Form-legend {
+  display: block;
+  float: left;
+  padding-top: 1em;
+  width: 35%;
+}
+
+.Form--search-site #edit-items-per-page--wrapper .fieldset-wrapper {
+  float: right;
+  width: 65%;
+}
+
+.Form--search-site .form-item-items-per-page {
+  border: 0;
+  width: auto;
+}
+
+.search-site-list-row {
+  padding: 1.667em .333em 1.667em 1.333em;
+}
+
+.search-site-list-row:first-of-type {
+  border-top: 1px solid #d0e2f5;
+}
+
+.search-site-list-row__field-type,
+.search-site-list-row__field-created {
+  font-size: .889em;
+  width: 50%;
+}
+
+.search-site-list-row__field-type {
+  color: #0059b3;
+  float: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.search-site-list-row__field-type::before {
+  background: #0059b3;
+  border-radius: 1em;
+  content: '';
+  display: block;
+  height: .625em;
+  left: -1.5em;
+  position: absolute;
+  top: .25em;
+  width: .625em;
+}
+
+.search-site-list-row__field-created {
+  float: right;
+  text-align: right;
+}
+
+.search-site-list-row__field-created .views-label {
+  color: #0059b3;
+}
+
+.search-site-list-row__field-title {
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+
+.search-site-list-row__field-title a {
+  color: #00264c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.search-site-pagination {
+  border-bottom: 1px solid #d0e2f5;
+  padding: .8rem 0;
+}
+
+.search-site-footer {
+  margin-top: 2.5em;
+}
+
+.search-site-footer ul {
+  margin: 1em 0 0;
+}
+
+.search-site-footer a {
+  color: #00264c;
+  font-weight: 600;
+}
+
 .view-table-pagopa table {
   table-layout: fixed;
 }
@@ -2099,109 +2244,112 @@ a[href*="linee-guida"]::after {
   margin: 0.75rem 0;
 }
 
-.guide-lines-form {
+.sidebar-exposed-form {
+  background-color: transparent;
   margin-top: 0 !important;
   padding: 0;
-  background-color: transparent;
 }
 
-.guide-lines-form .form-submit {
-  margin-right: 16px;
+.sidebar-exposed-form .form-submit {
+  margin: 3rem 1rem;
 }
 
-.guide-lines-form .Form {
-  position: relative;
-  padding-top: 65px !important;
+.sidebar-exposed-form .Form-legend {
+  display: none;
 }
 
-.guide-lines-form .Form-legend {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 50px;
-  width: auto;
-  display: block;
-  line-height: 50px;
-  padding: 0 16px;
-  color: #FFF;
-  background-color: #0059B3;
-}
-
-.guide-lines-form .Form-label--block {
-  position: relative;
-  padding: 1.75rem 1rem 1.75rem 46px !important;
-  min-height: auto;
+.sidebar-exposed-form .Form-label--block {
   border-width: 0;
-  line-height: 22px;
   cursor: pointer;
+  line-height: 1.333;
+  min-height: 0;
+  padding: 1.75rem 1rem 1.75rem 46px !important;
+  position: relative;
   text-transform: capitalize;
 }
 
-.guide-lines-form .Form-label--block .Form-fieldIcon {
-  position: absolute;
+.sidebar-exposed-form .Form-label--block .Form-fieldIcon {
   left: 5px;
+  position: absolute;
   top: 1.2rem;
 }
 
-/*Fake reset button*/
-.guide-lines-form__reset {
+.js .sidebar-exposed-form #edit-reset {
   display: none;
-  width: 100%;
-  line-height: 22px;
-  text-align: left;
-  position: relative;
-  cursor: pointer;
-  text-transform: none;
-  color: #00264D;
-  padding-left: 46px;
-  padding-right: 1rem;
-  margin: 2rem 0 4rem;
 }
 
-.js .guide-lines-form__reset {
+.sidebar-exposed-form__title, .guide-lines-form .Form-legend {
+  background-color: #0059b3;
+  color: #FFF;
+  display: block;
+  font-size: 1.8rem !important;
+  line-height: 2.778;
+  padding: 0 1em;
+}
+
+.guide-lines-form .Form {
+  padding-top: 2.778em;
+  position: relative;
+}
+
+.guide-lines-form .Form-legend {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.sidebar-exposed-form__reset {
+  color: #00264d;
+  cursor: pointer;
+  display: none;
+  font-size: 1.8rem;
+  line-height: 1.333;
+  margin: 4rem 0;
+  padding-left: 46px;
+  padding-right: 1rem;
+  position: relative;
+  text-align: left;
+  text-transform: none;
+  width: 100%;
+}
+
+.js .sidebar-exposed-form__reset {
   display: block;
 }
 
-.guide-lines-form__reset .Icon {
-  position: absolute;
+.sidebar-exposed-form__reset .Icon {
   left: 14px;
+  position: absolute;
   top: 50%;
   transform: translate(0, -50%);
 }
 
-/* Hyde the real reset button, we add a fake button, working with JS */
-.js .guide-lines-form #edit-reset {
+.sidebar-exposed-form-toggler {
+  background-color: #0059b3;
+  color: #FFF;
+  cursor: pointer;
   display: none;
-}
-
-.agid-guide-lines__mobile-toggler {
-  display: none;
+  line-height: 50px;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
   position: relative;
   width: 100%;
-  height: 50px;
-  padding: 0 1rem;
-  margin-bottom: 3rem;
-  line-height: 50px;
-  color: #FFF;
-  background-color: #0059B3;
-  cursor: pointer;
 }
 
-.agid-guide-lines__mobile-toggler .Icon {
+.sidebar-exposed-form-toggler .Icon {
   position: absolute;
   right: 2rem;
   top: 50%;
   transform: translate(0, -50%);
 }
 
-.agid-guide-lines__mobile-toggler.is-open .Icon::before {
-  content: "\25b2" !important;
+.sidebar-exposed-form-toggler.is-open .Icon::before {
+  content: '\25b2';
 }
 
 @media screen and (max-width: 991px) {
-  /*Style exposed filters on mobile*/
-  .js .agid-guide-lines__filters-wrapper {
+  .js .sidebar-exposed-form-wrapper {
     display: none;
     position: absolute;
     z-index: 10;
@@ -2213,7 +2361,10 @@ a[href*="linee-guida"]::after {
     height: auto;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8cOfOTAAIbwMzvgT++gAAAABJRU5ErkJggg==);
   }
-  .js .guide-lines-form {
+  .is-open-sidebar-exposed-form .sidebar-exposed-form-wrapper {
+    display: block;
+  }
+  .js .sidebar-exposed-form {
     position: absolute;
     z-index: 11;
     top: 0;
@@ -2223,56 +2374,39 @@ a[href*="linee-guida"]::after {
     background: #FFF;
     border-width: 0;
   }
-  .js .guide-lines-form .Form {
+  .js .sidebar-exposed-form .Form {
     padding-top: 1.5rem !important;
   }
-  .js .guide-lines-form .Form-legend {
+  .js .sidebar-exposed-form .Form-legend {
     display: none;
   }
-  .js .guide-lines-form .Form-label--block::before {
-    content: '';
-    position: absolute;
-    top: 0rem;
-    right: 1.25rem;
-    left: 1.25rem;
-    width: auto;
-    height: 1px;
-    background: #D0E2F6;
+  .js .sidebar-exposed-form .Form-label--block {
+    background: linear-gradient(#d0e2f5, #d0e2f5) no-repeat center top/calc(100% - 2.5rem) 1px;
   }
-  .js .agid-guide-lines__mobile-toggler {
+  .js .sidebar-exposed-form-toggler {
     display: block;
   }
-  /* Set styles when the filters are open */
-  /*Color the HTML element to simulate an overlay layer*/
-  .is-open-agid-guide-lines-filters {
+  .is-open-sidebar-exposed-form {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8cOfOTAAIbwMzvgT++gAAAABJRU5ErkJggg==);
-    /*Manage footer overlay*/
   }
-  .is-open-agid-guide-lines-filters .agid-guide-lines__filters-wrapper {
-    display: block;
-  }
-  .is-open-agid-guide-lines-filters MAIN {
+  .is-open-sidebar-exposed-form main {
     background-color: #FFF;
   }
-  .is-open-agid-guide-lines-filters .u-background-95 {
+  .is-open-sidebar-exposed-form .u-background-95 {
     position: relative;
   }
-  .is-open-agid-guide-lines-filters .u-background-95:before {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: ' ';
+  .is-open-sidebar-exposed-form .u-background-95::before {
     background-color: #E0DCDC;
-    /*+opacity: 60%;*/
-    -filter: alpha(opacity=60);
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-    -moz-opacity: 0.6;
+    bottom: 0;
+    content: ' ';
+    display: block;
+    height: 100%;
+    left: 0;
     opacity: 0.6;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
     z-index: 9;
   }
 }

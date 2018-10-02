@@ -1,0 +1,10 @@
+*.DS_Store
+docroot/.gitignore
+docroot/*.txt
+!docroot/robots.txt
+docroot/cron.php
+docroot/install.php
+docroot/phpdoc.dist.xml
+docroot/update.php
+docroot/web.config
+docroot/sites/default/files/

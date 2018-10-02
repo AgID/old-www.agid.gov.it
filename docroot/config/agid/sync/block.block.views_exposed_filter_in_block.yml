@@ -1,0 +1,35 @@
+uuid: 387f1237-3f93-4647-a1aa-795752c1e145
+langcode: it
+status: true
+dependencies:
+  module:
+    - agid_search
+    - block_class
+    - system
+  theme:
+    - agid
+third_party_settings:
+  block_class:
+    classes: sidebar-exposed-form
+id: views_exposed_filter_in_block
+theme: agid
+region: sidebar_left
+weight: 0
+provider: null
+plugin: agid_search_views_exposed_filter_block
+settings:
+  id: agid_search_views_exposed_filter_block
+  label: Filtri
+  provider: agid_search
+  label_display: visible
+  view_display: 'search_site:page'
+  exposed_filters_disable:
+    search_api_fulltext: search_api_fulltext
+    items_per_page: items_per_page
+    content_type: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

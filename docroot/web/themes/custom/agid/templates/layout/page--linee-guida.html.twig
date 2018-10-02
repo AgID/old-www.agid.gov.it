@@ -32,15 +32,17 @@
     {{ page.hero }}
   {% endif %}
 
-  <a id="guideLinesFiltersMobileToggler" class="agid-guide-lines__mobile-toggler">{{ 'FILTRI'|t }}<span class="u-text-r-l Icon Icon-drop-up"></span></a>
+  <button type="button" id="sidebarExposedFormMobileToggler" class="sidebar-exposed-form-toggler">
+    {{ 'FILTRI'|t }}<span class="u-text-r-l Icon Icon-drop-up"></span>
+  </button>
 
   {# Page content region #}
   <div class="u-padding-r-bottom u-posRelative">
-    <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter agid-guide-lines__container">
+    <div class="u-layout-wide u-layoutCenter u-layout-r-withGutter">
       <div class="Grid Grid--withGutter">
 
         {# Sidebar left #}
-        <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12 agid-guide-lines__filters-wrapper">
+        <div class="Grid-cell u-sizeFull u-md-size3of12 u-lg-size3of12 sidebar-exposed-form-wrapper">
           {{ page.sidebar_left }}
         </div>
 
