@@ -29,6 +29,9 @@ ps:
 shell:
 	@docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bash
 
+alias:
+	@source .aliases
+
 solr-core:
 	@docker exec www_agid_gov_it_solr make create core="default" host="localhost" -f /usr/local/bin/actions.mk
 

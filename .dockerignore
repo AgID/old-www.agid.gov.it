@@ -7,10 +7,7 @@ docroot/.gitignore
 docroot/Makefile
 docroot/README.md
 docroot/behat.yml
-docroot/composer.json
-docroot/composer.lock
 docroot/composer.patches.json
-docroot/bin
 docroot/deploy
 docroot/features
 docroot/patches

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -e
+
+export $(egrep -v '^#' .env | xargs)
+
+##
+## Try to get the number of columns
+##
+if tput -V >/dev/null 2>&1
+then
+    COLS=$(tput cols)
+else
+    COLS=80
+fi
+
+QUOTEDCMD=()
+for token in "$@"; do
+  QUOTEDCMD+=($(printf "%q" "$token"))
+done
+CMD="${QUOTEDCMD[*]}"
+if [ -z "$CMD" ]
+then
+  CMD="bash"
+fi
+if [ ! -z "${PROJECT_NAME}_php" ]
+then
+  docker exec -it "${PROJECT_NAME}_php" env TERM=xterm COLUMNS="${COLS}" bash -c "${CMD}"
+else
+  echo "drupal docker application not found."
+  exit 1
+fi

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+###### README ######
+# Use 'source .alias' for active this short-key.
+
+# Drupal
+alias drush="docroot/e bin/drush -r /var/www/html/web"
+alias drupal="docroot/e bin/drupal --root=\"/var/www/html/web\""
