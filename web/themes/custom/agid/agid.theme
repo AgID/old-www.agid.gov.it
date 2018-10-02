@@ -87,7 +87,7 @@ function agid_preprocess_page(&$variables) {
   $variables['site_name'] = $site_config->get('name');
   $variables['site_slogan'] = $site_config->get('slogan');
   $variables['site_logo'] = '/' . drupal_get_path('theme','agid') . '/logo.svg';
-
+  $variables['base_path'] = \Drupal::theme()->getActiveTheme()->getPath();
 }
 
 /**
@@ -134,4 +134,8 @@ function agid_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateI
       }
     }
   }
+}
+
+function agid_preprocess_share_everywhere(&$variables) {
+  $variables['base_path'] = \Drupal::theme()->getActiveTheme()->getPath();
 }

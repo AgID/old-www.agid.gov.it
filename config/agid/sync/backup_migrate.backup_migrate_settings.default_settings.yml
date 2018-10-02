@@ -1,0 +1,46 @@
+uuid: 7de18d65-3983-4d35-a8bb-43ef06b94c1d
+langcode: it
+status: true
+dependencies: {  }
+id: default_settings
+label: 'Default Settings'
+config:
+  namer:
+    filename: backup
+    timestamp: 1
+    timestamp_format: Y-m-d\TH-i-s
+  compressor:
+    compression: gzip
+  utils:
+    site_offline: 0
+  metadata:
+    description: ''
+  db_exclude:
+    exclude_tables: {  }
+    nodata_tables:
+      cache_bootstrap: cache_bootstrap
+      cache_config: cache_config
+      cache_container: cache_container
+      cache_data: cache_data
+      cache_default: cache_default
+      cache_discovery: cache_discovery
+      cache_discovery_migration: cache_discovery_migration
+      cache_dynamic_page_cache: cache_dynamic_page_cache
+      cache_entity: cache_entity
+      cache_menu: cache_menu
+      cache_migrate: cache_migrate
+      cache_render: cache_render
+      cache_toolbar: cache_toolbar
+      sessions: sessions
+      watchdog: watchdog
+  private_files_exclude:
+    exclude_filepaths:
+      - backup_migrate
+  public_files_exclude:
+    exclude_filepaths:
+      - js
+      - css
+      - php
+      - styles
+      - 'config_*'
+      - .htaccess
