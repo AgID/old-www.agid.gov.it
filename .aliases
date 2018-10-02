@@ -4,5 +4,11 @@
 # Use 'source .alias' for active this short-key.
 
 # Drupal
-alias drush="docroot/e bin/drush -r /var/www/html/web"
-alias drupal="docroot/e bin/drupal --root=\"/var/www/html/web\""
+alias drush="./proxy bin/drush -r /var/www/html/web"
+alias drupal="./proxy bin/drupal --root=\"/var/www/html/web\""
+
+# Tools
+alias cli="./proxy"
+alias dsqlc="./proxy bin/drush -r /var/www/html/web sql-cli --extra=-A"
+alias drupalcs="./proxy bin/phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info' /var/www/html/web/modules/custom /var/www/html/web/themes/custom"
+alias drupalcbf="./proxy bin/phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info' /var/www/html/web/modules/custom /var/www/html/web/themes/custom"
