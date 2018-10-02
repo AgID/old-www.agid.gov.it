@@ -1,0 +1,83 @@
+version: "2"
+
+services:
+  mariadb:
+    container_name: "${PROJECT_NAME}_mariadb"
+    image: wodby/mariadb:$MARIADB_TAG
+    stop_grace_period: 30s
+    env_file:
+      - docker-conf/mariadb.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+#    volumes:
+#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+#      - /path/to/mariadb/data/on/host:/var/lib/mysql # Use bind mount
+
+  php:
+    container_name: "${PROJECT_NAME}_php"
+    image: wodby/drupal-php:$PHP_TAG
+    env_file:
+      - docker-conf/phpfpm.env
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      PHP_FPM_CLEAR_ENV: "no"
+      ENVIRONMENT: 'local'
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
+
+  mailhog:
+    container_name: "${PROJECT_NAME}_mailhog"
+    image: mailhog/mailhog
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
+
+  apache:
+    container_name: "${PROJECT_NAME}_apache"
+    image: wodby/apache:$APACHE_TAG
+    depends_on:
+      - php
+    environment:
+      APACHE_USER: 'wodby'
+      APACHE_LOG_LEVEL: debug
+      APACHE_BACKEND_HOST: php
+      APACHE_VHOST_PRESET: php
+      APACHE_DOCUMENT_ROOT: /var/www/html/web
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
+    labels:
+      - 'traefik.backend=apache'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+
+  redis:
+    container_name: "${PROJECT_NAME}_redis"
+    image: wodby/redis:$REDIS_TAG
+    env_file:
+      - docker-conf/redis.env
+
+  solr:
+    container_name: "${PROJECT_NAME}_solr"
+    image: wodby/drupal-solr:$SOLR_TAG
+    environment:
+      SOLR_HEAP: 1024m
+    volumes:
+      - ./my_conf:/opt/docker-solr/configsets/my_conf/conf
+    labels:
+      - 'traefik.backend=solr'
+      - 'traefik.port=8983'
+      - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
+
+  traefik:
+    container_name: "${PROJECT_NAME}_traefik"
+    image: traefik
+    command: -c /dev/null --web --docker --logLevel=INFO
+    ports:
+      - '8000:80'
+      - '8080:8080' # Dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

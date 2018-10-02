@@ -8,7 +8,6 @@ DRUPAL_ROOT ?= /var/www/html/web
 
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose pull --parallel
 	docker-compose up -d --remove-orphans
 
 down: stop
@@ -30,12 +29,5 @@ shell:
 shell-node:
 	docker exec --user node -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_node' --format "{{ .ID }}") bash
 
-drush:
-	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
-
-logs:
-	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
-
-# https://stackoverflow.com/a/6273809/1826109
-%:
-	@:
+solr-core
+    docker-compose exec solr make create core="default" host="localhost" config_set="my_conf" -f /usr/local/bin/actions.mk
