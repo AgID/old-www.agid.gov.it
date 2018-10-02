@@ -1,6 +1,25 @@
 version: "2"
 
 services:
+  apache:
+    container_name: "${PROJECT_NAME}_apache"
+    image: wodby/apache:$APACHE_TAG
+    depends_on:
+      - php
+    environment:
+      APACHE_USER: 'wodby'
+      APACHE_LOG_LEVEL: info
+      APACHE_BACKEND_HOST: php
+      APACHE_VHOST_PRESET: php
+      APACHE_DOCUMENT_ROOT: /var/www/html/web
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.backend=apache'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:web.${PROJECT_BASE_URL}'
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
+
   db:
     container_name: "${PROJECT_NAME}_mariadb"
     image: wodby/mariadb:$MARIADB_TAG
@@ -23,26 +42,7 @@ services:
       PHP_FPM_CLEAR_ENV: "no"
       ENV_TYPE: 'PROD'
     volumes:
-      - $PROJECT_DOCROOT:/var/www/html
-
-  apache:
-    container_name: "${PROJECT_NAME}_apache"
-    image: wodby/apache:$APACHE_TAG
-    depends_on:
-      - php
-    environment:
-      APACHE_USER: 'wodby'
-      APACHE_LOG_LEVEL: info
-      APACHE_BACKEND_HOST: php
-      APACHE_VHOST_PRESET: php
-      APACHE_DOCUMENT_ROOT: /var/www/html/web
-    labels:
-      - 'traefik.enable=true'
-      - 'traefik.backend=apache'
-      - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:web.${PROJECT_BASE_URL}'
-    volumes:
-      - $PROJECT_DOCROOT:/var/www/html
+      - $PROJECT_DOCROOT/web/sites/default/files:/var/www/html/web/sites/default/files
 
   redis:
     container_name: "${PROJECT_NAME}_redis"
@@ -63,11 +63,13 @@ services:
       - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
 
   traefik:
-    image: traefik
     container_name: "${PROJECT_NAME}_traefik"
-    command: -c /dev/null --web --docker --logLevel=INFO
+    image: traefik:1.6.3-alpine
+    restart: always
+    command: '-c /dev/null --web --docker --docker.exposedByDefault=false --logLevel=DEBUG --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
     ports:
-      - '8000:80'
-#      - '8080:8080' # Dashboard
+      - '80:80'
+      - '443:443'
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './certs:/certs'

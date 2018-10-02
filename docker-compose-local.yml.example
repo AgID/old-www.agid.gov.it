@@ -1,40 +1,6 @@
 version: "2"
 
 services:
-  db:
-    container_name: "${PROJECT_NAME}_mariadb"
-    image: wodby/mariadb:$MARIADB_TAG
-    stop_grace_period: 30s
-    env_file:
-      - docker-conf/mariadb.env
-    environment:
-      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
-      MYSQL_DATABASE: $DB_NAME
-      MYSQL_USER: $DB_USER
-      MYSQL_PASSWORD: $DB_PASSWORD
-    volumes:
-      - ./database:/var/lib/mysql
-
-  php:
-    container_name: "${PROJECT_NAME}_php"
-    image: wodby/drupal-php:$PHP_TAG
-    env_file:
-      - docker-conf/phpfpm.env
-    environment:
-      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_FPM_CLEAR_ENV: "no"
-      ENV_TYPE: 'LOC'
-    volumes:
-      - $PROJECT_DOCROOT:/var/www/html
-
-  mailhog:
-    container_name: "${PROJECT_NAME}_mailhog"
-    image: mailhog/mailhog
-    labels:
-      - 'traefik.backend=mailhog'
-      - 'traefik.port=8025'
-      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
-
   apache:
     container_name: "${PROJECT_NAME}_apache"
     image: wodby/apache:$APACHE_TAG
@@ -51,6 +17,40 @@ services:
       - 'traefik.backend=apache'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:web.${PROJECT_BASE_URL}'
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
+
+  db:
+    container_name: "${PROJECT_NAME}_mariadb"
+    image: wodby/mariadb:$MARIADB_TAG
+    stop_grace_period: 30s
+    env_file:
+      - docker-conf/mariadb.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+    volumes:
+      - ./database:/var/lib/mysql
+
+  mailhog:
+    container_name: "${PROJECT_NAME}_mailhog"
+    image: mailhog/mailhog
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
+
+  php:
+    container_name: "${PROJECT_NAME}_php"
+    image: wodby/drupal-php:$PHP_TAG
+    env_file:
+      - docker-conf/phpfpm.env
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      PHP_FPM_CLEAR_ENV: "no"
+      ENV_TYPE: 'LOC'
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
 

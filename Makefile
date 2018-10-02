@@ -6,6 +6,8 @@ default: up
 
 DRUPAL_ROOT ?= /var/www/html/web
 
+dir=$(shell pwd)
+
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
 	docker-compose --file=docker-compose-local.yml up -d
@@ -31,11 +33,14 @@ solr-core:
 	@docker exec www_agid_gov_it_solr make create core="default" host="localhost" -f /usr/local/bin/actions.mk
 
 build:
-	docker build -t $(PROJECT_NAME)-php:$(TAG) -f Dockerfile_php .
-	docker build -t $(PROJECT_NAME)-apache:$(TAG) -f Dockerfile_apache .
+	@echo "Building containers for $(PROJECT_NAME)..."
+	@docker run --rm -it -v "${dir}/docroot:/app" -w "/app" wodby/drupal-php:${PHP_TAG} composer install --no-interaction --prefer-dist
+	@docker build -t $(PROJECT_NAME)-php:$(PROJECT_TAG) -f Dockerfile_php .
+	@docker build -t $(PROJECT_NAME)-apache:$(PROJECT_TAG) -f Dockerfile_apache .
 
 push:
-	docker tag $(PROJECT_NAME)-php\:$(TAG) $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-php\:$(TAG)
-	docker push $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-php\:$(TAG)
-	docker tag $(PROJECT_NAME)-apache\:$(TAG) $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-apache\:$(TAG)
-	docker push $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-apache\:$(TAG)
+	@echo "Pushing containers for $(PROJECT_NAME) to remote repository..."
+	@docker PROJECT_TAG $(PROJECT_NAME)-php\:$(PROJECT_TAG) $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-php\:$(PROJECT_TAG)
+	@docker push $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-php\:$(PROJECT_TAG)
+	@docker PROJECT_TAG $(PROJECT_NAME)-apache\:$(PROJECT_TAG) $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-apache\:$(PROJECT_TAG)
+	@docker push $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-apache\:$(PROJECT_TAG)
