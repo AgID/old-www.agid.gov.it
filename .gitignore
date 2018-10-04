@@ -68,12 +68,10 @@ $RECYCLE.BIN/
 *.lnk
 
 ### Docker
-docker-compose-local.yml
-.env
+docker-compose.override.yml
 
 ### PHPStorm
 .idea
 
-### Local database
-database
-!database/.gitkeep
+### Project
+.env

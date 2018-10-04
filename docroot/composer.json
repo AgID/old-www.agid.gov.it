@@ -133,7 +133,7 @@
     "drupal/recaptcha": "2.3",
     "drupal/rename_admin_paths": "1.1",
     "drupal/redirect": "1.2",
-    "drupal/redis": "1.0-rc2",
+    "drupal/redis": "1.0",
     "drupal/rules": "3.x-dev",
     "drupal/sitemap": "1.4",
     "drupal/seckit": "1.0-alpha2",

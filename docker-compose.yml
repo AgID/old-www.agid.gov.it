@@ -1,27 +1,29 @@
 version: "2"
 
 services:
+
   apache:
     container_name: "${PROJECT_NAME}_apache"
     image: wodby/apache:$APACHE_TAG
     depends_on:
       - php
     environment:
-      APACHE_USER: 'wodby'
       APACHE_LOG_LEVEL: info
       APACHE_BACKEND_HOST: php
       APACHE_VHOST_PRESET: php
       APACHE_DOCUMENT_ROOT: /var/www/html/web
-    labels:
-      - 'traefik.enable=true'
-      - 'traefik.backend=apache'
-      - 'traefik.port=80'
-      - 'traefik.frontend.rule=Host:web.${PROJECT_BASE_URL}'
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
+# For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
+#      - ./:/var/www/html:cached # User-guided caching
+#      - docker-sync:/var/www/html # Docker-sync
+    labels:
+      - 'traefik.backend=apache'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
 
-  db:
-    container_name: "${PROJECT_NAME}_mariadb"
+  database:
+    container_name: "${PROJECT_NAME}_database"
     image: wodby/mariadb:$MARIADB_TAG
     stop_grace_period: 30s
     env_file:
@@ -38,11 +40,16 @@ services:
     env_file:
       - docker-conf/phpfpm.env
     environment:
-      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
-      PHP_FPM_CLEAR_ENV: "no"
       ENV_TYPE: 'PROD'
+      COLUMNS: 80 # Set 80 columns for docker exec -it.
+      PHP_FPM_CLEAR_ENV: "no"
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_HOSTNAME: $DB_HOST
+      MYSQL_PASSWORD: $DB_PASSWORD
+      MYSQL_PORT: $DB_PORT
+      MYSQL_USER: $DB_USER
     volumes:
-      - $PROJECT_DOCROOT/web/sites/default/files:/var/www/html/web/sites/default/files
+      - $PROJECT_DOCROOT:/var/www/html
 
   redis:
     container_name: "${PROJECT_NAME}_redis"
@@ -54,10 +61,9 @@ services:
     container_name: "${PROJECT_NAME}_solr"
     image: wodby/solr:$SOLR_TAG
     environment:
+      SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
       SOLR_HEAP: 1024m
-      SOLR_DEFAULT_CONFIG_SET: search_api_solr_8.x-2.0
     labels:
-      - 'traefik.enable=true'
       - 'traefik.backend=solr'
       - 'traefik.port=8983'
       - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
@@ -70,6 +76,7 @@ services:
     ports:
       - '80:80'
       - '443:443'
+#      - '8080:8080' # Dashboard
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
-      - './certs:/certs'
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./certs:/certs

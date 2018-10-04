@@ -1,6 +1,6 @@
 include .env
 
-.PHONY: up down stop prune ps shell solr-core
+.PHONY: up down stop prune ps shell drush logs solr-core
 
 default: up
 
@@ -10,24 +10,42 @@ dir=$(shell pwd)
 
 up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose --file=docker-compose-local.yml up -d
+	docker-compose pull
+	docker-compose up -d --remove-orphans
 
 down: stop
 
 stop:
 	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker-compose --file=docker-compose-local.yml stop
+	@docker-compose stop
 
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose --file=docker-compose-local.yml down -v
+	@docker-compose down -v
 
 ps:
-	@echo "Running containers for $(PROJECT_NAME)..."
 	@docker ps --filter name='$(PROJECT_NAME)*'
 
 shell:
-	@docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bash
+	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bash
+
+drush:
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
+
+drupal:
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drupal --root=$(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
+
+sqlc:
+	docker exec -ti $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drush  -r $(DRUPAL_ROOT) sql-cli --extra=-A
+
+cs:
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bin/phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info' /var/www/html/web/modules/custom /var/www/html/web/themes/custom"
+
+cbf:
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bin/phpcbf --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info' /var/www/html/web/modules/custom /var/www/html/web/themes/custom"
+
+logs:
+	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
 
 alias:
 	@source .aliases
@@ -47,3 +65,7 @@ push:
 	@docker push $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-php\:$(PROJECT_TAG)
 	@docker PROJECT_TAG $(PROJECT_NAME)-apache\:$(PROJECT_TAG) $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-apache\:$(PROJECT_TAG)
 	@docker push $(DOCKER_ACCOUNT)/$(PROJECT_NAME)-apache\:$(PROJECT_TAG)
+
+# https://stackoverflow.com/a/6273809/1826109
+%:
+	@:

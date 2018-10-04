@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+
+  apache:
+    environment:
+      APACHE_USER: 'wodby'
+      APACHE_LOG_LEVEL: debug
+
+  php:
+    environment:
+      ENV_TYPE: 'STAGE'
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      PHP_FPM_USER: 'wodby'
+      PHP_FPM_CLEAR_ENV: "no"
+
+  mailhog:
+    container_name: "${PROJECT_NAME}_mailhog"
+    image: mailhog/mailhog
+    labels:
+      - 'traefik.backend=mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
+
+  traefik:
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8080:8080' # Dashboard

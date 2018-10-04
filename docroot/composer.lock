@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4756645303653f49ebbac71a73002dbc",
+    "content-hash": "7a7304f869c8d2725776218dcf8d9ec4",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6035,17 +6035,17 @@
         },
         {
             "name": "drupal/redis",
-            "version": "1.0.0-rc2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redis",
-                "reference": "8.x-1.0-rc2"
+                "reference": "8.x-1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.0-rc2.zip",
-                "reference": "8.x-1.0-rc2",
-                "shasum": "7eeaa7078e9df6f4bbea1ca90dbc43aa044da346"
+                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "98cf460db5c9aaacf3d5c02ac51e0c9e8e85edbb"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -6059,11 +6059,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc2",
+                    "version": "8.x-1.0",
                     "datestamp": "1527699484",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },

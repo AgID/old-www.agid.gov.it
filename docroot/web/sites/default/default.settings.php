@@ -1,13 +1,10 @@
 <?php
 
+// @codingStandardsIgnoreFile
+
 /**
  * @file
- * Settings.php template for a new-sub site in a multisite environment.
- *
- * This file is based on the default.settings.php file coming with Drupal
- * default distribution.
- *
- * For more info see MULTISITE.md in the root.
+ * Drupal site-specific configuration file.
  *
  * IMPORTANT NOTE:
  * This file may have been set to read-only by the Drupal installation program.
@@ -91,7 +88,16 @@
  * );
  * @endcode
  */
-$databases = array();
+$databases['default']['default'] = [
+ 'database' => getenv('MYSQL_DATABASE'),
+ 'driver' => 'mysql',
+ 'host' => getenv('MYSQL_HOSTNAME'),
+ 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+ 'password' => getenv('MYSQL_PASSWORD'),
+ 'port' => getenv('MYSQL_PORT'),
+ 'prefix' => '',
+ 'username' => getenv('MYSQL_USER'),
+];
 
 /**
  * Customizing database settings.
@@ -254,7 +260,9 @@ $databases = array();
  *   );
  * @endcode
  */
-$config_directories = array();
+$config_directories = [
+  CONFIG_SYNC_DIRECTORY => './../config/agid/sync/',
+];
 
 /**
  * Settings:
@@ -300,7 +308,8 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+// @todo update when deploy.
+$settings['hash_salt'] = 'Pwx3EUPXsk0lcMeZRO2cTraiouiS_qaA5waXV64emCYwFmgbVSxRJASc9CRi64smaXqFRwU-aA';
 
 /**
  * Deployment identifier.
@@ -445,6 +454,15 @@ $settings['update_free_access'] = FALSE;
  */
 # $settings['cache_ttl_4xx'] = 3600;
 
+/**
+ * Expiration of cached forms.
+ *
+ * Drupal's Form API stores details of forms in a cache and these entries are
+ * kept for at least 6 hours by default. Expired entries are cleared by cron.
+ *
+ * @see \Drupal\Core\Form\FormCache::setCache()
+ */
+# $settings['form_cache_expiration'] = 21600;
 
 /**
  * Class Loader.
@@ -648,6 +666,7 @@ if ($settings['hash_salt']) {
  * configuration values in settings.php will not fire any of the configuration
  * change events.
  */
+# $config['system.file']['path']['temporary'] = '/tmp';
 # $config['system.site']['name'] = 'My Drupal site';
 # $config['system.theme']['default'] = 'stark';
 # $config['user.settings']['anonymous'] = 'Visitor';
@@ -755,6 +774,47 @@ $settings['file_scan_ignore_directories'] = [
 ];
 
 /**
+ * The default number of entities to update in a batch process.
+ *
+ * This is used by update and post-update functions that need to go through and
+ * change all the entities on a site, so it is useful to increase this number
+ * if your hosting configuration (i.e. RAM allocation, CPU speed) allows for a
+ * larger number of entities to be processed in a single batch run.
+ */
+$settings['entity_update_batch_size'] = 50;
+
+/**
+ * Force display error when environment is "LOC".
+ */
+if (getenv('ENV_TYPE') === 'LOC') {
+
+  error_reporting(E_ALL);
+  ini_set('display_errors', TRUE);
+  ini_set('display_errors', TRUE);
+  ini_set('display_startup_errors', TRUE);
+  ini_set('display_startup_errors', TRUE);
+
+  $config['system.logging']['error_level'] = 'verbose';
+}
+
+/**
+ * Redis settings
+ */
+$settings['redis.connection']['interface'] = 'PhpRedis';
+$settings['redis.connection']['host'] = 'redis';
+
+// Use different redis' database for this connection:
+$settings['redis.connection']['base'] = 1;
+$settings['cache']['default'] = 'cache.backend.redis';
+
+$settings['container_yamls'][] = 'modules/redis/example.services.yml';
+
+// Use ChainedFastBackend cache for this three bins (bootstrap, discovery and config)
+$settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
+
+/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
@@ -764,21 +824,18 @@ $settings['file_scan_ignore_directories'] = [
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
+// Load settings.local.php for site.
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
 
-/**
- * Custom settings useful if you want use the default install profile.
- *
- * If you want to use a install profile customized ad the AgID site,
- * uncomment the line below an replace "TEMPLATE" with the folder you
- * assigned to your sub-site.
- */
-
-# $config_directories = array(
-#   CONFIG_SYNC_DIRECTORY => './../config/CONFIG_PATH/sync/',
-#   'stage' => './../config/CONFIG_PATH/stage/',
-#   'production' => './../config/CONFIG_PATH/production/',
-# );
+/* @todo Remove when update and use the configuration_split */
+if (getenv('ENV_TYPE') !== 'PROD') {
+  $config['smtp.settings']['smtp_on'] = FALSE;
+  $config['smtp.settings']['smtp_password'] = NULL;
+  $config['smtp.settings']['smtp_host'] = "";
+  $config['smtp.settings']['smtp_port'] = "";
+}
