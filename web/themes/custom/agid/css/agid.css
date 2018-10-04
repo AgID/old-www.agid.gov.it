@@ -1717,6 +1717,11 @@ a.Footer-bigLink:hover {
   margin-top: 1em;
 }
 
+body.not-front-page .Node--news .Prose.Abstract,
+body.not-front-page .Node--news .Prose.Abstract * {
+  color: #0059b3;
+}
+
 @media (max-width: 991px) {
   .homepage-news div.views-row {
     border-left: 0 !important;

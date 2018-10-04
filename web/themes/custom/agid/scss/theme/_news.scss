@@ -41,6 +41,18 @@
 }
 
 
+.Node {
+  &--news {
+    body.not-front-page & {
+      .Prose.Abstract,
+      .Prose.Abstract * {
+        color: $light-blue;
+      }
+    }
+  }
+}
+
+
 @include breakpoint(large, down) {
   .homepage-news div.views-row {
     border-left: 0 !important;

@@ -544,7 +544,7 @@ function italiagov_form_search_block_form_alter(&$form) {
  */
 function italiagov_link2button(array &$form) {
   // Retrieve of actions defined.
-  if (!empty($form['actions'])) {
+  if (!is_array($form['actions'])) {
     return NULL;
   }
   $actions = &$form['actions'];

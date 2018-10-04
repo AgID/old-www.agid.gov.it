@@ -66,11 +66,14 @@
       }
     });
 
+    // For the top-level menu items:
+    // - convert the links for use as a submenu opening;
+    // - replicates the link of the menu item in the submenu;
     jQuery('.Megamenu-item').each(
       function (index, elem) {
-        // @TODO find a better solution than hardcode the "linee-guida" path.
-        if (jQuery(elem).find('a').length == 1 && window.location.pathname.indexOf('linee-guida') < 0)
+        if (jQuery(elem).find('a').length == 1) {
           return;
+        }
         var link_orig = jQuery(elem).find('a').first();
         var link_copy = jQuery('<a/>');
         if (window.location.pathname.indexOf(link_orig.attr('href')) == 0) {
@@ -86,9 +89,9 @@
         div.append(ul);
 
         jQuery(link_orig).click(function (e) {
+          // Prevents the use of the link for the use of opening the sub-menu.
           e.preventDefault();
         });
-
       }
     );
   });
