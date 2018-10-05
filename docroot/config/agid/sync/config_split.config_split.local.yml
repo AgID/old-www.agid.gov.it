@@ -1,0 +1,23 @@
+uuid: 37559391-0040-49d2-8a32-45b3afcd289d
+langcode: it
+status: false
+dependencies: {  }
+id: local
+label: Local
+description: 'Local configurations.'
+folder: ../config/agid/local
+module:
+  config_devel: 0
+  devel: 0
+  field_ui: 0
+  kint: 0
+  migrate_devel: 0
+  webprofiler: 0
+theme: {  }
+blacklist: {  }
+graylist:
+  - environment_indicator.settings
+  - smtp.settings
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

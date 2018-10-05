@@ -68,6 +68,7 @@
  *
  * One example of the simplest connection array is shown below. To use the
  * sample settings, copy and uncomment the code below between the @code and
+ *
  * @endcode lines and paste it after the $databases declaration. You will need
  * to replace the database username and password and possibly the host and port
  * with the appropriate credentials for your database system.
@@ -89,14 +90,14 @@
  * @endcode
  */
 $databases['default']['default'] = [
- 'database' => getenv('MYSQL_DATABASE'),
- 'driver' => 'mysql',
- 'host' => getenv('MYSQL_HOSTNAME'),
- 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
- 'password' => getenv('MYSQL_PASSWORD'),
- 'port' => getenv('MYSQL_PORT'),
- 'prefix' => '',
- 'username' => getenv('MYSQL_USER'),
+  'database' => getenv('MYSQL_DATABASE'),
+  'driver' => 'mysql',
+  'host' => getenv('MYSQL_HOSTNAME'),
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'password' => getenv('MYSQL_PASSWORD'),
+  'port' => getenv('MYSQL_PORT'),
+  'prefix' => '',
+  'username' => getenv('MYSQL_USER'),
 ];
 
 /**
@@ -131,6 +132,7 @@ $databases['default']['default'] = [
  * traditionally referred to as master/slave in database server documentation).
  *
  * The general format for the $databases array is as follows:
+ *
  * @code
  * $databases['default']['default'] = $info_array;
  * $databases['default']['replica'][] = $info_array;
@@ -254,6 +256,7 @@ $databases['default']['default'] = [
  * array key CONFIG_ACTIVE_DIRECTORY.
  *
  * Example:
+ *
  * @code
  *   $config_directories = array(
  *     CONFIG_SYNC_DIRECTORY => '/directory/outside/webroot',
@@ -304,6 +307,7 @@ $config_directories = [
  * stored with backups of your database.
  *
  * Example:
+ *
  * @code
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
@@ -733,6 +737,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * like to allow.
  *
  * For example:
+ *
  * @code
  * $settings['trusted_host_patterns'] = array(
  *   '^www\.example\.com$',
@@ -815,6 +820,20 @@ $settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
 $settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
 
 /**
+ * Environment Indicator.
+ */
+$config['environment_indicator.indicator']['bg_color'] = getenv('ENV_TYPE') == 'PROD' ? '#9A2617' : getenv('ENV_TYPE') == 'STAGE' ? '#C2571A' : getenv('ENV_TYPE') == 'LOC' ? '#829356' : '#FF0000';
+$config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+$config['environment_indicator.indicator']['name'] = getenv('ENV_TYPE') . " - AgID";
+
+/**
+ * ConfigSplit.
+ */
+$config['config_split.config_split.prod']['status'] = getenv('ENV_TYPE') === 'PROD' ? TRUE : FALSE;
+$config['config_split.config_split.stage']['status'] = getenv('ENV_TYPE') === 'STAGE' ? TRUE : FALSE;
+$config['config_split.config_split.local']['status'] = getenv('ENV_TYPE') === 'LOC' ? TRUE : FALSE;
+
+/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
@@ -824,18 +843,25 @@ $settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
+if (file_exists($app_root . '/sites/settings.local.php')) {
+  include $app_root . '/sites/settings.local.php';
 }
 // Load settings.local.php for site.
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
-/* @todo Remove when update and use the configuration_split */
-if (getenv('ENV_TYPE') !== 'PROD') {
-  $config['smtp.settings']['smtp_on'] = FALSE;
+/**
+ * Custom configurations.
+ *
+ * @todo To be manually updated for the production environment!
+ */
+if (getenv('ENV_TYPE') == 'PROD') {
+
+  // SMTP Settings.
+  $config['smtp.settings']['smtp_on'] = TRUE;
   $config['smtp.settings']['smtp_password'] = NULL;
   $config['smtp.settings']['smtp_host'] = "";
   $config['smtp.settings']['smtp_port'] = "";
+
 }

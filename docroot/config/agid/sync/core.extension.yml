@@ -26,8 +26,10 @@ module:
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
+  color: 0
   config: 0
-  config_devel: 0
+  config_filter: 0
+  config_split: 0
   config_translation: 0
   content_moderation: 0
   content_translation: 0
@@ -35,7 +37,6 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
-  devel: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
@@ -43,6 +44,7 @@ module:
   entity_browser: 0
   entity_reference_revisions: 0
   entityqueue: 0
+  environment_indicator: 0
   eu_cookie_compliance: 0
   field: 0
   field_group: 0
@@ -57,7 +59,6 @@ module:
   geofield: 0
   image: 0
   imce: 0
-  kint: 0
   language: 0
   link: 0
   linkit: 0
@@ -72,7 +73,6 @@ module:
   metatag_open_graph: 0
   metatag_views: 0
   migrate: 0
-  migrate_devel: 0
   migrate_drupal: 0
   migrate_google_sheets: 0
   migrate_plus: 0
