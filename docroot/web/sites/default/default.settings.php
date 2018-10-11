@@ -829,7 +829,6 @@ $config['environment_indicator.indicator']['name'] = getenv('ENV_TYPE') . " - Ag
 /**
  * ConfigSplit.
  */
-$config['config_split.config_split.prod']['status'] = getenv('ENV_TYPE') === 'PROD' ? TRUE : FALSE;
 $config['config_split.config_split.stage']['status'] = getenv('ENV_TYPE') === 'STAGE' ? TRUE : FALSE;
 $config['config_split.config_split.local']['status'] = getenv('ENV_TYPE') === 'LOC' ? TRUE : FALSE;
 
@@ -858,9 +857,30 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
  */
 if (getenv('ENV_TYPE') == 'PROD') {
 
-  // SMTP Settings.
+  /**
+   * Salt for one-time login links, cancel links, form tokens, etc.
+   *
+   * For enhanced security, you may set this variable to the contents of a file
+   * outside your document root; you should also ensure that this file is not
+   * stored with backups of your database.
+   *
+   * Example:
+   *
+   * @code
+   *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
+   * @endcode
+   *
+   * @todo: set has_salt key.
+   */
+  $settings['hash_salt'] = '';
+
+  /**
+   * SMTP Settings.
+   *
+   * @todo: Active and set credentials to connect.
+   */
   $config['smtp.settings']['smtp_on'] = TRUE;
-  $config['smtp.settings']['smtp_password'] = NULL;
+  $config['smtp.settings']['smtp_password'] = "";
   $config['smtp.settings']['smtp_host'] = "";
   $config['smtp.settings']['smtp_port'] = "";
 

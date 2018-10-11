@@ -1,6 +1,6 @@
 uuid: 37559391-0040-49d2-8a32-45b3afcd289d
 langcode: it
-status: false
+status: true
 dependencies: {  }
 id: local
 label: Local
@@ -12,7 +12,6 @@ module:
   field_ui: 0
   kint: 0
   migrate_devel: 0
-  webprofiler: 0
 theme: {  }
 blacklist: {  }
 graylist:
