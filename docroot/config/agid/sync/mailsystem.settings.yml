@@ -4,4 +4,3 @@ defaults:
 theme: current
 modules:
   webform: {  }
-langcode: it

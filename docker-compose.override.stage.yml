@@ -18,7 +18,8 @@ services:
     container_name: "${PROJECT_NAME}_mailhog"
     image: mailhog/mailhog
     labels:
-      - 'traefik.backend=mailhog'
+      - 'traefik.enable=true'
+      - 'traefik.backend=${PROJECT_NAME}_mailhog'
       - 'traefik.port=8025'
       - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
 

@@ -5,4 +5,3 @@ default_status_code: 301
 route_normalizer_enabled: false
 ignore_admin_path: false
 access_check: false
-langcode: it

@@ -1,6 +1,6 @@
 include .env
 
-.PHONY: up down stop prune ps shell drush logs solr-core
+.PHONY: up down stop prune up-stage down-stage stop-stage prune-stage up-prod down-prod stop-prod prune-prod ps shell exec drush drupal sqlc cs cbf logs solr-core build push help
 
 default: help
 
@@ -10,18 +10,45 @@ dir=$(shell pwd)
 
 up: ## Starting up containers for project
 	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose pull
-	docker-compose up -d --remove-orphans
+	docker-compose -f docker-compose.yml -f docker-compose.override.local.yml up -d --remove-orphans
 
 down: stop ## Stop containers for project
 
 stop: ## Stop containers for project
 	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker-compose stop
+	@docker-compose -f docker-compose.yml -f docker-compose.override.local.yml stop
 
 prune: ## Stop and prune containers for project
 	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose down -v
+	@docker-compose -f docker-compose.yml -f docker-compose.override.local.yml down -v
+
+up-stage: ## Starting up containers for project
+	@echo "Starting up containers for $(PROJECT_NAME)..."
+	docker-compose -f docker-compose.yml -f docker-compose.override.stage.yml up -d --remove-orphans
+
+down-stage: stop-stage ## Stop containers for project
+
+stop-stage: ## Stop containers for project
+	@echo "Stopping containers for $(PROJECT_NAME)..."
+	@docker-compose -f docker-compose.yml -f docker-compose.override.stage.yml stop
+
+prune-stage: ## Stop and prune containers for project
+	@echo "Removing containers for $(PROJECT_NAME)..."
+	@docker-compose -f docker-compose.yml -f docker-compose.override.stage.yml down -v
+
+up-prod: ## Starting up containers for project
+	@echo "Starting up containers for $(PROJECT_NAME)..."
+	docker-compose -f docker-compose.yml up -d --remove-orphans
+
+down-prod: stop-prod ## Stop containers for project
+
+stop-prod: ## Stop containers for project
+	@echo "Stopping containers for $(PROJECT_NAME)..."
+	@docker-compose -f docker-compose.yml stop
+
+prune-prod: ## Stop and prune containers for project
+	@echo "Removing containers for $(PROJECT_NAME)..."
+	@docker-compose -f docker-compose.yml down -v
 
 ps: ## List container for project
 	@docker ps --filter name='$(PROJECT_NAME)*'
@@ -33,13 +60,13 @@ exec: ## Run a command in PHP container
 	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") $(filter-out $@,$(MAKECMDGOALS))
 
 drush: ## Run a command drush in PHP container
-	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bin/drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
 drupal: ## Run a command drupalConsole in PHP container
-	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drupal --root=$(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bin/drupal --root=$(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
 sqlc: ## Open a SQL command-line interface using Drupal's credentials
-	docker exec -ti $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") drush  -r $(DRUPAL_ROOT) sql-cli --extra=-A
+	docker exec -ti $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bin/drush  -r $(DRUPAL_ROOT) sql-cli --extra=-A
 
 cs: ## Run the PHP Code sniffer
 	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_php' --format "{{ .ID }}") bin/phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info' /var/www/html/web/modules/custom /var/www/html/web/themes/custom"
@@ -50,15 +77,12 @@ cbf: ## Run the PHP Code sniffer fixing error automatically
 logs: ## Fetch the logs of project
 	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
 
-alias: ## Install aliases
-	@source .aliases
-
 solr-core: ## Create the core in solr for Drupal site
 	@docker exec www_agid_gov_it_solr make create core="default" host="localhost" -f /usr/local/bin/actions.mk
 
 build: ## Build docker image custom
 	@echo "Building containers for $(PROJECT_NAME)..."
-	@docker run --rm -it -v "${dir}/docroot:/app" -w "/app" wodby/drupal-php:${PHP_TAG} composer install --no-interaction --prefer-dist
+	@docker run --rm -it -v "${dir}/docroot:/app" -w "/app" wodby/php:${PHP_TAG} composer install --no-interaction --prefer-dist
 	@docker build -t $(PROJECT_NAME)-php:$(PROJECT_TAG) -f Dockerfile_php .
 	@docker build -t $(PROJECT_NAME)-apache:$(PROJECT_TAG) -f Dockerfile_apache .
 

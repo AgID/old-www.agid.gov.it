@@ -14,9 +14,6 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html/web
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
-# For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
-#      - ./:/var/www/html:cached # User-guided caching
-#      - docker-sync:/var/www/html # Docker-sync
     labels:
       - 'traefik.enable=true'
       - 'traefik.backend=${PROJECT_NAME}_apache'
@@ -37,7 +34,7 @@ services:
 
   php:
     container_name: "${PROJECT_NAME}_php"
-    image: wodby/drupal-php:$PHP_TAG
+    image: wodby/php:$PHP_TAG
     env_file:
       - docker-conf/phpfpm.env
     environment:
@@ -72,13 +69,12 @@ services:
 
   traefik:
     container_name: "${PROJECT_NAME}_traefik"
-    image: traefik:1.6.3-alpine
+    image: traefik:1.7.2-alpine
     restart: always
-    command: '-c /dev/null --web --docker --docker.exposedByDefault=false --logLevel=DEBUG --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
+    command: '-c /dev/null --api --docker --docker.exposedByDefault=false --logLevel=INFO --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
     ports:
       - '80:80'
       - '443:443'
-#      - '8080:8080' # Dashboard
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./certs:/certs
