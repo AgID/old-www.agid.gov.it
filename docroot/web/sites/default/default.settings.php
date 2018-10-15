@@ -843,11 +843,11 @@ $config['config_split.config_split.local']['status'] = getenv('ENV_TYPE') === 'L
  * Keep this code block at the end of this file to take full effect.
  */
 if (file_exists($app_root . '/sites/settings.local.php')) {
-  include $app_root . '/sites/settings.local.php';
+    include $app_root . '/sites/settings.local.php';
 }
 // Load settings.local.php for site.
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
+    include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
 /**
@@ -857,31 +857,31 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
  */
 if (getenv('ENV_TYPE') == 'PROD') {
 
-  /**
-   * Salt for one-time login links, cancel links, form tokens, etc.
-   *
-   * For enhanced security, you may set this variable to the contents of a file
-   * outside your document root; you should also ensure that this file is not
-   * stored with backups of your database.
-   *
-   * Example:
-   *
-   * @code
-   *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
-   * @endcode
-   *
-   * @todo: set has_salt key.
-   */
-  $settings['hash_salt'] = '';
+    /**
+     * Salt for one-time login links, cancel links, form tokens, etc.
+     *
+     * For enhanced security, you may set this variable to the contents of a file
+     * outside your document root; you should also ensure that this file is not
+     * stored with backups of your database.
+     *
+     * Example:
+     *
+     * @code
+     *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
+     * @endcode
+     *
+     * @todo: set has_salt key.
+     */
+    $settings['hash_salt'] = '';
 
-  /**
-   * SMTP Settings.
-   *
-   * @todo: Active and set credentials to connect.
-   */
-  $config['smtp.settings']['smtp_on'] = TRUE;
-  $config['smtp.settings']['smtp_password'] = "";
-  $config['smtp.settings']['smtp_host'] = "";
-  $config['smtp.settings']['smtp_port'] = "";
+    /**
+     * SMTP Settings.
+     *
+     * @todo: Active and set credentials to connect.
+     */
+    $config['smtp.settings']['smtp_on'] = TRUE;
+    $config['smtp.settings']['smtp_password'] = '';
+    $config['smtp.settings']['smtp_host'] = '';
+    $config['smtp.settings']['smtp_port'] = '';
 
 }

@@ -38,7 +38,7 @@ services:
     env_file:
       - docker-conf/phpfpm.env
     environment:
-      ENV_TYPE: $PROJECT_ENV_TYPE
+      ENV_TYPE: 'PROD'
       COLUMNS: 80 # Set 80 columns for docker exec -it.
       PHP_FPM_CLEAR_ENV: "no"
       MYSQL_DATABASE: $DB_NAME
