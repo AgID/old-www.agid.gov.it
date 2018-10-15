@@ -70,7 +70,12 @@
  *   in different view modes.
  */
 #}
-<article{{ attributes.removeAttribute('role').addClass('Node--'~node.getType()) }}>
+<article{{ attributes.removeAttribute('role') }}>
+
+  <div{{ content_attributes }}>
+    {{ content }}
+  </div>
+
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>
@@ -88,9 +93,5 @@
       </div>
     </footer>
   {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
-  </div>
 
 </article>
