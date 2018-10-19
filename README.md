@@ -76,6 +76,9 @@ già presenti all'interno delle immagini stesse.
 Nel progetto sono già presenti dei template di `docker-compose.ovveride.[ENV].yml`
 diversificati per ambienti di utilizzo `stage` e `local`
 
+- Copiare all'interno della cartella `\certs` il certificato HTTPS e la sua chiave privata, rinominado i file,
+    rispettivamente `traefik.cert` e `traefik.key`
+
 - Avviare i container con il comando `make up`
     > Nota: nel repository è presente un [Makefile](./Makefile) con all'interno,
      già pre-configurati per l'utilizzo con l'ambiente Docker fornito nel repository,

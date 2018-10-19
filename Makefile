@@ -8,47 +8,19 @@ DRUPAL_ROOT ?= /var/www/html/web
 
 dir=$(shell pwd)
 
-up: ## Starting up containers for project
-	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose -f docker-compose.yml -f docker-compose.override.local.yml up -d --remove-orphans
+up:
+	@echo "Starting up containers for for $(PROJECT_NAME)..."
+	docker-compose -f docker-compose.yml -f docker-compose.override.$(COMPOSE_OVERRIDE).yml up -d --remove-orphans
 
-down: stop ## Stop containers for project
+down: stop
 
-stop: ## Stop containers for project
+stop:
 	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker-compose -f docker-compose.yml -f docker-compose.override.local.yml stop
+	@docker-compose -f docker-compose.yml -f docker-compose.override.$(COMPOSE_OVERRIDE).yml stop
 
-prune: ## Stop and prune containers for project
+prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose -f docker-compose.yml -f docker-compose.override.local.yml down -v
-
-up-stage: ## Starting up containers for project
-	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose -f docker-compose.yml -f docker-compose.override.stage.yml up -d --remove-orphans
-
-down-stage: stop-stage ## Stop containers for project
-
-stop-stage: ## Stop containers for project
-	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker-compose -f docker-compose.yml -f docker-compose.override.stage.yml stop
-
-prune-stage: ## Stop and prune containers for project
-	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose -f docker-compose.yml -f docker-compose.override.stage.yml down -v
-
-up-prod: ## Starting up containers for project
-	@echo "Starting up containers for $(PROJECT_NAME)..."
-	docker-compose -f docker-compose.yml up -d --remove-orphans
-
-down-prod: stop-prod ## Stop containers for project
-
-stop-prod: ## Stop containers for project
-	@echo "Stopping containers for $(PROJECT_NAME)..."
-	@docker-compose -f docker-compose.yml stop
-
-prune-prod: ## Stop and prune containers for project
-	@echo "Removing containers for $(PROJECT_NAME)..."
-	@docker-compose -f docker-compose.yml down -v
+	@docker-compose -f docker-compose.yml -f docker-compose.override.$(COMPOSE_OVERRIDE).yml down -v
 
 ps: ## List container for project
 	@docker ps --filter name='$(PROJECT_NAME)*'

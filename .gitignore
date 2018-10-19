@@ -75,3 +75,5 @@ docker-compose.override.yml
 
 ### Project
 .env
+certs
+!certs/.gitkeep

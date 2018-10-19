@@ -24,7 +24,7 @@ then
 fi
 if [ ! -z "${PROJECT_NAME}_php" ]
 then
-  docker exec -it "${PROJECT_NAME}_php" env TERM=xterm COLUMNS="${COLS}" bash -c "${CMD}"
+  docker exec -t "${PROJECT_NAME}_php" env TERM=xterm COLUMNS="${COLS}" bash -c "${CMD}"
 else
   echo "drupal docker application not found."
   exit 1
