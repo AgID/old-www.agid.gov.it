@@ -1190,3 +1190,22 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Pagina
+    position: 3
+    display_options:
+      display_extenders: {  }
+      path: admin/workbench/needs-review
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
