@@ -12,13 +12,13 @@ services:
       APACHE_BACKEND_HOST: php
       APACHE_VHOST_PRESET: php
       APACHE_DOCUMENT_ROOT: /var/www/html/web
-    volumes:
-      - $PROJECT_DOCROOT:/var/www/html
     labels:
       - 'traefik.enable=true'
       - 'traefik.backend=${PROJECT_NAME}_apache'
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
 
   database:
     container_name: "${PROJECT_NAME}_database"

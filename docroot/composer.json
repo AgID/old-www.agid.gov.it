@@ -169,24 +169,20 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "autoload": {
-    "classmap": [
-      "scripts/composer/ScriptHandler.php"
-    ]
-  },
   "config": {
     "bin-dir": "bin/"
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "install-codestandards": [
+      "phpcs --config-set installed_paths /var/www/html/web/modules/contrib/coder/coder_sniffer"
+    ],
     "post-install-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::buildScaffold",
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer"
+      "@drupal-scaffold",
+      "@install-codestandards"
     ],
     "post-update-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::buildScaffold",
-      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+      "@drupal-scaffold"
     ]
   },
   "extra": {
