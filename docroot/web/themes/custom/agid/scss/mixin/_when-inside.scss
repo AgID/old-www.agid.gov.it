@@ -1,0 +1,6 @@
+// Create a context based selector
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}

@@ -1,0 +1,4 @@
+FROM wodby/apache:2.4-4.0.2
+
+# Copy the code base.
+COPY ./docroot /var/www/html

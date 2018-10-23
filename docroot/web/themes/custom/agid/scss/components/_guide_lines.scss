@@ -1,0 +1,46 @@
+/**
+ * @file
+ * Style customization for the guide lines page.
+ */
+/*Fix megamenu style (we do not have a dropdown)*/
+a[href*="linee-guida"] {
+  padding-right: 1rem !important;
+
+  &::after {
+    display: none;
+  }
+}
+
+.agid-guide-lines__group {
+  H3 {
+    padding: 2rem 1rem 0.75rem;
+    border-bottom: 1px solid #D0E2F6;
+    text-transform: capitalize;
+    font-weight: 600 !important;
+  }
+}
+
+.guide-line-item {
+  margin-bottom: 0.3rem;
+
+  A {
+    color: #00264C !important;
+  }
+
+  STRONG {
+    font-weight: 600;
+    color: #0059B3;
+  }
+}
+
+.guide-line-item__file {
+  display: inline-block;
+  margin: 0 0 0.75rem 0;
+}
+
+.guide-line-item__date,
+.guide-line-item__page,
+.guide-line-item__page A {
+  font-size: 1.5rem;
+  margin: 0.75rem 0;
+}

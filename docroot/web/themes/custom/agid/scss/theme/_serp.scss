@@ -1,0 +1,154 @@
+.search-site-header {
+  padding-bottom: .625em;
+
+  .agid_search_spellcheck_solr-suggestion {
+    .placeholder {
+      font-style: normal;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+
+  .form-actions {
+    margin: {
+      bottom: 2.14em;
+      top: -2.14em;
+    }
+
+    @include when-inside('.js') {
+      display: none;
+    }
+  }
+}
+
+.search-api-fulltext__btn {
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+.search-site-summary {
+  text-align: right;
+}
+
+.search-site-summary__total {
+  font-weight: 600;
+}
+
+.form-item-search-api-fulltext {
+  margin-bottom: 4rem;
+
+  .Form-input {
+    border: 1px solid $border-search-text;
+    font-size: .889em;
+    padding: {
+      bottom: 1em;
+      top: 1em;
+    }
+  }
+}
+
+.Form--search-site {
+  .Form-label[for="edit-search-api-fulltext"] {
+    color: $light-blue;
+    line-height: $h-line-height;
+    margin: .625em 0;
+    text-transform: uppercase;
+  }
+
+  #edit-items-per-page--wrapper {
+    margin: .5rem 0 2.14em;
+
+    .Form-legend {
+      display: block;
+      float: left;
+      padding-top: 1em;
+      width: 35%;
+    }
+
+    .fieldset-wrapper {
+      float: right;
+      width: 65%;
+    }
+  }
+
+  .form-item-items-per-page {
+    border: 0;
+    width: auto;
+  }
+}
+
+.search-site-list-row {
+  padding: 1.667em .333em 1.667em 1.333em;
+
+  &:first-of-type {
+    border-top: 1px solid $border-default-color;
+  }
+}
+
+.search-site-list-row__field-type,
+.search-site-list-row__field-created {
+  font-size: .889em;
+  width: 50%;
+}
+
+.search-site-list-row__field-type {
+  color: $light-blue;
+  float: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+
+  &::before {
+    background: $light-blue;
+    border-radius: 1em;
+    content: '';
+    display: block;
+    height: .625em;
+    left: -1.5em;
+    position: absolute;
+    top: .25em;
+    width: .625em;
+  }
+}
+
+.search-site-list-row__field-created {
+  float: right;
+  text-align: right;
+
+  .views-label {
+    color: $light-blue;
+  }
+}
+
+.search-site-list-row__field-title {
+  margin: {
+    bottom: 1em;
+    top: 2em;
+  }
+
+  a {
+    color: $dark-blue-main;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+.search-site-pagination {
+  border-bottom: 1px solid $border-default-color;
+  padding: .8rem 0;
+}
+
+.search-site-footer {
+  margin-top: 2.5em;
+
+  ul {
+    margin: 1em 0 0;
+  }
+
+  a {
+    color: $dark-blue-main;
+    font-weight: 600;
+  }
+}

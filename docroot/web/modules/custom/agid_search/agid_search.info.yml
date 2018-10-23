@@ -1,0 +1,8 @@
+name: 'Agid Search'
+type: module
+description: 'Provides an integration plugin for global search system.'
+core: 8.x
+package: 'Agid'
+dependencies:
+  - search_api
+  - search_api_solr

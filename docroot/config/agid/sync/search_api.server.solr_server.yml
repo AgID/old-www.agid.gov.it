@@ -1,0 +1,39 @@
+uuid: 76a2799b-8db5-4b49-9653-1b47bde5050b
+langcode: it
+status: true
+dependencies:
+  config:
+    - search_api_solr.solr_field_type.text_en_7_0_0
+    - search_api_solr.solr_field_type.text_it_7_0_0
+    - search_api_solr.solr_field_type.text_phonetic_en_7_0_0
+    - search_api_solr.solr_field_type.text_phonetic_it_7_0_0
+    - search_api_solr.solr_field_type.text_phonetic_und_7_0_0
+    - search_api_solr.solr_field_type.text_und_7_0_0
+  module:
+    - search_api_solr
+id: solr_server
+name: 'Solr Server'
+description: ''
+backend: search_api_solr_multilingual
+backend_config:
+  connector: standard
+  connector_config:
+    scheme: http
+    host: solr
+    port: '8983'
+    path: /solr
+    core: default
+    timeout: 5
+    index_timeout: 5
+    optimize_timeout: 10
+    commit_within: 1000
+    solr_version: ''
+    http_method: AUTO
+  sasm_limit_search_page_to_content_language: false
+  sasm_search_page_include_language_independent: false
+  sasm_language_unspecific_fallback_on_schema_issues: true
+  retrieve_data: false
+  highlight_data: false
+  skip_schema_check: false
+  domain: generic
+  site_hash: false

@@ -1,0 +1,41 @@
+version: "2"
+
+services:
+
+  apache:
+    environment:
+      APACHE_USER: 'wodby'
+      APACHE_LOG_LEVEL: debug
+
+  php:
+    image: wodby/php:$PHP_DEV_TAG
+    environment:
+      ENV_TYPE: 'LOC'
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+      PHP_FPM_USER: 'wodby'
+      PHP_FPM_CLEAR_ENV: "no"
+  ## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
+  #      PHP_XDEBUG: 1
+  #      PHP_XDEBUG_DEFAULT_ENABLE: 1
+  #      PHP_XDEBUG_REMOTE_CONNECT_BACK: 0
+  #      PHP_IDE_CONFIG: serverName=my-ide
+  #      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ & Linux/Mac/Win
+  #      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux, Docker < 18.03
+  #      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+  #      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+
+  mailhog:
+    container_name: "${PROJECT_NAME}_mailhog"
+    image: mailhog/mailhog
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.backend=${PROJECT_NAME}_mailhog'
+      - 'traefik.port=8025'
+      - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
+
+  traefik:
+    command: '-c /dev/null --api --docker --docker.exposedByDefault=false --logLevel=DEBUG --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
+    ports:
+      - '80:80'
+      - '443:443'
+      - '8080:8080' # Dashboard

@@ -1,0 +1,211 @@
+{
+  "name": "www.agid.gov.it",
+  "description": "Agenzia per l'Italia digitale",
+  "type": "project",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "agid",
+      "role": "owner"
+    }
+  ],
+  "repositories": {
+    "1": {
+      "type": "package",
+      "package": {
+        "name": "harvesthq/chosen",
+        "version": "1.6.2",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/harvesthq/chosen/releases/download/v1.6.2/chosen_v1.6.2.zip",
+          "type": "zip"
+        },
+        "require": {
+          "composer/installers": "^1.2.0"
+        }
+      }
+    },
+    "2": {
+      "type": "package",
+      "package": {
+        "name": "enyo/dropzone",
+        "version": "5.1.1",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/enyo/dropzone/archive/v5.1.1.zip",
+          "type": "zip"
+        },
+        "require": {
+          "composer/installers": "^1.2.0"
+        }
+      }
+    },
+    "3": {
+      "type": "package",
+      "package": {
+        "name": "desandro/imagesloaded",
+        "version": "3.2.0",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/desandro/imagesloaded/archive/v3.2.0.zip",
+          "type": "zip"
+        },
+        "require": {
+          "composer/installers": "^1.2.0"
+        }
+      }
+    },
+    "4": {
+      "type": "package",
+      "package": {
+        "name": "desandro/masonry",
+        "version": "3.3.2",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/desandro/masonry/archive/v3.3.2.zip",
+          "type": "zip"
+        },
+        "require": {
+          "composer/installers": "^1.2.0"
+        }
+      }
+    },
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  },
+  "require": {
+    "abraham/twitteroauth": "^0.7.4",
+    "behat/behat": "^3.1.0",
+    "composer/installers": "^1.0.20",
+    "cweagans/composer-patches": "~1.0",
+    "desandro/imagesloaded": "^3.2.0",
+    "desandro/masonry": "^3.3.2",
+    "dompdf/dompdf": "^0.8.2",
+    "drupal-composer/drupal-scaffold": "2.5.4",
+    "drupal/address": "1.3",
+    "drupal/admin_toolbar": "1.23",
+    "drupal/adminimal_admin_toolbar": "1.5",
+    "drupal/adminimal_theme": "1.3",
+    "drupal/backup_migrate": "4.x-dev",
+    "drupal/better_exposed_filters": "3.0-alpha4",
+    "drupal/block_class": "1.x-dev",
+    "drupal/block_titlelink": "1.x-dev",
+    "drupal/broken_link": "3.0",
+    "drupal/captcha": "1.0.0-beta1",
+    "drupal/chosen": "2.5",
+    "drupal/config_devel": "1.2",
+    "drupal/config_split": "1.4",
+    "drupal/console": "^1.4",
+    "drupal/core": "8.5.3",
+    "drupal/ctools": "3.0",
+    "drupal/devel": "1.2",
+    "drupal/dropzonejs": "1.0-alpha8",
+    "drupal/drupal-extension": "^3.1.5",
+    "drupal/empty_page": "1.1",
+    "drupal/entity_browser": "1.4",
+    "drupal/entityqueue": "1.0-alpha7",
+    "drupal/environment_indicator": "3.3",
+    "drupal/eu_cookie_compliance": "1.0",
+    "drupal/extlink": "1.1",
+    "drupal/field_group": "1.0",
+    "drupal/file_entity": "2.x-dev",
+    "drupal/filemime": "1.0",
+    "drupal/geocoder": "2.0-beta3",
+    "drupal/geofield": "1.0-alpha4",
+    "drupal/honeypot": "1.24",
+    "drupal/image_widget_crop": "2.1",
+    "drupal/imce": "1.6",
+    "drupal/inline_entity_form": "1.0-beta1",
+    "drupal/link_attributes": "1.2",
+    "drupal/linkit": "4.3",
+    "drupal/login_security": "1.4",
+    "drupal/maxlength": "1.0-beta1",
+    "drupal/menu_block": "1.5",
+    "drupal/metatag": "1.6",
+    "drupal/migrate_google_sheets": "1.x-dev",
+    "drupal/migrate_plus": "4.x-dev",
+    "drupal/migrate_source_csv": "2.0",
+    "drupal/migrate_tools": "4.0-beta3",
+    "drupal/mimemail": "1.0-alpha2",
+    "drupal/paragraphs": "1.2",
+    "drupal/pathauto": "1.2",
+    "drupal/rabbit_hole": "1.0-beta4",
+    "drupal/recaptcha": "2.3",
+    "drupal/redirect": "1.2",
+    "drupal/redis": "1.0",
+    "drupal/rename_admin_paths": "1.1",
+    "drupal/rules": "3.x-dev",
+    "drupal/search_api": "1.8",
+    "drupal/search_api_attachments": "1.0-beta7",
+    "drupal/search_api_solr": "2.0",
+    "drupal/seckit": "1.0-alpha2",
+    "drupal/share_everywhere": "1.1",
+    "drupal/sitemap": "1.4",
+    "drupal/smtp": "1.x-dev",
+    "drupal/token": "1.1",
+    "drupal/twig_field_value": "1.1",
+    "drupal/ui_patterns": "1.0-rc1",
+    "drupal/webform": "5.0-rc12",
+    "drupal/xmlsitemap": "1.0-alpha2",
+    "drush/drush": "8.1.17",
+    "enyo/dropzone": "^5.1.1",
+    "harvesthq/chosen": "^1.6"
+  },
+  "require-dev": {
+    "behat/mink": "~1.6",
+    "behat/mink-goutte-driver": "~1.2",
+    "drupal/coder": "8.2.*",
+    "drupal/migrate_devel": "1.x-dev",
+    "jcalderonzumba/gastonjs": "^1.1@dev",
+    "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+    "mikey179/vfsStream": "~1.2",
+    "phpunit/phpunit": "~4.8",
+    "symfony/css-selector": "2.*"
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "install-codestandards": [
+      "phpcs --config-set installed_paths /var/www/html/web/modules/contrib/coder/coder_sniffer"
+    ],
+    "post-install-cmd": [
+      "@drupal-scaffold",
+      "@install-codestandards"
+    ],
+    "post-update-cmd": [
+      "@drupal-scaffold"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "web/core": [
+        "type:drupal-core"
+      ],
+      "web/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "web/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "web/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/contrib/{$name}": [
+        "type:drupal-drush"
+      ],
+      "web/libraries/{$name}": [
+        "type:drupal-library"
+      ]
+    },
+    "patches-file": "composer.patches.json"
+  }
+}

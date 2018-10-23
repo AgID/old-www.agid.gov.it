@@ -1,0 +1,241 @@
+<?php
+
+/**
+ * @file
+ * Contains agid_search.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function agid_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the agid_search module.
+    case 'help.page.agid_search':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides an integration plugin for global search system.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function agid_search_theme($existing, $type, $theme, $path) {
+  return [
+    'agid_search_simple_full_text_search' => [
+      'variables' => ['view_uri' => NULL],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_views_post_execute().
+ */
+function agid_search_views_post_execute(\Drupal\views\ViewExecutable $view) {
+  $query = $view->getQuery();
+
+  if ($view->total_rows == 0
+    && $query instanceof \Drupal\search_api\Plugin\views\query\SearchApiQuery
+  ) {
+
+    // Search plugin in header and footer.
+    foreach (['header', 'footer'] as $pos) {
+      $plugins = $view->{$pos};
+      /** @var \Drupal\views\Plugin\views\area\AreaPluginBase $plugin */
+      foreach ($plugins as $plugin) {
+        if ($plugin instanceof \Drupal\agid_search\Plugin\views\area\SpellCheckSolr) {
+          $plugin->isRedirected();
+        }
+      }
+    }
+
+  }
+}
+
+/**
+ * Implements hook_search_api_solr_query_alter().
+ */
+function agid_search_search_api_solr_query_alter(\Solarium\Core\Query\QueryInterface $solarium_query, \Drupal\search_api\Query\QueryInterface $query) {
+  // The option 'spellcheck' is set in the plugin
+  // \Drupal\agid_search\Plugin\views\area\SpellCheckSolr:query().
+  if ($spellcheck_options = $query->getOption('search_api_spellcheck', FALSE)) {
+    $spellcheck = $solarium_query->getSpellcheck();
+    $spellcheck->setOptions($spellcheck_options);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function agid_search_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $view_data = $form_state->getStorage('view');
+  $view = $view_data['view'];
+
+  if ($view instanceof \Drupal\views\ViewExecutable
+    && $form['#id'] == 'views-exposed-form-search-site-page'
+    && $view->getQuery() instanceof \Drupal\search_api\Plugin\views\query\SearchApiQuery) {
+
+    // Only in plugin views ExposeFilterForm area.
+    if ($form_state->get('views_area')) {
+
+      // Update description of SearchApiFulltext filters.
+      $current_request_query = \Drupal::requestStack()
+        ->getCurrentRequest()->query;
+
+      foreach ($view->filter as $key => $filter) {
+        if ($filter instanceof \Drupal\search_api\Plugin\views\filter\SearchApiFulltext) {
+          // The filter could be different then the key.
+          if (!empty($filter->options['expose']['identifier'])) {
+            $key = $filter->options['expose']['identifier'];
+          }
+
+          if (!isset($form[$key]) || !$current_request_query->get($key, FALSE)
+            || !$current_request_query->get('prev_' . $key, FALSE)) {
+            // Not found filter for query key.
+            continue;
+          }
+
+          // Build message to place after field filter.
+          $message = t(
+            "Not found result for <b>%prev_keyword</b>. The results related to <b>%keyword</b>",
+            [
+              '%prev_keyword' => $current_request_query->get('prev_' . $key, FALSE),
+              '%keyword' => $current_request_query->get($key),
+            ]
+          );
+
+          // Add text after fulltext field.
+          $uggestion = [
+            $key . "_suggestion" => [
+              '#markup' => '<p class="agid_search_spellcheck_solr-suggestion">' . (string) $message . '</p>',
+              '#weight' => isset($form[$key]['#weight']) ? $form[$key]['#weight'] : 0,
+            ],
+          ];
+
+          _array_insert_after($form, $key, $uggestion);
+
+          // TODO: Update the value of fulltext field with prev research keyword.
+          $form[$key]['#default_value'] = $current_request_query->get('prev_' . $key, FALSE);
+        }
+      }
+    }
+
+    // Alter type of filters element form.
+    if ($view->current_display == 'page') {
+      foreach (\Drupal\Core\Render\Element::children($form) as $key) {
+        if ($form[$key]['#type'] == 'select' && isset($form[$key]['#multiple']) && $form[$key]['#multiple']) {
+          $form[$key]['#type'] = 'checkboxes';
+        }
+      }
+    }
+
+    $form['#attached']['library'][] = 'agid_search/search_site';
+  }
+
+}
+
+/**
+ * Insert a value or key/value pair after a specific key in an array.
+ * If key doesn't exist, value is appended to the end of the array.
+ *
+ * @param array $array
+ * @param string $key
+ * @param array $new
+ */
+function _array_insert_after(array &$array, $key, array $new) {
+  $keys = array_keys($array);
+  $index = array_search($key, $keys);
+  $pos = FALSE === $index ? count($array) : $index + 1;
+  $array = array_merge(array_slice($array, 0, $pos), $new, array_slice($array, $pos));
+}
+
+/**
+ * This function sets the relationships between terms of the vocabulary arguments.
+ *
+ * Used only test.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ */
+function _agid_search_date_test_for_related_topics() {
+  $data = [
+    272 => [321, 352, 299, 352],
+    315 => [273, 312, 352,],
+    306 => [344, 276,],
+    339 => [301,],
+    277 => [306,],
+    276 => [306, 373, 344,],
+    309 => [276, 363, 352,],
+    299 => [301, 272, 305,],
+    305 => [299,],
+    285 => [286, 284, 313, 352],
+    265 => [279, 352,],
+    344 => [306,],
+    298 => [444, 273,],
+    312 => [315,],
+    288 => [419, 285, 286,],
+    376 => [363, 352, 321,],
+    363 => [376, 352,],
+    279 => [352, 265,],
+    286 => [376, 285, 284,],
+    450 => [301, 302, 326,],
+    323 => [352,],
+    356 => [281,],
+    353 => [301, 355, 326,],
+    342 => [419, 444,],
+    313 => [302, 301,],
+    355 => [353,],
+    268 => [285, 276,],
+    301 => [353, 326, 299, 313],
+    389 => [344,],
+    444 => [373, 298, 267, 342],
+    352 => [321, 272, 376,],
+    281 => [356,],
+    273 => [312, 315, 298,],
+    289 => [301, 326, 352],
+    302 => [313, 301,],
+    373 => [444, 273, 344,],
+    284 => [285, 286,],
+    419 => [288, 342, 352,],
+    384 => [352, 373, 324,],
+    267 => [444, 456, 352,],
+    326 => [289, 301,],
+    321 => [272, 352, 376,],
+    333 => [273, 352,],
+  ];
+
+  /** @var \Drupal\taxonomy\TermStorageInterface $term_storage */
+  $term_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+  foreach ($data as $tid_base => $tids_related) {
+    /** @var \Drupal\taxonomy\TermInterface $term */
+    $term = $term_storage->load($tid_base);
+
+    if (empty($term)) {
+      continue;
+    }
+
+    $target_ids = [];
+    foreach ($tids_related as $tid_related) {
+      $target_ids[] = $tid_related;
+    }
+    $term->set('field_related_topics', $target_ids);
+
+    try {
+      $term->save();
+    }
+    catch (\Exception $exception) {
+      Drupal::messenger()
+        ->addError(t('Unexpected error during save term %term_id: %error.', [
+          '%term_id' => $term->id(),
+          '%error' => $exception->getMessage(),
+        ]));
+    }
+  }
+
+}

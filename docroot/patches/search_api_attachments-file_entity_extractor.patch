@@ -1,0 +1,17 @@
+diff --git a/src/Plugin/search_api/processor/FilesExtractor.php b/src/Plugin/search_api/processor/FilesExtractor.php
+index 230f06d..37f93eb 100644
+--- a/src/Plugin/search_api/processor/FilesExtractor.php
++++ b/src/Plugin/search_api/processor/FilesExtractor.php
+@@ -393,6 +393,12 @@ class FilesExtractor extends ProcessorPluginBase implements PluginFormInterface
+           if ($property->getType() == 'file') {
+             $file_elements[$property->getName()] = $property->getLabel();
+           }
++          if ($property->getType() == 'entity_reference') {
++            $target_type = $property->getSetting('target_type');
++            if($target_type == "file") {
++              $file_elements[$property->getName()] = $property->getLabel();
++            }
++          }
+         }
+       }
+     }

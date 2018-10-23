@@ -1,0 +1,21 @@
+uuid: 17380029-aec8-4a42-8f7d-24f4e8770260
+langcode: it
+status: true
+dependencies:
+  module:
+    - agid_search
+    - block_class
+  theme:
+    - agid
+id: simplefulltextsearchblock
+theme: agid
+region: header_search
+weight: 0
+provider: null
+plugin: agid_search_simple_fulltext_search
+settings:
+  id: agid_search_simple_fulltext_search
+  label: 'Simple FullText Search Block'
+  provider: agid_search
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,61 @@
+SHA1 Fingerprint=48:38:D1:0C:3A:5A:8A:30:F9:09:F4:0A:0D:62:DF:EB:73:F3:81:52
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            c3:45:be:9d:ac:0d:21:15
+        Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=AU, ST=Some-State, O=Internet Widgits Pty Ltd, CN=*.loc
+        Validity
+            Not Before: Apr  7 20:51:04 2018 GMT
+            Not After : Apr  4 20:51:04 2028 GMT
+        Subject: C=AU, ST=Some-State, O=Internet Widgits Pty Ltd, CN=*.loc
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (2048 bit)
+                Modulus (2048 bit):
+                    00:a4:c6:8b:34:e3:5f:20:ae:6a:9c:b1:11:94:58:
+                    25:e4:fc:55:f2:31:df:ac:67:0f:20:df:9b:b4:56:
+                    1f:49:52:1f:1e:47:f4:2f:b5:d0:b7:ee:bf:dc:8f:
+                    31:32:b7:56:fe:f6:1c:c5:bb:09:95:d1:83:e2:66:
+                    aa:2f:ea:ac:54:76:a9:aa:07:5f:5e:a9:39:d6:4a:
+                    8f:35:1a:65:ae:45:6d:00:3e:61:ab:b6:96:c6:41:
+                    3e:5c:bb:53:1c:e2:aa:22:c9:77:4d:8c:a2:de:19:
+                    61:74:11:0b:9f:61:c7:c0:01:97:d0:1f:44:de:fa:
+                    29:cd:be:68:27:05:86:e9:0d:33:57:9b:f7:f6:99:
+                    84:92:99:a0:57:dd:b9:6c:bf:44:a5:ac:74:79:87:
+                    3a:8c:80:64:ac:e5:11:c3:48:3d:74:e0:27:fa:5c:
+                    c0:1a:ce:53:67:2e:bd:a1:d6:46:6f:91:ee:12:be:
+                    15:c8:25:e4:e5:b5:6b:0f:8e:e9:a6:e5:41:f5:90:
+                    c3:bb:f2:02:ab:c3:35:bd:1b:d5:76:dc:be:09:67:
+                    58:a2:f9:5d:4f:0f:97:dd:06:47:ea:bd:ed:32:b3:
+                    98:ff:88:9d:02:32:d0:37:3a:ff:a4:3c:39:00:56:
+                    f2:e8:21:56:de:54:f9:9a:0a:3a:99:12:5b:7d:db:
+                    3c:eb
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                BD:77:70:67:2A:F3:F6:47:48:25:32:0F:E1:E4:1F:97:C7:60:CA:35
+            X509v3 Authority Key Identifier: 
+                keyid:BD:77:70:67:2A:F3:F6:47:48:25:32:0F:E1:E4:1F:97:C7:60:CA:35
+                DirName:/C=AU/ST=Some-State/O=Internet Widgits Pty Ltd/CN=*.loc
+                serial:C3:45:BE:9D:AC:0D:21:15
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha1WithRSAEncryption
+        81:cf:8a:da:31:14:09:06:39:67:9b:d3:1a:96:c8:00:8a:26:
+        17:0b:a3:77:6c:e7:e5:27:3b:2a:e5:a2:8c:ae:fe:73:45:02:
+        88:4f:6a:66:39:db:20:90:8a:c6:ae:7b:ba:a4:ac:e3:12:67:
+        13:f9:2f:34:16:7f:e4:8c:85:50:e9:08:3f:21:4b:e1:df:8b:
+        c5:6b:ec:5d:40:cb:2f:59:65:7d:8d:8c:f9:95:3e:e8:3e:d7:
+        e8:52:60:de:9a:ea:44:8a:d6:8d:55:41:82:a4:8a:23:31:dd:
+        dc:ec:c1:bb:5e:18:ee:f9:7e:39:32:4d:b2:fe:9b:08:58:2d:
+        e6:86:ed:94:7b:58:5e:b1:8a:58:ce:9e:21:19:0b:7f:2b:dd:
+        b8:de:b6:24:6d:27:98:41:bd:f3:a2:0e:d6:64:7d:d2:5f:d1:
+        17:11:41:4e:11:09:2b:45:83:78:b4:f0:e7:d4:a4:76:44:22:
+        07:85:1d:fe:cb:83:8f:ec:c9:95:1f:b5:e1:20:11:ba:2c:ee:
+        b5:6a:97:92:f8:4c:ef:5d:eb:b0:8a:0b:57:bd:85:35:3f:d6:
+        00:cf:6f:94:8d:6c:ba:06:84:de:b8:59:40:2f:9f:b3:0e:bf:
+        f2:74:0c:88:fd:d6:f1:97:45:2b:74:85:28:e5:2b:b6:73:db:
+        72:57:c4:6c

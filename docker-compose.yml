@@ -1,0 +1,80 @@
+version: "2"
+
+services:
+
+  apache:
+    container_name: "${PROJECT_NAME}_apache"
+    image: wodby/apache:$APACHE_TAG
+    depends_on:
+      - php
+    environment:
+      APACHE_LOG_LEVEL: info
+      APACHE_BACKEND_HOST: php
+      APACHE_VHOST_PRESET: php
+      APACHE_DOCUMENT_ROOT: /var/www/html/web
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.backend=${PROJECT_NAME}_apache'
+      - 'traefik.port=80'
+      - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
+
+  database:
+    container_name: "${PROJECT_NAME}_database"
+    image: wodby/mariadb:$MARIADB_TAG
+    stop_grace_period: 30s
+    env_file:
+      - docker-conf/mariadb.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+
+  php:
+    container_name: "${PROJECT_NAME}_php"
+    image: wodby/php:$PHP_TAG
+    env_file:
+      - docker-conf/phpfpm.env
+    environment:
+      ENV_TYPE: 'PROD'
+      COLUMNS: 80 # Set 80 columns for docker exec -it.
+      PHP_FPM_CLEAR_ENV: "no"
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_HOSTNAME: $DB_HOST
+      MYSQL_PASSWORD: $DB_PASSWORD
+      MYSQL_PORT: $DB_PORT
+      MYSQL_USER: $DB_USER
+    volumes:
+      - $PROJECT_DOCROOT:/var/www/html
+
+  redis:
+    container_name: "${PROJECT_NAME}_redis"
+    image: wodby/redis:$REDIS_TAG
+    env_file:
+      - docker-conf/redis.env
+
+  solr:
+    container_name: "${PROJECT_NAME}_solr"
+    image: wodby/solr:$SOLR_TAG
+    environment:
+      SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
+      SOLR_HEAP: 1024m
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.backend=${PROJECT_NAME}_solr'
+      - 'traefik.port=8983'
+      - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
+
+  traefik:
+    container_name: "${PROJECT_NAME}_traefik"
+    image: traefik:1.7.2-alpine
+    restart: always
+    command: '-c /dev/null --api --docker --docker.exposedByDefault=false --logLevel=INFO --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./certs:/certs
