@@ -13,7 +13,7 @@ popup_agreed:
 popup_agree_button_message: Acconsento
 popup_agreed_enabled: false
 popup_bg_hex: 0779bf
-popup_clicking_confirmation: true
+popup_clicking_confirmation: false
 popup_scrolling_confirmation: false
 popup_delay: 1000
 show_disagree_button: true
