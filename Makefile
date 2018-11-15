@@ -50,7 +50,7 @@ logs: ## Fetch the logs of project
 	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
 
 solr-core: ## Create the core in solr for Drupal site
-	@docker exec www_agid_gov_it_solr make create core="default" host="localhost" -f /usr/local/bin/actions.mk
+	@docker exec www_agid_gov_it_solr make create core="default" host="localhost" config_set="agid" -f /usr/local/bin/actions.mk
 
 build: ## Build docker image custom
 	@echo "Building containers for $(PROJECT_NAME)..."

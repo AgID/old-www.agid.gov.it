@@ -21,9 +21,6 @@
     },
     "drupal/recaptcha": {
       "Ajax support / Use behaviors for 2.x": "https://www.drupal.org/files/issues/2018-03-21/2493183-ajax-support-91.patch"
-    },
-    "drupal/search_api_attachments": {
-      "Support for file_entity (@see https://www.drupal.org/project/search_api_attachments/issues/2896418)": "patches/search_api_attachments-file_entity_extractor.patch"
     }
   }
 }
