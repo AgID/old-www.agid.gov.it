@@ -1,7 +1,7 @@
 smtp_on: false
 smtp_host: mailhog
 smtp_hostbackup: ''
-smtp_port: '25'
+smtp_port: '1025'
 smtp_protocol: standard
 smtp_username: ''
 smtp_password: ''
