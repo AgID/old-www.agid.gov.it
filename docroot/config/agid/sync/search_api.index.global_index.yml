@@ -4,44 +4,44 @@ status: true
 dependencies:
   module:
     - search_api_solr
+    - node
     - taxonomy
     - file
     - search_api
     - search_api_attachments
-    - node
   config:
-    - field.storage.node.field_arguments
-    - field.storage.node.field_news_type
-    - field.storage.node.field_page_abstract
-    - field.storage.node.field_page_content
-    - field.storage.node.field_cad
-    - field.storage.node.field_acc_subj_type
-    - field.storage.node.field_acc_subj_service_name
-    - field.storage.node.field_news_abstract
-    - field.storage.node.field_news_date
     - field.storage.node.body
-    - field.storage.node.field_press_description
-    - field.storage.node.field_press_publish_date
-    - field.storage.node.field_faq_question_full
-    - field.storage.node.field_faq_answer
-    - field.storage.node.field_event_description
-    - field.storage.node.field_name
-    - field.storage.node.field_partner_mediator
     - field.storage.node.field_abi_code
-    - field.storage.node.field_fiscal_code
+    - field.storage.node.field_acc_subj_service_name
+    - field.storage.node.field_acc_subj_type
+    - field.storage.node.field_arguments
     - field.storage.node.field_bic_code
+    - field.storage.node.field_cad
+    - field.storage.node.field_event_description
+    - field.storage.node.field_faq_answer
+    - field.storage.node.field_faq_question_full
+    - field.storage.node.field_fiscal_code
     - field.storage.node.field_gs1gln_code
     - field.storage.node.field_interbank_code
     - field.storage.node.field_ipa_code
-    - field.storage.node.field_seller_bank_code
-    - field.storage.node.field_pagopa_type
     - field.storage.node.field_istat_type
-    - field.storage.node.field_software_government
-    - field.storage.node.field_software_year
+    - field.storage.node.field_name
+    - field.storage.node.field_news_abstract
+    - field.storage.node.field_news_date
+    - field.storage.node.field_news_type
+    - field.storage.node.field_page_abstract
+    - field.storage.node.field_page_content
+    - field.storage.node.field_pagopa_type
+    - field.storage.node.field_partner_mediator
+    - field.storage.node.field_press_description
+    - field.storage.node.field_press_publish_date
     - field.storage.node.field_repository_file
     - field.storage.file.field_title
-    - field.storage.node.field_software_type
+    - field.storage.node.field_seller_bank_code
+    - field.storage.node.field_software_government
     - field.storage.node.field_software_number
+    - field.storage.node.field_software_type
+    - field.storage.node.field_software_year
     - field.storage.node.field_repository_files
     - field.storage.file.field_file_category
     - search_api.server.solr_server
@@ -55,78 +55,39 @@ name: 'Global Index'
 description: ''
 read_only: false
 field_settings:
-  saa_saa_file_entity:
-    label: 'Search api attachments: File entity'
-    property_path: saa_saa_file_entity
-    type: text
-  saa_field_repository_files:
-    label: 'Search api attachments: Documentazione correlata'
-    property_path: saa_field_repository_files
-    type: text
-  saa_field_repository_file:
-    label: 'Search api attachments: Comunicato'
-    property_path: saa_field_repository_file
-    type: text
-  content__title:
-    label: Titolo
+  content__body:
+    label: Testo
     datasource_id: 'entity:node'
-    property_path: title
+    property_path: body
     type: text
-    boost: !!float 13
-  content__field_arguments:
-    label: Argomenti
-    datasource_id: 'entity:node'
-    property_path: field_arguments
-    type: integer
+    boost: !!float 8
     dependencies:
       config:
-        - field.storage.node.field_arguments
-  content__type:
-    label: 'Tipo di contenuto'
-    datasource_id: 'entity:node'
-    property_path: type
-    type: string
-  content__field_news_type:
-    label: 'Tipologia Notizia'
-    datasource_id: 'entity:node'
-    property_path: field_news_type
-    type: integer
-    dependencies:
-      config:
-        - field.storage.node.field_news_type
+        - field.storage.node.body
   content__changed:
     label: Changed
     datasource_id: 'entity:node'
     property_path: changed
     type: date
-  content__field_page_abstract:
-    label: 'Page Abstract'
-    datasource_id: 'entity:node'
-    property_path: field_page_abstract
-    type: text
-    boost: !!float 3
     dependencies:
-      config:
-        - field.storage.node.field_page_abstract
-  content__field_page_content:
-    label: 'Page Content'
-    datasource_id: 'entity:node'
-    property_path: field_page_content
-    type: text
-    boost: !!float 5
-    dependencies:
-      config:
-        - field.storage.node.field_page_content
-  content__field_cad__entity__name:
-    label: 'Codice di amministrazione digitale » Termine » Nome'
-    datasource_id: 'entity:node'
-    property_path: 'field_cad:entity:name'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_cad
       module:
-        - taxonomy
+        - node
+  content__field_abi_code:
+    label: 'Codice ABI'
+    datasource_id: 'entity:node'
+    property_path: field_abi_code
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_abi_code
+  content__field_acc_subj_service_name:
+    label: 'Nome servizio erogato'
+    datasource_id: 'entity:node'
+    property_path: field_acc_subj_service_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_acc_subj_service_name
   content__field_acc_subj_type__entity__name:
     label: 'Tipologia » Termine » Nome'
     datasource_id: 'entity:node'
@@ -137,84 +98,46 @@ field_settings:
         - field.storage.node.field_acc_subj_type
       module:
         - taxonomy
-  content__field_acc_subj_service_name:
-    label: 'Nome servizio erogato'
-    datasource_id: 'entity:node'
-    property_path: field_acc_subj_service_name
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_acc_subj_service_name
-  content__field_news_abstract:
-    label: 'News Abstract'
-    datasource_id: 'entity:node'
-    property_path: field_news_abstract
-    type: text
-    boost: !!float 3
-    dependencies:
-      config:
-        - field.storage.node.field_news_abstract
-  content__field_news_date:
-    label: 'News Date'
-    datasource_id: 'entity:node'
-    property_path: field_news_date
-    type: date
-    dependencies:
-      config:
-        - field.storage.node.field_news_date
-  content__body:
-    label: Testo
-    datasource_id: 'entity:node'
-    property_path: body
-    type: text
-    boost: !!float 8
-    dependencies:
-      config:
-        - field.storage.node.body
-  content__field_news_type__entity__name:
-    label: 'Tipologia » Termine » Nome'
-    datasource_id: 'entity:node'
-    property_path: 'field_news_type:entity:name'
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_news_type
-      module:
         - taxonomy
-  content__field_press_description:
-    label: Descrizione
+  content__field_arguments:
+    label: Argomenti
     datasource_id: 'entity:node'
-    property_path: field_press_description
-    type: text
+    property_path: field_arguments
+    type: integer
     dependencies:
       config:
-        - field.storage.node.field_press_description
-  content__field_press_publish_date:
-    label: 'Data di pubblicazione'
+        - field.storage.node.field_arguments
+  content__field_arguments__entity__name:
+    label: 'Argomenti » Termine » Nome'
     datasource_id: 'entity:node'
-    property_path: field_press_publish_date
-    type: date
-    dependencies:
-      config:
-        - field.storage.node.field_press_publish_date
-  content__field_faq_question_full:
-    label: 'FAQ Domanda estesa'
-    datasource_id: 'entity:node'
-    property_path: field_faq_question_full
-    type: text
-    boost: !!float 3
-    dependencies:
-      config:
-        - field.storage.node.field_faq_question_full
-  content__field_faq_answer:
-    label: 'FAQ Risposta'
-    datasource_id: 'entity:node'
-    property_path: field_faq_answer
+    property_path: 'field_arguments:entity:name'
     type: text
     boost: !!float 5
     dependencies:
       config:
-        - field.storage.node.field_faq_answer
+        - field.storage.node.field_arguments
+      module:
+        - taxonomy
+        - taxonomy
+  content__field_bic_code:
+    label: 'Codice BIC'
+    datasource_id: 'entity:node'
+    property_path: field_bic_code
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_bic_code
+  content__field_cad__entity__name:
+    label: 'Codice di amministrazione digitale » Termine » Nome'
+    datasource_id: 'entity:node'
+    property_path: 'field_cad:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_cad
+      module:
+        - taxonomy
+        - taxonomy
   content__field_event_description:
     label: 'Event Descrizione'
     datasource_id: 'entity:node'
@@ -224,30 +147,24 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_event_description
-  content__field_name:
-    label: Denominazione
+  content__field_faq_answer:
+    label: 'FAQ Risposta'
     datasource_id: 'entity:node'
-    property_path: field_name
+    property_path: field_faq_answer
     type: text
+    boost: !!float 5
     dependencies:
       config:
-        - field.storage.node.field_name
-  content__field_partner_mediator:
-    label: 'Intermediario Partner'
+        - field.storage.node.field_faq_answer
+  content__field_faq_question_full:
+    label: 'FAQ Domanda estesa'
     datasource_id: 'entity:node'
-    property_path: field_partner_mediator
+    property_path: field_faq_question_full
     type: text
+    boost: !!float 3
     dependencies:
       config:
-        - field.storage.node.field_partner_mediator
-  content__field_abi_code:
-    label: 'Codice ABI'
-    datasource_id: 'entity:node'
-    property_path: field_abi_code
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_abi_code
+        - field.storage.node.field_faq_question_full
   content__field_fiscal_code:
     label: 'Codice fiscale'
     datasource_id: 'entity:node'
@@ -256,14 +173,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_fiscal_code
-  content__field_bic_code:
-    label: 'Codice BIC'
-    datasource_id: 'entity:node'
-    property_path: field_bic_code
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_bic_code
   content__field_gs1gln_code:
     label: 'Codice GS1GLN'
     datasource_id: 'entity:node'
@@ -288,14 +197,76 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_ipa_code
-  content__field_seller_bank_code:
-    label: 'Codice Seller Bank'
+  content__field_istat_type:
+    label: 'Tipologia ISTAT'
     datasource_id: 'entity:node'
-    property_path: field_seller_bank_code
+    property_path: field_istat_type
     type: text
     dependencies:
       config:
-        - field.storage.node.field_seller_bank_code
+        - field.storage.node.field_istat_type
+  content__field_name:
+    label: Denominazione
+    datasource_id: 'entity:node'
+    property_path: field_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_name
+  content__field_news_abstract:
+    label: 'News Abstract'
+    datasource_id: 'entity:node'
+    property_path: field_news_abstract
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_news_abstract
+  content__field_news_date:
+    label: 'News Date'
+    datasource_id: 'entity:node'
+    property_path: field_news_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_news_date
+  content__field_news_type:
+    label: 'Tipologia Notizia'
+    datasource_id: 'entity:node'
+    property_path: field_news_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_news_type
+  content__field_news_type__entity__name:
+    label: 'Tipologia » Termine » Nome'
+    datasource_id: 'entity:node'
+    property_path: 'field_news_type:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_news_type
+      module:
+        - taxonomy
+        - taxonomy
+  content__field_page_abstract:
+    label: 'Page Abstract'
+    datasource_id: 'entity:node'
+    property_path: field_page_abstract
+    type: text
+    boost: !!float 3
+    dependencies:
+      config:
+        - field.storage.node.field_page_abstract
+  content__field_page_content:
+    label: 'Page Content'
+    datasource_id: 'entity:node'
+    property_path: field_page_content
+    type: text
+    boost: !!float 5
+    dependencies:
+      config:
+        - field.storage.node.field_page_content
   content__field_pagopa_type__entity__name:
     label: 'Tipologia » Termine » Nome'
     datasource_id: 'entity:node'
@@ -306,30 +277,31 @@ field_settings:
         - field.storage.node.field_pagopa_type
       module:
         - taxonomy
-  content__field_istat_type:
-    label: 'Tipologia ISTAT'
+        - taxonomy
+  content__field_partner_mediator:
+    label: 'Intermediario Partner'
     datasource_id: 'entity:node'
-    property_path: field_istat_type
+    property_path: field_partner_mediator
     type: text
     dependencies:
       config:
-        - field.storage.node.field_istat_type
-  content__field_software_government:
-    label: Amministrazione
+        - field.storage.node.field_partner_mediator
+  content__field_press_description:
+    label: Descrizione
     datasource_id: 'entity:node'
-    property_path: field_software_government
+    property_path: field_press_description
     type: text
     dependencies:
       config:
-        - field.storage.node.field_software_government
-  content__field_software_year:
-    label: Anno
+        - field.storage.node.field_press_description
+  content__field_press_publish_date:
+    label: 'Data di pubblicazione'
     datasource_id: 'entity:node'
-    property_path: field_software_year
-    type: text
+    property_path: field_press_publish_date
+    type: date
     dependencies:
       config:
-        - field.storage.node.field_software_year
+        - field.storage.node.field_press_publish_date
   content__field_repository_file__entity__field_title:
     label: 'Comunicato » File » Titolo'
     datasource_id: 'entity:node'
@@ -351,14 +323,23 @@ field_settings:
         - field.storage.node.field_repository_file
       module:
         - file
-  content__field_software_type:
-    label: Tipologia
+        - file
+  content__field_seller_bank_code:
+    label: 'Codice Seller Bank'
     datasource_id: 'entity:node'
-    property_path: field_software_type
+    property_path: field_seller_bank_code
     type: text
     dependencies:
       config:
-        - field.storage.node.field_software_type
+        - field.storage.node.field_seller_bank_code
+  content__field_software_government:
+    label: Amministrazione
+    datasource_id: 'entity:node'
+    property_path: field_software_government
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_software_government
   content__field_software_number:
     label: 'Numero identificativo'
     datasource_id: 'entity:node'
@@ -367,25 +348,39 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_software_number
-  content__field_arguments__entity__name:
-    label: 'Argomenti » Termine » Nome'
+  content__field_software_type:
+    label: Tipologia
     datasource_id: 'entity:node'
-    property_path: 'field_arguments:entity:name'
+    property_path: field_software_type
     type: text
-    boost: !!float 5
     dependencies:
       config:
-        - field.storage.node.field_arguments
-      module:
-        - taxonomy
-  field_repository_files:
-    label: 'Documentazione correlata'
+        - field.storage.node.field_software_type
+  content__field_software_year:
+    label: Anno
     datasource_id: 'entity:node'
-    property_path: field_repository_files
-    type: integer
+    property_path: field_software_year
+    type: text
     dependencies:
       config:
-        - field.storage.node.field_repository_files
+        - field.storage.node.field_software_year
+  content__title:
+    label: Titolo
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 13
+    dependencies:
+      module:
+        - node
+  content__type:
+    label: 'Tipo di contenuto'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
   field_repository_file:
     label: Comunicato
     datasource_id: 'entity:node'
@@ -394,15 +389,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_repository_file
-  file__field_title:
-    label: Titolo
-    datasource_id: 'entity:file'
-    property_path: field_title
-    type: text
-    boost: !!float 13
+  field_repository_files:
+    label: 'Documentazione correlata'
+    datasource_id: 'entity:node'
+    property_path: field_repository_files
+    type: integer
     dependencies:
       config:
-        - field.storage.file.field_title
+        - field.storage.node.field_repository_files
   file__field_file_category__entity__name:
     label: 'Categoria documentazione » Termine della tassonomia » Nome'
     datasource_id: 'entity:file'
@@ -414,7 +408,26 @@ field_settings:
         - field.storage.file.field_file_category
       module:
         - taxonomy
+        - taxonomy
+  file__field_title:
+    label: Titolo
+    datasource_id: 'entity:file'
+    property_path: field_title
+    type: text
+    boost: !!float 13
+    dependencies:
+      config:
+        - field.storage.file.field_title
+  saa_saa_file_entity:
+    label: 'Search api attachments: File entity'
+    property_path: saa_saa_file_entity
+    type: text
 datasource_settings:
+  'entity:file':
+    bundles:
+      default: false
+      selected:
+        - document
   'entity:node':
     bundles:
       default: false
@@ -430,67 +443,17 @@ datasource_settings:
     languages:
       default: true
       selected: {  }
-  'entity:file':
-    bundles:
-      default: false
-      selected:
-        - document
 processor_settings:
-  aggregated_field: {  }
-  html_filter:
-    all_fields: true
-    fields:
-      - saa_saa_file_entity
-      - saa_field_repository_files
-      - saa_field_repository_file
-      - content__title
-      - content__type
-      - content__field_page_abstract
-      - content__field_page_content
-      - content__field_cad__entity__name
-      - content__field_acc_subj_type__entity__name
-      - content__field_acc_subj_service_name
-      - content__field_news_abstract
-      - content__body
-      - content__field_news_type__entity__name
-      - content__field_press_description
-      - content__field_faq_question_full
-      - content__field_faq_answer
-      - content__field_event_description
-      - content__field_name
-      - content__field_partner_mediator
-      - content__field_abi_code
-      - content__field_fiscal_code
-      - content__field_bic_code
-      - content__field_gs1gln_code
-      - content__field_interbank_code
-      - content__field_ipa_code
-      - content__field_seller_bank_code
-      - content__field_pagopa_type__entity__name
-      - content__field_istat_type
-      - content__field_software_government
-      - content__field_software_year
-      - content__field_repository_file__entity__field_title
-      - content__field_repository_file__entity__filename
-      - content__field_software_type
-      - content__field_software_number
-      - content__field_arguments__entity__name
-      - file__field_title
-      - file__field_file_category__entity__name
-    title: true
-    alt: true
-    tags:
-      h1: 5
-      h2: 3
-      h3: 2
-      strong: 2
-      b: 2
-    weights:
-      preprocess_index: -49
-      preprocess_query: -15
   add_url: {  }
+  aggregated_field: {  }
   entity_status: {  }
-  rendered_item: {  }
+  file_attachments:
+    excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv p7m'
+    number_indexed: 0
+    number_first_bytes: '0'
+    max_filesize: '5 MB'
+    excluded_private: 1
+    excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv application/octet-stream'
   highlight:
     highlight: always
     highlight_partial: false
@@ -501,13 +464,56 @@ processor_settings:
     suffix: '</strong>'
     weights:
       postprocess_query: 0
-  file_attachments:
-    excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
-    number_indexed: 0
-    number_first_bytes: '0'
-    max_filesize: '5 MB'
-    excluded_private: 1
-    excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
+  html_filter:
+    all_fields: true
+    fields:
+      - content__body
+      - content__field_abi_code
+      - content__field_acc_subj_service_name
+      - content__field_acc_subj_type__entity__name
+      - content__field_arguments__entity__name
+      - content__field_bic_code
+      - content__field_cad__entity__name
+      - content__field_event_description
+      - content__field_faq_answer
+      - content__field_faq_question_full
+      - content__field_fiscal_code
+      - content__field_gs1gln_code
+      - content__field_interbank_code
+      - content__field_ipa_code
+      - content__field_istat_type
+      - content__field_name
+      - content__field_news_abstract
+      - content__field_news_type__entity__name
+      - content__field_page_abstract
+      - content__field_page_content
+      - content__field_pagopa_type__entity__name
+      - content__field_partner_mediator
+      - content__field_press_description
+      - content__field_repository_file__entity__field_title
+      - content__field_repository_file__entity__filename
+      - content__field_seller_bank_code
+      - content__field_software_government
+      - content__field_software_number
+      - content__field_software_type
+      - content__field_software_year
+      - content__title
+      - content__type
+      - file__field_file_category__entity__name
+      - file__field_title
+      - saa_saa_file_entity
+    title: true
+    alt: true
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+    weights:
+      preprocess_index: -49
+      preprocess_query: -15
+  rendered_item: {  }
   solr_date_range:
     weights:
       preprocess_index: 0

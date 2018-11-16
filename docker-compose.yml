@@ -61,6 +61,8 @@ services:
     environment:
       SOLR_DEFAULT_CONFIG_SET: $SOLR_CONFIG_SET
       SOLR_HEAP: 1024m
+    volumes:
+      - ./docker-conf/solr_7.x_config:/opt/docker-solr/configsets/agid/conf
     labels:
       - 'traefik.enable=true'
       - 'traefik.backend=${PROJECT_NAME}_solr'

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23186daf758843cbf073308cdff59fe9",
+    "content-hash": "cdd36b089f574b4a1a1b294a9a0f255f",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6393,24 +6393,29 @@
         },
         {
             "name": "drupal/search_api",
-            "version": "1.8.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api",
-                "reference": "8.x-1.8"
+                "reference": "8.x-1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.8.zip",
-                "reference": "8.x-1.8",
-                "shasum": "04d7b3b680e84aad086a61fb9eb4ffe77dc278e4"
+                "url": "https://ftp.drupal.org/files/projects/search_api-8.x-1.10.zip",
+                "reference": "8.x-1.10",
+                "shasum": "1c1d038310a079f8e8154545f743ff7a506c4b8e"
             },
             "require": {
-                "drupal/core": "^8.4"
+                "drupal/core": "^8.5"
             },
             "require-dev": {
                 "drupal/search_api_autocomplete": "@dev",
                 "drupal/search_api_db": "*"
+            },
+            "suggest": {
+                "drupal/facets": "Adds the ability to create faceted searches.",
+                "drupal/search_api_autocomplete": "Allows adding autocomplete suggestions to search fields.",
+                "drupal/search_api_solr": "Adds support for using Apache Solr as a backend."
             },
             "type": "drupal-module",
             "extra": {
@@ -6418,8 +6423,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.8",
-                    "datestamp": "1531985581",
+                    "version": "8.x-1.10",
+                    "datestamp": "1537175280",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6459,17 +6464,17 @@
         },
         {
             "name": "drupal/search_api_attachments",
-            "version": "1.0.0-beta7",
+            "version": "1.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_attachments",
-                "reference": "8.x-1.0-beta7"
+                "reference": "8.x-1.0-beta10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-8.x-1.0-beta7.zip",
-                "reference": "8.x-1.0-beta7",
-                "shasum": "88a1143d45a776b47b058c1f0b62829cb3b871bf"
+                "url": "https://ftp.drupal.org/files/projects/search_api_attachments-8.x-1.0-beta10.zip",
+                "reference": "8.x-1.0-beta10",
+                "shasum": "c2c850b19192c0a1bdff9d52f16dc664ac9bbb6b"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -6481,15 +6486,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta7",
-                    "datestamp": "1534174084",
+                    "version": "8.x-1.0-beta10",
+                    "datestamp": "1540047180",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
-                },
-                "patches_applied": {
-                    "Support for file_entity (@see https://www.drupal.org/project/search_api_attachments/issues/2896418)": "patches/search_api_attachments-file_entity_extractor.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6514,24 +6516,24 @@
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "2.0.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/search_api_solr",
-                "reference": "8.x-2.0"
+                "reference": "8.x-2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-2.0.zip",
-                "reference": "8.x-2.0",
-                "shasum": "75bcaf281ced575adb3cba2764ea77759b7f6ea0"
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-8.x-2.2.zip",
+                "reference": "8.x-2.2",
+                "shasum": "c740d9983d6fb34b27ba0d680de2bb9ade3754eb"
             },
             "require": {
                 "drupal/core": "^8.5",
-                "drupal/search_api": "~1.8",
+                "drupal/search_api": "~1.9",
                 "maennchen/zipstream-php": "0.4.*",
                 "php": "^7.0",
-                "solarium/solarium": "~4.0"
+                "solarium/solarium": "~4.1.0"
             },
             "conflict": {
                 "drupal/core": "<8.5",
@@ -6556,8 +6558,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0",
-                    "datestamp": "1534008780",
+                    "version": "8.x-2.2",
+                    "datestamp": "1537284180",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
