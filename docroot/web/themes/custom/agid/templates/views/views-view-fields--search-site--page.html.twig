@@ -67,6 +67,8 @@
 {%- endif -%}
 
 {% set field_excerpt = fields['search_api_excerpt'] %}
-<{{ field_excerpt.wrapper_element }}{{ field_excerpt.wrapper_attributes }}>
-  {{ field_excerpt.content }}
-</{{ field_excerpt.wrapper_element }}>
+{%- if field_excerpt is not empty -%}
+  <{{ field_excerpt.wrapper_element }}{{ field_excerpt.wrapper_attributes }}>
+    {{ field_excerpt.content }}
+  </{{ field_excerpt.wrapper_element }}>
+{%- endif -%}

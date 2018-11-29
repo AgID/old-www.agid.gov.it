@@ -129,13 +129,13 @@ function agid_search_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\For
     // Alter type of filters element form.
     if ($view->current_display == 'page') {
       foreach (\Drupal\Core\Render\Element::children($form) as $key) {
-        if ($form[$key]['#type'] == 'select' && isset($form[$key]['#multiple']) && $form[$key]['#multiple']) {
+        if (isset($form[$key]['#type'])
+          && $form[$key]['#type'] == 'select'
+          && isset($form[$key]['#multiple']) && $form[$key]['#multiple']) {
           $form[$key]['#type'] = 'checkboxes';
         }
       }
     }
-
-    $form['#attached']['library'][] = 'agid_search/search_site';
   }
 
 }

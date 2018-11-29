@@ -1,0 +1,28 @@
+uuid: ddc60c6f-5b99-446d-9a59-19f5be979334
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_related_topics
+    - taxonomy.vocabulary.arguments
+id: taxonomy_term.arguments.field_related_topics
+field_name: field_related_topics
+entity_type: taxonomy_term
+bundle: arguments
+label: 'Related topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      arguments: arguments
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
