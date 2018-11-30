@@ -37,13 +37,13 @@ class ViewsExposedFilterForm extends ViewsExposedForm {
 
         // Create a new element form (hidden).
         // It is necessary to recreate the element for the form GET.
-        if (!$old_element['#multiple']) {
+        if (isset($old_element['#multiple']) && !$old_element['#multiple']) {
           $form[$filter_id] = [
             '#type' => 'hidden',
             '#value' => isset($exposed_input[$filter_id]) ? $exposed_input[$filter_id] : $old_element['#default_value'],
           ];
         }
-        else {
+        elseif (isset($exposed_input[$filter_id]) && is_array($exposed_input[$filter_id])) {
           // In the case of multiple elements how checkboxes.
           foreach ($exposed_input[$filter_id] as $name => $input) {
             $form[$filter_id][$name] = [

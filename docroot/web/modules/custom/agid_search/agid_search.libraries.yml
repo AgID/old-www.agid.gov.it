@@ -1,5 +1,0 @@
-search_site:
-  version: 1.x
-  css:
-    theme:
-      css/search_site.css: {}
