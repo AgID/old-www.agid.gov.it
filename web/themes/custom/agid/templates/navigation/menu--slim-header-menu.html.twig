@@ -30,7 +30,7 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-<ul{{ attributes }}>
+<ul{{ attributes.setAttribute('aria-label', 'Voci del Menu di Navigazione') }}>
   {% else %}
   <ul>
     {% endif %}
