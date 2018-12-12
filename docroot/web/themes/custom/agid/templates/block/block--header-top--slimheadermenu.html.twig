@@ -59,7 +59,7 @@
 </nav>
 
 <section class="Offcanvas Offcanvas--left Offcanvas--modal js-fr-offcanvas u-jsVisibilityHidden u-nojsDisplayNone u-hiddenPrint" id="slim-menu">
-  <h2 class="u-hiddenVisually">Menu di navigazione</h2>
+  <h2 id="slim-menu-title" class="u-hiddenVisually">Menu di navigazione</h2>
   <div class="Offcanvas-content u-background-white">
     <div class="Offcanvas-toggleContainer u-background-70 u-jsHidden">
       <a class="Hamburger-toggleContainer u-block u-color-white u-padding-bottom-xxl u-padding-left-s u-padding-top-xxl js-fr-offcanvas-close" aria-controls="menu" aria-label="esci dal menu" title="esci dal menu" href="#">
@@ -67,7 +67,7 @@
       </a>
     </div>
     <nav>
-      <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
+      <ul class="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs" aria-labelledby="slim-menu-title">
         {{ content }}
       </ul>
 
