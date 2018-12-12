@@ -129,7 +129,7 @@ class ContactBlock extends BlockBase {
 
     $context = [];
     $template = "";
-    if (!empty($this->configuration['url_link'])) {
+    if (isset($this->configuration['url_link'])) {
       $template .= '<a class="Footer-bigLink Footer-contact-title" href="'. $this->configuration['url_link'] .'">Sede e contatti</a>';
     }
 
@@ -156,7 +156,7 @@ class ContactBlock extends BlockBase {
       $template .= '<p><strong>Contatti stampa:</strong> <a href="mailto:' . $this->configuration['press'] . '">' . $this->configuration['press'] . '</a></p>';
     }
 
-    if (!empty($this->configuration['url_scrivici'])) {
+    if (isset($this->configuration['url_scrivici'])) {
       $template .= '<a class="Footer-bigLink Footer-contact" href="' . $this->configuration['url_scrivici'] . '">Scrivici</a>';
     }
 
