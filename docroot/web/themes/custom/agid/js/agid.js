@@ -218,7 +218,7 @@
           $form = $subjectCheckboxes.closest('form');
         
         // Manage behavior and click on the fake reset button.
-        if (window.location.search) {
+        if (/.*[^=]content_type%5B.*/.test(window.location.search)) {
           $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
         }
 
