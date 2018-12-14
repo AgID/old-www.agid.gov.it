@@ -224,14 +224,19 @@
 
         // resetBtn action
         $resetBtn.click(function() {
+          $resetBtn.find('.Icon').addClass('Icon-radio-button-checked').removeClass('Icon-radio-button');
           $subjectCheckboxes.prop('checked', false);
           $subjectCheckboxesLabels.removeClass('is-checked');
-          $form.submit();
+          //$form.submit();
         });
         
         // checkboxes side-action
         $subjectCheckboxes.click(function(){
-          $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
+          var $subjectCheckboxesClicked = $('.form-checkbox[data-drupal-selector*="edit-content-type-"]:checked');
+          if(!$subjectCheckboxesClicked.length)
+            $resetBtn.find('.Icon').addClass('Icon-radio-button-checked').removeClass('Icon-radio-button');
+          else
+            $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
         });
         
       }
