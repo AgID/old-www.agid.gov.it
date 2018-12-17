@@ -2007,6 +2007,7 @@ ol.search-results li {
 
 .search-site-list-row__field-created .views-label {
   color: #0059b3;
+  font-weight: 600;
 }
 
 .search-site-list-row__field-title {
@@ -2018,6 +2019,7 @@ ol.search-results li {
   color: #00264c;
   font-weight: 600;
   text-decoration: none;
+  font-size: 2rem;
 }
 
 .search-site-pagination {
