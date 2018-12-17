@@ -212,8 +212,9 @@
           $html.toggleClass('is-open-sidebar-exposed-form');
         })
 
-        var $resetBtn = $('#sidebarExposedFormReset')
-
+        var $resetBtn = $('#sidebarExposedFormReset'),
+          $subjectCheckboxes = $('.form-checkbox[data-drupal-selector*="edit-content-type-"]');
+        
         // Manage behavior and click on the fake reset button.
         if (window.location.search) {
           $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
@@ -223,7 +224,12 @@
           $exposedForm.find('[id*="edit-reset"]').trigger('click');
         })
 
-        // Enable the megamenu voice.
+        // pairing values on form input change in main content region
+        $subjectCheckboxes.click(function _copyinputonchange() {
+          var parent_selector = $(this).parent('.sidebar-exposed-form').length ? '.block-agid-main-content' : '.sidebar-exposed-form',
+            item_selector = 'input[name="' + $(this).attr('name').replace('[', '\\\[').replace(']', '\\\]') + '"';
+          $(parent_selector + ' ' + item_selector).prop('checked', $(this).prop('checked'));
+        });
       }
     }
   }
@@ -242,6 +248,13 @@
         $('.search-api-fulltext__btn').on('click', function() {
           $searchSiteForm.trigger('submit')
         })
+      
+        var $inputSearch = $('.block-agid-main-content input[name="search_api_fulltext"]');
+        $inputSearch.bind('keyup paste', function _copyinputonchange() {
+          var parent_selector = $(this).parent('.sidebar-exposed-form').length ? '.block-agid-main-content' : '.sidebar-exposed-form',
+            item_selector = 'input[name="' + $(this).attr('name').replace('[', '\\\[').replace(']', '\\\]') + '"';
+          $(parent_selector + ' ' + item_selector).val($(this).val());
+        });        
       }
     }
   }
