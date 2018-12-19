@@ -76,6 +76,10 @@
   .form-item-items-per-page {
     border: 0;
     width: auto;
+
+    .Form-fieldIcon {
+      margin: 0;
+    }
   }
 }
 

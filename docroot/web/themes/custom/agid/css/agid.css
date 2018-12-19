@@ -1966,6 +1966,10 @@ ol.search-results li {
   width: auto;
 }
 
+.Form--search-site .form-item-items-per-page .Form-fieldIcon {
+  margin: 0;
+}
+
 .search-site-list-row {
   padding: 1.667em .333em 1.667em 1.333em;
 }
