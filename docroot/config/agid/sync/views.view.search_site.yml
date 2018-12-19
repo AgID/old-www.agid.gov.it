@@ -794,6 +794,18 @@ display:
           expose:
             label: ''
           plugin_id: search_api
+        content_changed:
+          id: content_changed
+          table: search_api_index_global_index
+          field: content_changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
       title: Ricerca
       header:
         agid_search_expose_filter_form:
