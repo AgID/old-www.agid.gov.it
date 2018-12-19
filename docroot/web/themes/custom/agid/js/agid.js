@@ -227,18 +227,21 @@
           $resetBtn.find('.Icon').addClass('Icon-radio-button-checked').removeClass('Icon-radio-button');
           $subjectCheckboxes.prop('checked', false);
           $subjectCheckboxesLabels.removeClass('is-checked');
-          //$form.submit();
         });
         
-        // checkboxes side-action
         $subjectCheckboxes.click(function(){
+          // checkboxes side-effect
           var $subjectCheckboxesClicked = $('.form-checkbox[data-drupal-selector*="edit-content-type-"]:checked');
           if(!$subjectCheckboxesClicked.length)
             $resetBtn.find('.Icon').addClass('Icon-radio-button-checked').removeClass('Icon-radio-button');
           else
             $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
+          
+          // pairing values on form input change in main content region
+          var parent_selector = $(this).parent('.sidebar-exposed-form').length ? '.block-agid-main-content' : '.sidebar-exposed-form',
+            item_selector = 'input[name="' + $(this).attr('name').replace('[', '\\\[').replace(']', '\\\]') + '"';
+          $(parent_selector + ' ' + item_selector).prop('checked', $(this).prop('checked'));
         });
-        
       }
     }
   }
@@ -257,6 +260,13 @@
         $('.search-api-fulltext__btn').on('click', function() {
           $searchSiteForm.trigger('submit')
         })
+      
+        var $inputSearch = $('.block-agid-main-content input[name="search_api_fulltext"]');
+        $inputSearch.bind('keyup paste', function _copyinputonchange() {
+          var parent_selector = $(this).parent('.sidebar-exposed-form').length ? '.block-agid-main-content' : '.sidebar-exposed-form',
+            item_selector = 'input[name="' + $(this).attr('name').replace('[', '\\\[').replace(']', '\\\]') + '"';
+          $(parent_selector + ' ' + item_selector).val($(this).val());
+        });        
       }
     }
   }
