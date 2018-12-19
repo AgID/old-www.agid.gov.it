@@ -22,38 +22,14 @@ class ViewsExposedFilterForm extends ViewsExposedForm {
     $form = parent::buildForm($form, $form_state);
     $exposed_filters_disable = $form_state->get('exposed_filters_disable');
 
-    /** @var \Drupal\views\ViewExecutable $view */
-    $view = $form_state->get('view');
-    // @todo: to consider also the initial values of the elements of the form, eg items_for_page.
-    $exposed_input = $view->getExposedInput();
-
     // Reactive filter selected.
     foreach ($exposed_filters_disable as $filter_id) {
       if (isset($form[$filter_id])) {
 
-        // Store old element and remove it.
-        $old_element = $form[$filter_id];
-        unset($form[$filter_id]);
-
-        // Create a new element form (hidden).
-        // It is necessary to recreate the element for the form GET.
-        if (isset($old_element['#multiple']) && !$old_element['#multiple']) {
-          $form[$filter_id] = [
-            '#type' => 'hidden',
-            '#value' => isset($exposed_input[$filter_id]) ? $exposed_input[$filter_id] : $old_element['#default_value'],
-          ];
-        }
-        elseif (isset($exposed_input[$filter_id]) && is_array($exposed_input[$filter_id])) {
-          // In the case of multiple elements how checkboxes.
-          foreach ($exposed_input[$filter_id] as $name => $input) {
-            $form[$filter_id][$name] = [
-              '#type' => 'hidden',
-              '#value' => $input,
-              '#name' => "{$filter_id}[{$name}]",
-            ];
-          }
-        }
-
+        // Hide the element interested.
+        $form[$filter_id]['#attributes']['class'][] = 'visually-hidden';
+        $form[$filter_id]['#prefix'] = '<div class="visually-hidden">';
+        $form[$filter_id]['#suffix'] = '</div>';
       }
     }
 

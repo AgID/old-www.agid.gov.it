@@ -1900,7 +1900,6 @@ ol.search-results li {
 .search-site-header .agid_search_spellcheck_solr-suggestion .placeholder {
   font-style: normal;
   font-weight: 600;
-  text-decoration: underline;
 }
 
 .search-site-header .form-actions {
@@ -1966,6 +1965,10 @@ ol.search-results li {
   width: auto;
 }
 
+.Form--search-site .form-item-items-per-page .Form-fieldIcon {
+  margin: 0;
+}
+
 .search-site-list-row {
   padding: 1.667em .333em 1.667em 1.333em;
 }
@@ -2007,6 +2010,7 @@ ol.search-results li {
 
 .search-site-list-row__field-created .views-label {
   color: #0059b3;
+  font-weight: 600;
 }
 
 .search-site-list-row__field-title {
@@ -2018,6 +2022,7 @@ ol.search-results li {
   color: #00264c;
   font-weight: 600;
   text-decoration: none;
+  font-size: 2rem;
 }
 
 .search-site-pagination {

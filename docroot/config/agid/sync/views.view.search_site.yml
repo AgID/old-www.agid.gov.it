@@ -746,7 +746,15 @@ display:
           group_type: group
           admin_label: ''
           operator: or
-          value: {  }
+          value:
+            acc_subj: acc_subj
+            event: event
+            faq: faq
+            news: news
+            page: page
+            pagopa: pagopa
+            press: press
+            software: software
           group: 1
           exposed: true
           expose:
@@ -766,7 +774,7 @@ display:
               publisher: '0'
               author: '0'
               accreditante: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -786,6 +794,18 @@ display:
           id: search_api_relevance
           table: search_api_index_global_index
           field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
+        content_changed:
+          id: content_changed
+          table: search_api_index_global_index
+          field: content_changed
           relationship: none
           group_type: group
           admin_label: ''
