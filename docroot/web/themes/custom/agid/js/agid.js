@@ -212,18 +212,33 @@
           $html.toggleClass('is-open-sidebar-exposed-form');
         })
 
-        var $resetBtn = $('#sidebarExposedFormReset')
-
+        var $resetBtn = $('#sidebarExposedFormReset'),
+          $subjectCheckboxes = $('.form-checkbox[data-drupal-selector*="edit-content-type-"]'),
+          $subjectCheckboxesLabels = $subjectCheckboxes.parent('label'),
+          $form = $subjectCheckboxes.closest('form');
+        
         // Manage behavior and click on the fake reset button.
-        if (window.location.search) {
+        if (/.*[^=]content_type%5B.*/.test(window.location.search)) {
           $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
         }
 
+        // resetBtn action
         $resetBtn.click(function() {
-          $exposedForm.find('[id*="edit-reset"]').trigger('click');
-        })
-
-        // Enable the megamenu voice.
+          $resetBtn.find('.Icon').addClass('Icon-radio-button-checked').removeClass('Icon-radio-button');
+          $subjectCheckboxes.prop('checked', false);
+          $subjectCheckboxesLabels.removeClass('is-checked');
+          //$form.submit();
+        });
+        
+        // checkboxes side-action
+        $subjectCheckboxes.click(function(){
+          var $subjectCheckboxesClicked = $('.form-checkbox[data-drupal-selector*="edit-content-type-"]:checked');
+          if(!$subjectCheckboxesClicked.length)
+            $resetBtn.find('.Icon').addClass('Icon-radio-button-checked').removeClass('Icon-radio-button');
+          else
+            $resetBtn.find('.Icon').removeClass('Icon-radio-button-checked').addClass('Icon-radio-button');
+        });
+        
       }
     }
   }
