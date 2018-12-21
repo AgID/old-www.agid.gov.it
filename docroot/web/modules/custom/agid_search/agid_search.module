@@ -29,7 +29,7 @@ function agid_search_help($route_name, RouteMatchInterface $route_match) {
 function agid_search_theme($existing, $type, $theme, $path) {
   return [
     'agid_search_simple_full_text_search' => [
-      'variables' => ['view_uri' => NULL],
+      'variables' => ['view_uri' => NULL, 'unique_id'=>NULL],
     ],
   ];
 }

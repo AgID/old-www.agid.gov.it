@@ -28,13 +28,14 @@
 } %}
 
 
-<div{{ attributes.addClass(container_classes) }}>
+<div{{ attributes.addClass(container_classes).setAttribute('aria-labelledby', 'block-agid-languageswitcher-btn') }}>
   {% block content %}
 
     {# Active language #}
     {% if content.active_language %}
       <button aria-label="{{ 'Seleziona la lingua'|t }}" aria-controls="languages" aria-haspopup="true" class="{{ active_language_classes | join(' ') }}"
-         data-menu-trigger="languages">
+         data-menu-trigger="languages"
+         id="block-agid-languageswitcher-btn">
         <span class="u-hiddenVisually">{{ content.active_language.label_hidden }}:</span>
         <span>{{ active_languages[content.active_language.language_name] | upper }}</span>
         <span class="{{ active_language_span_classes | join(' ') }}"></span>
