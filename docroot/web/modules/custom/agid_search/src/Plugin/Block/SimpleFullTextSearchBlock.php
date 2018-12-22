@@ -23,6 +23,7 @@ class SimpleFullTextSearchBlock extends BlockBase {
     $build['agid_search_simple_box_block'] = [
       '#theme' => 'agid_search_simple_full_text_search',
       '#view_uri' => Url::fromRoute('view.search_site.page')->toString(),
+      '#unique_id' => uniqid(),
       '#cache' => [
         'tags' => View::load('search_site')->getCacheTags(),
       ],

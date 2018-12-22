@@ -33,7 +33,7 @@
                     {{ tweet.text }}
                   </h3>
                   <p>
-                    <a title="visualizza su twitter" class="u-color-50 u-textClean u-text-xl" href="{{ tweet.entities.urls[0].url }}">
+                    <a title="visualizza su twitter" class="u-color-50 u-textClean u-text-xl" href="{{ tweet.entities.urls[0].url }}" aria-label="{{tweet.text[:75]}}">
                       <span class="Icon-twitter" aria-hidden="true"></span>
                       <span class="u-hiddenVisually">visualizza su twitter</span>
                     </a>

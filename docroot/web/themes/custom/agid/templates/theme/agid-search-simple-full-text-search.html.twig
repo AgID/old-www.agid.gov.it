@@ -1,20 +1,20 @@
 <form action="{{ view_uri }}" method="get" accept-charset="UTF-8" class="Form"
-      role="search">
+      role="search" aria-labelledby="edit-search_api_fulltext-label-{{ unique_id }}">
   <div
     class="Form-field Form-field--withPlaceholder Grid u-background-white u-text-r-xs u-borderRadius-s">
     <input title="{{ 'Enter the terms to search.'|t }}"
            data-drupal-selector="edit-search_api_fulltext" type="search"
-           id="edit-search_api_fulltext" name="search_api_fulltext" value=""
+           id="edit-search_api_fulltext-{{ unique_id }}" name="search_api_fulltext" value=""
            required="" autocomplete="off"
            class="form-search Form-input Form-input--ultraLean Grid-cell u-sizeFill u-color-black u-text-r-xs u-borderRadius-s"
     >
     <label class="Form-label u-color-grey-50 u-text-r-xxs"
-           for="edit-search_api_fulltext">
+           for="edit-search_api_fulltext-{{ unique_id }}" id="edit-search_api_fulltext-label-{{ unique_id }}">
       {{ "Search in the site"|t }}
     </label>
 
     <button data-twig-context="search_block_form"
-            data-drupal-selector="edit-submit" type="submit" id="edit-submit"
+            data-drupal-selector="edit-submit" type="submit" id="edit-submit-{{ unique_id }}"
             value="{{ 'Search'|t }}"
             class="button js-form-submit form-submit Grid-cell u-sizeFit Icon-search Icon--rotated  u-color-grey-50 u-padding-all-s u-textWeight-700">
       <span class="u-hiddenVisually">{{ 'Start the search'|t }}</span></button>

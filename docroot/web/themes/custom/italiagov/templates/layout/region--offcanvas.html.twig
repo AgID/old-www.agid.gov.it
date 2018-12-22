@@ -24,7 +24,7 @@ set classes = [
 ]
 %}
 {% if content %}
-<section{{ attributes.addClass(classes).setAttribute('id', 'OffcanvasMenu').setAttribute('aria-hidden', 'true') }}>
+<section{{ attributes.addClass(classes).setAttribute('id', 'OffcanvasMenu').setAttribute('aria-hidden', 'true').setAttribute('aria-labelledby', 'block-agid-mainnavigation-menu') }}>
   {{ content }}
 </section>
 {% endif %}
