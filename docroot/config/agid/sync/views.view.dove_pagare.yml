@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_active_mod3
     - node.type.pagopa
     - taxonomy.vocabulary.pagopa_type
+    - user.role.administrator
   content:
     - 'taxonomy_term:pagopa_type:6d570af5-507c-43a9-b9c6-db6ed28ecdba'
   module:
@@ -30,9 +31,10 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -803,7 +805,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_active'
         - 'config:field.storage.node.field_active_mod12'
@@ -815,7 +817,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: piattaforme/pagopa/dove-pagare
+      path: piattaforme/pagopa/dove-pagare-search
       exposed_block: false
     cache_metadata:
       max-age: -1
@@ -826,7 +828,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_active'
         - 'config:field.storage.node.field_active_mod12'

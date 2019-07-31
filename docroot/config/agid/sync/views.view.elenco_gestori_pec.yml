@@ -1135,7 +1135,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<p>Ultimo aggiornamento: 24/05/2017</p>\n\n"
+            value: "\n"
             format: filtered_text
           plugin_id: text
       defaults:

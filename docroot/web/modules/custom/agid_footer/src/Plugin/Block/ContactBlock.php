@@ -75,6 +75,14 @@ class ContactBlock extends BlockBase {
       '#size' => 64,
       '#default_value' => isset($this->configuration['pec']) ? $this->configuration['pec'] : '',
     ];
+    $form['press'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Contatti stampa'),
+      '#description' => $this->t('Indirizzo di posta elettronica della stampa'),
+      '#maxlength' => 64,
+      '#size' => 64,
+      '#default_value' => isset($this->configuration['press']) ? $this->configuration['press'] : '',
+    ];
     $form['url_scrivici'] = [
       '#type' => 'textfield',
       '#title' => $this->t('URL link scrivici'),
@@ -107,6 +115,7 @@ class ContactBlock extends BlockBase {
     $this->configuration['indirizzo'][] = $form_state->getValue('indirizzo_riga_4');
     $this->configuration['codice_fiscale'] = $form_state->getValue('codice_fiscale');
     $this->configuration['pec'] = $form_state->getValue('pec');
+    $this->configuration['press'] = $form_state->getValue('press');
     $this->configuration['url_scrivici'] = $form_state->getValue('url_scrivici');
     $this->configuration['url_gmaps'] = $form_state->getValue('url_gmaps');
   }
@@ -120,7 +129,7 @@ class ContactBlock extends BlockBase {
 
     $context = [];
     $template = "";
-    if (isset($this->configuration['url_link'])) {
+    if (!empty($this->configuration['url_link'])) {
       $template .= '<a class="Footer-bigLink Footer-contact-title" href="'. $this->configuration['url_link'] .'">Sede e contatti</a>';
     }
 
@@ -143,7 +152,11 @@ class ContactBlock extends BlockBase {
       $template .= '<p><strong>PEC: </strong><a href="mailto:' . $this->configuration['pec'] . '">' . $this->configuration['pec'] . '</a></p>';
     }
 
-    if (isset($this->configuration['url_scrivici'])) {
+    if (isset($this->configuration['press'])) {
+      $template .= '<p><strong>Contatti stampa:</strong> <a href="mailto:' . $this->configuration['press'] . '">' . $this->configuration['press'] . '</a></p>';
+    }
+
+    if (!empty($this->configuration['url_scrivici'])) {
       $template .= '<a class="Footer-bigLink Footer-contact" href="' . $this->configuration['url_scrivici'] . '">Scrivici</a>';
     }
 

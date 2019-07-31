@@ -30,7 +30,7 @@ type_settings:
       label: Pubblicato
       published: true
       default_revision: true
-      weight: 3
+      weight: 0
   transitions:
     draft_draft:
       label: 'Create New Draft'
