@@ -36,10 +36,20 @@
         r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
         a.appendChild(r);
       })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
+      
+      /**
+       * Attach siteimprove
+       */
+      (function() {
+        var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+        sz.src = '//siteimproveanalytics.com/js/siteanalyze_6086464.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+      })();
 
       /**
-       * Attach piwik
+       * Attach piwik [disabled]
        */
+      /*
       var _paq = _paq || [];
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
@@ -61,7 +71,9 @@
         g.src = u + 'piwik.js';
         s.parentNode.insertBefore(g, s);
       })();
+      */
 
     }
   }
 })(jQuery, Drupal);
+

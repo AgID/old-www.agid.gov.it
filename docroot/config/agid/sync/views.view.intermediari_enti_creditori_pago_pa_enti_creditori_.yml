@@ -314,7 +314,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<p>Intermediari e Partner tecnologici scelti dagli Enti creditori che, alla data di pubblicazione, risultano attivi su pagoPA.</p>\n\n<p>Dati aggiornati al 13 settembre 2018.</p>\n\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.csv\">Elenco degli intermediari attivi su pagoPA (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.xlsx\">Elenco degli intermediari attivi su pagoPA (XSLX).</a></li>\n</ul>"
+            value: "<p>Intermediari e Partner tecnologici scelti dagli Enti creditori che, alla data di pubblicazione, risultano attivi su pagoPA.</p>\n\n<p>Dati aggiornati al 12 luglio 2019.</p>\n\n<ul>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.csv\">Elenco degli intermediari attivi su pagoPA (CSV).</a></li>\n<li><a href=\"/sites/default/files/pagamenti_amministrazione/pagopa-intermediari.xlsx\">Elenco degli intermediari attivi su pagoPA (XSLX).</a></li>\n</ul>"
             format: filtered_text
           plugin_id: text
       footer: {  }
