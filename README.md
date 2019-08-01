@@ -109,6 +109,8 @@ Viceversa per esportare le configurazioni usare:
 
     `make drush "cex -y"`
 
+- Impostare UID=1000 e GID=82 per la directory web.
+
 ### Annotazioni
 
 **Funzionalità**

@@ -50,6 +50,7 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
       MYSQL_PORT: $DB_PORT
       MYSQL_USER: $DB_USER
+      DRUPAL_HASH_SALT: $DRUPAL_HASH_SALT
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
     networks:
