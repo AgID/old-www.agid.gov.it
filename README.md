@@ -89,6 +89,12 @@ chown -R 1000 docroot/web
 make exec "composer install --prefer-dist"
 ```
 
+- Creare il core Solr:
+
+```shell
+make solr-core
+```
+
 #### Importare il dump del database in locale
 
 - Copiare il file [default.settings.php](./docroot/web/sites/default/default.settings.php)
