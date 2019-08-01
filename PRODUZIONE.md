@@ -18,8 +18,8 @@ Deploy su Docker di www.agid.gov.it
 5. Avviare lo stack: `make up`
 6. Caricare un dump del database
     ```
-    $> source .aliases
-    $> dsqlc < dump.sql
+    cp dump.sql docroot
+    make "drush sql-cli < dump.sql"
     ```
 7. Copiare il filesystem di Drupal in `docroot/web/sites/default/files`
 

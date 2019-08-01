@@ -872,7 +872,7 @@ if (getenv('ENV_TYPE') == 'PROD') {
      *
      * @todo: set has_salt key.
      */
-    $settings['hash_salt'] = '';
+    $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
 
     /**
      * SMTP Settings.
