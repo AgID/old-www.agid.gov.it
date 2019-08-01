@@ -77,3 +77,5 @@ docker-compose.override.yml
 .env
 certs
 !certs/.gitkeep
+
+local

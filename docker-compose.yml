@@ -19,6 +19,8 @@ services:
       - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
+    networks:
+      - app-tier
 
   database:
     container_name: "${PROJECT_NAME}_database"
@@ -31,6 +33,8 @@ services:
       MYSQL_DATABASE: $DB_NAME
       MYSQL_USER: $DB_USER
       MYSQL_PASSWORD: $DB_PASSWORD
+    networks:
+      - app-tier
 
   php:
     container_name: "${PROJECT_NAME}_php"
@@ -48,12 +52,16 @@ services:
       MYSQL_USER: $DB_USER
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
+    networks:
+      - app-tier
 
   redis:
     container_name: "${PROJECT_NAME}_redis"
     image: wodby/redis:$REDIS_TAG
     env_file:
       - docker-conf/redis.env
+    networks:
+      - app-tier
 
   solr:
     container_name: "${PROJECT_NAME}_solr"
@@ -68,15 +76,49 @@ services:
       - 'traefik.backend=${PROJECT_NAME}_solr'
       - 'traefik.port=8983'
       - 'traefik.frontend.rule=Host:solr.${PROJECT_BASE_URL}'
+    networks:
+      - app-tier
 
   traefik:
-    container_name: "${PROJECT_NAME}_traefik"
-    image: traefik:1.7.2-alpine
-    restart: always
-    command: '-c /dev/null --api --docker --docker.exposedByDefault=false --logLevel=INFO --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
-    ports:
-      - '80:80'
-      - '443:443'
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./certs:/certs
+      container_name: "${PROJECT_NAME}_traefik"
+      image: traefik:v1.7
+      command: |-
+        --api
+        --api.dashboard=true
+        --debug=false
+        --loglevel=ERROR
+        --retry
+        --defaultentrypoints=http,https
+        --entryPoints='Name:traefik Address::${TRAEFIK_DASHBOARD_PORT} Auth.Basic.Users:${TRAEFIK_DASHBOARD_USER}:${TRAEFIK_DASHBOARD_PASSWORD}'
+        --entryPoints='Name:http Address::80 Redirect.EntryPoint:https'
+        --entryPoints='Name:https Address::443 TLS'
+        --docker
+        --docker.endpoint="unix:///var/run/docker.sock"
+        --docker.domain=${TRAEFIK_DOMAIN}
+        --docker.watch=true
+        --docker.exposedbydefault=false
+        --acme
+        --acme.email=${TRAEFIK_ACME_EMAIL}
+        --acme.entrypoint=https
+        --acme.httpchallenge.entrypoint=http
+        --acme.storage=acme.json
+        --acme.onhostrule=true
+      labels:
+        - traefik.docker.network=app-tier
+      env_file:
+        - .env
+      ports:
+        - 80:80
+        - 443:443
+        - ${TRAEFIK_DASHBOARD_PORT}:${TRAEFIK_DASHBOARD_PORT}
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /data/traefik/acme.json:/acme.json
+      networks:
+        - app-tier
+
+networks:
+  app-tier:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1450
