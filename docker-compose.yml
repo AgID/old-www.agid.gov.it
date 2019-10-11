@@ -35,6 +35,8 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
     networks:
       - app-tier
+    volumes:
+      - databasevol:/var/lib/mysql
 
   php:
     container_name: "${PROJECT_NAME}_php"
@@ -102,7 +104,7 @@ services:
         --acme.email=${TRAEFIK_ACME_EMAIL}
         --acme.entrypoint=https
         --acme.httpchallenge.entrypoint=http
-        --acme.storage=acme.json
+        --acme.storage=/data/traefik/acme.json
         --acme.onhostrule=true
       labels:
         - traefik.docker.network=app-tier
@@ -114,9 +116,12 @@ services:
         - ${TRAEFIK_DASHBOARD_PORT}:${TRAEFIK_DASHBOARD_PORT}
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - /data/traefik/acme.json:/acme.json
+        - /data/traefik/:/data/traefik
       networks:
         - app-tier
+
+volumes:
+  databasevol:
 
 networks:
   app-tier:
