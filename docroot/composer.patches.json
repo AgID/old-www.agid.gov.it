@@ -21,6 +21,9 @@
     },
     "drupal/recaptcha": {
       "Ajax support / Use behaviors for 2.x": "https://www.drupal.org/files/issues/2018-03-21/2493183-ajax-support-91.patch"
+    },
+    "drupal/search_api": {
+      "Fix createExerpt loop": "https://www.drupal.org/files/issues/2019-01-04/3022724-10--fix_highlight_excerpt_creation_infinite_loop.patch"
     }
   }
 }
