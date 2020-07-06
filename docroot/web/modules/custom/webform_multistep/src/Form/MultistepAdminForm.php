@@ -58,6 +58,7 @@
         '#target_type' => 'webform',
         '#tags' => TRUE,
         '#default_value' => $webform_ref,
+        '#maxlength' => NULL,
       ];
       /**
        * PDF Options
@@ -116,7 +117,7 @@
     public function submitForm(array &$form, FormStateInterface $form_state) {
       parent::submitForm($form, $form_state);
 
-      kint($form_state->getValue('webform_reference'));
+//      kint($form_state->getValue('webform_reference'));
       $this->config('webform_multistep.adminsettings')
         ->set('webform_reference', $form_state->getValue('webform_reference'))
         ->set('pdf_filepath', $form_state->getValue('pdf_filepath'))
