@@ -143,7 +143,7 @@
     "drupal/seckit": "1.0-alpha2",
     "drupal/share_everywhere": "1.1",
     "drupal/sitemap": "1.4",
-    "drupal/smtp": "1.x-dev",
+    "drupal/smtp": "1.x-dev#1a62ed",
     "drupal/token": "1.1",
     "drupal/twig_field_value": "1.1",
     "drupal/ui_patterns": "1.0-rc1",
