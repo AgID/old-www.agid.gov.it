@@ -16,9 +16,9 @@
       })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
       ga("create", "UA-3351165-19", {"cookieDomain": "auto"});
       ga("set", "anonymizeIp", true);
-      if (1 && (!Drupal || !Drupal.eu_cookie_compliance || !Drupal.eu_cookie_compliance.hasAgreed())) {
-        window['ga-disable-UA-3351165-19'] = true;
-      };
+      // if (1 && (!Drupal || !Drupal.eu_cookie_compliance || !Drupal.eu_cookie_compliance.hasAgreed())) {
+        // window['ga-disable-UA-3351165-19'] = true;
+      // };
       ga("send", "pageview");
 
 
@@ -45,35 +45,19 @@
         sz.src = '//siteimproveanalytics.com/js/siteanalyze_6086464.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
       })();
-
-      /**
-       * Attach piwik [disabled]
-       */
-      /*
-      var _paq = _paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function () {
-        var u = "//italia.piwikpro.com/";
-        _paq.push(['setTrackerUrl', u + 'piwik.php']);
-        _paq.push(['setSiteId', '1198a648-cacf-11e7-9e1d-0017fa104e46']);
-        _paq.push(["setDoNotTrack", 1]);
-        if (Drupal && Drupal.eu_cookie_compliance && Drupal.eu_cookie_compliance.hasAgreed()) {
-          _paq.push(["trackPageView"]);
-          _paq.push(["setIgnoreClasses", ["no-tracking", "colorbox"]]);
-          _paq.push(["enableLinkTracking"]);
-        }
-        var d = document, g = d.createElement('script'),
-            s = d.getElementsByTagName('script')[0];
-        g.type = 'text/javascript';
-        g.async = true;
-        g.defer = true;
-        g.src = u + 'piwik.js';
-        s.parentNode.insertBefore(g, s);
-      })();
-      */
-
     }
   }
 })(jQuery, Drupal);
 
+/* Web Analytics Italia */
+var _paq = window._paq || [];
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+  var u="https://ingestion.webanalytics.italia.it/";
+  _paq.push(['setTrackerUrl', u+'matomo.php']);
+  _paq.push(['setSiteId', 'RjLp6G7qWQ']);
+  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();
