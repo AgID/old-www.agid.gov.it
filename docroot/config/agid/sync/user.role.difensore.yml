@@ -1,0 +1,17 @@
+uuid: 1333b4a3-366a-4ea8-a55e-16234e6c4cac
+langcode: it
+status: true
+dependencies: {  }
+id: difensore
+label: Difensore
+weight: -4
+is_admin: null
+permissions:
+  - 'create decisioni_dcd content'
+  - 'delete any decisioni_dcd content'
+  - 'delete decisioni_dcd revisions'
+  - 'delete own decisioni_dcd content'
+  - 'edit any decisioni_dcd content'
+  - 'edit own decisioni_dcd content'
+  - 'revert decisioni_dcd revisions'
+  - 'view decisioni_dcd revisions'

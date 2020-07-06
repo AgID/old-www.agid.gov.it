@@ -15,7 +15,7 @@ _core:
 id: agid_mainpagecontent
 theme: agid
 region: content
-weight: -7
+weight: -14
 provider: null
 plugin: system_main_block
 settings:

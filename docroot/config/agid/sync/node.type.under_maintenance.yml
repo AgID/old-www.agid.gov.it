@@ -1,0 +1,17 @@
+uuid: a6604896-e88f-485b-bd3f-bfccdcd09535
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Under maintenance'
+type: under_maintenance
+description: 'CT creato per creare pagina manutenzione'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

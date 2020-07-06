@@ -12,7 +12,7 @@ dependencies:
 id: agenziaperlitaliadigitale
 theme: agid
 region: content
-weight: -12
+weight: -18
 provider: null
 plugin: 'block_content:a8486cf0-3b8f-4842-abd5-fc47535cd394'
 settings:

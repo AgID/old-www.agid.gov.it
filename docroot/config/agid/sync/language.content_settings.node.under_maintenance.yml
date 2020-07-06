@@ -1,0 +1,11 @@
+uuid: 908ce807-88b9-4326-9768-387e677ecdb3
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.under_maintenance
+id: node.under_maintenance
+target_entity_type_id: node
+target_bundle: under_maintenance
+default_langcode: site_default
+language_alterable: false

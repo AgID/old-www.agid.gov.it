@@ -1,0 +1,11 @@
+uuid: 4a138c3f-d787-4db3-a8da-19329a7ae084
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tipologie_riferimenti_normativi_
+id: taxonomy_term.tipologie_riferimenti_normativi_
+target_entity_type_id: taxonomy_term
+target_bundle: tipologie_riferimenti_normativi_
+default_langcode: site_default
+language_alterable: false

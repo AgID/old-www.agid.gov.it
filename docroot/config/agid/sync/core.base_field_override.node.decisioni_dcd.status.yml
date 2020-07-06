@@ -1,0 +1,22 @@
+uuid: 9f669bc4-7292-4127-bf92-0d2b3de40dec
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.decisioni_dcd
+id: node.decisioni_dcd.status
+field_name: status
+entity_type: node
+bundle: decisioni_dcd
+label: Pubblicato
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

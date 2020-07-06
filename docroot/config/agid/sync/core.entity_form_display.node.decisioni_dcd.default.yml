@@ -1,0 +1,88 @@
+uuid: 3cef0c8d-250f-4660-980d-d0fda6a9fea6
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.decisioni_dcd.field_decisione
+    - field.field.node.decisioni_dcd.field_oggetto
+    - field.field.node.decisioni_dcd.field_riferimenti_normativi
+    - node.type.decisioni_dcd
+  module:
+    - content_moderation
+    - maxlength
+    - text
+id: node.decisioni_dcd.default
+targetEntityType: node
+bundle: decisioni_dcd
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_decisione:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_oggetto:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+    type: text_textarea
+    region: content
+  field_riferimenti_normativi:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 3
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 10
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 10
+        maxlength_js_label: 'Formato: anno/numero'
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  path: true
+  promote: true
+  sticky: true
+  url_redirects: true

@@ -1,0 +1,18 @@
+uuid: 1e6dea66-7472-4926-af49-bfe4c58dc409
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.decisioni_dcd
+id: node.decisioni_dcd.title
+field_name: title
+entity_type: node
+bundle: decisioni_dcd
+label: 'Numero segnalazione'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

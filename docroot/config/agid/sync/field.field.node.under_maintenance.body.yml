@@ -1,0 +1,22 @@
+uuid: 1682e9ff-982f-4b03-8a31-98eab2494eec
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.under_maintenance
+  module:
+    - text
+id: node.under_maintenance.body
+field_name: body
+entity_type: node
+bundle: under_maintenance
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

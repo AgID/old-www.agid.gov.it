@@ -1,0 +1,14 @@
+uuid: 83e9e7af-2519-4128-b07d-fd5ad3de6161
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.difensore
+  module:
+    - user
+id: user_add_role_action.difensore
+label: 'Add the Difensore role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: difensore

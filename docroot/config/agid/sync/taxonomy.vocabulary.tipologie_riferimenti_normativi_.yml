@@ -1,0 +1,9 @@
+uuid: 0ff0f3f8-0a72-47f5-bb50-f151305549a6
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologie riferimenti normativi DCD'
+vid: tipologie_riferimenti_normativi_
+description: ''
+hierarchy: 0
+weight: 0

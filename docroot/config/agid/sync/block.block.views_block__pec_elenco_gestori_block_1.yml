@@ -12,7 +12,7 @@ dependencies:
 id: views_block__pec_elenco_gestori_block_1
 theme: agid
 region: content
-weight: 0
+weight: -5
 provider: null
 plugin: 'views_block:pec_elenco_gestori-block_1'
 settings:

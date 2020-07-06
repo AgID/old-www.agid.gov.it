@@ -10,5 +10,6 @@ weight: -9
 is_admin: false
 permissions:
   - 'display eu cookie compliance popup'
+  - 'edit own webform'
   - 'search content'
   - 'view empty pages'

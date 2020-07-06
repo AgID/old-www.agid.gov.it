@@ -13,6 +13,6 @@ name: Pagina
 type: page
 description: 'Questo tipo di contenuto può essere utilizzato per l''inserimento di una pagina (nel vecchio Agid erano pagine di primo, secondo e terzo livello).'
 help: ''
-new_revision: true
+new_revision: false
 preview_mode: 1
 display_submitted: false

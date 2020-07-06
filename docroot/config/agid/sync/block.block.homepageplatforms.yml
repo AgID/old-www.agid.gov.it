@@ -5,14 +5,10 @@ dependencies:
   content:
     - 'block_content:basic:12413d38-1b98-404e-a02a-5d799f3736b6'
   module:
-    - block_class
     - block_content
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: homepageplatforms
 theme: agid
 region: postscript_third

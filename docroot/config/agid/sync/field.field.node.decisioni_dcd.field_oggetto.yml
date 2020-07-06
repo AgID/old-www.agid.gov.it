@@ -1,0 +1,21 @@
+uuid: 04fe1d6c-dbed-46e0-973d-9e4c8e9f4987
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_oggetto
+    - node.type.decisioni_dcd
+  module:
+    - text
+id: node.decisioni_dcd.field_oggetto
+field_name: field_oggetto
+entity_type: node
+bundle: decisioni_dcd
+label: Oggetto
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

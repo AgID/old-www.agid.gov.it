@@ -4,13 +4,9 @@ status: true
 dependencies:
   module:
     - agid_footer
-    - block_class
     - language
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: contactblock
 theme: agid
 region: footer_middle

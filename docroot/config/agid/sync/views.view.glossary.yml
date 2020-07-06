@@ -45,7 +45,7 @@ display:
         options:
           submit_button: Applica
           reset_button: false
-          reset_button_label: Ripristina
+          reset_button_label: Reset
           exposed_sorts_label: 'Ordina per'
           expose_sort_order: true
           sort_asc_label: Asc

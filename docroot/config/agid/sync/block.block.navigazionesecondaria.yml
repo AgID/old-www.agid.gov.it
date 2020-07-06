@@ -5,18 +5,14 @@ dependencies:
   config:
     - system.menu.main
   module:
-    - block_class
     - menu_block
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: navigazionesecondaria
 theme: agid
 region: content
-weight: -6
+weight: -13
 provider: null
 plugin: 'menu_block:main'
 settings:

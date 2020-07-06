@@ -10,7 +10,7 @@ dependencies:
 id: pagopacfblock
 theme: agid
 region: content
-weight: -5
+weight: -12
 provider: null
 plugin: pagopacfblock
 settings:

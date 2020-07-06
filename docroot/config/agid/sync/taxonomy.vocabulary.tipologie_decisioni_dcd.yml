@@ -1,0 +1,9 @@
+uuid: 2e9cdcdb-3168-4fca-9997-420c38482415
+langcode: it
+status: true
+dependencies: {  }
+name: 'Tipologie decisioni DCD'
+vid: tipologie_decisioni_dcd
+description: 'Tipologie decisioni del Difensore Civico Digitale'
+hierarchy: 0
+weight: 0

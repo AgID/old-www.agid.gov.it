@@ -1,0 +1,11 @@
+uuid: 5560abe0-8c34-4c59-95af-278220abb49e
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.decisioni_dcd
+id: node.decisioni_dcd
+target_entity_type_id: node
+target_bundle: decisioni_dcd
+default_langcode: site_default
+language_alterable: false

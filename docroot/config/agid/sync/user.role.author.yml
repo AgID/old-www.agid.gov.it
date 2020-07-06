@@ -75,6 +75,7 @@ permissions:
   - 'use b8448396 transition spubblica'
   - 'use text format filtered_text'
   - 'use text format filtered_text_publisher_'
+  - 'use text format filtered_webform'
   - 'view all revisions'
   - 'view files'
   - 'view latest version'

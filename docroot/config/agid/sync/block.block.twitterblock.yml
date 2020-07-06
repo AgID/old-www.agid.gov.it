@@ -4,14 +4,10 @@ status: true
 dependencies:
   module:
     - agid_twitter_block
-    - block_class
     - language
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: twitterblock
 theme: agid
 region: twitter_area

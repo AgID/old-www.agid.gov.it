@@ -1,23 +1,19 @@
 uuid: fa430dd3-3f40-4cfa-ac9b-fd48b62c8c1c
 langcode: it
-status: true
+status: false
 dependencies:
   content:
     - 'block_content:basic_custom_block:735409f1-debb-4790-a9f9-e4c51e2ceb2a'
   module:
-    - block_class
     - block_content
     - ctools
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: formregioni
 theme: agid
 region: content
-weight: 0
+weight: -6
 provider: null
 plugin: 'block_content:735409f1-debb-4790-a9f9-e4c51e2ceb2a'
 settings:
@@ -29,6 +25,11 @@ settings:
   info: ''
   view_mode: full
 visibility:
+  request_path:
+    id: request_path
+    pages: '*/razionalizzazione/data-center'
+    negate: false
+    context_mapping: {  }
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles:
@@ -36,8 +37,3 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
-  request_path:
-    id: request_path
-    pages: '*/razionalizzazione/data-center'
-    negate: false
-    context_mapping: {  }

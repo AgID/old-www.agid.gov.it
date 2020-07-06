@@ -1,0 +1,9 @@
+uuid: ef28ee3f-9c68-4898-9ca0-c8e9691b0c81
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_tipologie_riferimenti_normativi_
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

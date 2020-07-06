@@ -1,0 +1,9 @@
+uuid: 3e9b4e6c-a89b-44b1-b431-ef117fbc83e6
+langcode: it
+status: true
+dependencies: {  }
+id: taxonomy_vocabulary_tipologie_decisioni_dcd
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

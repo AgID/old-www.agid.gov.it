@@ -1,0 +1,28 @@
+uuid: 523241de-96ad-4a0f-9eaf-29f2a910e2fc
+langcode: it
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.decisioni_dcd.field_decisione
+    - field.field.node.decisioni_dcd.field_oggetto
+    - node.type.decisioni_dcd
+  module:
+    - text
+    - user
+id: node.decisioni_dcd.teaser
+targetEntityType: node
+bundle: decisioni_dcd
+mode: teaser
+content:
+  field_oggetto:
+    type: text_default
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_decisione: true
+  langcode: true
+  links: true

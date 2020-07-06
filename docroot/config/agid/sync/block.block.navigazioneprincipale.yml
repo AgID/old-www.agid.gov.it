@@ -5,14 +5,10 @@ dependencies:
   config:
     - system.menu.main
   module:
-    - block_class
     - menu_block
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: navigazioneprincipale
 theme: agid
 region: sidebar_left

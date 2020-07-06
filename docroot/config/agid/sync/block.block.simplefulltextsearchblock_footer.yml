@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - agid_search
-    - block_class
   theme:
     - agid
 id: simplefulltextsearchblock_footer

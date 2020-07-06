@@ -1,0 +1,14 @@
+uuid: 97f66833-c3f7-4c4c-a56f-b7daf5b24489
+langcode: it
+status: true
+dependencies:
+  config:
+    - user.role.difensore
+  module:
+    - user
+id: user_remove_role_action.difensore
+label: 'Remove the Difensore role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: difensore

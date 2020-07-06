@@ -1,0 +1,29 @@
+uuid: 7fbbd3d0-7100-448a-8a80-ee6d35d36d1d
+langcode: it
+status: true
+dependencies: {  }
+name: 'Filtered webform'
+format: filtered_webform
+weight: 0
+filters:
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<strong> <p> <br> <ul type> <ol start type=''1 A I''> <li>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

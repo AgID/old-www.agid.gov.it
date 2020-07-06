@@ -313,7 +313,20 @@ display:
             label: ''
           granularity: second
       title: 'Comunicati stampa'
-      header: {  }
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: ''
+            format: filtered_text
+          plugin_id: text
       footer: {  }
       empty: {  }
       relationships: {  }

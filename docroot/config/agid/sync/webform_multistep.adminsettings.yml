@@ -6,7 +6,33 @@ pdf_footer:
   format: full_html
 webform_reference:
   -
-    target_id: avviso_cloud_2019
+    target_id: avviso_cloud_2020
+  -
+    target_id: avviso_03_2020
+  -
+    target_id: avviso_04_2020
+  -
+    target_id: avviso_05_2020
+  -
+    target_id: avviso_06_2020
+  -
+    target_id: avviso_07_2020
+  -
+    target_id: avviso_08_2020
+  -
+    target_id: avviso_09_2020
+  -
+    target_id: avviso_10_2020
+  -
+    target_id: avviso_11_2020
+  -
+    target_id: avviso_12_2020
+  -
+    target_id: avviso_13_2020
+  -
+    target_id: avviso_14_2020
+  -
+    target_id: avviso_15_2020
 pdf_filename: '%-avviso-agid.pdf'
 pdf_filepath: 'private://agid_webforms'
 mail_subject: 'Oggetto della mail'

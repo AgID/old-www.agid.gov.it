@@ -9,7 +9,7 @@ _core:
 id: agid_primaryadminactions
 theme: agid
 region: content
-weight: -15
+weight: -21
 provider: null
 plugin: local_actions_block
 settings:

@@ -1,0 +1,29 @@
+uuid: f6d65ec1-9023-4fc7-b8ff-cb452de31009
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_decisione
+    - node.type.decisioni_dcd
+    - taxonomy.vocabulary.tipologie_decisioni_dcd
+id: node.decisioni_dcd.field_decisione
+field_name: field_decisione
+entity_type: node
+bundle: decisioni_dcd
+label: Decisione
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tipologie_decisioni_dcd: tipologie_decisioni_dcd
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

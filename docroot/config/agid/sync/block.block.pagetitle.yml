@@ -3,13 +3,9 @@ langcode: it
 status: true
 dependencies:
   module:
-    - block_class
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: pagetitle
 theme: agid
 region: breadcrumb

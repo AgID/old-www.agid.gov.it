@@ -15,7 +15,7 @@ migration_group: agid_pagopa_group_pagopa
 label: 'Import of ''PagoPA Enti Creditori'' contents'
 source:
   plugin: csv_url
-  url: 'http://www.agid.gov.it/sites/default/files/pagamenti_amministrazione/pagopa-ec.csv'
+  url: 'https://www.agid.gov.it/sites/default/files/repository_files/pagamenti_amministrazione/pagopa-ec.csv'
   delimiter: ;
   enclosure: '"'
   header_row_count: 1

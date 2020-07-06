@@ -11,7 +11,7 @@ _core:
 id: file_entity_files
 label: 'File Entity Files'
 module: file_entity
-description: 'Find and manage files.'
+description: 'Trova e gestisci i file.'
 tag: default
 base_table: file_managed
 base_field: fid
@@ -20,7 +20,7 @@ display:
   default:
     display_plugin: default
     id: default
-    display_title: Master
+    display_title: Principale
     position: 0
     display_options:
       rendering_language: '***LANGUAGE_entity_default***'
@@ -42,13 +42,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filter
+          submit_button: Filtra
           reset_button: false
           reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          exposed_sorts_label: 'Ordina per'
           expose_sort_order: true
           sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_desc_label: Disc
       pager:
         type: mini
         options:
@@ -61,12 +61,12 @@ display:
             next: 'next ›'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Voci per pagina'
             items_per_page_options: '5, 10, 20, 40, 60'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Tutto -'
             offset: false
-            offset_label: Offset
+            offset_label: Scostamento
       style:
         type: table
         options:
@@ -262,7 +262,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Name
+          label: Nome
           exclude: false
           alter:
             alter_text: false
@@ -408,7 +408,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Size
+          label: Dimensione
           exclude: false
           alter:
             alter_text: false
@@ -458,7 +458,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Status
+          label: Stato
           exclude: false
           alter:
             alter_text: false
@@ -641,7 +641,7 @@ display:
           relationship: fid
           group_type: sum
           admin_label: ''
-          label: 'Used in'
+          label: 'Usato in'
           exclude: false
           alter:
             alter_text: false
@@ -687,7 +687,7 @@ display:
           decimal: .
           separator: ','
           format_plural: true
-          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+          format_plural_string: !!binary MSBsdW9nbwNAY291bnQgbHVvZ2hp
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -698,7 +698,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: Operazioni
           exclude: false
           alter:
             alter_text: false
@@ -756,7 +756,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: Filename
+            label: 'Nome file'
             description: ''
             use_operator: false
             operator: filename_op
@@ -835,7 +835,7 @@ display:
           exposed: true
           expose:
             operator_id: status_op
-            label: Status
+            label: Stato
             description: ''
             use_operator: false
             operator: status_op
@@ -901,7 +901,7 @@ display:
             group_items: {  }
           plugin_id: file_entity_type
       sorts: {  }
-      title: Files
+      title: File
       header: {  }
       footer: {  }
       empty:
@@ -910,7 +910,7 @@ display:
           table: views
           field: area_text_custom
           empty: true
-          content: 'No files available.'
+          content: 'Nessun file disponibile.'
           plugin_id: text_custom
       relationships:
         fid:
@@ -937,7 +937,7 @@ display:
   overview:
     display_plugin: page
     id: overview
-    display_title: 'Files overview'
+    display_title: 'Panoramica file'
     position: 1
     display_options:
       rendering_language: '***LANGUAGE_entity_default***'
@@ -945,7 +945,7 @@ display:
       route_name: entity.file.collection
       menu:
         type: tab
-        title: Files
+        title: File
         description: ''
         weight: 0
         context: ''
@@ -975,7 +975,7 @@ display:
   usage:
     display_plugin: page
     id: usage
-    display_title: 'File usage'
+    display_title: 'Utilizzo del file'
     position: 2
     display_options:
       rendering_language: '***LANGUAGE_entity_default***'
@@ -1018,12 +1018,12 @@ display:
             next: 'next ›'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Voci per pagina'
             items_per_page_options: '5, 10, 20, 40, 60'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Tutto -'
             offset: false
-            offset_label: Offset
+            offset_label: Scostamento
       filters: {  }
       filter_groups:
         operator: AND
@@ -1036,7 +1036,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Entity
+          label: Entità
           exclude: false
           alter:
             alter_text: false
@@ -1085,7 +1085,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Entity type'
+          label: 'Tipo di entità'
           exclude: false
           alter:
             alter_text: false
@@ -1133,7 +1133,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Registering module'
+          label: 'Registrazione del modulo'
           exclude: false
           alter:
             alter_text: false
@@ -1181,7 +1181,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Use count'
+          label: 'Contatore di utilizzo'
           exclude: false
           alter:
             alter_text: false
@@ -1226,12 +1226,12 @@ display:
           decimal: .
           separator: ','
           format_plural: false
-          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+          format_plural_string: !!binary MSBsdW9nbwNAY291bnQgbHVvZ2hp
           prefix: ''
           suffix: ''
           plugin_id: numeric
       group_by: false
-      title: 'File usage'
+      title: 'Utilizzo del file'
       arguments:
         fid:
           id: fid
@@ -1244,7 +1244,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Tutti
           title_enable: true
           title: 'File usage information for {{ arguments.fid }}'
           default_argument_type: fixed

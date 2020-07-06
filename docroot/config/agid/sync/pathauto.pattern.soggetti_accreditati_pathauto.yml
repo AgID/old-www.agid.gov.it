@@ -7,16 +7,16 @@ dependencies:
 id: soggetti_accreditati_pathauto
 label: 'Soggetti Accreditati PathAuto'
 type: 'canonical_entities:node'
-pattern: 'piattaforme/spid/identity-provider-accreditati/[node:title]'
+pattern: 'piattaforme/soggetti-accreditati/[node:title]'
 selection_criteria:
-  d500d42f-bb43-4487-bac6-c399cacafd95:
+  809b1d75-596c-40d9-8bf5-cd44748e2835:
     id: node_type
     bundles:
       acc_subj: acc_subj
     negate: false
     context_mapping:
       node: node
-    uuid: d500d42f-bb43-4487-bac6-c399cacafd95
+    uuid: 809b1d75-596c-40d9-8bf5-cd44748e2835
 selection_logic: and
 weight: -5
 relationships: {  }

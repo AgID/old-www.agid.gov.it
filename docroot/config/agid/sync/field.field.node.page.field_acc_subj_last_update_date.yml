@@ -1,0 +1,24 @@
+uuid: 95821962-3d25-4f22-bda7-2ac78174a09a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_acc_subj_last_update_date
+    - node.type.page
+  module:
+    - datetime
+id: node.page.field_acc_subj_last_update_date
+field_name: field_acc_subj_last_update_date
+entity_type: node
+bundle: page
+label: 'Ultimo aggiornamento'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

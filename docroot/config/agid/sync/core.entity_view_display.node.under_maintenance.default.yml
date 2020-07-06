@@ -1,0 +1,29 @@
+uuid: 1bab295a-7c37-4eef-8768-4380f5fb281a
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.under_maintenance.body
+    - node.type.under_maintenance
+  module:
+    - text
+    - user
+id: node.under_maintenance.default
+targetEntityType: node
+bundle: under_maintenance
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -40,7 +40,7 @@ display:
         options:
           submit_button: Filtra
           reset_button: true
-          reset_button_label: Ripristina
+          reset_button_label: Reset
           exposed_sorts_label: 'Ordina per'
           expose_sort_order: true
           sort_asc_label: Asc

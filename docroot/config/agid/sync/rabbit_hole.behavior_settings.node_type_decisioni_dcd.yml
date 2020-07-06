@@ -1,0 +1,9 @@
+uuid: bf138b52-8efb-410f-973a-c3e96620c407
+langcode: it
+status: true
+dependencies: {  }
+id: node_type_decisioni_dcd
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

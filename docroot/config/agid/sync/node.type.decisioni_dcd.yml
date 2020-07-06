@@ -1,0 +1,17 @@
+uuid: 342f3744-1d6f-4724-9668-d79ad926197b
+langcode: it
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Decisione DCD'
+type: decisioni_dcd
+description: 'Decisione del Difensore Civico Digitale'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

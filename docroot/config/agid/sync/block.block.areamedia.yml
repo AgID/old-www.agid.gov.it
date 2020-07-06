@@ -5,18 +5,14 @@ dependencies:
   content:
     - 'block_content:basic:827c2c64-683f-4dbc-91b6-552b8a351572'
   module:
-    - block_class
     - block_content
     - system
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: areamedia
 theme: agid
 region: content
-weight: -9
+weight: -16
 provider: null
 plugin: 'block_content:827c2c64-683f-4dbc-91b6-552b8a351572'
 settings:

@@ -1,0 +1,20 @@
+uuid: 2f6adbb5-b63c-460c-b77a-50b7bf9a17d8
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_riferimenti_normativi
+field_name: field_riferimenti_normativi
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

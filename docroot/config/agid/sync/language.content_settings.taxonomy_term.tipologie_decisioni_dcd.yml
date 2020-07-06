@@ -1,0 +1,11 @@
+uuid: ee2af357-85b9-42ca-bc51-392f3dac7111
+langcode: it
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tipologie_decisioni_dcd
+id: taxonomy_term.tipologie_decisioni_dcd
+target_entity_type_id: taxonomy_term
+target_bundle: tipologie_decisioni_dcd
+default_langcode: site_default
+language_alterable: false

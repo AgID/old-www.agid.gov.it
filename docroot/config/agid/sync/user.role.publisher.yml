@@ -102,6 +102,7 @@ permissions:
   - 'use b8448396 transition spubblica'
   - 'use text format filtered_text'
   - 'use text format filtered_text_publisher_'
+  - 'use text format filtered_webform'
   - 'use text format full_html'
   - 'view acc_subj revisions'
   - 'view all revisions'

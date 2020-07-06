@@ -3,6 +3,7 @@ langcode: it
 status: true
 dependencies:
   config:
+    - field.field.node.page.field_acc_subj_last_update_date
     - field.field.node.page.field_arguments
     - field.field.node.page.field_cad
     - field.field.node.page.field_content
@@ -20,6 +21,7 @@ dependencies:
     - field.field.node.page.field_repository_files
     - node.type.page
   module:
+    - datetime
     - entity_reference_revisions
     - image
     - link
@@ -35,8 +37,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_acc_subj_last_update_date:
+    weight: 3
+    label: inline
+    settings:
+      timezone_override: ''
+      date_format: d-m-Y
+    third_party_settings: {  }
+    type: datetime_custom
+    region: content
   field_arguments:
-    weight: 7
+    weight: 8
     label: hidden
     settings:
       link: true
@@ -44,7 +55,7 @@ content:
     type: entity_reference_label
     region: content
   field_cad:
-    weight: 8
+    weight: 9
     label: above
     settings:
       link: true
@@ -53,7 +64,7 @@ content:
     region: content
   field_content:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       view_mode: default
@@ -61,7 +72,7 @@ content:
     third_party_settings: {  }
     region: content
   field_faq:
-    weight: 13
+    weight: 14
     label: above
     settings:
       view_mode: page
@@ -70,7 +81,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_image:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       image_style: ''
@@ -79,7 +90,7 @@ content:
     type: image
     region: content
   field_link:
-    weight: 11
+    weight: 12
     label: above
     settings:
       trim_length: 255
@@ -91,7 +102,7 @@ content:
     type: link
     region: content
   field_offices:
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       link: true
@@ -107,14 +118,14 @@ content:
     type: text_trimmed
     region: content
   field_page_content:
-    weight: 4
+    weight: 5
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_related_content:
-    weight: 10
+    weight: 11
     label: above
     settings:
       link: true
@@ -122,7 +133,7 @@ content:
     type: entity_reference_label
     region: content
   field_related_news:
-    weight: 12
+    weight: 13
     label: above
     settings:
       view_mode: embedded
@@ -131,7 +142,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_repository_files:
-    weight: 9
+    weight: 10
     label: above
     settings:
       view_mode: thumbnail

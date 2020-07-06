@@ -1,0 +1,45 @@
+uuid: d9c38478-f9bc-4809-b3da-bd6bc4eabcb5
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.decisioni_dcd.field_decisione
+    - field.field.node.decisioni_dcd.field_oggetto
+    - field.field.node.decisioni_dcd.field_riferimenti_normativi
+    - node.type.decisioni_dcd
+  module:
+    - text
+    - user
+id: node.decisioni_dcd.default
+targetEntityType: node
+bundle: decisioni_dcd
+mode: default
+content:
+  field_decisione:
+    weight: 3
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_oggetto:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_riferimenti_normativi:
+    weight: 4
+    label: above
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true
+  links: true

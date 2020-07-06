@@ -14,7 +14,7 @@ third_party_settings:
 id: agidrelatedfaq
 theme: agid
 region: content
-weight: -3
+weight: -9
 provider: null
 plugin: agid_related_faq_block
 settings:

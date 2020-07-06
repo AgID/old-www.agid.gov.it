@@ -5,15 +5,11 @@ dependencies:
   config:
     - views.view.home_page_highlight
   module:
-    - block_class
     - language
     - system
     - views
   theme:
     - agid
-third_party_settings:
-  block_class:
-    classes: ''
 id: views_block__home_page_highlight_block_1
 theme: agid
 region: postscript_second
