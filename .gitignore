@@ -81,3 +81,5 @@ certs
 local
 private_files
 
+### Drupal webforms
+docroot/config/agid/sync/webform.webform.*
