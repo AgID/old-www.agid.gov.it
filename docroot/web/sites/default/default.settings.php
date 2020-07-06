@@ -68,7 +68,6 @@
  *
  * One example of the simplest connection array is shown below. To use the
  * sample settings, copy and uncomment the code below between the @code and
- *
  * @endcode lines and paste it after the $databases declaration. You will need
  * to replace the database username and password and possibly the host and port
  * with the appropriate credentials for your database system.
@@ -89,16 +88,7 @@
  * );
  * @endcode
  */
-$databases['default']['default'] = [
-  'database' => getenv('MYSQL_DATABASE'),
-  'driver' => 'mysql',
-  'host' => getenv('MYSQL_HOSTNAME'),
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'password' => getenv('MYSQL_PASSWORD'),
-  'port' => getenv('MYSQL_PORT'),
-  'prefix' => '',
-  'username' => getenv('MYSQL_USER'),
-];
+$databases = array();
 
 /**
  * Customizing database settings.
@@ -132,7 +122,6 @@ $databases['default']['default'] = [
  * traditionally referred to as master/slave in database server documentation).
  *
  * The general format for the $databases array is as follows:
- *
  * @code
  * $databases['default']['default'] = $info_array;
  * $databases['default']['replica'][] = $info_array;
@@ -256,16 +245,13 @@ $databases['default']['default'] = [
  * array key CONFIG_ACTIVE_DIRECTORY.
  *
  * Example:
- *
  * @code
  *   $config_directories = array(
  *     CONFIG_SYNC_DIRECTORY => '/directory/outside/webroot',
  *   );
  * @endcode
  */
-$config_directories = [
-  CONFIG_SYNC_DIRECTORY => './../config/agid/sync/',
-];
+$config_directories = array();
 
 /**
  * Settings:
@@ -307,13 +293,11 @@ $config_directories = [
  * stored with backups of your database.
  *
  * Example:
- *
  * @code
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-// @todo update when deploy.
-$settings['hash_salt'] = 'Pwx3EUPXsk0lcMeZRO2cTraiouiS_qaA5waXV64emCYwFmgbVSxRJASc9CRi64smaXqFRwU-aA';
+$settings['hash_salt'] = '';
 
 /**
  * Deployment identifier.
@@ -737,7 +721,6 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * like to allow.
  *
  * For example:
- *
  * @code
  * $settings['trusted_host_patterns'] = array(
  *   '^www\.example\.com$',
@@ -789,50 +772,6 @@ $settings['file_scan_ignore_directories'] = [
 $settings['entity_update_batch_size'] = 50;
 
 /**
- * Force display error when environment is "LOC".
- */
-if (getenv('ENV_TYPE') === 'LOC') {
-
-  error_reporting(E_ALL);
-  ini_set('display_errors', TRUE);
-  ini_set('display_errors', TRUE);
-  ini_set('display_startup_errors', TRUE);
-  ini_set('display_startup_errors', TRUE);
-
-  $config['system.logging']['error_level'] = 'verbose';
-}
-
-/**
- * Redis settings
- */
-$settings['redis.connection']['interface'] = 'PhpRedis';
-$settings['redis.connection']['host'] = 'redis';
-
-// Use different redis' database for this connection:
-$settings['redis.connection']['base'] = 1;
-$settings['cache']['default'] = 'cache.backend.redis';
-
-$settings['container_yamls'][] = 'modules/redis/example.services.yml';
-
-// Use ChainedFastBackend cache for this three bins (bootstrap, discovery and config)
-$settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
-$settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
-$settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
-
-/**
- * Environment Indicator.
- */
-$config['environment_indicator.indicator']['bg_color'] = getenv('ENV_TYPE') == 'PROD' ? '#9A2617' : getenv('ENV_TYPE') == 'STAGE' ? '#C2571A' : getenv('ENV_TYPE') == 'LOC' ? '#829356' : '#FF0000';
-$config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
-$config['environment_indicator.indicator']['name'] = getenv('ENV_TYPE') . " - AgID";
-
-/**
- * ConfigSplit.
- */
-$config['config_split.config_split.stage']['status'] = getenv('ENV_TYPE') === 'STAGE' ? TRUE : FALSE;
-$config['config_split.config_split.local']['status'] = getenv('ENV_TYPE') === 'LOC' ? TRUE : FALSE;
-
-/**
  * Load local development override configuration, if available.
  *
  * Use settings.local.php to override variables on secondary (staging,
@@ -842,46 +781,7 @@ $config['config_split.config_split.local']['status'] = getenv('ENV_TYPE') === 'L
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/sites/settings.local.php')) {
-    include $app_root . '/sites/settings.local.php';
-}
-// Load settings.local.php for site.
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-    include $app_root . '/' . $site_path . '/settings.local.php';
-}
-
-/**
- * Custom configurations.
- *
- * @todo To be manually updated for the production environment!
- */
-if (getenv('ENV_TYPE') == 'PROD') {
-
-    /**
-     * Salt for one-time login links, cancel links, form tokens, etc.
-     *
-     * For enhanced security, you may set this variable to the contents of a file
-     * outside your document root; you should also ensure that this file is not
-     * stored with backups of your database.
-     *
-     * Example:
-     *
-     * @code
-     *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
-     * @endcode
-     *
-     * @todo: set has_salt key.
-     */
-    $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
-
-    /**
-     * SMTP Settings.
-     *
-     * @todo: Active and set credentials to connect.
-     */
-    $config['smtp.settings']['smtp_on'] = TRUE;
-    $config['smtp.settings']['smtp_password'] = '';
-    $config['smtp.settings']['smtp_host'] = '';
-    $config['smtp.settings']['smtp_port'] = '';
-
-}
+#
+# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+#   include $app_root . '/' . $site_path . '/settings.local.php';
+# }
