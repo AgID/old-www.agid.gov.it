@@ -12,6 +12,8 @@ services:
       APACHE_BACKEND_HOST: php
       APACHE_VHOST_PRESET: php
       APACHE_DOCUMENT_ROOT: /var/www/html/web
+      APACHE_SERVER_TOKENS: Prod
+      APACHE_VHOST_PRESET: agid
     labels:
       - 'traefik.enable=true'
       - 'traefik.backend=${PROJECT_NAME}_apache'
@@ -19,6 +21,7 @@ services:
       - 'traefik.frontend.rule=Host:${PROJECT_BASE_URL}'
     volumes:
       - $PROJECT_DOCROOT:/var/www/html
+      - ${PWD}/docker-conf/agid.conf.tmpl:/etc/gotpl/presets/agid.conf.tmpl
     networks:
       - app-tier
 
@@ -94,7 +97,7 @@ services:
         --defaultentrypoints=http,https
         --entryPoints='Name:traefik Address::${TRAEFIK_DASHBOARD_PORT} Auth.Basic.Users:${TRAEFIK_DASHBOARD_USER}:${TRAEFIK_DASHBOARD_PASSWORD}'
         --entryPoints='Name:http Address::80 Redirect.EntryPoint:https'
-        --entryPoints='Name:https Address::443 TLS'
+        --entryPoints='Name:https Address::443 TLS TLS.MinVersion:VersionTLS12'
         --docker
         --docker.endpoint="unix:///var/run/docker.sock"
         --docker.domain=${TRAEFIK_DOMAIN}

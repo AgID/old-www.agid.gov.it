@@ -1,0 +1,24 @@
+DirectoryIndex {{ getenv "APACHE_DIRECTORY_INDEX" "index.php" }}
+
+<Directory "{{ getenv "APACHE_DOCUMENT_ROOT" "/var/www/html" }}">
+    Options FollowSymLinks {{ if (getenv "APACHE_INDEXES_ENABLED") }}Indexes{{ end }}
+    AllowOverride All
+    Require all granted
+</Directory>
+
+<Proxy "fcgi://{{ getenv "APACHE_BACKEND_HOST" "php" }}:{{ getenv "APACHE_BACKEND_PORT" "9000" }}/">
+    ProxySet connectiontimeout={{ getenv "APACHE_FCGI_PROXY_CONN_TIMEOUT" "5" }} timeout={{ getenv "APACHE_FCGI_PROXY_TIMEOUT" "60" }}
+</Proxy>
+<FilesMatch "\.php$">
+    <If "-f %{REQUEST_FILENAME}">
+        SetHandler "proxy:fcgi://{{ getenv "APACHE_BACKEND_HOST" "php" }}:{{ getenv "APACHE_BACKEND_PORT" "9000" }}"
+    </If>
+</FilesMatch>
+
+<IfModule rewrite_module>
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+</IfModule>
+
+Redirect 404 /web.config
