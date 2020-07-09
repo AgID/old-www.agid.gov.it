@@ -17,7 +17,7 @@ DirectoryIndex {{ getenv "APACHE_DIRECTORY_INDEX" "index.php" }}
 
 <IfModule rewrite_module>
 RewriteEngine On
-RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD)
 RewriteRule .* - [F]
 </IfModule>
 
