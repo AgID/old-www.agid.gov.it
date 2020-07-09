@@ -90,12 +90,12 @@ services:
       image: traefik:v1.7
       command: |-
         --api
-        --api.dashboard=true
+        #--api.dashboard=true
         --debug=false
         --loglevel=ERROR
         --retry
         --defaultentrypoints=http,https
-        --entryPoints='Name:traefik Address::${TRAEFIK_DASHBOARD_PORT} Auth.Basic.Users:${TRAEFIK_DASHBOARD_USER}:${TRAEFIK_DASHBOARD_PASSWORD}'
+        #--entryPoints='Name:traefik Address::${TRAEFIK_DASHBOARD_PORT} Auth.Basic.Users:${TRAEFIK_DASHBOARD_USER}:${TRAEFIK_DASHBOARD_PASSWORD}'
         --entryPoints='Name:http Address::80 Redirect.EntryPoint:https'
         --entryPoints='Name:https Address::443 TLS TLS.MinVersion:VersionTLS12'
         --docker
@@ -116,7 +116,7 @@ services:
       ports:
         - 80:80
         - 443:443
-        - ${TRAEFIK_DASHBOARD_PORT}:${TRAEFIK_DASHBOARD_PORT}
+        #- ${TRAEFIK_DASHBOARD_PORT}:${TRAEFIK_DASHBOARD_PORT}
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - /data/traefik/:/data/traefik
