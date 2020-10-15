@@ -152,7 +152,7 @@ class ContactBlock extends BlockBase {
       $template .= '<p><strong>PEC: </strong><a href="mailto:' . $this->configuration['pec'] . '">' . $this->configuration['pec'] . '</a></p>';
     }
 
-    if (isset($this->configuration['press'])) {
+    if (isset($this->configuration['press']) && !empty($this->configuration['press'])) {
       $template .= '<p><strong>Contatti stampa:</strong> <a href="mailto:' . $this->configuration['press'] . '">' . $this->configuration['press'] . '</a></p>';
     }
 
