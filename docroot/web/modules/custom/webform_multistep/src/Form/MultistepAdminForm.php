@@ -48,7 +48,7 @@
               ->getStorage('webform')
               ->load($wf_id['target_id']);
           }
-          $webform_ref = $temp;
+          $webform_ref = array_filter($temp);
         }
       }
       // Entity Autocomplete Reference to Webform entities
