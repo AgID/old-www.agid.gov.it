@@ -34,7 +34,7 @@ services:
       - 'traefik.frontend.rule=Host:mailhog.${PROJECT_BASE_URL}'
 
   traefik:
-    command: '-c /dev/null --api --docker --docker.exposedByDefault=false --logLevel=DEBUG --defaultEntryPoints=''http'',''https'' --entryPoints="Name:https Address::443 TLS:/certs/traefik.cert,/certs/traefik.key" --entryPoints="Name:http Address::80"'
+    command: '-c /dev/null --api --docker --docker.exposedByDefault=false --logLevel=DEBUG --entryPoints="Name:http Address::80"'
     ports:
       - '80:80'
       - '443:443'

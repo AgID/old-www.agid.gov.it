@@ -118,7 +118,6 @@ services:
         #- ${TRAEFIK_DASHBOARD_PORT}:${TRAEFIK_DASHBOARD_PORT}
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - /data/traefik/:/data/traefik
       networks:
         - app-tier
 

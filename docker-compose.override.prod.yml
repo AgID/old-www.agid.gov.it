@@ -21,3 +21,5 @@ services:
 
   traefik:
     restart: always
+    volumes:
+      - /data/traefik/:/data/traefik
