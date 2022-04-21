@@ -19,6 +19,17 @@ DirectoryIndex {{ getenv "APACHE_DIRECTORY_INDEX" "index.php" }}
 RewriteEngine On
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD)
 RewriteRule .* - [F]
+
+RewriteRule ^sites/default/files/repository_files/circolari/circolare_accreditamento_conservatori_n_65_10-04-2014.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/documentazione/documentazione_per_accreditamento_conservatori_0.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/documentazione/requisiti_di_qualita_e_sicurezza_v.1.1.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/documentazione/profili_professionali_per_la_conservazione.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/documentazione/istruzioni_di_compilazione-invio_rapporto_quadrimestrale_v.2.1_accessibile.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/linee_guida_sul_documento_informatico_.pdf$ /sites/default/files/repository_files/linee_guida_sul_documento_informatico.pdf [L,R=301]
+RewriteRule ^sites/default/files/repository_files/linee_guida/la_conservazione_dei_documenti_informatici.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/documenti_indirizzo/istruzioni_per_la_produzione_e_conservazione_registro_giornaliero_di_protocollo_1.1_marzo_2016.pdf$ /it/piattaforme/conservazione [L,R=301]
+RewriteRule ^sites/default/files/repository_files/documenti_indirizzo/produzione_e_conservazione_del_registro_giornaliero_di_protocollo_0.pdf$ /it/piattaforme/conservazione [L,R=301]
+Redirect "/it/piattaforme/pagopa/schema-convenzione-tesoreria" "/it/piattaforme/pagopa"
 </IfModule>
 
 Redirect 404 /web.config
