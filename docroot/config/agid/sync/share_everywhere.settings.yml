@@ -160,6 +160,10 @@ view_modes:
     search_result: 0
     teaser: 0
     token: 0
+  decisioni_dcd:
+    full: full
+  under_maintenance:
+    full: full
 product_types:
   default: default
 product_view_modes:

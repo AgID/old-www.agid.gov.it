@@ -1,6 +1,7 @@
 types:
   page: page
   acc_subj: 0
+  decisioni_dcd: 0
   event: 0
   faq: 0
   news: 0
@@ -8,12 +9,13 @@ types:
   person: 0
   press: 0
   software: 0
+  under_maintenance: 0
 emails: "write@here.mail\r\nanother@mail.it\r\neach@per.line"
 title: 'Sito AgID  - richiesta di pubblicazione pagine'
 message:
   value: "<p>Richiesta di pubblicazione pagina da parte di&nbsp;[node:author:name] per il contenuto:</p>\r\n\r\n<p>[node:title]:&nbsp;[node:url].</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Lista dei contenuti da revisionare:</p>\r\n\r\n<p>http://www.agid.gov.it/admin/workbench/needs-review</p>\r\n"
   format: full_html
-reviser_emails: "daniela.iozzo@agid.gov.it\r\ndanilo.spinelli@agid.gov.it"
+reviser_emails: celeghin@agid.gov.it
 reviser_title: 'Contenuto modificato [node:title]'
 reviser_message:
   value: "<p>Richiesta di pubblicazione pagina da parte di&nbsp;[node:author:name] per il contenuto:</p>\r\n\r\n<p>[node:title]:&nbsp;[node:url].</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Lista dei contenuti da revisionare:</p>\r\n\r\n<p>http://www.agid.gov.it/admin/workbench/needs-review</p>\r\n"

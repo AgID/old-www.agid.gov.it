@@ -12,6 +12,6 @@ name: 'Software riusabile'
 type: software
 description: 'Questo tipo di contenuto deve essere utilizzato per l''aggiunta di contenuti del tipo "Software riusabile"'
 help: ''
-new_revision: true
+new_revision: false
 preview_mode: 1
 display_submitted: false

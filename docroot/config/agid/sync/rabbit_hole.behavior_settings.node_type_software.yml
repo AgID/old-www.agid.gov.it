@@ -1,0 +1,9 @@
+uuid: bf35f065-aaaa-4508-be39-8b99386d7c82
+langcode: it
+status: true
+dependencies: {  }
+id: node_type_software
+action: page_redirect
+allow_override: 1
+redirect: 'https://www.agid.gov.it/it/design-servizi/riuso-open-source'
+redirect_code: 301
