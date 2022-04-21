@@ -10,7 +10,6 @@ services:
     environment:
       APACHE_LOG_LEVEL: info
       APACHE_BACKEND_HOST: php
-      APACHE_VHOST_PRESET: php
       APACHE_DOCUMENT_ROOT: /var/www/html/web
       APACHE_SERVER_TOKENS: Prod
       APACHE_VHOST_PRESET: agid
